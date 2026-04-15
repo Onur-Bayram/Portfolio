@@ -1,0 +1,61 @@
+#projects {
+  width: min(1440px, calc(100% - 224px));
+  min-height: 581px;
+  margin: 0 auto;
+  padding: 38px 0 26px;
+}
+
+.projects-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--color-accent);
+  margin-bottom: 14px;
+}
+
+#projects > h2 {
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 5vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--color-accent);
+  margin-bottom: 34px;
+}
+
+.projects-intro {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 34px;
+}
+
+.projects-list {
+  border-top: 1px solid rgba(78, 205, 196, 0.22);
+}
+
+.project-row {
+  min-height: 110px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid rgba(78, 205, 196, 0.22);
+  padding: 0 2px;
+}
+
+.project-row h3 {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 2.8vw, 2.9rem);
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.project-row p {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: right;
+  white-space: nowrap;
+}

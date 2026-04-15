@@ -1,0 +1,291 @@
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+    --padding-x: 24px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .lang-toggle {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .hero-marquee {
+    width: calc(100% + 60px);
+    min-width: 0;
+    left: 50%;
+    height: 52px;
+    padding: 10px 20px;
+    bottom: 84px;
+    transform: translateX(-50%) rotate(-2deg);
+  }
+
+  .hero-marquee-track {
+    gap: 36px;
+    font-size: 0.95rem;
+  }
+
+  .hero-marquee-group {
+    gap: 36px;
+  }
+
+  .hero-title {
+    top: 45%;
+    width: min(755px, calc(100% - 40px));
+  }
+
+  .hero-name {
+    font-size: clamp(2.9rem, 11vw, 4.6rem);
+  }
+
+  .hero-right-lateral {
+    right: 24px;
+    width: 24px;
+    height: 360px;
+    gap: 18px;
+    transform: translateY(-15%);
+  }
+
+  .hero-email {
+    font-size: 0.52rem;
+  }
+
+  .hero-socials a {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero-left-lateral {
+    left: 24px;
+    width: 24px;
+    height: 230px;
+    top: 60%;
+    gap: 14px;
+  }
+
+  .hero-scroll-pill {
+    width: 24px;
+    height: 40px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+  }
+
+  #about {
+    width: calc(100% - 48px);
+    margin: 56px auto 0;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-media img {
+    min-height: 360px;
+  }
+
+  .about-content-wrap {
+    padding-top: 0;
+  }
+
+  .about-kicker {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+  }
+
+  .about-card {
+    border-radius: 20px;
+    padding: 20px 16px 18px;
+  }
+
+  .about-card h2 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    margin-bottom: 14px;
+  }
+
+  .about-intro,
+  .about-points li {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .about-points li {
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+  }
+
+  .about-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  #skills {
+    width: calc(100% - 48px);
+    min-height: auto;
+    margin: 56px auto 0;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .skills-card {
+    border-radius: 24px;
+    min-height: auto;
+    padding: 22px 18px 20px;
+  }
+
+  .skills-card h2 {
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+    margin-bottom: 18px;
+  }
+
+  .skills-card p {
+    font-size: 0.95rem;
+  }
+
+  .skills-card h3 {
+    font-size: 1.7rem;
+  }
+
+  .skills-card .btn {
+    margin-top: 22px;
+  }
+
+  .skills-right {
+    width: 100%;
+    grid-template-columns: repeat(3, 90px);
+    row-gap: 16px;
+    column-gap: 12px;
+    padding: 2px 0;
+    justify-content: start;
+  }
+
+  .skill-item img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .skill-item {
+    width: 90px;
+    min-height: 70px;
+    gap: 6px;
+  }
+
+  .skill-item span {
+    font-size: 0.8rem;
+    line-height: 1.12;
+  }
+
+  .mindset-tooltip {
+    display: none;
+  }
+
+  #projects {
+    width: calc(100% - 48px);
+    min-height: auto;
+    margin: 18px auto 0;
+    padding: 26px 0 16px;
+  }
+
+  #projects > h2 {
+    font-size: clamp(2.2rem, 11vw, 3.3rem);
+    margin-bottom: 18px;
+  }
+
+  .projects-intro {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .project-row {
+    min-height: 94px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px 2px;
+  }
+
+  .project-row h3 {
+    font-size: 1.85rem;
+  }
+
+  .project-row p {
+    font-size: 0.85rem;
+    text-align: left;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  #testimonials {
+    padding: 64px 0 56px;
+  }
+
+  .testimonials-title {
+    font-size: clamp(1.2rem, 5.5vw, 1.6rem);
+    margin-bottom: 36px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 calc(100vw - 80px);
+    padding: 28px 24px 24px;
+    margin: 0 12px;
+  }
+
+  .testimonial-quote {
+    font-size: 72px;
+  }
+
+  .testimonial-text {
+    font-size: 0.93rem;
+  }
+
+  #contact {
+    padding: 64px 24px 64px;
+  }
+
+  .contact-box {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 32px 24px 36px;
+    border-radius: 16px;
+  }
+
+  .contact-heading {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .contact-body {
+    max-width: 100%;
+  }
+
+  #footer {
+    padding: 0 24px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 32px 0;
+    gap: 20px;
+    min-height: auto;
+  }
+
+  .footer-left {
+    align-items: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .footer-nav {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+}
