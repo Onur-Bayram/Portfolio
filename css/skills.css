@@ -1,25 +1,48 @@
 #skills {
-  width: min(1440px, calc(100% - 224px));
-  min-height: 695px;
+  width: min(1232px, calc(100% - 224px));
+  min-height: 0;
   margin: 72px auto 0;
+  padding: 24px 30px 22px;
   display: grid;
   grid-template-columns: 544px 1fr;
   gap: 64px;
-  background:
-    radial-gradient(circle at 25% 78%, rgba(8, 70, 59, 0.38) 0%, rgba(8, 70, 59, 0.08) 32%, rgba(8, 70, 59, 0) 58%),
-    linear-gradient(135deg, var(--color-overlay-dark) 0%, var(--color-overlay-green) 100%);
 }
 
 .skills-left {
+  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  padding: 8px 16px 18px 0;
+}
+
+.skills-left::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  background-image: url("../assets/ui/skillset-background.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% 100%;
+  opacity: 0.78;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skills-kicker,
+.skills-card {
+  position: relative;
+  z-index: 1;
 }
 
 .skills-kicker {
   font-family: var(--font-mono);
   font-size: 0.9rem;
   color: var(--color-accent);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .skills-card {
@@ -27,7 +50,7 @@
   border-radius: 32px;
   background: linear-gradient(102deg, rgba(8, 70, 59, 0.5) 0%, rgba(20, 26, 26, 0.95) 58%, rgba(8, 70, 59, 0.36) 100%);
   padding: 30px;
-  min-height: 536px;
+  min-height: 500px;
 }
 
 .skills-card h2 {

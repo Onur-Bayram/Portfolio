@@ -127,6 +127,7 @@
     width: calc(100% - 48px);
     min-height: auto;
     margin: 56px auto 0;
+    padding: 22px 18px 26px;
     grid-template-columns: 1fr;
     gap: 28px;
   }
