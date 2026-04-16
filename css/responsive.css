@@ -206,7 +206,15 @@
     min-height: 94px;
     grid-template-columns: 1fr;
     gap: 8px;
-    padding: 14px 2px;
+    padding: 14px 10px;
+  }
+
+  .project-row:hover {
+    padding: 14px 14px;
+  }
+
+  .project-preview {
+    display: none;
   }
 
   .project-row h3 {
