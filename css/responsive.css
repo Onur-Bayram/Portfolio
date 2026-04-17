@@ -232,6 +232,65 @@
     display: none;
   }
 
+  .project-detail-card {
+    margin-top: 24px;
+    padding: 24px 18px 54px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    border-radius: 20px;
+  }
+
+  .project-detail-number {
+    font-size: clamp(58px, 19vw, 77px);
+  }
+
+  .project-detail-title {
+    font-size: clamp(32px, 10vw, 45px);
+  }
+
+  .project-detail-subtitle {
+    margin-top: 18px;
+    font-size: 17px;
+  }
+
+  .project-detail-description {
+    font-size: 15px;
+  }
+
+  .project-detail-stack {
+    gap: 10px 14px;
+  }
+
+  .project-detail-tech {
+    font-size: 12px;
+  }
+
+  .project-detail-media {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .project-detail-actions {
+    gap: 10px;
+  }
+
+  .project-detail-actions .btn {
+    min-height: 40px;
+    padding: 10px 17px;
+    font-size: 12px;
+  }
+
+  .project-detail-close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .project-detail-next {
+    right: 18px;
+    bottom: 16px;
+    font-size: 13px;
+  }
+
   #testimonials {
     padding: 64px 0 56px;
   }

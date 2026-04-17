@@ -276,7 +276,7 @@
 
       <div class="projects-list" role="list" aria-label="Projekte">
 
-        <a class="project-row" role="listitem" href="#" target="_blank" rel="noopener">
+        <a class="project-row is-active" role="listitem" href="#projectDetailCard" data-project-id="join" aria-controls="projectDetailCard" aria-expanded="true">
           <div class="project-row-left">
             <h3>Join <span class="project-arrow">↗</span></h3>
             <p>Angular | TypeScript | HTML | CSS | Firebase</p>
@@ -294,7 +294,7 @@
           </div>
         </a>
 
-        <a class="project-row" role="listitem" href="#" target="_blank" rel="noopener">
+        <a class="project-row" role="listitem" href="#projectDetailCard" data-project-id="sharkie" aria-controls="projectDetailCard" aria-expanded="false">
           <div class="project-row-left">
             <h3>Sharkie <span class="project-arrow">↗</span></h3>
             <p>HTML | CSS | JavaScript</p>
@@ -310,7 +310,7 @@
           </div>
         </a>
 
-        <a class="project-row" role="listitem" href="#" target="_blank" rel="noopener">
+        <a class="project-row" role="listitem" href="#projectDetailCard" data-project-id="pokedex" aria-controls="projectDetailCard" aria-expanded="false">
           <div class="project-row-left">
             <h3>Pokédex <span class="project-arrow">↗</span></h3>
             <p>HTML | CSS | JavaScript | REST API</p>
@@ -326,6 +326,34 @@
           </div>
         </a>
       </div>
+
+      <article class="project-detail-card" id="projectDetailCard" aria-live="polite">
+        <button class="project-detail-close" id="projectDetailClose" type="button" aria-label="Close project details">×</button>
+
+        <div class="project-detail-copy">
+          <p class="project-detail-number" id="projectDetailNumber">01</p>
+          <h3 class="project-detail-title" id="projectDetailTitle">Join</h3>
+          <p class="project-detail-subtitle">What is this project about?</p>
+          <p class="project-detail-description" id="projectDetailDescription">
+            Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.
+          </p>
+
+          <div class="project-detail-stack" id="projectDetailStack" aria-label="Project tech stack"></div>
+
+          <div class="project-detail-actions">
+            <a class="btn btn-primary btn-arrow" id="projectDetailGithub" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-primary btn-arrow" id="projectDetailLive" href="#" target="_blank" rel="noopener noreferrer">Live Test</a>
+          </div>
+        </div>
+
+        <div class="project-detail-media">
+          <img id="projectDetailImage" src="assets/images/projects/join.png" alt="Join project preview" />
+        </div>
+
+        <button class="project-detail-next" id="projectDetailNext" type="button">
+          Next project <span aria-hidden="true">→</span>
+        </button>
+      </article>
     </section>
 
     <!-- Testimonials -->
@@ -473,6 +501,7 @@
     <script src="js/burger.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/cursor-glow.js"></script>
+    <script src="js/projects.js"></script>
     <script src="js/testimonials.js"></script>
     <script src="js/contact.js"></script>
   </body>
