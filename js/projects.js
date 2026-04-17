@@ -25,8 +25,8 @@
       description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
       image: 'assets/images/projects/join.png',
       imageAlt: 'Join project preview',
-      github: '#',
-      live: '#',
+      github: 'https://github.com/Onur-Bayram/024_Join.git',
+      live: 'https://join-2478.developerakademie.net/index.html',
       tech: [
         { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
