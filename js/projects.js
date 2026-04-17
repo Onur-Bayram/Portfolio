@@ -41,8 +41,8 @@
       description: '2D jump-and-run browser game built with object-oriented JavaScript. Fight your way through animated levels, collect items and defeat the end boss.',
       image: 'assets/images/projects/sharkie.png',
       imageAlt: 'Sharkie project preview',
-      github: '#',
-      live: '#',
+      github: 'https://github.com/Onur-Bayram/Sharkie.git',
+      live: 'https://onur-bayram.developerakademie.net/DeveloperAkademie/Sharkie/index.html',
       tech: [
         { icon: 'assets/icons/tech/javascript-2026.svg', label: 'JavaScript' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
