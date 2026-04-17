@@ -228,6 +228,10 @@
     line-height: 1.3;
   }
 
+  .project-tech-overlay {
+    display: none;
+  }
+
   #testimonials {
     padding: 64px 0 56px;
   }
