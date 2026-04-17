@@ -55,8 +55,8 @@
       description: 'Interactive Pokédex app that fetches character data from a REST API, lets users browse entries and view detailed information inside a responsive interface.',
       image: 'assets/images/projects/pokedex.png',
       imageAlt: 'Pokédex project preview',
-      github: '#',
-      live: '#',
+      github: 'https://github.com/Onur-Bayram/Pokedex.git',
+      live: 'https://onur-bayram.developerakademie.net/DeveloperAkademie/PokedexP8/index.html',
       tech: [
         { icon: 'assets/icons/tech/javascript-2026.svg', label: 'JavaScript' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
