@@ -172,6 +172,10 @@
   flex-shrink: 0;
 }
 
+.project-preview.is-hidden {
+  display: none;
+}
+
 .project-row:hover .project-preview {
   opacity: 1;
   transform: translateX(0) scale(1);
@@ -297,6 +301,18 @@
 .project-detail-media {
   justify-self: end;
   width: min(100%, 540px);
+}
+
+.project-detail-media.is-hidden {
+  display: none;
+}
+
+.project-detail-card.has-no-media {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-detail-card.has-no-media .project-detail-copy {
+  max-width: 680px;
 }
 
 .project-detail-media img {

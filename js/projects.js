@@ -11,6 +11,7 @@
   var descriptionEl = document.getElementById('projectDetailDescription');
   var stackEl = document.getElementById('projectDetailStack');
   var imageEl = document.getElementById('projectDetailImage');
+  var mediaEl = imageEl ? imageEl.closest('.project-detail-media') : null;
   var githubEl = document.getElementById('projectDetailGithub');
   var liveEl = document.getElementById('projectDetailLive');
 
@@ -23,7 +24,7 @@
       number: '01',
       title: 'Join',
       description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      image: 'assets/images/projects/join.png',
+      image: 'assets/images/projects/Joinn.png',
       imageAlt: 'Join project preview',
       github: 'https://github.com/Onur-Bayram/024_Join.git',
       live: 'https://join-2478.developerakademie.net/index.html',
@@ -39,7 +40,7 @@
       number: '02',
       title: 'Sharkie',
       description: '2D jump-and-run browser game built with object-oriented JavaScript. Fight your way through animated levels, collect items and defeat the end boss.',
-      image: 'assets/images/projects/sharkie.png',
+      image: 'assets/images/projects/Sharkie.png',
       imageAlt: 'Sharkie project preview',
       github: 'https://github.com/Onur-Bayram/Sharkie.git',
       live: 'https://onur-bayram.developerakademie.net/DeveloperAkademie/Sharkie/index.html',
@@ -53,7 +54,7 @@
       number: '03',
       title: 'Pokédex',
       description: 'Interactive Pokédex app that fetches character data from a REST API, lets users browse entries and view detailed information inside a responsive interface.',
-      image: 'assets/images/projects/pokedex.png',
+      image: 'assets/images/projects/Pokedexx.png',
       imageAlt: 'Pokédex project preview',
       github: 'https://github.com/Onur-Bayram/Pokedex.git',
       live: 'https://onur-bayram.developerakademie.net/DeveloperAkademie/PokedexP8/index.html',
@@ -75,6 +76,37 @@
     });
 
   var currentId = projectOrder[0];
+
+  function hideDetailMedia() {
+    imageEl.removeAttribute('src');
+    imageEl.alt = '';
+    if (mediaEl) {
+      mediaEl.classList.add('is-hidden');
+    }
+    card.classList.add('has-no-media');
+  }
+
+  function showDetailMedia(src, alt) {
+    imageEl.src = src;
+    imageEl.alt = alt || '';
+    if (mediaEl) {
+      mediaEl.classList.remove('is-hidden');
+    }
+    card.classList.remove('has-no-media');
+  }
+
+  function setupListPreviewFallbacks() {
+    var previewImages = document.querySelectorAll('.project-preview img');
+
+    previewImages.forEach(function (img) {
+      img.addEventListener('error', function () {
+        var previewWrap = img.closest('.project-preview');
+        if (previewWrap) {
+          previewWrap.classList.add('is-hidden');
+        }
+      });
+    });
+  }
 
   function renderStack(techItems) {
     stackEl.innerHTML = '';
@@ -120,27 +152,48 @@
     });
   }
 
-  function renderProject(projectId) {
+  function scrollToDetailCard() {
+    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var header = document.getElementById('header');
+    var headerOffset = header ? header.offsetHeight : 0;
+    var extraOffset = 24;
+    var targetTop = card.getBoundingClientRect().top + window.scrollY - headerOffset - extraOffset;
+
+    window.scrollTo({
+      top: Math.max(0, targetTop),
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
+    });
+  }
+
+  function renderProject(projectId, options) {
     var project = projects[projectId];
+    var shouldScroll = options && options.shouldScroll;
     if (!project) return;
 
     currentId = projectId;
     numberEl.textContent = project.number;
     titleEl.textContent = project.title;
     descriptionEl.textContent = project.description;
-    imageEl.src = project.image;
-    imageEl.alt = project.imageAlt;
+    if (project.image) {
+      showDetailMedia(project.image, project.imageAlt);
+    } else {
+      hideDetailMedia();
+    }
     githubEl.href = project.github;
     liveEl.href = project.live;
     renderStack(project.tech);
     updateRowState(projectId);
     showCard();
+
+    if (shouldScroll) {
+      scrollToDetailCard();
+    }
   }
 
   rows.forEach(function (row) {
     row.addEventListener('click', function (event) {
       event.preventDefault();
-      renderProject(row.dataset.projectId);
+      renderProject(row.dataset.projectId, { shouldScroll: true });
     });
   });
 
@@ -157,6 +210,12 @@
       hideCard();
     });
   }
+
+  setupListPreviewFallbacks();
+
+  imageEl.addEventListener('error', function () {
+    hideDetailMedia();
+  });
 
   renderProject(currentId);
 })();

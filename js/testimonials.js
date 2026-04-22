@@ -8,7 +8,7 @@
 
   var cards = Array.from(track.querySelectorAll('.testimonial-card'));
   var dots = dotsEl ? Array.from(dotsEl.querySelectorAll('.dot')) : [];
-  var current = 0;
+  var current = cards.length ? Math.floor(cards.length / 2) : 0;
 
   function cardTotalWidth() {
     if (!cards[0]) return 0;
