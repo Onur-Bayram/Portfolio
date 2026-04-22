@@ -76,12 +76,14 @@
   gap: 10px;
   border-bottom: 1px solid var(--color-accent);
   padding-bottom: 10px;
+  transition: border-color 180ms ease;
 }
 
 .form-field label {
   font-family: var(--font-mono);
   font-size: 1rem;
   color: var(--color-accent);
+  transition: color 180ms ease;
 }
 
 .form-field input,
@@ -95,6 +97,18 @@
   padding: 4px 0;
   resize: none;
   -webkit-appearance: none;
+}
+
+.form-field:focus-within {
+  border-bottom-color: rgba(78, 205, 196, 0.9);
+}
+
+.form-field.is-invalid {
+  border-bottom-color: #ff6b6b;
+}
+
+.form-field.is-invalid label {
+  color: #ff8b8b;
 }
 
 .form-field input::placeholder,
@@ -114,7 +128,7 @@
   font-family: var(--font-sans);
   font-size: 0.8rem;
   color: #ff6b6b;
-  min-height: 1em;
+  min-height: 1.2em;
   display: block;
 }
 
