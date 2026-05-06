@@ -210,11 +210,11 @@
   }
 
   #about {
-    width: calc(100% - 48px);
-    margin: 56px auto 0;
-    min-height: auto;
+    width: 358px;
+    margin: 100px auto 0;
+    min-height: 1059px;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 40px;
   }
 
   .about-media img {
