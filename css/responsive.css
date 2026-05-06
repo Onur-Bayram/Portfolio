@@ -1,7 +1,23 @@
 @media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+  }
+
+  body {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
   :root {
     --header-height: 70px;
     --padding-x: 24px;
+  }
+
+  #header {
+    width: min(390px, 100%);
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .nav-links {
@@ -14,6 +30,29 @@
 
   .burger {
     display: flex;
+  }
+
+  .hero-anchor-0 {
+    position: absolute;
+    top: 0;
+    left: 63px;
+    width: 264px;
+    height: 32px;
+    background: rgba(217, 217, 217, 0);
+    pointer-events: none;
+    display: block;
+    z-index: 2;
+  }
+
+  .hero-anchor-0::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    width: 60px;
+    height: 1px;
+    transform: translateX(-50%);
+    background: rgba(78, 205, 196, 0.42);
   }
 
   .hero-marquee {

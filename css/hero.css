@@ -32,6 +32,10 @@
   opacity: 1;
 }
 
+.hero-anchor-0 {
+  display: none;
+}
+
 .hero-title {
   position: absolute;
   top: 43%;
