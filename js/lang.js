@@ -13,6 +13,18 @@
     document.querySelectorAll('[data-en][data-de]').forEach(function (el) {
       el.innerHTML = isEN ? el.dataset.en : el.dataset.de;
     });
+
+    document.querySelectorAll('[data-placeholder-en][data-placeholder-de]').forEach(function (el) {
+      el.setAttribute('placeholder', isEN ? el.dataset.placeholderEn : el.dataset.placeholderDe);
+    });
+
+    document.querySelectorAll('[data-aria-en][data-aria-de]').forEach(function (el) {
+      el.setAttribute('aria-label', isEN ? el.dataset.ariaEn : el.dataset.ariaDe);
+    });
+
+    if (window.updateProjectLanguage) {
+      window.updateProjectLanguage();
+    }
   }
 
   btnEN.addEventListener('click', function () {

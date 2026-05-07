@@ -36,13 +36,13 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 7.2px;
   min-height: 48px;
-  padding: 0.72rem 1.75rem;
+  padding: 11.52px 28px;
   border: 1px solid transparent;
   border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 13.12px;
   font-weight: 700;
   line-height: 1;
   color: var(--color-white);
@@ -82,7 +82,7 @@ img {
 
 .btn-arrow::after {
   content: '\2197';
-  font-size: 0.95em;
+  font-size: 15.2px;
   line-height: 1;
 }
 

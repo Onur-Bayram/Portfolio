@@ -51,56 +51,6 @@
     white-space: nowrap;
   }
 
-  .hero-anchor-0,
-  .hero-anchor-1,
-  .hero-anchor-2,
-  .hero-anchor-3,
-  .hero-anchor-4 {
-    position: absolute;
-    left: 63px;
-    width: 264px;
-    height: 32px;
-    background: rgba(217, 217, 217, 0);
-    pointer-events: none;
-    display: block;
-    z-index: 2;
-  }
-
-  .hero-anchor-0 {
-    top: 0;
-  }
-
-  .hero-anchor-1 {
-    top: 830px;
-  }
-
-  .hero-anchor-2 {
-    top: 2008px;
-  }
-
-  .hero-anchor-3 {
-    top: 3194px;
-  }
-
-  .hero-anchor-4 {
-    top: 4554px;
-  }
-
-  .hero-anchor-0::before,
-  .hero-anchor-1::before,
-  .hero-anchor-2::before,
-  .hero-anchor-3::before,
-  .hero-anchor-4::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 8px;
-    width: 60px;
-    height: 1px;
-    transform: translateX(-50%);
-    background: rgba(78, 205, 196, 0.42);
-  }
-
   #hero {
     height: 844px;
     min-height: 844px;

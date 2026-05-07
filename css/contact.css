@@ -17,14 +17,14 @@
 
 .contact-kicker {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--color-accent);
   margin-bottom: 16px;
 }
 
 .contact-heading {
   font-family: var(--font-mono);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(38.4px, 5vw, 64px);
   font-weight: 700;
   color: var(--color-accent);
   line-height: 1.1;
@@ -33,7 +33,7 @@
 
 .contact-sub {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 17.6px;
   font-weight: 700;
   color: var(--color-accent);
   margin-bottom: 14px;
@@ -41,7 +41,7 @@
 
 .contact-body {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
   margin-bottom: 18px;
@@ -50,7 +50,7 @@
 
 .contact-cta {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 15.2px;
   color: rgba(255, 255, 255, 0.55);
 }
 
@@ -81,7 +81,7 @@
 
 .form-field label {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--color-accent);
   transition: color 180ms ease;
 }
@@ -92,7 +92,7 @@
   border: none;
   outline: none;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 15.2px;
   color: var(--color-white);
   padding: 4px 0;
   resize: none;
@@ -126,9 +126,9 @@
 
 .form-error {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 12.8px;
   color: #ff6b6b;
-  min-height: 1.2em;
+  min-height: 19.2px;
   display: block;
 }
 
@@ -192,7 +192,7 @@
 
 .privacy-text {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.55;
 }

@@ -23,7 +23,8 @@
     join: {
       number: '01',
       title: 'Join',
-      description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
+      description_en: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
+      description_de: 'Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu.',
       image: 'assets/images/projects/Joinn.png',
       imageAlt: 'Join project preview',
       github: 'https://github.com/Onur-Bayram/024_Join.git',
@@ -39,7 +40,8 @@
     sharkie: {
       number: '02',
       title: 'Sharkie',
-      description: '2D jump-and-run browser game built with object-oriented JavaScript. Fight your way through animated levels, collect items and defeat the end boss.',
+      description_en: '2D jump-and-run browser game built with object-oriented JavaScript. Fight your way through animated levels, collect items and defeat the end boss.',
+      description_de: '2D Jump-and-Run-Browserspiel, das mit objektorientiertem JavaScript gebaut wurde. Kämpfe dich durch animierte Level, sammle Gegenstände und besiege den Endboss.',
       image: 'assets/images/projects/Sharkie.png',
       imageAlt: 'Sharkie project preview',
       github: 'https://github.com/Onur-Bayram/Sharkie.git',
@@ -53,7 +55,8 @@
     pokedex: {
       number: '03',
       title: 'Pokédex',
-      description: 'Interactive Pokédex app that fetches character data from a REST API, lets users browse entries and view detailed information inside a responsive interface.',
+      description_en: 'Interactive Pokédex app that fetches character data from a REST API, lets users browse entries and view detailed information inside a responsive interface.',
+      description_de: 'Interaktive Pokédex-App, die Charakterdaten von einer REST-API abruft, Benutzern das Durchsuchen von Einträgen ermöglicht und detaillierte Informationen in einer responsiven Oberfläche anzeigt.',
       image: 'assets/images/projects/Pokedexx.png',
       imageAlt: 'Pokédex project preview',
       github: 'https://github.com/Onur-Bayram/Pokedex.git',
@@ -173,7 +176,11 @@
     currentId = projectId;
     numberEl.textContent = project.number;
     titleEl.textContent = project.title;
-    descriptionEl.textContent = project.description;
+    // Bestimme aktuelle Sprache
+    var langEN = document.getElementById('langEN');
+    var isEnglish = langEN && langEN.classList.contains('is-active');
+    var description = isEnglish ? (project.description_en || project.description) : (project.description_de || project.description);
+    descriptionEl.textContent = description;
     if (project.image) {
       showDetailMedia(project.image, project.imageAlt);
     } else {
@@ -218,4 +225,9 @@
   });
 
   renderProject(currentId);
+  window.updateProjectLanguage = function () {
+    if (currentId && projects[currentId]) {
+      renderProject(currentId);
+    }
+  };
 })();

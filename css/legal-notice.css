@@ -83,7 +83,7 @@ body.legal-page {
   font-family: var(--font-mono);
   font-size: clamp(32px, 3.6vw, 56px);
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.32px;
   color: var(--color-accent);
   text-align: center;
 }

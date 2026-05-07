@@ -10,7 +10,7 @@
 
 .testimonials-title {
   font-family: var(--font-mono);
-  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-size: clamp(22.4px, 2.8vw, 35.2px);
   font-weight: 700;
   color: var(--color-accent);
   margin-bottom: 56px;
@@ -89,7 +89,7 @@
 
 .testimonial-text {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.75;
   color: var(--color-white);
   margin-bottom: 32px;
@@ -110,7 +110,7 @@
 
 .testimonial-name {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 14px;
   color: var(--color-muted);
   white-space: nowrap;
 }

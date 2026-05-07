@@ -22,6 +22,37 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
   }
 
+  function isGermanActive() {
+    var langDE = document.getElementById('langDE');
+    return Boolean(langDE && langDE.classList.contains('is-active'));
+  }
+
+  function getCopy(key) {
+    var de = {
+      nameMissing: 'Hoppla! Dein Name fehlt',
+      emailMissing: 'Hoppla! Deine E-Mail wird benötigt',
+      emailInvalid: 'Hoppla! Bitte prüfe dein E-Mail-Format',
+      messageMissing: 'Was möchtest du entwickeln?',
+      sent: 'Nachricht gesendet ✓'
+    };
+    var en = {
+      nameMissing: 'Oops! it seems your name is missing',
+      emailMissing: 'Oops! your email is required',
+      emailInvalid: 'Oops! please check your email format',
+      messageMissing: 'What do you need to develop?',
+      sent: 'Message sent ✓'
+    };
+
+    return (isGermanActive() ? de : en)[key];
+  }
+
+  function getSubmitLabel() {
+    if (isGermanActive()) {
+      return submitBtn.dataset.de || 'Hallo sagen :)';
+    }
+    return submitBtn.dataset.en || 'Say Hello :)';
+  }
+
   function setFieldErrorState(input, hasError) {
     var field = input.closest('.form-field');
     if (!field) return;
@@ -30,7 +61,7 @@
 
   function validateName() {
     if (!nameInput.value.trim()) {
-      nameError.textContent = 'Oops! it seems your name is missing';
+      nameError.textContent = getCopy('nameMissing');
       setFieldErrorState(nameInput, true);
       return false;
     }
@@ -41,12 +72,12 @@
 
   function validateEmail() {
     if (!emailInput.value.trim()) {
-      emailError.textContent = 'Hoppla! your email is required';
+      emailError.textContent = getCopy('emailMissing');
       setFieldErrorState(emailInput, true);
       return false;
     }
     if (!isValidEmail(emailInput.value)) {
-      emailError.textContent = 'Hoppla! please check your email format';
+      emailError.textContent = getCopy('emailInvalid');
       setFieldErrorState(emailInput, true);
       return false;
     }
@@ -57,7 +88,7 @@
 
   function validateMessage() {
     if (!messageInput.value.trim()) {
-      messageError.textContent = 'What do you need to develop?';
+      messageError.textContent = getCopy('messageMissing');
       setFieldErrorState(messageInput, true);
       return false;
     }
@@ -77,9 +108,6 @@
   });
 
   nameInput.addEventListener('input', function () {
-    if (nameError.textContent) {
-      validateName();
-    }
     updateSubmitState();
   });
 
@@ -89,9 +117,6 @@
   });
 
   emailInput.addEventListener('input', function () {
-    if (emailError.textContent) {
-      validateEmail();
-    }
     updateSubmitState();
   });
 
@@ -101,9 +126,6 @@
   });
 
   messageInput.addEventListener('input', function () {
-    if (messageError.textContent) {
-      validateMessage();
-    }
     updateSubmitState();
   });
 
@@ -119,10 +141,10 @@
       setFieldErrorState(field.input, false);
     });
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Message sent ✓';
+    submitBtn.textContent = getCopy('sent');
 
     setTimeout(function () {
-      submitBtn.textContent = submitBtn.dataset.en || 'Say Hello :)';
+      submitBtn.textContent = getSubmitLabel();
     }, 3000);
   });
 })();

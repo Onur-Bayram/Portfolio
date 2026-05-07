@@ -40,7 +40,7 @@
 
 .skills-kicker {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 14.4px;
   color: var(--color-accent);
   margin-bottom: 16px;
 }
@@ -55,15 +55,15 @@
 
 .skills-card h2 {
   font-family: var(--font-mono);
-  font-size: clamp(3rem, 4vw, 4.6rem);
+  font-size: clamp(48px, 4vw, 73.6px);
   line-height: 0.94;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.48px;
   color: var(--color-accent);
   margin-bottom: 30px;
 }
 
 .skills-card p {
-  font-size: 0.95rem;
+  font-size: 15.2px;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.92);
   max-width: 470px;
@@ -75,7 +75,7 @@
 
 .skills-card h3 {
   font-family: var(--font-mono);
-  font-size: 2.1rem;
+  font-size: 33.6px;
   line-height: 1.05;
   color: var(--color-white);
   margin-bottom: 16px;
@@ -126,7 +126,7 @@
   display: block;
   width: 100%;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 14.4px;
   line-height: 1.2;
   color: var(--color-white);
   text-align: center;
@@ -179,7 +179,7 @@
 .mindset-tooltip p {
   margin: 0;
   font-family: var(--font-base);
-  font-size: 0.72rem;
+  font-size: 11.52px;
   line-height: 1.2;
   color: var(--color-accent);
   text-align: center;
@@ -206,7 +206,7 @@
 
 .mindset-tech span {
   font-family: var(--font-base);
-  font-size: 0.72rem;
+  font-size: 11.52px;
   line-height: 1;
   color: var(--color-accent);
 }

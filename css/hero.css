@@ -32,10 +32,6 @@
   opacity: 1;
 }
 
-.hero-anchor-0 {
-  display: none;
-}
-
 .hero-title {
   position: absolute;
   top: 43%;
@@ -53,14 +49,14 @@
 
 .hero-subtitle {
   font-family: var(--font-mono);
-  font-size: clamp(0.95rem, 1.55vw, 1.1rem);
+  font-size: clamp(15.2px, 1.55vw, 17.6px);
   color: rgba(255, 255, 255, 0.78);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.8px;
 }
 
 .hero-name {
   font-family: var(--font-sans);
-  font-size: clamp(3.7rem, 8.2vw, 6.9rem);
+  font-size: clamp(59.2px, 8.2vw, 110.4px);
   font-weight: 700;
   color: var(--color-white);
   line-height: 0.98;
@@ -68,8 +64,8 @@
 
 .hero-buttons {
   display: flex;
-  gap: 1.35rem;
-  margin-top: 0.9rem;
+  gap: 21.6px;
+  margin-top: 14.4px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -162,9 +158,9 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 9.92px;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.16px;
   color: rgba(255, 255, 255, 0.78);
 }
 
@@ -211,9 +207,9 @@
   top: 48%;
   transform: translateY(-50%);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 9.92px;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.16px;
   color: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(78, 205, 196, 0.38);
   border-radius: 6px;
@@ -233,6 +229,13 @@
   width: 1px;
   flex: 1;
   background: rgba(78, 205, 196, 0.45);
+}
+
+@media (min-width: 769px) {
+  .hero-right-lateral .hero-socials .hero-social-email,
+  .hero-email-chip {
+    display: none !important;
+  }
 }
 
 .hero-marquee {
@@ -261,7 +264,7 @@
   gap: 56px;
   width: max-content;
   font-family: var(--font-mono);
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-size: clamp(17.6px, 1.8vw, 21.6px);
   line-height: 1;
   color: var(--color-accent);
   animation: marquee-scroll 58s linear infinite;
@@ -283,7 +286,7 @@
 
 .marquee-dot {
   flex-shrink: 0;
-  font-size: 0.9em;
+  font-size: 14.4px;
 }
 
 @keyframes marquee-scroll {
