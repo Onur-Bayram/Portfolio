@@ -28,7 +28,7 @@
       image: 'assets/images/projects/Joinn.png',
       imageAlt: 'Join project preview',
       github: 'https://github.com/Onur-Bayram/024_Join.git',
-      live: 'https://join-2478.developerakademie.net/index.html',
+      live: 'https://onur-bayram.de/projects/join/',
       tech: [
         { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
@@ -45,7 +45,7 @@
       image: 'assets/images/projects/Sharkie.png',
       imageAlt: 'Sharkie project preview',
       github: 'https://github.com/Onur-Bayram/Sharkie.git',
-      live: 'https://onur-bayram.developerakademie.net/DeveloperAkademie/Sharkie/index.html',
+      live: 'https://onur-bayram.de/projects/sharkie/',
       tech: [
         { icon: 'assets/icons/tech/javascript-2026.svg', label: 'JavaScript' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
@@ -60,7 +60,7 @@
       image: 'assets/images/projects/Pokedexx.png',
       imageAlt: 'Pokédex project preview',
       github: 'https://github.com/Onur-Bayram/Pokedex.git',
-      live: 'https://onur-bayram.developerakademie.net/DeveloperAkademie/PokedexP8/index.html',
+      live: 'https://onur-bayram.de/projects/pokedex/',
       tech: [
         { icon: 'assets/icons/tech/javascript-2026.svg', label: 'JavaScript' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
