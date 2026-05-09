@@ -10,6 +10,11 @@
     btnEN.setAttribute('aria-pressed', String(isEN));
     btnDE.setAttribute('aria-pressed', String(!isEN));
 
+    // Sync mobile lang chips
+    document.querySelectorAll('[data-lang]').forEach(function (btn) {
+      btn.classList.toggle('is-active', btn.dataset.lang === lang);
+    });
+
     document.querySelectorAll('[data-en][data-de]').forEach(function (el) {
       el.innerHTML = isEN ? el.dataset.en : el.dataset.de;
     });
@@ -33,5 +38,12 @@
 
   btnDE.addEventListener('click', function () {
     setLang('de');
+  });
+
+  // Mobile lang chips
+  document.querySelectorAll('[data-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setLang(btn.dataset.lang);
+    });
   });
 })();
