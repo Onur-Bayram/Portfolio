@@ -28,7 +28,7 @@
       image: 'assets/images/projects/Joinn.png',
       imageAlt: 'Join project preview',
       github: 'https://github.com/Onur-Bayram/024_Join.git',
-      live: 'https://onur-bayram.de/projects/join/',
+      live: 'https://join.onur-bayram.de/',
       tech: [
         { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
@@ -45,7 +45,7 @@
       image: 'assets/images/projects/Sharkie.png',
       imageAlt: 'Sharkie project preview',
       github: 'https://github.com/Onur-Bayram/Sharkie.git',
-      live: 'https://onur-bayram.de/projects/sharkie/',
+      live: 'https://sharkie.onur-bayram.de/',
       tech: [
         { icon: 'assets/icons/tech/javascript-2026.svg', label: 'JavaScript' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
@@ -60,7 +60,7 @@
       image: 'assets/images/projects/Pokedexx.png',
       imageAlt: 'Pokédex project preview',
       github: 'https://github.com/Onur-Bayram/Pokedex.git',
-      live: 'https://onur-bayram.de/projects/pokedex/',
+      live: 'https://pokedex.onur-bayram.de/',
       tech: [
         { icon: 'assets/icons/tech/javascript-2026.svg', label: 'JavaScript' },
         { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
