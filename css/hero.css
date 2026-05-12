@@ -76,7 +76,7 @@
   left: 96px;
   transform: translateY(-50%);
   width: 30px;
-  height: 312px;
+  height: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,7 +146,7 @@
   right: 96px;
   transform: translateY(-18%);
   width: 32px;
-  height: 480px;
+  height: 580px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -269,7 +269,7 @@
     left: 58px;
     transform: translateY(-50%);
     width: 30px;
-    height: 312px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -283,7 +283,7 @@
     right: 58px;
     transform: translateY(-18%);
     width: 32px;
-    height: 480px;
+    height: 580px;
     display: flex;
     flex-direction: column;
     align-items: center;
