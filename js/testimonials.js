@@ -12,7 +12,7 @@
   // Render cards from data
   DATA.forEach(function (t, index) {
     var article = document.createElement('article');
-    article.className = 'testimonial-card' + (index === 0 ? ' is-active' : '');
+    article.className = 'testimonial-card' + (index === 1 ? ' is-active' : '');
     article.setAttribute('data-testimonial-index', String(index));
     article.innerHTML =
       '<p class="testimonial-text" data-lang-de="' + t.text_de.replace(/"/g, '&quot;') + '" data-lang-en="' + t.text_en.replace(/"/g, '&quot;') + '">' +
@@ -25,7 +25,7 @@
   if (dotsEl) {
     DATA.forEach(function (_, index) {
       var btn = document.createElement('button');
-      btn.className = 'dot' + (index === 0 ? ' is-active' : '');
+      btn.className = 'dot' + (index === 1 ? ' is-active' : '');
       btn.setAttribute('aria-label', 'Testimonial ' + (index + 1));
       dotsEl.appendChild(btn);
     });
@@ -33,7 +33,7 @@
 
   var cards = Array.from(track.querySelectorAll('.testimonial-card'));
   var dots = dotsEl ? Array.from(dotsEl.querySelectorAll('.dot')) : [];
-  var current = 0;
+  var current = 1;
 
   function cardTotalWidth() {
     if (!cards[0]) return 0;

@@ -1,0 +1,122 @@
+@media (max-width: 768px) {
+  #about {
+    width: 358px;
+    margin: 100px auto 0;
+    min-height: 1059px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-media img {
+    min-height: 360px;
+  }
+
+  .about-content-wrap {
+    padding-top: 0;
+  }
+
+  .about-kicker {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+
+  .about-card {
+    border-radius: 20px;
+    padding: 20px 16px 18px;
+  }
+
+  .about-card h2 {
+    font-size: clamp(32px, 10vw, 45px);
+    margin-bottom: 14px;
+  }
+
+  .about-intro,
+  .about-points li {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .about-points li {
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+  }
+
+  .about-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  #skills {
+    width: 390px;
+    min-height: 980px;
+    margin: 56px auto 0;
+    padding: 0 16px;
+    grid-template-columns: 1fr;
+    gap: 26px;
+    align-content: start;
+    align-items: start;
+  }
+
+  .skills-card {
+    border-radius: 24px;
+    min-height: auto;
+    padding: 18px 16px 16px;
+  }
+
+  .skills-left {
+    padding: 0;
+  }
+
+  .skills-card h2 {
+    font-size: clamp(38px, 11vw, 54px);
+    margin-bottom: 12px;
+  }
+
+  .skills-card p {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .skills-card p + h3 {
+    margin-top: 14px;
+  }
+
+  .skills-card h3 {
+    font-size: 27px;
+    margin-bottom: 10px;
+  }
+
+  .skills-card .btn {
+    margin-top: 14px;
+  }
+
+  .skills-right {
+    width: 100%;
+    grid-template-columns: repeat(3, 90px);
+    row-gap: 12px;
+    column-gap: 8px;
+    margin-top: -8px;
+    padding: 2px 0;
+    justify-content: start;
+  }
+
+  .skill-item img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .skill-item {
+    width: 90px;
+    min-height: 68px;
+    gap: 6px;
+  }
+
+  .skill-item span {
+    font-size: 13px;
+    line-height: 1.12;
+  }
+
+  .mindset-tooltip {
+    display: none;
+  }
+}

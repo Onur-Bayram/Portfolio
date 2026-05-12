@@ -1,0 +1,93 @@
+@media (max-width: 768px) {
+  #testimonials {
+    padding: 64px 0 56px;
+  }
+
+  .testimonials-title {
+    font-size: clamp(19px, 5.5vw, 26px);
+    margin-bottom: 36px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 100%;
+    min-height: 240px;
+    padding: 44px 16px 20px;
+  }
+
+  .testimonial-text {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .testimonial-name {
+    font-size: 15px;
+  }
+
+  #contact {
+    width: 100%;
+    min-height: 0;
+    padding: 72px 0 44px;
+  }
+
+  .contact-box {
+    width: 100%;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 0 24px;
+  }
+
+  .contact-kicker {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .contact-heading {
+    font-size: clamp(35px, 11vw, 53px);
+    margin-bottom: 18px;
+  }
+
+  .contact-sub {
+    font-size: 17px;
+    margin-bottom: 7px;
+  }
+
+  .contact-body,
+  .contact-cta,
+  .contact-form label,
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 15px;
+  }
+
+  .contact-form {
+    gap: 16px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  .contact-form textarea {
+    min-height: 100px;
+  }
+
+  .form-submit {
+    margin-top: 4px;
+  }
+
+  .footer-inner {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-nav {
+    align-items: center;
+  }
+}

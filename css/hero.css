@@ -232,6 +232,87 @@
 }
 
 @media (min-width: 769px) {
+  #hero {
+    width: min(1440px, 100%);
+    height: 900px;
+    min-height: 900px;
+    margin: 0 auto;
+    padding-top: 0;
+  }
+
+  .hero-title {
+    top: 47%;
+    gap: 16px;
+    max-width: 860px;
+    width: min(860px, calc(100% - 160px));
+  }
+
+  .hero-subtitle {
+    font-size: 32px;
+    letter-spacing: 0.4px;
+  }
+
+  .hero-name {
+    font-size: clamp(92px, 8.6vw, 128px);
+    line-height: 0.9;
+    letter-spacing: -2px;
+  }
+
+  .hero-buttons {
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  .hero-left-lateral {
+    position: absolute;
+    top: 32%;
+    left: 58px;
+    bottom: auto;
+    height: 480px;
+    transform: translateY(-50%);
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    z-index: 2;
+  }
+
+  .hero-right-lateral {
+    position: absolute;
+    top: 26%;
+    right: 58px;
+    bottom: auto;
+    height: 520px;
+    transform: translateY(-50%);
+    width: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    z-index: 2;
+  }
+
+  .hero-marquee {
+    bottom: 46px;
+    width: 105%;
+    min-width: 1440px;
+  }
+
+  .hero-left-line {
+    width: 1px;
+    flex: 1 1 auto;
+    min-height: 200px;
+    background: rgba(78, 205, 196, 0.72);
+  }
+
+  .hero-right-line {
+    width: 1px;
+    flex: 1 1 auto;
+    min-height: 280px;
+    background: rgba(78, 205, 196, 0.45);
+  }
+
   .hero-right-lateral .hero-socials .hero-social-email,
   .hero-email-chip {
     display: none !important;
