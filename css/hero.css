@@ -233,10 +233,11 @@
 
 @media (min-width: 769px) {
   #hero {
-    width: min(1440px, 100%);
+    width: 100%;
+    max-width: none;
     height: 900px;
     min-height: 900px;
-    margin: 0 auto;
+    margin: 0;
     padding-top: 0;
   }
 
