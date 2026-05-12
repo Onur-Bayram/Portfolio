@@ -1,4 +1,36 @@
 (function () {
+  var PROJECTS = window.PROJECTS_DATA || {};
+  var projectIds = Object.keys(PROJECTS);
+
+  // --- Render project rows ---
+  var list = document.querySelector('.projects-list');
+  if (list && projectIds.length) {
+    projectIds.forEach(function (id, index) {
+      var p = PROJECTS[id];
+      var techOverlayHtml = p.tech.map(function (t) {
+        return '<img class="overlay-icon" src="' + t.icon + '" alt="' + t.label + '" />';
+      }).join('');
+      var a = document.createElement('a');
+      a.className = 'project-row' + (index === 0 ? ' is-active' : '');
+      a.href = '#projectDetailCard';
+      a.setAttribute('role', 'listitem');
+      a.setAttribute('data-project-id', id);
+      a.setAttribute('aria-controls', 'projectDetailCard');
+      a.setAttribute('aria-expanded', String(index === 0));
+      a.innerHTML =
+        '<div class="project-row-left">' +
+          '<h3>' + p.title + ' <span class="project-arrow">\u2197</span></h3>' +
+          '<p>' + p.tech.map(function (t) { return t.label; }).join(' | ') + '</p>' +
+          '<div class="project-tech-overlay" aria-label="Project technologies">' + techOverlayHtml + '</div>' +
+        '</div>' +
+        '<div class="project-preview" aria-hidden="true">' +
+          '<img src="' + p.image + '" alt="' + p.title + ' Vorschau" loading="lazy" />' +
+        '</div>';
+      list.appendChild(a);
+    });
+  }
+
+  // --- Interaction logic ---
   var card = document.getElementById('projectDetailCard');
   if (!card) return;
 
@@ -19,113 +51,49 @@
     return;
   }
 
-  var projects = {
-    join: {
-      number: '01',
-      title: 'Join',
-      description_en: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      description_de: 'Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu.',
-      image: 'assets/images/projects/Joinn.png',
-      imageAlt: 'Join project preview',
-      github: 'https://github.com/Onur-Bayram/024_Join.git',
-      live: 'https://join.onur-bayram.de/',
-      tech: [
-        { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' },
-        { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
-        { icon: 'assets/icons/tech/supabase-2026.svg', label: 'Firebase' },
-        { icon: 'assets/icons/tech/angular-2026.svg', label: 'Angular' },
-        { icon: 'assets/icons/tech/typescript-2026.svg', label: 'TypeScript' }
-      ]
-    },
-    sharkie: {
-      number: '02',
-      title: 'Sharkie',
-      description_en: '2D jump-and-run browser game built with object-oriented JavaScript. Fight your way through animated levels, collect items and defeat the end boss.',
-      description_de: '2D Jump-and-Run-Browserspiel, das mit objektorientiertem JavaScript gebaut wurde. Kämpfe dich durch animierte Level, sammle Gegenstände und besiege den Endboss.',
-      image: 'assets/images/projects/Sharkie.png',
-      imageAlt: 'Sharkie project preview',
-      github: 'https://github.com/Onur-Bayram/Sharkie.git',
-      live: 'https://sharkie.onur-bayram.de/',
-      tech: [
-        { icon: 'assets/icons/tech/javascript-2026.svg', label: 'JavaScript' },
-        { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
-        { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' }
-      ]
-    },
-    pokedex: {
-      number: '03',
-      title: 'Pokédex',
-      description_en: 'Interactive Pokédex app that fetches character data from a REST API, lets users browse entries and view detailed information inside a responsive interface.',
-      description_de: 'Interaktive Pokédex-App, die Charakterdaten von einer REST-API abruft, Benutzern das Durchsuchen von Einträgen ermöglicht und detaillierte Informationen in einer responsiven Oberfläche anzeigt.',
-      image: 'assets/images/projects/Pokedexx.png',
-      imageAlt: 'Pokédex project preview',
-      github: 'https://github.com/Onur-Bayram/Pokedex.git',
-      live: 'https://pokedex.onur-bayram.de/',
-      tech: [
-        { icon: 'assets/icons/tech/javascript-2026.svg', label: 'JavaScript' },
-        { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
-        { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' },
-        { icon: 'assets/icons/tech/rest-api-2026.svg', label: 'REST API' }
-      ]
-    }
-  };
+  var projects = PROJECTS;
 
   var projectOrder = rows
-    .map(function (row) {
-      return row.dataset.projectId;
-    })
-    .filter(function (projectId) {
-      return Boolean(projects[projectId]);
-    });
+    .map(function (row) { return row.dataset.projectId; })
+    .filter(function (projectId) { return Boolean(projects[projectId]); });
 
   var currentId = projectOrder[0];
 
   function hideDetailMedia() {
     imageEl.removeAttribute('src');
     imageEl.alt = '';
-    if (mediaEl) {
-      mediaEl.classList.add('is-hidden');
-    }
+    if (mediaEl) mediaEl.classList.add('is-hidden');
     card.classList.add('has-no-media');
   }
 
   function showDetailMedia(src, alt) {
     imageEl.src = src;
     imageEl.alt = alt || '';
-    if (mediaEl) {
-      mediaEl.classList.remove('is-hidden');
-    }
+    if (mediaEl) mediaEl.classList.remove('is-hidden');
     card.classList.remove('has-no-media');
   }
 
   function setupListPreviewFallbacks() {
     var previewImages = document.querySelectorAll('.project-preview img');
-
     previewImages.forEach(function (img) {
       img.addEventListener('error', function () {
         var previewWrap = img.closest('.project-preview');
-        if (previewWrap) {
-          previewWrap.classList.add('is-hidden');
-        }
+        if (previewWrap) previewWrap.classList.add('is-hidden');
       });
     });
   }
 
   function renderStack(techItems) {
     stackEl.innerHTML = '';
-
     techItems.forEach(function (tech) {
       var item = document.createElement('span');
       item.className = 'project-detail-tech';
-
       var icon = document.createElement('img');
       icon.src = tech.icon;
       icon.alt = '';
       icon.setAttribute('aria-hidden', 'true');
-
       var label = document.createElement('span');
       label.textContent = tech.label;
-
       item.appendChild(icon);
       item.appendChild(label);
       stackEl.appendChild(item);
@@ -148,7 +116,6 @@
   function hideCard() {
     card.classList.add('is-hidden');
     card.setAttribute('aria-hidden', 'true');
-
     rows.forEach(function (row) {
       row.classList.remove('is-active');
       row.setAttribute('aria-expanded', 'false');
@@ -161,7 +128,6 @@
     var headerOffset = header ? header.offsetHeight : 0;
     var extraOffset = 24;
     var targetTop = card.getBoundingClientRect().top + window.scrollY - headerOffset - extraOffset;
-
     window.scrollTo({
       top: Math.max(0, targetTop),
       behavior: prefersReducedMotion ? 'auto' : 'smooth'
@@ -176,7 +142,6 @@
     currentId = projectId;
     numberEl.textContent = project.number;
     titleEl.textContent = project.title;
-    // Bestimme aktuelle Sprache
     var langEN = document.getElementById('langEN');
     var isEnglish = langEN && langEN.classList.contains('is-active');
     var description = isEnglish ? (project.description_en || project.description) : (project.description_de || project.description);
@@ -192,9 +157,7 @@
     updateRowState(projectId);
     showCard();
 
-    if (shouldScroll) {
-      scrollToDetailCard();
-    }
+    if (shouldScroll) scrollToDetailCard();
   }
 
   rows.forEach(function (row) {
@@ -225,6 +188,7 @@
   });
 
   renderProject(currentId);
+
   window.updateProjectLanguage = function () {
     if (currentId && projects[currentId]) {
       renderProject(currentId);
