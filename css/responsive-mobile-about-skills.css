@@ -50,7 +50,7 @@
     width: 390px;
     min-height: 980px;
     margin: 56px auto 0;
-    padding: 0 16px;
+    padding: 10px 16px;
     grid-template-columns: 1fr;
     gap: 26px;
     align-content: start;
@@ -92,28 +92,30 @@
 
   .skills-right {
     width: 100%;
-    grid-template-columns: repeat(3, 90px);
-    row-gap: 12px;
-    column-gap: 8px;
-    margin-top: -8px;
-    padding: 2px 0;
-    justify-content: start;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 18px;
+    column-gap: 16px;
+    margin-top: -4px;
+    padding: 4px 0;
+    justify-content: stretch;
+    justify-items: center;
   }
 
   .skill-item img {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
   }
 
   .skill-item {
-    width: 90px;
-    min-height: 68px;
-    gap: 6px;
+    width: 100%;
+    max-width: 104px;
+    min-height: 80px;
+    gap: 8px;
   }
 
   .skill-item span {
-    font-size: 13px;
-    line-height: 1.12;
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .mindset-tooltip {
