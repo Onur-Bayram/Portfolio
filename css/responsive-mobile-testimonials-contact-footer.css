@@ -1,4 +1,9 @@
 @media (max-width: 768px) {
+  #footer {
+    border-top: none;
+    padding: 0 16px;
+  }
+
   #testimonials {
     padding: 64px 0 56px;
   }
@@ -79,15 +84,33 @@
   }
 
   .footer-inner {
-    min-height: 0;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 16px;
-    text-align: center;
+    width: 100%;
+    max-width: 358px;
+    min-height: 180px;
+    margin: 0 auto;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 10px 12px;
+    text-align: left;
   }
 
-  .footer-left,
+  .footer-left {
+    grid-column: 1;
+    grid-row: 1;
+    align-items: flex-start;
+  }
+
   .footer-nav {
-    align-items: center;
+    grid-column: 2;
+    grid-row: 1;
+    align-items: flex-end;
+    justify-self: end;
+  }
+
+  .footer-copy {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    text-align: center;
+    margin-top: 2px;
   }
 }
