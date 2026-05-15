@@ -86,8 +86,10 @@
   .footer-inner {
     width: 100%;
     max-width: 358px;
-    min-height: 180px;
+    min-height: 172px;
     margin: 0 auto;
+    padding-top: 6px;
+    padding-bottom: 4px;
     grid-template-columns: 1fr auto;
     align-items: start;
     gap: 10px 12px;
