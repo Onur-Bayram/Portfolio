@@ -9,7 +9,7 @@
   align-items: start;
   min-height: 118px;
   padding-top: 12px;
-  padding-bottom: 8px;
+  padding-bottom: 60px;
   gap: 24px;
 }
 
@@ -51,6 +51,7 @@
   color: var(--color-accent);
   text-align: center;
   justify-self: center;
+  padding: 50px;
 }
 
 .footer-nav {
