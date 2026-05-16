@@ -92,11 +92,11 @@
 .skills-right {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 110px);
-  column-gap: 20px;
-  row-gap: 28px;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 16px;
+  row-gap: 36px;
   align-content: center;
-  justify-content: start;
+  justify-content: stretch;
   padding: 0;
 }
 
@@ -105,9 +105,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 110px;
-  min-height: 80px;
-  gap: 8px;
+  width: 100%;
+  min-height: 100px;
+  gap: 12px;
   opacity: 0;
   transform: translateY(12px);
   animation: skillReveal 420ms ease-out forwards;
@@ -115,8 +115,8 @@
 }
 
 .skill-item > img {
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
   display: block;
   object-fit: contain;
   transition: transform 180ms ease;
@@ -126,7 +126,7 @@
   display: block;
   width: 100%;
   font-family: var(--font-mono);
-  font-size: 14.4px;
+  font-size: 15px;
   line-height: 1.2;
   color: var(--color-white);
   text-align: center;
