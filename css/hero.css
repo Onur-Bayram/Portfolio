@@ -235,8 +235,8 @@
   #hero {
     width: 100%;
     max-width: none;
-    height: 760px;
-    min-height: 760px;
+    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding-top: 0;
   }
