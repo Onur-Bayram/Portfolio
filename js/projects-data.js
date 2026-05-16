@@ -11,7 +11,7 @@ window.PROJECTS_DATA = {
     tech: [
       { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' },
       { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
-      { icon: 'assets/icons/tech/supabase-2026.svg', label: 'Firebase' },
+      { icon: 'assets/icons/tech/supabase-2026.svg', label: 'Supabase' },
       { icon: 'assets/icons/tech/angular-2026.svg', label: 'Angular' },
       { icon: 'assets/icons/tech/typescript-2026.svg', label: 'TypeScript' }
     ]

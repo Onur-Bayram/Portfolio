@@ -33,14 +33,18 @@
       emailMissing: 'Hoppla! Deine E-Mail wird benötigt',
       emailInvalid: 'Hoppla! Bitte prüfe dein E-Mail-Format',
       messageMissing: 'Was möchtest du entwickeln?',
-      sent: 'Nachricht gesendet ✓'
+      sent: 'Nachricht gesendet ✓',
+      sending: 'Wird gesendet...',
+      failed: 'Senden fehlgeschlagen'
     };
     var en = {
       nameMissing: 'Oops! it seems your name is missing',
       emailMissing: 'Oops! your email is required',
       emailInvalid: 'Oops! please check your email format',
       messageMissing: 'What do you need to develop?',
-      sent: 'Message sent ✓'
+      sent: 'Message sent ✓',
+      sending: 'Sending...',
+      failed: 'Sending failed'
     };
 
     return (isGermanActive() ? de : en)[key];
@@ -102,6 +106,10 @@
     submitBtn.disabled = !allValid;
   }
 
+  function encodeFormData(formData) {
+    return new URLSearchParams(formData).toString();
+  }
+
   nameInput.addEventListener('blur', function () {
     validateName();
     updateSubmitState();
@@ -136,15 +144,40 @@
     var isValid = validateName() && validateEmail() && validateMessage() && privacyCheck.checked;
     if (!isValid) return;
 
-    form.reset();
-    fields.forEach(function (field) {
-      setFieldErrorState(field.input, false);
-    });
     submitBtn.disabled = true;
-    submitBtn.textContent = getCopy('sent');
+    submitBtn.textContent = getCopy('sending');
 
-    setTimeout(function () {
-      submitBtn.textContent = getSubmitLabel();
-    }, 3000);
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: encodeFormData(new FormData(form))
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error('Request failed');
+        }
+
+        form.reset();
+        fields.forEach(function (field) {
+          field.error.textContent = '';
+          setFieldErrorState(field.input, false);
+        });
+        submitBtn.textContent = getCopy('sent');
+
+        setTimeout(function () {
+          submitBtn.textContent = getSubmitLabel();
+          updateSubmitState();
+        }, 3000);
+      })
+      .catch(function () {
+        submitBtn.textContent = getCopy('failed');
+
+        setTimeout(function () {
+          submitBtn.textContent = getSubmitLabel();
+          updateSubmitState();
+        }, 3000);
+      });
   });
 })();
