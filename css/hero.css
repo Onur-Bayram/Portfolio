@@ -228,7 +228,7 @@
 .hero-right-line {
   width: 1px;
   flex: 1;
-  background: rgba(78, 205, 196, 0.45);
+  background: rgba(154, 194, 186, 0.58);
 }
 
 @media (min-width: 769px) {
@@ -266,11 +266,11 @@
 
   .hero-left-lateral {
     position: absolute;
-    top: 73%;
+    top: 85%;
     left: 58px;
     transform: translateY(-50%);
     width: 30px;
-    height: 285px;
+    height: 390px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -280,16 +280,22 @@
 
   .hero-right-lateral {
     position: absolute;
-    top: 58%;
+    top: 65%;
     right: 58px;
-    transform: translateY(-18%);
+    transform: translateY(-50%);
     width: 32px;
-    height: 480px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 24px;
     z-index: 2;
+  }
+
+  .hero-email {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
   }
 
   .hero-marquee {
@@ -301,15 +307,15 @@
   .hero-left-line {
     width: 1px;
     flex: 1 1 auto;
-    min-height: 160px;
+    min-height: 320px;
     background: rgba(78, 205, 196, 0.72);
   }
 
   .hero-right-line {
     width: 1px;
     flex: 1 1 auto;
-    min-height: 280px;
-    background: rgba(78, 205, 196, 0.45);
+    min-height: 220px;
+    background: rgba(154, 194, 186, 0.58);
   }
 
   .hero-right-lateral .hero-socials .hero-social-email,

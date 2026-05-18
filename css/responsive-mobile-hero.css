@@ -38,8 +38,9 @@
   }
 
   .hero-name {
-    font-size: clamp(48px, 13vw, 65px);
-    line-height: 1;
+    font-size: clamp(42px, 11.5vw, 58px);
+    line-height: 0.95;
+    white-space: nowrap;
     margin-bottom: 18px;
   }
 
@@ -56,10 +57,10 @@
 
   .hero-right-lateral {
     right: 24px;
-    width: 30px;
-    height: 252px;
+    width: 40px;
+    height: 400px;
     gap: 14px;
-    top: 594px;
+    top: 538px;
     transform: none;
   }
 
@@ -100,7 +101,8 @@
   }
 
   .hero-right-line {
-    background: rgba(255, 255, 255, 0.78);
+    min-height: 165px;
+    background: rgba(154, 194, 186, 0.58);
   }
 
   .hero-email-chip {
