@@ -50,7 +50,7 @@
 .hero-subtitle {
   font-family: var(--font-mono);
   font-size: clamp(15.2px, 1.55vw, 17.6px);
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.8px;
 }
 
@@ -70,9 +70,32 @@
   justify-content: center;
 }
 
+.hero-buttons .btn {
+  min-height: 42px;
+  padding: 8px 24px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.hero-buttons .btn-primary {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(17, 17, 17, 0.88);
+}
+
+.hero-buttons .btn-secondary {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-image: none;
+}
+
+.hero-buttons .btn-secondary:hover,
+.hero-buttons .btn-secondary:focus-visible {
+  background-image: none;
+}
+
 .hero-left-lateral {
   position: absolute;
-  top: 85%;
+  top: 60%;
   left: 96px;
   transform: translateY(-50%);
   width: 30px;
@@ -85,10 +108,10 @@
 }
 
 .hero-scroll-pill {
-  width: 30px;
-  height: 48px;
+  width: 32px;
+  height: 52px;
   border: 1px solid var(--color-accent);
-  border-radius: 20px;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -99,32 +122,10 @@
 }
 
 .hero-scroll-icon {
-  position: relative;
-  width: 8px;
-  height: 16px;
+  width: 10px;
+  height: 18px;
   display: block;
-}
-
-.hero-scroll-icon::before {
-  content: '';
-  position: absolute;
-  left: 3px;
-  top: 1px;
-  width: 1px;
-  height: 10px;
-  background: currentColor;
-}
-
-.hero-scroll-icon::after {
-  content: '';
-  position: absolute;
-  left: 1px;
-  top: 8px;
-  width: 6px;
-  height: 6px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg);
+  flex: 0 0 auto;
 }
 
 .hero-scroll-pill:hover {
@@ -161,7 +162,7 @@
   font-size: 9.92px;
   line-height: 1;
   letter-spacing: 0.16px;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .hero-socials {
@@ -228,7 +229,7 @@
 .hero-right-line {
   width: 1px;
   flex: 1;
-  background: rgba(154, 194, 186, 0.58);
+  background: rgba(78, 205, 196, 0.45);
 }
 
 @media (min-width: 769px) {
@@ -264,13 +265,19 @@
     margin-top: 14px;
   }
 
+  .hero-buttons .btn {
+    min-height: 42px;
+    padding: 8px 24px;
+    font-size: 12px;
+  }
+
   .hero-left-lateral {
     position: absolute;
-    top: 85%;
+    top: 90%;
     left: 58px;
     transform: translateY(-50%);
     width: 30px;
-    height: 390px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -307,7 +314,7 @@
   .hero-left-line {
     width: 1px;
     flex: 1 1 auto;
-    min-height: 320px;
+    min-height: 330px;
     background: rgba(78, 205, 196, 0.72);
   }
 
@@ -315,7 +322,7 @@
     width: 1px;
     flex: 1 1 auto;
     min-height: 220px;
-    background: rgba(154, 194, 186, 0.58);
+    background: rgba(78, 205, 196, 0.45);
   }
 
   .hero-right-lateral .hero-socials .hero-social-email,

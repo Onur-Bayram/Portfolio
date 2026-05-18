@@ -9,8 +9,8 @@
   --color-muted: rgba(255, 255, 255, 0.5);
   --color-border: rgba(255, 255, 255, 0.1);
 
-  --font-mono: 'Space Mono', monospace;
-  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --font-sans: 'Karla', sans-serif;
 
   --header-height: 98px;
   --padding-x: 96px;

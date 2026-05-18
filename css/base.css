@@ -80,10 +80,23 @@ img {
   color: #76e1da;
 }
 
-.btn-arrow::after {
-  content: '\2197';
-  font-size: 15.2px;
-  line-height: 1;
+.btn-arrow {
+  padding-right: 34px;
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px 12px;
+}
+
+.btn-primary.btn-arrow {
+  background-image: url('../assets/ui/arrow-up-right-white.svg');
+}
+
+.btn-secondary.btn-arrow {
+  background-image: url('../assets/ui/arrow-up-right-accent.svg');
+}
+
+.btn-secondary.btn-arrow:hover {
+  background-image: url('../assets/ui/arrow-up-right-accent-hover.svg');
 }
 
 .btn-submit:disabled {
