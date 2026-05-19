@@ -75,6 +75,14 @@
     color: var(--color-accent);
   }
 
+  .hero-socials a .icon-active {
+    opacity: 1;
+  }
+
+  .hero-socials a .icon-default {
+    opacity: 0;
+  }
+
   .hero-socials a.is-active {
     background: transparent;
     color: var(--color-accent);
