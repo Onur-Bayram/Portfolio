@@ -81,22 +81,28 @@ img {
 }
 
 .btn-arrow {
-  padding-right: 34px;
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 12px 12px;
+  gap: 8px;
 }
 
-.btn-primary.btn-arrow {
-  background-image: url('../assets/ui/arrow-up-right-white.svg');
+.btn-arrow-icon {
+  width: 12px;
+  height: 12px;
+  display: block;
+  flex: 0 0 12px;
 }
 
-.btn-secondary.btn-arrow {
-  background-image: url('../assets/ui/arrow-up-right-accent.svg');
+.btn-arrow-icon-hover {
+  display: none;
 }
 
-.btn-secondary.btn-arrow:hover {
-  background-image: url('../assets/ui/arrow-up-right-accent-hover.svg');
+.btn-secondary.btn-arrow:hover .btn-arrow-icon-default,
+.btn-secondary.btn-arrow:focus-visible .btn-arrow-icon-default {
+  display: none;
+}
+
+.btn-secondary.btn-arrow:hover .btn-arrow-icon-hover,
+.btn-secondary.btn-arrow:focus-visible .btn-arrow-icon-hover {
+  display: block;
 }
 
 .btn-submit:disabled {
