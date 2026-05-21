@@ -359,6 +359,13 @@
   cursor: pointer;
 }
 
+.project-detail-next-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex: 0 0 16px;
+}
+
 .project-detail-next:hover {
   color: #76e1da;
 }
