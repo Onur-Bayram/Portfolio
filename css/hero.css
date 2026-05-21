@@ -75,22 +75,29 @@
   padding: 8px 24px;
   font-size: 12px;
   font-weight: 500;
+  color: rgba(255, 255, 255, 0.94);
+  border-color: rgba(255, 255, 255, 0.74);
+  background: rgba(17, 17, 17, 0.42);
 }
 
-.hero-buttons .btn-primary {
-  border-color: rgba(255, 255, 255, 0.8);
-  background: rgba(17, 17, 17, 0.88);
+.hero-buttons .btn:link,
+.hero-buttons .btn:visited {
+  color: rgba(255, 255, 255, 0.94);
 }
 
-.hero-buttons .btn-secondary {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background-image: none;
+.hero-buttons .btn:hover,
+.hero-buttons .btn:focus-visible {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.hero-buttons .btn-secondary:hover,
-.hero-buttons .btn-secondary:focus-visible {
-  background-image: none;
+.hero-buttons .btn-arrow {
+  gap: 0;
+}
+
+.hero-buttons .btn-arrow-icon {
+  display: none;
 }
 
 .hero-left-lateral {
@@ -336,6 +343,7 @@
     bottom: 24px;
     width: 105%;
     min-width: 1440px;
+    height: 62px;
   }
 
   .hero-left-line {
@@ -419,14 +427,6 @@
   }
 }
 
-@media (min-width: 769px) {
-  .hero-marquee {
-    bottom: 24px;
-    width: 105%;
-    min-width: 1440px;
-    height: 62px;
-  }
-}
 
 @media (hover: none), (pointer: coarse) {
   .hero-cursor-glow {
