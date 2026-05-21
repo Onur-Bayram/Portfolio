@@ -162,22 +162,22 @@
   font-size: 9.92px;
   line-height: 1;
   letter-spacing: 0.16px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
 }
 
 .hero-socials {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .hero-socials a {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 5px;
-  border: 1px solid transparent;
-  color: rgba(255, 255, 255, 0.92);
+  border: 0;
+  color: var(--color-accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -186,21 +186,21 @@
 }
 
 .hero-socials a.is-active {
-  background: var(--color-accent);
-  color: #0f1212;
-  border-color: var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  border-color: transparent;
 }
 
 .hero-socials a:hover {
   transform: translateY(-2px);
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-  background: rgba(78, 205, 196, 0.08);
+  color: #76e1da;
+  border-color: transparent;
+  background: transparent;
 }
 
 .hero-socials a img {
-  width: 100%;
-  height: 100%;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
   display: block;
 }
@@ -208,12 +208,12 @@
 .hero-socials a .icon-active {
   position: absolute;
   inset: 0;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.2s ease;
 }
 
 .hero-socials a .icon-default {
-  opacity: 1;
+  opacity: 0;
   transition: opacity 0.2s ease;
 }
 
@@ -238,7 +238,7 @@
   font-size: 9.92px;
   line-height: 1;
   letter-spacing: 0.16px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
   border: 1px solid rgba(78, 205, 196, 0.38);
   border-radius: 6px;
   background: rgba(17, 17, 17, 0.35);
@@ -256,7 +256,7 @@
 .hero-right-line {
   width: 1px;
   flex: 1;
-  background: rgba(78, 205, 196, 0.45);
+  background: #ffffff;
 }
 
 @media (min-width: 769px) {
@@ -349,7 +349,7 @@
     width: 1px;
     flex: 1 1 auto;
     min-height: 220px;
-    background: rgba(78, 205, 196, 0.45);
+    background: #ffffff;
   }
 
   .hero-right-lateral .hero-socials .hero-social-email,
