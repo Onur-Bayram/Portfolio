@@ -1,69 +1,59 @@
 @media (max-width: 768px) {
   #hero {
-    height: 100vh;
-    min-height: 100vh;
+    height: auto;
+    min-height: clamp(760px, 100svh, 900px);
     padding-top: var(--header-height);
   }
 
-  .hero-marquee {
-    width: calc(100% + 72px);
-    min-width: 0;
-    left: 50%;
-    height: 54px;
-    padding: 10px 22px;
-    bottom: 24px;
-    transform: translateX(-50%) rotate(-2deg);
-  }
-
-  .hero-marquee-track {
-    gap: 34px;
-    font-size: 11px;
-  }
-
-  .hero-marquee-group {
-    gap: 34px;
-  }
-
   .hero-title {
-    top: 324px;
-    transform: translateX(-50%);
-    width: calc(100% - 12px);
+    top: clamp(310px, 41.5svh, 366px);
+    transform: translate(-50%, -50%);
+    width: min(calc(100% - 36px), 360px);
     gap: 0;
   }
 
   .hero-subtitle {
-    font-size: 15px;
-    letter-spacing: 1px;
+    font-size: clamp(14px, 3.6vw, 15px);
+    letter-spacing: 0.8px;
     margin-bottom: 10px;
   }
 
   .hero-name {
-    font-size: clamp(42px, 11.5vw, 58px);
-    line-height: 0.95;
+    font-size: clamp(52px, 13.4vw, 66px);
+    line-height: 0.92;
     white-space: nowrap;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   .hero-buttons {
     margin-top: 0;
-    gap: 12px;
+    gap: 10px;
   }
 
   .hero-buttons .btn {
     min-height: 40px;
-    padding: 8px 18px;
-    font-size: 11.5px;
+    padding: 8px 16px;
+    font-size: 12px;
     position: relative;
     z-index: 350;
   }
 
+  .hero-left-lateral {
+    left: clamp(10px, 3.2vw, 14px);
+    width: 30px;
+    height: clamp(220px, 27svh, 250px);
+    top: 72%;
+    gap: 12px;
+    transform: translateY(-50%);
+  }
+
   .hero-right-lateral {
-    right: 24px;
-    width: 40px;
-    height: 400px;
-    gap: 14px;
-    top: 538px;
-    transform: none;
+    right: clamp(10px, 3.2vw, 14px);
+    width: 30px;
+    height: clamp(176px, 22svh, 206px);
+    gap: 10px;
+    top: 68%;
+    transform: translateY(-50%);
   }
 
   .hero-email {
@@ -78,8 +68,8 @@
   }
 
   .hero-socials a img {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
 
   .hero-socials a .icon-active {
@@ -96,19 +86,11 @@
     border-color: transparent;
   }
 
-  .hero-left-lateral {
-    left: 24px;
-    width: 30px;
-    height: 294px;
-    top: 702px;
-    gap: 12px;
-  }
-
   .hero-scroll-pill {
-    width: 30px;
-    height: 46px;
+    width: 28px;
+    height: 42px;
     border-radius: 16px;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .hero-scroll-icon {
@@ -117,15 +99,115 @@
   }
 
   .hero-left-line {
+    min-height: clamp(152px, 19.5svh, 188px);
     background: rgba(78, 205, 196, 0.72);
   }
 
   .hero-right-line {
-    min-height: 165px;
+    min-height: clamp(102px, 13.2svh, 132px);
     background: #ffffff;
+  }
+
+  .hero-marquee {
+    width: calc(100% + 48px);
+    min-width: 0;
+    left: 50%;
+    height: 50px;
+    padding: 8px 12px;
+    bottom: clamp(10px, 1.8svh, 18px);
+    transform: translateX(-50%) rotate(-2deg);
+  }
+
+  .hero-marquee-track,
+  .hero-marquee-group {
+    gap: clamp(18px, 4.5vw, 24px);
+    font-size: clamp(9.5px, 2.5vw, 10.5px);
   }
 
   .hero-email-chip {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero {
+    min-height: clamp(740px, 100svh, 860px);
+  }
+
+  .hero-title {
+    width: min(calc(100% - 28px), 348px);
+  }
+
+  .hero-name {
+    font-size: clamp(50px, 14.2vw, 62px);
+  }
+}
+
+@media (max-width: 390px) {
+  #hero {
+    min-height: clamp(710px, 100svh, 820px);
+  }
+
+  .hero-title {
+    top: clamp(300px, 40svh, 342px);
+    width: min(calc(100% - 24px), 336px);
+  }
+
+  .hero-name {
+    font-size: clamp(46px, 14.4vw, 58px);
+  }
+
+  .hero-buttons .btn {
+    min-height: 38px;
+    padding: 7px 14px;
+    font-size: 11px;
+  }
+
+  .hero-left-lateral {
+    width: 28px;
+    height: clamp(210px, 27svh, 236px);
+    top: 71%;
+  }
+
+  .hero-right-lateral {
+    width: 28px;
+    height: clamp(164px, 21svh, 184px);
+    top: 67%;
+  }
+
+  .hero-socials a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-socials a img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-left-line {
+    min-height: clamp(146px, 19svh, 174px);
+  }
+
+  .hero-right-line {
+    min-height: clamp(96px, 12.4svh, 116px);
+  }
+}
+
+@media (max-width: 390px) and (max-height: 740px) {
+  #hero {
+    min-height: 700px;
+  }
+
+  .hero-title {
+    top: clamp(286px, 38svh, 324px);
+  }
+
+  .hero-left-lateral { top: 70%; }
+
+  .hero-right-lateral { top: 66%; }
+
+  .hero-marquee {
+    bottom: 8px;
   }
 }

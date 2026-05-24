@@ -198,7 +198,7 @@ a.legal-highlight:hover {
   }
 
   .legal-page .navbar {
-    width: 358px;
+    width: min(358px, calc(100% - 24px));
     height: 50px;
     padding: 0 16px;
     margin: 0 auto;
