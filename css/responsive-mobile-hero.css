@@ -1,63 +1,74 @@
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #hero {
-    height: auto;
-    min-height: clamp(760px, 100svh, 900px);
-    padding-top: var(--header-height);
+    min-height: 820px;
+    padding-top: 0;
+    background:
+      radial-gradient(circle at 84% 22%, rgba(8, 70, 59, 0.94) 0%, rgba(8, 70, 59, 0.66) 34%, rgba(8, 70, 59, 0.18) 60%, rgba(8, 70, 59, 0) 78%),
+      linear-gradient(102deg, #1a1b1b 0%, #171919 38%, #12312c 74%, #0b453c 100%);
   }
 
   .hero-title {
-    top: clamp(310px, 41.5svh, 366px);
+    top: 360px;
     transform: translate(-50%, -50%);
-    width: min(calc(100% - 36px), 360px);
+    width: 362px;
+    max-width: calc(100% - 44px);
     gap: 0;
   }
 
   .hero-subtitle {
-    font-size: clamp(14px, 3.6vw, 15px);
-    letter-spacing: 0.8px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
   }
 
   .hero-name {
-    font-size: clamp(52px, 13.4vw, 66px);
-    line-height: 0.92;
+    font-size: 62px;
+    line-height: 0.9;
+    letter-spacing: -1px;
     white-space: nowrap;
-    margin-bottom: 16px;
+    margin-bottom: 22px;
   }
 
   .hero-buttons {
     margin-top: 0;
-    gap: 10px;
+    gap: 16px;
   }
 
   .hero-buttons .btn {
-    min-height: 40px;
-    padding: 8px 16px;
+    min-width: 122px;
+    min-height: 44px;
+    padding: 8px 20px;
     font-size: 12px;
     position: relative;
     z-index: 350;
   }
 
   .hero-left-lateral {
-    left: clamp(10px, 3.2vw, 14px);
+    left: 16px;
+    top: auto;
+    bottom: 0;
     width: 30px;
-    height: clamp(220px, 27svh, 250px);
-    top: 72%;
-    gap: 12px;
-    transform: translateY(-50%);
+    height: 320px;
+    gap: 20px;
+    transform: none;
   }
 
   .hero-right-lateral {
-    right: clamp(10px, 3.2vw, 14px);
+    right: 16px;
+    top: auto;
+    bottom: 64px;
     width: 30px;
-    height: clamp(176px, 22svh, 206px);
-    gap: 10px;
-    top: 68%;
-    transform: translateY(-50%);
+    height: 260px;
+    gap: 14px;
+    transform: none;
   }
 
   .hero-email {
     display: none;
+  }
+
+  .hero-socials {
+    gap: 14px;
   }
 
   .hero-socials a {
@@ -87,9 +98,9 @@
   }
 
   .hero-scroll-pill {
-    width: 28px;
-    height: 42px;
-    border-radius: 16px;
+    width: 30px;
+    height: 44px;
+    border-radius: 18px;
     font-size: 13px;
   }
 
@@ -99,29 +110,48 @@
   }
 
   .hero-left-line {
-    min-height: clamp(152px, 19.5svh, 188px);
+    width: 1px;
+    flex: 1 1 auto;
+    min-height: 240px;
+    display: block;
     background: rgba(78, 205, 196, 0.72);
   }
 
   .hero-right-line {
-    min-height: clamp(102px, 13.2svh, 132px);
+    min-height: 170px;
     background: #ffffff;
   }
 
   .hero-marquee {
-    width: calc(100% + 48px);
+    width: calc(100% + 30px);
     min-width: 0;
     left: 50%;
     height: 50px;
-    padding: 8px 12px;
-    bottom: clamp(10px, 1.8svh, 18px);
-    transform: translateX(-50%) rotate(-2deg);
+    padding: 8px 18px;
+    bottom: 92px;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(4.8px);
+    -webkit-backdrop-filter: blur(4.8px);
+    transform: translateX(-50%) rotate(-2.3deg);
   }
 
   .hero-marquee-track,
   .hero-marquee-group {
-    gap: clamp(18px, 4.5vw, 24px);
-    font-size: clamp(9.5px, 2.5vw, 10.5px);
+    gap: 28px;
+    font-size: 14px;
+  }
+
+  .hero-marquee-track span {
+    height: 30px;
+  }
+
+  .hero-marquee-group span:nth-child(-n+3),
+  .hero-marquee-group span:nth-last-child(-n+2) {
+    display: none;
+  }
+
+  .marquee-dot {
+    font-size: 12px;
   }
 
   .hero-email-chip {
@@ -131,48 +161,94 @@
 
 @media (max-width: 480px) {
   #hero {
-    min-height: clamp(740px, 100svh, 860px);
+    min-height: 760px;
   }
 
   .hero-title {
-    width: min(calc(100% - 28px), 348px);
+    top: 340px;
+    width: 350px;
+    max-width: calc(100% - 34px);
   }
 
   .hero-name {
-    font-size: clamp(50px, 14.2vw, 62px);
+    font-size: 56px;
+    margin-bottom: 20px;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+  }
+
+  .hero-buttons .btn {
+    min-width: 116px;
+    padding: 8px 18px;
+  }
+
+  .hero-left-lateral {
+    bottom: 0;
+    height: 300px;
+  }
+
+  .hero-right-lateral {
+    bottom: 48px;
+    height: 250px;
+  }
+
+  .hero-left-line {
+    min-height: 236px;
+  }
+
+  .hero-right-line {
+    min-height: 158px;
+  }
+
+  .hero-marquee {
+    width: calc(100% + 22px);
+    bottom: 88px;
+  }
+
+  .hero-marquee-track,
+  .hero-marquee-group {
+    font-size: 13px;
+    gap: 24px;
   }
 }
 
 @media (max-width: 390px) {
   #hero {
-    min-height: clamp(710px, 100svh, 820px);
+    min-height: 720px;
   }
 
   .hero-title {
-    top: clamp(300px, 40svh, 342px);
-    width: min(calc(100% - 24px), 336px);
+    top: 320px;
+    width: 336px;
+    max-width: calc(100% - 28px);
   }
 
   .hero-name {
-    font-size: clamp(46px, 14.4vw, 58px);
+    font-size: 52px;
+    margin-bottom: 18px;
   }
 
   .hero-buttons .btn {
-    min-height: 38px;
-    padding: 7px 14px;
+    min-width: 108px;
+    min-height: 40px;
+    padding: 7px 16px;
     font-size: 11px;
   }
 
   .hero-left-lateral {
+    left: 12px;
     width: 28px;
-    height: clamp(210px, 27svh, 236px);
-    top: 71%;
+    bottom: 0;
+    height: 284px;
   }
 
   .hero-right-lateral {
+    right: 12px;
     width: 28px;
-    height: clamp(164px, 21svh, 184px);
-    top: 67%;
+    bottom: 40px;
+    height: 230px;
   }
 
   .hero-socials a {
@@ -186,11 +262,23 @@
   }
 
   .hero-left-line {
-    min-height: clamp(146px, 19svh, 174px);
+    min-height: 220px;
   }
 
   .hero-right-line {
-    min-height: clamp(96px, 12.4svh, 116px);
+    min-height: 150px;
+  }
+
+  .hero-marquee {
+    height: 46px;
+    padding: 7px 16px;
+    bottom: 82px;
+  }
+
+  .hero-marquee-track,
+  .hero-marquee-group {
+    font-size: 12px;
+    gap: 20px;
   }
 }
 
@@ -200,14 +288,41 @@
   }
 
   .hero-title {
-    top: clamp(286px, 38svh, 324px);
+    top: 300px;
   }
 
-  .hero-left-lateral { top: 70%; }
+  .hero-left-lateral {
+    bottom: 0;
+  }
 
-  .hero-right-lateral { top: 66%; }
+  .hero-right-lateral {
+    bottom: 30px;
+  }
 
   .hero-marquee {
-    bottom: 8px;
+    bottom: 68px;
+  }
+}
+
+@media (min-height: 900px) and (max-width: 767px) {
+  #hero {
+    min-height: 900px;
+  }
+
+  .hero-title {
+    top: 380px;
+  }
+
+  .hero-left-lateral {
+    height: 340px;
+  }
+
+  .hero-right-lateral {
+    height: 280px;
+    bottom: 72px;
+  }
+
+  .hero-marquee {
+    bottom: 98px;
   }
 }

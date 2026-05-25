@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #footer {
     border-top: none;
     padding: 0 clamp(10px, 4vw, 16px);

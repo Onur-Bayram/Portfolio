@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #about {
     width: min(358px, calc(100% - 32px));
     margin: 72px auto 0;

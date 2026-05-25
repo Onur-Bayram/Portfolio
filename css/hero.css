@@ -266,7 +266,7 @@
   background: #ffffff;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   #hero {
     width: 100%;
     max-width: none;
