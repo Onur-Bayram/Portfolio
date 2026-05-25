@@ -222,6 +222,14 @@
   }
 }
 
+/* XR-sized phones need the right rail slightly lower to match the intended composition. */
+@media (min-width: 391px) and (max-width: 430px) {
+  .hero-right-lateral {
+    bottom: 40px;
+    height: 250px;
+  }
+}
+
 /* Small phones shrink text, buttons, rails, and marquee proportions further. */
 @media (max-width: 390px) {
   /* Narrow widths need smaller typography and tighter side offsets to avoid collisions. */
@@ -331,10 +339,7 @@
     height: 340px;
   }
 
-  .hero-right-lateral {
-    height: 280px;
-    bottom: 72px;
-  }
+  /* Keep the right rail controlled by the width-specific rules below 430px. */
 
   .hero-marquee {
     bottom: 98px;
