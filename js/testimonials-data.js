@@ -1,3 +1,5 @@
+// Testimonial content source.
+// Supplies translated quotes and author labels for the slider module.
 window.TESTIMONIALS_DATA = [
   {
     text_de: 'Onur hat immer einen effizienten Weg gefunden, komplexe Probleme zu lösen. Sein strukturierter Ansatz und seine Zuverlässigkeit waren entscheidend für den Erfolg unseres Projekts.',

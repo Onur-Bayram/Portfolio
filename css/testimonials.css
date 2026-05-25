@@ -1,9 +1,12 @@
+/* Testimonials slider, centered stage, and navigation controls. */
+/* Outer section spacing around the slider component. */
 #testimonials {
   background-color: var(--color-bg);
   padding: 100px 0 80px;
   overflow: hidden;
 }
 
+/* Shared section title layout. */
 .testimonials-wrap {
   text-align: center;
 }
@@ -17,6 +20,7 @@
   padding: 0 var(--padding-x);
 }
 
+/* Stage and overflow masks keep the side cards partially cropped. */
 .testimonials-stage {
   position: relative;
   width: 100%;
@@ -49,6 +53,7 @@
   background: linear-gradient(to left, #111111 0%, transparent 100%);
 }
 
+/* The track moves horizontally while cards stay fixed width. */
 .testimonials-track {
   display: flex;
   align-items: center;
@@ -57,6 +62,7 @@
   padding: 20px 0 24px;
 }
 
+/* Testimonial cards scale and fade depending on active state. */
 .testimonial-card {
   flex: 0 0 560px;
   background: rgba(78, 205, 196, 0.12);
@@ -71,6 +77,7 @@
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
+/* Quote, body text, and author styling inside each card. */
 .testimonial-card.is-active {
   opacity: 1;
   transform: scale(1);
@@ -115,6 +122,7 @@
   white-space: nowrap;
 }
 
+/* Arrow buttons and pagination dots below the stage. */
 .testimonials-controls {
   display: flex;
   align-items: center;

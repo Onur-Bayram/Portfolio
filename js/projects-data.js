@@ -1,4 +1,12 @@
+// Project content source.
+// Exposes a global data object that powers both the project list and the detail card.
 window.PROJECTS_DATA = {
+  // Each project entry contains:
+  // - static display metadata
+  // - translated descriptions
+  // - preview media
+  // - external links
+  // - a tech stack used in the list overlay and detail view
   join: {
     number: '01',
     title: 'Join',

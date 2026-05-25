@@ -1,3 +1,5 @@
+/* Desktop hero layout, lateral rails, and marquee styling. */
+/* Main hero shell with layered gradients and isolated stacking context. */
 #hero {
   height: 100vh;
   background:
@@ -10,6 +12,7 @@
   padding-top: 0;
 }
 
+/* Decorative cursor glow driven by JavaScript on pointer devices. */
 .hero-cursor-glow {
   position: absolute;
   left: 0;
@@ -32,6 +35,7 @@
   opacity: 1;
 }
 
+/* Centered headline block positioned above the background effects. */
 .hero-title {
   position: absolute;
   top: 43%;
@@ -47,6 +51,7 @@
   z-index: 2;
 }
 
+/* Subtitle, name, and call-to-action button styles. */
 .hero-subtitle {
   font-family: var(--font-mono);
   font-size: clamp(15.2px, 1.55vw, 17.6px);
@@ -100,6 +105,7 @@
   display: none;
 }
 
+/* Left-side rail with the scroll hint and accent line. */
 .hero-left-lateral {
   position: absolute;
   top: 60%;
@@ -114,6 +120,7 @@
   z-index: 2;
 }
 
+/* Scroll pill mirrors the Figma control and reacts on hover. */
 .hero-scroll-pill {
   width: 32px;
   height: 52px;
@@ -142,12 +149,14 @@
   color: #0f1212;
 }
 
+/* Accent line extending downward from the scroll indicator. */
 .hero-left-line {
   width: 1px;
   flex: 1;
   background: rgba(78, 205, 196, 0.72);
 }
 
+/* Right-side rail with email, social links, and white line. */
 .hero-right-lateral {
   position: absolute;
   top: 50%;
@@ -162,6 +171,7 @@
   z-index: 2;
 }
 
+/* Vertical desktop email label. */
 .hero-email {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -172,6 +182,7 @@
   color: #ffffff;
 }
 
+/* Social icon stack with active and hover image swapping. */
 .hero-socials {
   display: flex;
   flex-direction: column;
@@ -236,6 +247,7 @@
   opacity: 0;
 }
 
+/* Compact email chip used when the vertical email label is hidden on some states. */
 .hero-email-chip {
   position: absolute;
   right: 44px;
@@ -260,12 +272,14 @@
   background: rgba(78, 205, 196, 0.08);
 }
 
+/* White line beneath the right rail content. */
 .hero-right-line {
   width: 1px;
   flex: 1;
   background: #ffffff;
 }
 
+/* Desktop-specific hero refinements from tablet width upward. */
 @media (min-width: 768px) {
   #hero {
     width: 100%;
@@ -366,6 +380,7 @@
   }
 }
 
+/* Slanted marquee band that crosses the lower part of the hero. */
 .hero-marquee {
   position: absolute;
   left: 50%;
@@ -385,6 +400,7 @@
   z-index: 4;
 }
 
+/* Scrolling text track and duplicated content groups create an infinite ticker effect. */
 .hero-marquee-track {
   display: flex;
   align-items: center;
@@ -417,6 +433,7 @@
   font-size: 14.4px;
 }
 
+/* Keyframe used by the marquee track translation animation. */
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -428,6 +445,7 @@
 }
 
 
+/* Touch devices do not show the cursor glow and always hide the email chip. */
 @media (hover: none), (pointer: coarse) {
   .hero-cursor-glow {
     display: none;

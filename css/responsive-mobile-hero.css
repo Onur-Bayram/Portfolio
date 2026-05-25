@@ -1,4 +1,7 @@
+/* Phone-sized hero layout with fixed-positioned rails and compact marquee styling. */
+/* Base mobile hero rules for the full phone range. */
 @media (max-width: 767px) {
+  /* The hero switches from full-screen desktop composition to a fixed-height phone composition. */
   #hero {
     min-height: 820px;
     padding-top: 0;
@@ -7,6 +10,7 @@
       linear-gradient(102deg, #1a1b1b 0%, #171919 38%, #12312c 74%, #0b453c 100%);
   }
 
+  /* Copy is positioned by absolute offsets so the mobile hero matches the Figma composition. */
   .hero-title {
     top: 360px;
     transform: translate(-50%, -50%);
@@ -43,6 +47,7 @@
     z-index: 350;
   }
 
+  /* Left and right rails move to bottom-anchored mobile positions. */
   .hero-left-lateral {
     left: 16px;
     top: auto;
@@ -122,6 +127,7 @@
     background: #ffffff;
   }
 
+  /* The marquee becomes shorter and hides non-essential repeated items on phones. */
   .hero-marquee {
     width: calc(100% + 30px);
     min-width: 0;
@@ -159,7 +165,9 @@
   }
 }
 
+/* Medium phones slightly reduce the hero height and tighten spacing. */
 @media (max-width: 480px) {
+  /* This breakpoint mainly trims vertical space without changing the overall composition. */
   #hero {
     min-height: 760px;
   }
@@ -214,7 +222,9 @@
   }
 }
 
+/* Small phones shrink text, buttons, rails, and marquee proportions further. */
 @media (max-width: 390px) {
+  /* Narrow widths need smaller typography and tighter side offsets to avoid collisions. */
   #hero {
     min-height: 720px;
   }
@@ -282,7 +292,9 @@
   }
 }
 
+/* Extra-short phones need a lower title position and tighter bottom spacing. */
 @media (max-width: 390px) and (max-height: 740px) {
+  /* Short viewports need the hero content pulled upward so the marquee still fits. */
   #hero {
     min-height: 700px;
   }
@@ -304,7 +316,9 @@
   }
 }
 
+/* Taller phones receive a bit more breathing room in the hero composition. */
 @media (min-height: 900px) and (max-width: 767px) {
+  /* Extra vertical room lets the rails and marquee stretch without feeling cramped. */
   #hero {
     min-height: 900px;
   }

@@ -1,8 +1,11 @@
+/* Contact section layout, form styling, and validation states. */
+/* Section shell and bordered desktop contact panel. */
 #contact {
   background-color: var(--color-bg);
   padding: 100px var(--padding-x) 100px;
 }
 
+/* Two-column contact layout: copy on the left, form on the right. */
 .contact-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -15,6 +18,7 @@
   margin: 0 auto;
 }
 
+/* Intro copy hierarchy for the contact pitch. */
 .contact-kicker {
   font-family: var(--font-mono);
   font-size: 16px;
@@ -54,6 +58,7 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
+/* Accent links used inside the contact copy and privacy text. */
 .contact-link {
   color: var(--color-accent);
   text-decoration: underline;
@@ -64,6 +69,7 @@
   opacity: 0.75;
 }
 
+/* Form column and shared field wrapper layout. */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -79,6 +85,7 @@
   transition: border-color 180ms ease;
 }
 
+/* Field labels and text inputs use a minimal underline treatment. */
 .form-field label {
   font-family: var(--font-mono);
   font-size: 16px;
@@ -99,6 +106,7 @@
   -webkit-appearance: none;
 }
 
+/* Visual feedback for focus and validation states. */
 .form-field:focus-within {
   border-bottom-color: rgba(78, 205, 196, 0.9);
 }
@@ -132,6 +140,7 @@
   display: block;
 }
 
+/* Privacy checkbox row with custom visual checkbox. */
 .form-privacy {
   display: flex;
   align-items: flex-start;
@@ -173,6 +182,7 @@
   flex-shrink: 0;
 }
 
+/* Checked state swaps in the dark check icon over the accent background. */
 .privacy-checkbox-wrap input[type="checkbox"]:checked + .privacy-custom-box {
   background: var(--color-accent);
   background-image: url('../assets/ui/check-dark.svg');
@@ -188,6 +198,7 @@
   line-height: 1.55;
 }
 
+/* Submit row aligns the final call to action to the right on larger screens. */
 .form-submit {
   display: flex;
   justify-content: flex-end;

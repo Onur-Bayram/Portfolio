@@ -1,3 +1,5 @@
+/* Phone-specific overrides for the about and skills sections. */
+/* Base mobile stacking for about and skills. */
 @media (max-width: 767px) {
   #about {
     width: min(358px, calc(100% - 32px));
@@ -124,6 +126,7 @@
   }
 }
 
+/* Smaller phones tighten card padding and grid spacing further. */
 @media (max-width: 420px) {
   #about {
     width: calc(100% - 22px);

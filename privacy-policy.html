@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="css/legal-notice.css" />
   </head>
   <body class="legal-page">
+    <!-- Shared site header reused on legal content pages -->
     <header id="header">
       <nav class="navbar">
+        <!-- Left side: language switcher and shortcuts back into the portfolio -->
         <div class="nav-left">
           <div class="lang-toggle" role="group" aria-label="Sprache wechseln">
             <button class="lang-chip is-active" id="langEN" type="button" aria-pressed="true">EN</button>
@@ -31,6 +33,7 @@
           </ul>
         </div>
 
+        <!-- Brand anchor that returns to the portfolio hero -->
         <a href="index.html#hero" class="nav-logo" aria-label="Zur Startseite">
           <img class="logo-icon" src="assets/icons/logo-filled.svg" alt="" aria-hidden="true" />
           <div class="logo-text">
@@ -39,6 +42,7 @@
           </div>
         </a>
 
+        <!-- Mobile menu trigger -->
         <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
           <span></span>
           <span></span>
@@ -46,6 +50,7 @@
         </button>
       </nav>
 
+      <!-- Overlay navigation for smaller screens -->
       <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <a href="index.html#about" class="mobile-link" data-de="Über mich" data-en="About me">About me</a>
         <a href="index.html#skills" class="mobile-link" data-de="Skills" data-en="Skills">Skills</a>
@@ -57,7 +62,9 @@
       </div>
     </header>
 
+    <!-- Privacy policy content wrapper -->
     <main id="legal">
+      <!-- Main privacy policy content -->
       <section class="legal-notice-shell" aria-labelledby="privacyPolicyTitle">
         <h1 id="privacyPolicyTitle" data-de="Datenschutzerklärung" data-en="Privacy Policy">Privacy Policy</h1>
 
@@ -101,8 +108,10 @@
       </section>
     </main>
 
+    <!-- Shared footer reused on legal content pages -->
     <footer id="footer">
       <div class="footer-inner">
+        <!-- Left column: logo and profile label -->
         <div class="footer-left">
           <a href="index.html#hero" class="footer-logo" aria-label="Zur Startseite">
             <img class="logo-icon" src="assets/icons/logo-filled.svg" alt="" aria-hidden="true" />
@@ -115,8 +124,10 @@
           <p class="footer-location" data-de="Offenbach, Deutschland" data-en="Offenbach, Germany">Offenbach, Germany</p>
         </div>
 
+        <!-- Center column: copyright notice -->
         <p class="footer-copy" data-de="© Onur Bayram 2026" data-en="© Onur Bayram 2026">© Onur Bayram 2026</p>
 
+        <!-- Right column: profile and legal links -->
         <nav class="footer-nav" aria-label="Footer Navigation">
           <a href="https://github.com/Onur-Bayram" target="_blank" rel="noopener noreferrer" data-de="Github" data-en="Github">Github</a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" data-de="LinkedIn" data-en="LinkedIn">LinkedIn</a>
@@ -127,6 +138,7 @@
       </div>
     </footer>
 
+    <!-- Shared behavior scripts for language switching and mobile navigation -->
     <script src="js/lang.js"></script>
     <script src="js/burger.js"></script>
   </body>

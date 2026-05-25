@@ -1,3 +1,4 @@
+/* Global reset, typography defaults, and shared button primitives. */
 *,
 *::before,
 *::after {
@@ -6,11 +7,13 @@
   padding: 0;
 }
 
+/* Document-level behavior and overflow handling. */
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
 }
 
+/* Base body colors and text rendering. */
 body {
   background-color: var(--color-bg);
   color: var(--color-white);
@@ -18,6 +21,7 @@ body {
   line-height: 1.6;
 }
 
+/* Shared element defaults so links, lists, and media start from a clean baseline. */
 a {
   color: inherit;
   text-decoration: none;
@@ -32,6 +36,7 @@ img {
   display: block;
 }
 
+/* Reusable pill button component used throughout hero, projects, and contact actions. */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -53,10 +58,12 @@ img {
   text-decoration: none;
 }
 
+/* Subtle lift effect shared by all enabled buttons. */
 .btn:hover {
   transform: translateY(-1px);
 }
 
+/* Filled-style primary action buttons. */
 .btn-primary {
   border-color: rgba(255, 255, 255, 0.78);
   background: rgba(17, 17, 17, 0.88);
@@ -68,6 +75,7 @@ img {
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* Accent-outline secondary action buttons. */
 .btn-secondary {
   border-color: var(--color-accent);
   background: transparent;
@@ -80,6 +88,7 @@ img {
   color: #76e1da;
 }
 
+/* Shared arrow button spacing and icon swapping. */
 .btn-arrow {
   gap: 8px;
 }
@@ -105,6 +114,7 @@ img {
   display: block;
 }
 
+/* Disabled submit buttons stay visibly inactive and ignore the hover lift. */
 .btn-submit:disabled {
   opacity: 0.35;
   cursor: not-allowed;

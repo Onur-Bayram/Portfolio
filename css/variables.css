@@ -1,4 +1,6 @@
+/* Design tokens used across the whole portfolio. */
 :root {
+  /* Core color palette for surfaces, overlays, accents, and text. */
   --color-bg: #111111;
   --color-dark-teal: #08463B;
   --color-overlay-dark: #1C1C1C;
@@ -9,9 +11,11 @@
   --color-muted: rgba(255, 255, 255, 0.5);
   --color-border: rgba(255, 255, 255, 0.1);
 
+  /* Shared font families for display copy and UI text. */
   --font-mono: 'Fira Code', monospace;
   --font-sans: 'Karla', sans-serif;
 
+  /* Global layout measurements reused by multiple sections. */
   --header-height: 98px;
   --padding-x: 96px;
 }

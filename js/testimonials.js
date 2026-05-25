@@ -1,4 +1,7 @@
+// Testimonials slider.
+// Renders cards from shared data and centers the active testimonial inside the viewport.
 (function () {
+  // Collect the stage elements and navigation controls used by the slider.
   var track = document.getElementById('testimonialsTrack');
   var dotsEl = document.getElementById('testimonialsDots');
   var prev = document.getElementById('testimonialsPrev');
@@ -9,7 +12,7 @@
   var DATA = window.TESTIMONIALS_DATA || [];
   var langEN = document.getElementById('langEN');
 
-  // Render cards from data
+  // Build all testimonial cards from the shared data set.
   DATA.forEach(function (t, index) {
     var article = document.createElement('article');
     article.className = 'testimonial-card' + (index === 1 ? ' is-active' : '');
@@ -22,6 +25,7 @@
     track.appendChild(article);
   });
 
+  // Build one navigation dot per testimonial card.
   if (dotsEl) {
     DATA.forEach(function (_, index) {
       var btn = document.createElement('button');
@@ -35,12 +39,14 @@
   var dots = dotsEl ? Array.from(dotsEl.querySelectorAll('.dot')) : [];
   var current = 1;
 
+  // Include margins in the width calculation because cards are spaced with outer gaps.
   function cardTotalWidth() {
     if (!cards[0]) return 0;
     var style = window.getComputedStyle(cards[0]);
     return cards[0].offsetWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
   }
 
+  // Shift the track so the active card sits in the center of the visible stage.
   function update() {
     var containerWidth = track.parentElement.offsetWidth;
     var cardWidth = cardTotalWidth();
@@ -56,6 +62,7 @@
     });
   }
 
+  // Arrow controls move backward and forward through the looped data set.
   if (prev) {
     prev.addEventListener('click', function () {
       current = (current - 1 + cards.length) % cards.length;
@@ -70,6 +77,7 @@
     });
   }
 
+  // Dot controls jump directly to a specific testimonial.
   dots.forEach(function (dot, index) {
     dot.addEventListener('click', function () {
       current = index;
@@ -77,6 +85,7 @@
     });
   });
 
+  // Recalculate the centering whenever the viewport changes size.
   window.addEventListener('resize', update);
   update();
 })();

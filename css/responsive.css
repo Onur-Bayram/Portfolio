@@ -1,2 +1,3 @@
+/* Responsive entry point that loads mobile and tablet overrides. */
 @import url('./responsive-mobile.css');
 @import url('./responsive-tablet.css');

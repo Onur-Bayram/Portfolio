@@ -1,8 +1,11 @@
+/* Footer layout with brand recap, copyright, and utility links. */
+/* Outer footer shell that aligns with the site's horizontal padding token. */
 #footer {
   background-color: var(--color-bg);
   padding: 0 var(--padding-x);
 }
 
+/* Three-column desktop grid. */
 .footer-inner {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -13,6 +16,7 @@
   gap: 24px;
 }
 
+/* Left column: brand lockup and short profile copy. */
 .footer-left {
   display: flex;
   flex-direction: column;
@@ -27,6 +31,7 @@
   margin-bottom: 4px;
 }
 
+/* Footer logo reuses the same icon and wordmark pattern as the header. */
 .footer-logo .logo-text {
   display: flex;
   flex-direction: column;
@@ -45,6 +50,7 @@
   line-height: 1.4;
 }
 
+/* Center column keeps the copyright visually separate from the link list. */
 .footer-copy {
   font-family: var(--font-mono);
   font-size: 13.6px;
@@ -54,6 +60,7 @@
   padding: 50px;
 }
 
+/* Right column stacks external and legal links vertically. */
 .footer-nav {
   display: flex;
   flex-direction: column;

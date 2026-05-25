@@ -23,11 +23,11 @@
   </head>
   <body>
 
-    <!-- Header -->
+    <!-- Site header with desktop navigation, language switch, and mobile trigger -->
     <header id="header">
       <nav class="navbar">
 
-        <!-- Links: Sprachtoggle + Navigation -->
+        <!-- Left side: language switcher and primary section links -->
         <div class="nav-left">
           <div class="lang-toggle" role="group" aria-label="Sprache wechseln">
             <button class="lang-chip is-active" id="langEN" type="button" aria-pressed="true">EN</button>
@@ -40,7 +40,7 @@
           </ul>
         </div>
 
-        <!-- Rechts: Logo -->
+        <!-- Brand anchor that returns to the hero section -->
         <a href="#hero" class="nav-logo" aria-label="Zur Startseite">
           <img class="logo-icon" src="assets/icons/logo-filled.svg" alt="" aria-hidden="true" />
           <div class="logo-text">
@@ -49,7 +49,7 @@
           </div>
         </a>
 
-        <!-- Burger (nur Mobile) -->
+        <!-- Mobile-only burger button that opens the overlay menu -->
         <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
           <span></span>
           <span></span>
@@ -58,7 +58,7 @@
 
       </nav>
 
-      <!-- Mobile Menü -->
+      <!-- Overlay menu used on smaller screens -->
       <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <a href="#about" class="mobile-link" data-de="Über mich" data-en="About me">About me</a>
         <a href="#skills" class="mobile-link" data-de="Skills" data-en="Skills">Skills</a>
@@ -70,12 +70,13 @@
       </div>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero section with intro copy, social links, and animated marquee -->
     <section id="hero">
 
+      <!-- Decorative glow element that follows the cursor on pointer devices -->
       <div class="hero-cursor-glow" id="heroCursorGlow" aria-hidden="true"></div>
 
-      <!-- Zentrierter Title-Block -->
+      <!-- Centered hero copy and primary calls to action -->
       <div class="hero-title">
         <p class="hero-subtitle" data-de="Frontend Developer" data-en="Frontend Developer">Frontend Developer</p>
         <h1 class="hero-name">Onur Bayram</h1>
@@ -85,6 +86,7 @@
         </div>
       </div>
 
+      <!-- Left-side scroll indicator column -->
       <aside class="hero-left-lateral" aria-label="Scroll Hinweis">
         <a href="#about" class="hero-scroll-pill" aria-label="Nach unten scrollen">
           <img class="hero-scroll-icon" src="assets/ui/hero-scroll-arrow.svg" alt="" aria-hidden="true" />
@@ -92,6 +94,7 @@
         <span class="hero-left-line" aria-hidden="true"></span>
       </aside>
 
+      <!-- Right-side contact column with email and social shortcuts -->
       <aside class="hero-right-lateral" aria-label="Kontakt und Social Media">
         <a href="mailto:onur-bayram@hotmail.de" class="hero-email">onur-bayram@hotmail.de</a>
         <div class="hero-socials">
@@ -112,6 +115,7 @@
         <span class="hero-right-line" aria-hidden="true"></span>
       </aside>
 
+      <!-- Decorative ticker line that repeats availability and location copy -->
       <div class="hero-marquee" aria-hidden="true">
         <div class="hero-marquee-track">
           <div class="hero-marquee-group">
@@ -139,7 +143,7 @@
 
     </section>
 
-    <!-- About me -->
+    <!-- About section with portrait and personal profile summary -->
     <section id="about">
       <div class="about-media">
         <img src="assets/images/profile/pro1.png" alt="Onur Bayram am Laptop" />
@@ -179,7 +183,7 @@
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Skills section with intro card and technology grid -->
     <section id="skills">
       <div class="skills-left">
         <p class="skills-kicker" data-de="Technologien" data-en="Technologies">Technologies</p>
@@ -263,7 +267,7 @@
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects overview with dynamic list and detail card -->
     <section id="projects">
       <p class="projects-kicker" data-de="Portfolio" data-en="Portfolio">Portfolio</p>
       <h2 data-de="Ausgewählte Projekte" data-en="Featured Projects">Featured Projects</h2>
@@ -302,7 +306,7 @@
       </article>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Testimonials slider populated from JavaScript data -->
     <section id="testimonials">
       <div class="testimonials-wrap">
         <h2 class="testimonials-title" data-de="Was meine Kollegen über mich sagen" data-en="What my colleagues say about me">What my colleagues say about me</h2>
@@ -326,11 +330,11 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact section with intro copy and Netlify form -->
     <section id="contact">
       <div class="contact-box">
 
-        <!-- Left column -->
+        <!-- Left column: contact pitch and call to action -->
         <div class="contact-left">
           <p class="contact-kicker" data-de="Kontakt" data-en="Contact me">Contact me</p>
           <h2 class="contact-heading" data-de="Lass uns zusammen&shy;arbeiten" data-en="Let's work together">Let's work together</h2>
@@ -339,7 +343,7 @@
           <p class="contact-cta" data-de="Frontend Developer gesucht? <a href='mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage' class='contact-link'>Lass uns reden!</a>" data-en="Need a Frontend developer? <a href='mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage' class='contact-link'>Let's talk!</a>">Need a Frontend developer? <a href="mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage" class="contact-link">Let's talk!</a></p>
         </div>
 
-        <!-- Right column: form -->
+        <!-- Right column: validated contact form -->
         <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" novalidate>
           <input type="hidden" name="form-name" value="contact" />
 
@@ -380,11 +384,11 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer with brand recap, copyright, and utility links -->
     <footer id="footer">
       <div class="footer-inner">
 
-        <!-- Left: logo + info -->
+        <!-- Left column: logo and short profile summary -->
         <div class="footer-left">
           <a href="#hero" class="footer-logo" aria-label="Zur Startseite">
             <img class="logo-icon" src="assets/icons/logo-filled.svg" alt="" aria-hidden="true" />
@@ -397,10 +401,10 @@
           <p class="footer-location" data-de="Offenbach, Deutschland" data-en="Offenbach, Germany">Offenbach, Germany</p>
         </div>
 
-        <!-- Center: copyright -->
+        <!-- Center column: copyright notice -->
         <p class="footer-copy" data-de="© Onur Bayram 2026" data-en="© Onur Bayram 2026">&#169; Onur Bayram 2026</p>
 
-        <!-- Right: nav links -->
+        <!-- Right column: external profiles and legal links -->
         <nav class="footer-nav" aria-label="Footer Navigation">
           <a href="https://github.com/Onur-Bayram" target="_blank" rel="noopener noreferrer" data-de="Github" data-en="Github">Github</a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" data-de="LinkedIn" data-en="LinkedIn">LinkedIn</a>
@@ -412,6 +416,7 @@
       </div>
     </footer>
 
+    <!-- Behavior scripts are loaded last so the DOM is ready before initialization -->
     <script src="js/lang.js"></script>
     <script src="js/burger.js"></script>
     <script src="js/nav.js"></script>

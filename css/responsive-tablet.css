@@ -1,8 +1,12 @@
+/* Tablet breakpoint overrides that bridge the gap between phone and desktop layouts. */
+/* Shared tablet rules for widths between 768px and 1200px. */
 @media (min-width: 768px) and (max-width: 1200px) {
+  /* Tablet spacing relaxes the desktop layout without collapsing into the phone composition. */
   :root {
     --padding-x: clamp(24px, 4.5vw, 48px);
   }
 
+  /* Header and hero stay side-based, but rails and widths move inward. */
   .navbar {
     max-width: none;
     padding: 0 var(--padding-x);
@@ -35,6 +39,7 @@
     height: 58px;
   }
 
+  /* Core sections keep two-column layouts a little longer on wider tablets. */
   #about,
   #skills,
   #projects {
@@ -96,7 +101,9 @@
   }
 }
 
+/* Narrower tablet widths stack more sections and simplify denser layouts. */
 @media (min-width: 768px) and (max-width: 980px) {
+  /* This breakpoint handles portrait tablets and compact landscape tablets. */
   #about,
   #skills,
   #projects {

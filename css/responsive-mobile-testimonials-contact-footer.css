@@ -1,4 +1,7 @@
+/* Phone-specific overrides for testimonials, contact, and footer sections. */
+/* Base mobile spacing and stacking for the lower half of the page. */
 @media (max-width: 767px) {
+  /* Lower-page sections shift to stacked spacing and narrower cards on phones. */
   #footer {
     border-top: none;
     padding: 0 clamp(10px, 4vw, 16px);
@@ -120,6 +123,7 @@
     gap: 10px;
   }
 
+  /* Footer collapses into a compact two-column top row plus centered copyright row. */
   .footer-inner {
     width: 100%;
     max-width: min(358px, 100%);
@@ -154,6 +158,7 @@
   }
 }
 
+/* Smaller phones get tighter vertical rhythm and narrower cards. */
 @media (max-width: 420px) {
   #testimonials {
     padding: 52px 0 42px;

@@ -1,3 +1,5 @@
+/* Desktop header, shared navigation patterns, and mobile menu base styles. */
+/* Header shell stays above the hero without creating its own solid background. */
 #header {
   position: absolute;
   top: 0;
@@ -9,6 +11,7 @@
   -webkit-backdrop-filter: none;
 }
 
+/* Main horizontal navigation bar. */
 .navbar {
   display: flex;
   align-items: center;
@@ -19,12 +22,14 @@
   margin: 0 auto;
 }
 
+/* Left navigation cluster with language switcher and section links. */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 22px;
 }
 
+/* Language switch control shared by desktop and legal pages. */
 .lang-toggle {
   display: flex;
   align-items: center;
@@ -37,6 +42,7 @@
   background: transparent;
 }
 
+/* Individual language chips inside the segmented control. */
 .lang-chip {
   border: none;
   background: transparent;
@@ -57,6 +63,7 @@
   transition: background-color 0.2s, color 0.2s;
 }
 
+/* Hover, active, and keyboard focus states for the language chips. */
 .lang-chip:hover {
   background: rgba(78, 205, 196, 0.14);
 }
@@ -71,11 +78,13 @@
   outline-offset: 1px;
 }
 
+/* Desktop primary navigation links. */
 .nav-links {
   display: flex;
   gap: 24px;
 }
 
+/* Links use a small accent dot as the shared hover/active indicator. */
 .nav-links a {
   position: relative;
   display: inline-flex;
@@ -107,6 +116,7 @@
   background-size: 4px 4px;
 }
 
+/* Brand anchor on the right side of the desktop header. */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -120,6 +130,7 @@
   flex-shrink: 0;
 }
 
+/* Brand wordmark accompanying the logo icon. */
 .logo-text {
   display: flex;
   flex-direction: column;
@@ -131,6 +142,7 @@
   color: var(--color-white);
 }
 
+/* Burger icon is hidden on desktop and enabled by mobile overrides. */
 .burger {
   display: none;
   flex-direction: column;
@@ -141,6 +153,7 @@
   padding: 4px;
 }
 
+/* Three burger bars plus their open-state transform into an X icon. */
 .burger span {
   display: block;
   width: 22px;
@@ -162,6 +175,7 @@
   transform: translateY(-10px) rotate(-45deg);
 }
 
+/* Shared overlay menu structure used by the mobile navigation script. */
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -171,10 +185,12 @@
   background: rgba(0, 0, 0, 0.95);
 }
 
+/* Display the menu once the script adds the open class. */
 .mobile-menu.open {
   display: flex;
 }
 
+/* Mobile menu links and inline language switcher. */
 .mobile-link {
   font-family: var(--font-mono);
   font-size: 16px;

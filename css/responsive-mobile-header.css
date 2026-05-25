@@ -1,4 +1,7 @@
+/* Phone-sized header layout with burger navigation and overlay menu. */
+/* Base mobile header rules for widths up to 767px. */
 @media (max-width: 767px) {
+  /* Prevent accidental horizontal overflow when the fixed menu panel is open. */
   html,
   body {
     width: 100%;
@@ -14,6 +17,7 @@
     --padding-x: 24px;
   }
 
+  /* The mobile header spans the viewport width and stays visually lightweight above the hero. */
   #header {
     position: absolute;
     top: 0;
@@ -29,6 +33,7 @@
     box-shadow: none;
   }
 
+  /* Navbar reduces to logo plus burger trigger on phones. */
   .navbar {
     position: relative;
     display: flex;
@@ -88,6 +93,7 @@
     display: none;
   }
 
+  /* The overlay menu floats as a rounded card near the top-right corner. */
   .mobile-menu {
     position: fixed;
     top: 12px;
@@ -127,6 +133,7 @@
   }
 }
 
+/* Smaller phones get tighter icon and menu proportions. */
 @media (max-width: 420px) {
   .logo-icon {
     width: 44px;

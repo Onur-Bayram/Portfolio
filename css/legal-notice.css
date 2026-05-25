@@ -1,3 +1,5 @@
+/* Legal page layout shared by the legal notice and privacy policy pages. */
+/* Full-page background treatment for standalone legal content pages. */
 body.legal-page {
   min-height: 100vh;
   display: flex;
@@ -8,6 +10,7 @@ body.legal-page {
     linear-gradient(100deg, #111111 0%, #1c1c1c 34%, #08463b 68%, #0b4f44 100%);
 }
 
+/* Header overrides shrink the shared navigation for the legal page context. */
 .legal-page #header {
   left: 0;
   width: 100%;
@@ -62,6 +65,7 @@ body.legal-page {
   content: none;
 }
 
+/* Main legal content shell and copy formatting. */
 .legal-page main {
   width: min(1440px, 100%);
   margin: 0 auto;
@@ -78,6 +82,7 @@ body.legal-page {
   background: transparent;
 }
 
+/* Legal text hierarchy and list styling. */
 .legal-notice-shell h1 {
   margin: 16px 0 40px;
   font-family: var(--font-mono);
@@ -124,6 +129,7 @@ body.legal-page {
   color: rgba(255, 255, 255, 0.78);
 }
 
+/* Inline links and highlighted legal references. */
 .legal-inline-link {
   color: var(--color-accent);
   text-decoration: none;
@@ -153,6 +159,7 @@ a.legal-highlight:hover {
   color: var(--color-accent);
 }
 
+/* Footer overrides keep the legal pages visually aligned with the main site. */
 .legal-page #footer {
   width: min(1440px, 100%);
   margin: 0 auto;
@@ -175,6 +182,7 @@ a.legal-highlight:hover {
   font-size: 12px;
 }
 
+/* Intermediate breakpoint reduces side padding before the phone layout takes over. */
 @media (max-width: 980px) {
   .legal-page main {
     padding-left: 40px;
@@ -187,6 +195,7 @@ a.legal-highlight:hover {
   }
 }
 
+/* Phone layout swaps to a compact header and exposes the back button. */
 @media (max-width: 768px) {
   .legal-page #header {
     left: 0;

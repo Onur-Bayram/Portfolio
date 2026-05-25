@@ -1,3 +1,4 @@
+/* Mobile entry point that imports all phone-specific section overrides. */
 @import url('./responsive-mobile-header.css');
 @import url('./responsive-mobile-hero.css');
 @import url('./responsive-mobile-about-skills.css');
