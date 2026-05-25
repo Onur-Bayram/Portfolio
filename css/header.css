@@ -145,34 +145,58 @@
 /* Burger icon is hidden on desktop and enabled by mobile overrides. */
 .burger {
   display: none;
+  position: relative;
   flex-direction: column;
-  gap: 8px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 4px;
 }
 
-/* Three burger bars plus their open-state transform into an X icon. */
+/* Three burger bars are positioned manually so every device keeps equal line lengths and spacing. */
 .burger span {
+  position: absolute;
+  left: 0;
   display: block;
-  width: 22px;
+  width: 100%;
   height: 2.5px;
   background: var(--color-white);
   border-radius: 2px;
   transition: all 0.25s;
 }
 
-.burger.open span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
+/* Top bar sits flush with the container top edge. */
+.burger span:nth-child(1) {
+  top: 0;
 }
 
+/* Middle bar stays vertically centered, which also makes the open-state animation cleaner. */
+.burger span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Bottom bar anchors to the lower edge to complete the three-line icon. */
+.burger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* In the open state the first bar rotates into the first stroke of the close icon. */
+.burger.open span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* The middle bar disappears so only the X icon remains visible. */
 .burger.open span:nth-child(2) {
   opacity: 0;
 }
 
+/* The third bar becomes the second stroke of the close icon. */
 .burger.open span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 /* Shared overlay menu structure used by the mobile navigation script. */
@@ -202,6 +226,7 @@
   color: var(--color-accent);
 }
 
+/* The language switch inside the overlay keeps the same pill structure as the desktop control. */
 .mobile-lang {
   display: flex;
   align-items: center;

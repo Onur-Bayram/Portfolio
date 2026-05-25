@@ -47,7 +47,7 @@
     z-index: 350;
   }
 
-  /* Left and right rails move to bottom-anchored mobile positions. */
+  /* Left rail contains the scroll pill plus the teal guide line on the phone layout. */
   .hero-left-lateral {
     left: 16px;
     top: auto;
@@ -58,20 +58,23 @@
     transform: none;
   }
 
+  /* Right rail contains the social icons plus the shorter white guide line. */
   .hero-right-lateral {
     right: 16px;
     top: auto;
-    bottom: 64px;
+    bottom: 40px;
     width: 30px;
     height: 260px;
     gap: 14px;
     transform: none;
   }
 
+  /* The desktop vertical email label is removed on phones because it steals too much width. */
   .hero-email {
     display: none;
   }
 
+  /* Social icon spacing and sizing are reduced so the right rail stays visually light. */
   .hero-socials {
     gap: 14px;
   }
@@ -114,6 +117,7 @@
     height: 18px;
   }
 
+  /* The left line is longer and uses the accent color, matching the Figma mobile balance. */
   .hero-left-line {
     width: 1px;
     flex: 1 1 auto;
@@ -122,6 +126,7 @@
     background: rgba(78, 205, 196, 0.72);
   }
 
+  /* The right line is intentionally shorter so it ends above the marquee. */
   .hero-right-line {
     min-height: 170px;
     background: #ffffff;
@@ -160,6 +165,7 @@
     font-size: 12px;
   }
 
+  /* The alternate contact chip is not part of the mobile hero composition. */
   .hero-email-chip {
     display: none;
   }
@@ -192,6 +198,7 @@
     padding: 8px 18px;
   }
 
+  /* Medium phones only trim the rail lengths instead of changing their visual structure. */
   .hero-left-lateral {
     bottom: 0;
     height: 300px;
@@ -222,7 +229,7 @@
   }
 }
 
-/* XR-sized phones need the right rail slightly lower to match the intended composition. */
+/* XR-sized phones need the right rail slightly lower because the taller viewport makes it float too high. */
 @media (min-width: 391px) and (max-width: 430px) {
   .hero-right-lateral {
     bottom: 40px;
@@ -255,6 +262,7 @@
     font-size: 11px;
   }
 
+  /* Smaller widths also pull both side rails closer to the edges and shorten them. */
   .hero-left-lateral {
     left: 12px;
     width: 28px;
@@ -269,6 +277,7 @@
     height: 230px;
   }
 
+  /* Icons shrink with the rails so the right column still feels proportional. */
   .hero-socials a {
     width: 28px;
     height: 28px;
@@ -311,6 +320,7 @@
     top: 300px;
   }
 
+  /* Only the vertical offsets change here, because the base small-phone sizing already fits. */
   .hero-left-lateral {
     bottom: 0;
   }
@@ -335,6 +345,7 @@
     top: 380px;
   }
 
+  /* Taller phones can stretch the left guide line area without touching the width-based tuning. */
   .hero-left-lateral {
     height: 340px;
   }

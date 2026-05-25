@@ -47,6 +47,7 @@
     background: transparent;
   }
 
+  /* Desktop navigation clusters are removed so the phone header only shows logo and burger. */
   .nav-left {
     display: none;
   }
@@ -59,6 +60,7 @@
     display: none;
   }
 
+  /* The burger control defines the tappable hit area; line placement comes from the shared header rules. */
   .burger {
     display: flex;
     position: relative;
@@ -70,13 +72,15 @@
     margin-right: 0;
   }
 
+  /* Bars stretch to the burger width so line length stays consistent across phone widths. */
   .burger span {
-    width: 28px;
+    width: 100%;
     height: 2px;
     border-radius: 2px;
     background: rgba(255, 255, 255, 0.9);
   }
 
+  /* Only the icon mark stays visible on phones to preserve the minimal Figma header. */
   .nav-logo {
     position: relative;
     z-index: 121;
@@ -120,6 +124,7 @@
     display: flex;
   }
 
+  /* Menu links stay slightly fluid so text does not wrap too early on narrow devices. */
   .mobile-link {
     font-size: clamp(15px, 4.1vw, 16px);
     line-height: 1.1;
@@ -135,6 +140,7 @@
 
 /* Smaller phones get tighter icon and menu proportions. */
 @media (max-width: 420px) {
+  /* Smaller phones trim the logo mark and burger footprint without changing the overall composition. */
   .logo-icon {
     width: 44px;
     height: 44px;
@@ -146,7 +152,7 @@
   }
 
   .burger span {
-    width: 26px;
+    width: 100%;
     height: 2px;
   }
 
