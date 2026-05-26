@@ -172,20 +172,74 @@
   position: relative;
   width: 18px;
   height: 18px;
-  border: 1.5px solid var(--color-accent);
-  border-radius: 3px;
-  background: transparent;
-  transition: background 0.2s;
+  border: none;
+  border-radius: 0;
+  background-color: var(--color-accent);
+  -webkit-mask-image: url('../assets/ui/01_quadrat_outline.png');
+  mask-image: url('../assets/ui/01_quadrat_outline.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 64px 64px;
+  mask-size: 64px 64px;
+  transition: opacity 0.2s;
   flex-shrink: 0;
+  overflow: visible;
+  isolation: isolate;
+  z-index: 0;
 }
 
-/* Checked state swaps in the dark check icon over the accent background. */
+/* The Figma glow is a separate teal circle sitting behind the checkbox icon, not a generic CSS blur. */
+.privacy-custom-box::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-accent);
+  -webkit-mask-image: url('../assets/ui/02_kreis_links.png');
+  mask-image: url('../assets/ui/02_kreis_links.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 64px 64px;
+  mask-size: 64px 64px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: -1;
+}
+
+/* Checked state swaps to the exported checkbox asset used in the Figma-inspired contact section. */
 .privacy-checkbox-wrap input[type="checkbox"]:checked + .privacy-custom-box {
-  background: var(--color-accent);
-  background-image: url('../assets/ui/check-dark.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 9px 9px;
+  background-color: var(--color-accent);
+  -webkit-mask-image: url('../assets/ui/03_checkbox_mit_haken.png');
+  mask-image: url('../assets/ui/03_checkbox_mit_haken.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 64px 64px;
+  mask-size: 64px 64px;
+}
+
+.privacy-checkbox-wrap input[type="checkbox"]:checked + .privacy-custom-box::before {
+  -webkit-mask-image: url('../assets/ui/04_kreis_rechts.png');
+  mask-image: url('../assets/ui/04_kreis_rechts.png');
+  opacity: 0.72;
+}
+
+.privacy-label:hover .privacy-custom-box::before,
+.privacy-checkbox-wrap input[type="checkbox"]:focus-visible + .privacy-custom-box::before {
+  opacity: 1;
+}
+
+.privacy-checkbox-wrap input[type="checkbox"]:checked:focus-visible + .privacy-custom-box::before,
+.privacy-label:hover .privacy-checkbox-wrap input[type="checkbox"]:checked + .privacy-custom-box::before {
+  opacity: 1;
 }
 
 .privacy-text {
