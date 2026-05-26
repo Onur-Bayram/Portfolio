@@ -13,6 +13,10 @@
 
   .testimonials-title {
     font-size: clamp(19px, 5.5vw, 26px);
+    line-height: 1.15;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 36px;
   }
 
@@ -21,29 +25,57 @@
   }
 
   .testimonial-card {
-    flex: 0 0 min(300px, calc(100vw - 64px));
-    min-height: 236px;
-    padding: 36px 20px 18px;
+    flex: 0 0 min(324px, calc(100vw - 52px));
+    min-height: 324px;
+    padding: 72px 28px 24px;
     margin: 0 12px;
-    border-radius: 18px;
+    border-radius: 28px;
+  }
+
+  /* The decorative opening quote sits partly outside the card corner, just like in the Figma reference. */
+  .testimonial-quote {
+    top: -16px;
+    left: -4px;
+    font-size: 94px;
   }
 
   .testimonial-text {
     font-size: 15px;
-    line-height: 1.45;
+    line-height: 1.48;
+    margin-bottom: 28px;
+  }
+
+  .testimonial-author {
+    gap: 14px;
+  }
+
+  .testimonial-line {
+    flex-basis: 76px;
   }
 
   .testimonial-name {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.35;
   }
 
   .testimonials-controls {
-    gap: 18px;
-    margin-top: 24px;
+    gap: 16px;
+    margin-top: 20px;
   }
 
   .testimonials-arrow {
-    padding: 4px;
+    width: 28px;
+    height: 24px;
+    padding: 0;
+  }
+
+  .testimonials-arrow-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  .testimonials-dots {
+    gap: 12px;
   }
 
   #contact {
@@ -169,14 +201,24 @@
   }
 
   .testimonial-card {
-    flex-basis: min(280px, calc(100vw - 48px));
-    min-height: 200px;
-    padding: 30px 16px 14px;
+    flex-basis: min(300px, calc(100vw - 40px));
+    min-height: 288px;
+    padding: 64px 24px 22px;
+  }
+
+  .testimonial-quote {
+    top: -14px;
+    left: -2px;
+    font-size: 84px;
   }
 
   .testimonial-text,
   .testimonial-name {
     font-size: 14px;
+  }
+
+  .testimonial-line {
+    flex-basis: 64px;
   }
 
   #contact {

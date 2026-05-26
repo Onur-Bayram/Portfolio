@@ -12,16 +12,48 @@
   var DATA = window.TESTIMONIALS_DATA || [];
   var langEN = document.getElementById('langEN');
 
+  // Read the initial language from the shared toggle so cards render in the correct locale on load.
+  function translatedValue(textDE, textEN) {
+    return langEN && langEN.classList.contains('is-active') ? textEN : textDE;
+  }
+
+  // Dynamic testimonial nodes use the same data-de / data-en contract as the static page copy.
+  function buildTranslatedElement(tagName, className, textDE, textEN) {
+    var element = document.createElement(tagName);
+    element.className = className;
+    element.dataset.de = textDE;
+    element.dataset.en = textEN;
+    element.textContent = translatedValue(textDE, textEN);
+    return element;
+  }
+
   // Build all testimonial cards from the shared data set.
   DATA.forEach(function (t, index) {
     var article = document.createElement('article');
     article.className = 'testimonial-card' + (index === 1 ? ' is-active' : '');
     article.setAttribute('data-testimonial-index', String(index));
-    article.innerHTML =
-      '<p class="testimonial-text" data-lang-de="' + t.text_de.replace(/"/g, '&quot;') + '" data-lang-en="' + t.text_en.replace(/"/g, '&quot;') + '">' +
-        (langEN && langEN.classList.contains('is-active') ? t.text_en : t.text_de) +
-      '</p>' +
-      '<span class="testimonial-name">' + t.name_de + '</span>';
+
+    var quote = document.createElement('span');
+    quote.className = 'testimonial-quote';
+    quote.setAttribute('aria-hidden', 'true');
+    quote.textContent = '“';
+
+    var text = buildTranslatedElement('p', 'testimonial-text', t.text_de, t.text_en);
+
+    var author = document.createElement('div');
+    author.className = 'testimonial-author';
+
+    var line = document.createElement('span');
+    line.className = 'testimonial-line';
+    line.setAttribute('aria-hidden', 'true');
+
+    var name = buildTranslatedElement('span', 'testimonial-name', t.name_de, t.name_en);
+
+    author.appendChild(line);
+    author.appendChild(name);
+    article.appendChild(quote);
+    article.appendChild(text);
+    article.appendChild(author);
     track.appendChild(article);
   });
 
