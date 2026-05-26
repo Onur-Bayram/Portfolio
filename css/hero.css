@@ -200,7 +200,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .hero-socials a.is-active {
@@ -210,22 +210,24 @@
 }
 
 .hero-socials a:hover {
-  transform: translateY(-2px);
-  color: #76e1da;
+  color: inherit;
   border-color: transparent;
   background: transparent;
 }
 
 .hero-socials a img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 22px;
   height: 22px;
   object-fit: contain;
   display: block;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .hero-socials a .icon-active {
-  position: absolute;
-  inset: 0;
   opacity: 1;
   transition: opacity 0.2s ease;
 }
@@ -236,15 +238,13 @@
 }
 
 .hero-socials a:hover .icon-active,
-.hero-socials a:focus-visible .icon-active,
-.hero-socials a.is-active .icon-active {
-  opacity: 1;
+.hero-socials a:focus-visible .icon-active {
+  opacity: 0;
 }
 
 .hero-socials a:hover .icon-default,
-.hero-socials a:focus-visible .icon-default,
-.hero-socials a.is-active .icon-default {
-  opacity: 0;
+.hero-socials a:focus-visible .icon-default {
+  opacity: 1;
 }
 
 /* Compact email chip used when the vertical email label is hidden on some states. */
