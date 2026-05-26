@@ -30,41 +30,41 @@
   }
 
   // Translate viewport coordinates into hero-local coordinates.
-  function onMove(event) {
+  function syncTargetPosition(event) {
     var rect = hero.getBoundingClientRect();
     targetX = event.clientX - rect.left;
     targetY = event.clientY - rect.top;
   }
 
   // Start the effect at the current pointer position when the hero is entered.
-  hero.addEventListener('mouseenter', function (event) {
-    var rect = hero.getBoundingClientRect();
-    targetX = event.clientX - rect.left;
-    targetY = event.clientY - rect.top;
+  function showGlow(event) {
+    syncTargetPosition(event);
     currentX = targetX;
     currentY = targetY;
     glow.classList.add('is-visible');
+    isInside = true;
 
     if (!rafId) {
       rafId = window.requestAnimationFrame(animate);
     }
+  }
 
-    isInside = true;
-  });
-
-  hero.addEventListener('mousemove', onMove);
-
-  // Hide the glow and stop scheduling frames once the pointer leaves the hero.
-  hero.addEventListener('mouseleave', function () {
+  function hideGlow() {
     glow.classList.remove('is-visible');
     isInside = false;
-  });
+  }
+
+  hero.addEventListener('mouseenter', showGlow);
+
+  hero.addEventListener('mousemove', syncTargetPosition);
+
+  // Hide the glow and stop scheduling frames once the pointer leaves the hero.
+  hero.addEventListener('mouseleave', hideGlow);
 
   // Also stop the visual when the tab becomes hidden to avoid stale UI state.
   document.addEventListener('visibilitychange', function () {
     if (document.hidden && isInside) {
-      glow.classList.remove('is-visible');
-      isInside = false;
+      hideGlow();
     }
   });
 })();

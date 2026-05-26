@@ -118,28 +118,75 @@
 
 /* Brand anchor on the right side of the desktop header. */
 .nav-logo {
+  --nav-logo-size: 62px;
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
   text-decoration: none;
+  isolation: isolate;
+}
+
+/* Both logo states share one exact footprint so the hover swap stays perfectly aligned. */
+.logo-icon-stack {
+  display: inline-grid;
+  place-items: center;
+  width: var(--nav-logo-size);
+  height: var(--nav-logo-size);
+  flex: 0 0 auto;
 }
 
 .logo-icon {
-  width: 54px;
-  height: 54px;
+  grid-area: 1 / 1;
+  width: var(--nav-logo-size);
+  height: var(--nav-logo-size);
   flex-shrink: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.logo-icon-filled {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.logo-icon-outline {
+  opacity: 0;
+  transform: scale(0.98);
 }
 
 /* Brand wordmark accompanying the logo icon. */
 .logo-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  min-height: var(--nav-logo-size);
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 0.88;
-  letter-spacing: -0.48px;
+  line-height: 0.82;
+  letter-spacing: -0.56px;
+  margin-left: -8px;
   color: var(--color-white);
+  -webkit-text-stroke: 0 rgba(255, 255, 255, 0);
+  transition: color 0.2s ease, -webkit-text-stroke-color 0.2s ease;
+}
+
+.nav-logo:hover .logo-icon-filled,
+.nav-logo:focus-visible .logo-icon-filled {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.nav-logo:hover .logo-icon-outline,
+.nav-logo:focus-visible .logo-icon-outline {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-logo:hover .logo-text,
+.nav-logo:focus-visible .logo-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.96);
 }
 
 /* Burger icon is hidden on desktop and enabled by mobile overrides. */
