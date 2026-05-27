@@ -180,6 +180,12 @@
   line-height: 1;
   letter-spacing: 0.16px;
   color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.hero-email:hover,
+.hero-email:focus-visible {
+  color: var(--color-accent);
 }
 
 /* Social icon stack with active and hover image swapping. */
@@ -201,6 +207,22 @@
   justify-content: center;
   position: relative;
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* The small accent dot belongs to the hovered icon and sits on its right edge in Figma. */
+.hero-socials a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
 .hero-socials a.is-active {
@@ -244,6 +266,11 @@
 
 .hero-socials a:hover .icon-default,
 .hero-socials a:focus-visible .icon-default {
+  opacity: 1;
+}
+
+.hero-socials a:hover::after,
+.hero-socials a:focus-visible::after {
   opacity: 1;
 }
 
