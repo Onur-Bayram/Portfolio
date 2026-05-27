@@ -92,6 +92,7 @@
 
 .hero-buttons .btn:hover,
 .hero-buttons .btn:focus-visible {
+  transform: none;
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.95);
   background: rgba(255, 255, 255, 0.08);
