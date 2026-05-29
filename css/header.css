@@ -40,13 +40,14 @@
   border-radius: 999px;
   padding: 2px;
   background: transparent;
+  transition: border-color 0.2s ease;
 }
 
 /* Individual language chips inside the segmented control. */
 .lang-chip {
   border: none;
   background: transparent;
-  color: var(--color-accent);
+  color: rgba(78, 205, 196, 0.58);
   border-radius: 999px;
   min-width: 31px;
   min-height: 24px;
@@ -60,17 +61,27 @@
   letter-spacing: 0.16px;
   line-height: 1;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Hover, active, and keyboard focus states for the language chips. */
-.lang-chip:hover {
-  background: rgba(78, 205, 196, 0.14);
+/* The Figma hover keeps the chip clean and only brightens the frame/text. */
+.lang-toggle:hover {
+  border-color: var(--color-white);
+}
+
+.lang-toggle:hover .lang-chip:not(.is-active) {
+  color: rgba(78, 205, 196, 0.9);
 }
 
 .lang-chip.is-active {
   background: var(--color-accent);
   color: #0f1212;
+}
+
+.lang-chip:hover:not(.is-active),
+.lang-chip:focus-visible:not(.is-active) {
+  background: transparent;
+  color: rgba(78, 205, 196, 0.9);
 }
 
 .lang-chip:focus-visible {

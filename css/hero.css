@@ -133,7 +133,7 @@
   color: var(--color-white);
   background: rgba(17, 17, 17, 0.45);
   box-shadow: 0 0 0 1px rgba(61, 207, 182, 0.08) inset;
-  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .hero-scroll-icon {
@@ -141,13 +141,29 @@
   height: 18px;
   display: block;
   flex: 0 0 auto;
+  will-change: transform;
 }
 
-.hero-scroll-pill:hover {
-  transform: translateY(2px);
-  border-color: #76e1da;
-  background: var(--color-accent);
-  color: #0f1212;
+.hero-scroll-pill:hover,
+.hero-scroll-pill:focus-visible {
+  background: rgba(17, 17, 17, 0.45);
+  color: var(--color-white);
+}
+
+.hero-scroll-pill:hover .hero-scroll-icon,
+.hero-scroll-pill:focus-visible .hero-scroll-icon {
+  animation: hero-scroll-arrow-bob 0.9s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-arrow-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
 }
 
 /* Accent line extending downward from the scroll indicator. */
@@ -472,6 +488,12 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-pill:hover .hero-scroll-icon,
+  .hero-scroll-pill:focus-visible .hero-scroll-icon {
+    animation: none;
+  }
+}
 
 /* Touch devices do not show the cursor glow and always hide the email chip. */
 @media (hover: none), (pointer: coarse) {

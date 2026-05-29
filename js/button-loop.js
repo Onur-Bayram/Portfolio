@@ -15,7 +15,8 @@
     var frameId = 0;
     var lastTime = 0;
     var offset = 0;
-    var startOffset = 0;
+    var idleOffset = 0;
+    var resetOffset = 0;
     var segmentWidth = 0;
 
     // Pixels per second for the text travel speed.
@@ -28,12 +29,15 @@
     function buildTrack() {
       var label = measure.textContent.trim();
       var viewportWidth = button.clientWidth;
+      var buttonRect = button.getBoundingClientRect();
+      var measureRect = measure.getBoundingClientRect();
 
       // Measure the real rendered width so the reset happens exactly
       // after the last character has fully left the button on the left side.
       segmentWidth = Math.ceil(measure.getBoundingClientRect().width);
-      startOffset = viewportWidth;
-      offset = startOffset;
+      idleOffset = Math.round(measureRect.left - buttonRect.left);
+      resetOffset = viewportWidth;
+      offset = idleOffset;
       track.textContent = label;
       track.style.transform = 'translate3d(' + offset + 'px, -50%, 0)';
     }
@@ -56,7 +60,7 @@
       offset -= speed * (delta / 1000);
 
       if (offset <= -segmentWidth) {
-        offset = startOffset;
+        offset = resetOffset;
       }
 
       track.style.transform = 'translate3d(' + offset + 'px, -50%, 0)';
@@ -86,7 +90,7 @@
         frameId = 0;
       }
 
-      track.style.transform = 'translate3d(' + startOffset + 'px, -50%, 0)';
+      track.style.transform = 'translate3d(' + idleOffset + 'px, -50%, 0)';
     }
 
     // Pointer and keyboard interactions should trigger the same visual behavior.

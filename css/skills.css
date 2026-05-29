@@ -191,7 +191,7 @@
 /* Tooltip content and supporting icons. */
 .mindset-tooltip p {
   margin: 0;
-  font-family: var(--font-base);
+  font-family: var(--font-sans);
   font-size: 11.52px;
   line-height: 1.2;
   color: var(--color-accent);
@@ -218,7 +218,7 @@
 }
 
 .mindset-tech span {
-  font-family: var(--font-base);
+  font-family: var(--font-sans);
   font-size: 11.52px;
   line-height: 1;
   color: var(--color-accent);
