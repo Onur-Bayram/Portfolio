@@ -141,12 +141,13 @@ img {
 /* The animated track is repositioned by JavaScript using real text and button measurements. */
 .btn-loop-track {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
-  display: block;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
   opacity: 0;
-  transform: translateY(-50%) translateX(0);
+  transform: translate3d(0, 0, 0);
   will-change: transform, opacity;
 }
 

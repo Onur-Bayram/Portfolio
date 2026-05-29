@@ -16,6 +16,7 @@
     var lastTime = 0;
     var offset = 0;
     var idleOffset = 0;
+    var idleTop = 0;
     var resetOffset = 0;
     var segmentWidth = 0;
 
@@ -35,11 +36,14 @@
       // Measure the real rendered width so the reset happens exactly
       // after the last character has fully left the button on the left side.
       segmentWidth = Math.ceil(measure.getBoundingClientRect().width);
-      idleOffset = Math.round(measureRect.left - buttonRect.left);
+      idleOffset = Math.round(measureRect.left - buttonRect.left - button.clientLeft);
+      idleTop = Math.round(measureRect.top - buttonRect.top - button.clientTop);
       resetOffset = viewportWidth;
       offset = idleOffset;
       track.textContent = label;
-      track.style.transform = 'translate3d(' + offset + 'px, -50%, 0)';
+      track.style.top = idleTop + 'px';
+      track.style.height = Math.round(measureRect.height) + 'px';
+      track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
     }
 
     // Animate one continuous pass from right to left.
@@ -63,7 +67,7 @@
         offset = resetOffset;
       }
 
-      track.style.transform = 'translate3d(' + offset + 'px, -50%, 0)';
+      track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
       frameId = window.requestAnimationFrame(step);
     }
 
@@ -90,7 +94,7 @@
         frameId = 0;
       }
 
-      track.style.transform = 'translate3d(' + idleOffset + 'px, -50%, 0)';
+      track.style.transform = 'translate3d(' + idleOffset + 'px, 0, 0)';
     }
 
     // Pointer and keyboard interactions should trigger the same visual behavior.
