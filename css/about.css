@@ -5,16 +5,37 @@
   margin: 84px auto 0;
   min-height: 708px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: minmax(0, 568px) minmax(0, 568px);
+  justify-content: space-between;
+  gap: clamp(40px, 5vw, 96px);
   align-items: start;
+}
+
+/* Outer media shell carries the decorative diagonal line field behind the photo. */
+.about-media-wrap {
+  position: relative;
+  width: min(100%, 568px);
+  isolation: isolate;
+}
+
+.about-media-wrap::before {
+  content: "";
+  position: absolute;
+  top: 38px;
+  right: 82px;
+  bottom: -32px;
+  left: -38px;
+  background: repeating-linear-gradient(45deg, transparent 0 17px, rgba(78, 205, 196, 0.92) 17px 19px);
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Portrait container with clipping and background treatment. */
 .about-media {
   position: relative;
+  z-index: 1;
   aspect-ratio: 1 / 1;
-  border-radius: 28px;
+  border-radius: 30px;
   overflow: hidden;
   background: linear-gradient(135deg, #2a2a2a 0%, #131313 48%, #0a3b34 100%);
 }
@@ -30,7 +51,8 @@
 
 /* Right column wrapper aligns the content card lower than the image on desktop. */
 .about-content-wrap {
-  padding-top: 132px;
+  max-width: 568px;
+  padding-top: 110px;
 }
 
 /* Kicker text introducing the section. */

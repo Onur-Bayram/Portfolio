@@ -230,6 +230,13 @@
     gap: 32px;
   }
 
+  .about-media-wrap::before {
+    top: 30px;
+    right: 68px;
+    bottom: -24px;
+    left: -28px;
+  }
+
   .about-content-wrap {
     padding-top: 76px;
   }
@@ -331,6 +338,14 @@
     grid-template-columns: 1fr;
     gap: 28px;
     margin-top: 72px;
+  }
+
+  .about-media-wrap {
+    width: min(100%, 568px);
+  }
+
+  .about-media-wrap::before {
+    content: none;
   }
 
   .about-content-wrap {

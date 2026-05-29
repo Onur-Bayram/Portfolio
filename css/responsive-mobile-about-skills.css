@@ -13,6 +13,10 @@
     min-height: clamp(260px, 52vw, 360px);
   }
 
+  .about-media-wrap::before {
+    content: none;
+  }
+
   .about-content-wrap {
     padding-top: 0;
   }

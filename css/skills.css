@@ -95,6 +95,27 @@
   margin-top: 34px;
 }
 
+.skills-loop-btn {
+  position: relative;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 24px;
+  border-color: rgba(255, 255, 255, 0.88);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.96);
+  transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease, transform 0.2s ease;
+}
+
+.skills-loop-btn:hover,
+.skills-loop-btn:focus-visible,
+.skills-loop-btn.is-looping,
+.skills-loop-btn.is-returning {
+  transform: none;
+  border-color: #76e1da;
+  color: #76e1da;
+  background: rgba(8, 70, 59, 0.32);
+}
+
 /* Right column grid of technology items. */
 .skills-right {
   width: 100%;

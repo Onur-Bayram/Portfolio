@@ -1,7 +1,7 @@
-// Seamless hover loop for the two hero CTA buttons.
+// Seamless hover loop for loop-enabled CTA buttons.
 // Measures the real button and text width so the text can pass through like a portal without visible resets.
 (function () {
-  // Respect reduced-motion preferences and limit the behavior to the dedicated hero CTA buttons.
+  // Respect reduced-motion preferences and limit the behavior to the dedicated loop CTA buttons.
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var ctas = Array.prototype.slice.call(document.querySelectorAll('.btn-loop-cta'));
 
