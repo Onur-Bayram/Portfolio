@@ -42,6 +42,10 @@
   align-items: start;
 }
 
+.projects-layout.is-hidden {
+  display: none;
+}
+
 /* The list is rendered by JavaScript and styled as a stacked set of interactive rows. */
 .projects-list {
   position: relative;
@@ -206,17 +210,17 @@
   background: #ffffff;
 }
 
-/* The old expandable detail card stays available as a small-screen fallback only. */
 .project-detail-card {
-  display: none;
+  display: grid;
   position: relative;
-  margin-top: 42px;
-  padding: 32px 32px 56px;
-  border: 1px solid rgba(78, 205, 196, 0.36);
-  border-radius: 26px;
-  background: linear-gradient(92deg, rgba(18, 18, 18, 0.98) 0%, rgba(20, 23, 23, 0.98) 42%, rgba(10, 54, 47, 0.92) 100%);
-  grid-template-columns: minmax(0, 430px) minmax(320px, 1fr);
-  gap: 42px;
+  min-height: 640px;
+  margin-top: 18px;
+  padding: 54px 48px 72px;
+  border: 1px solid rgba(78, 205, 196, 0.72);
+  border-radius: 30px;
+  background: linear-gradient(96deg, rgba(28, 28, 28, 0.98) 0%, rgba(22, 26, 26, 0.98) 38%, rgba(10, 88, 76, 0.9) 100%);
+  grid-template-columns: minmax(0, 470px) minmax(360px, 1fr);
+  gap: clamp(40px, 4.6vw, 84px);
   align-items: center;
   overflow: hidden;
 }
@@ -227,8 +231,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 78% 34%, rgba(61, 207, 182, 0.18) 0%, rgba(61, 207, 182, 0.08) 22%, rgba(61, 207, 182, 0) 48%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0) 58%, rgba(61, 207, 182, 0.06) 100%);
+    radial-gradient(circle at 82% 34%, rgba(61, 207, 182, 0.16) 0%, rgba(61, 207, 182, 0.08) 20%, rgba(61, 207, 182, 0) 48%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 54%, rgba(61, 207, 182, 0.08) 100%);
   pointer-events: none;
 }
 
@@ -248,77 +252,85 @@
 /* Main copy hierarchy inside the detail card. */
 .project-detail-number {
   font-family: var(--font-sans);
-  font-size: clamp(74px, 8vw, 102px);
+  font-size: clamp(84px, 8vw, 116px);
   font-weight: 700;
-  line-height: 0.84;
+  line-height: 0.82;
   color: var(--color-accent);
 }
 
 .project-detail-title {
-  margin-top: 8px;
+  margin-top: 10px;
   font-family: var(--font-mono);
-  font-size: clamp(37px, 4vw, 54px);
+  font-size: clamp(44px, 4vw, 64px);
   line-height: 0.96;
   color: var(--color-white);
 }
 
 .project-detail-subtitle {
-  margin-top: 24px;
+  margin-top: 42px;
   font-family: var(--font-mono);
-  font-size: 22px;
+  font-size: clamp(22px, 1.9vw, 32px);
   line-height: 1.1;
   color: var(--color-accent);
 }
 
 .project-detail-description {
-  margin-top: 12px;
-  max-width: 38ch;
-  font-size: 16px;
-  line-height: 1.45;
+  margin-top: 18px;
+  max-width: 33ch;
+  font-size: 18px;
+  line-height: 1.42;
   color: rgba(255, 255, 255, 0.9);
 }
 
 /* Stack chips and primary project action buttons. */
 .project-detail-stack {
-  margin-top: 24px;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 18px;
+  gap: 14px 20px;
 }
 
 .project-detail-tech {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1;
   color: var(--color-white);
 }
 
 .project-detail-tech img {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(674%) hue-rotate(129deg) brightness(96%) contrast(94%);
 }
 
 .project-detail-actions {
-  margin-top: 28px;
+  margin-top: 38px;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
 }
 
 .project-detail-actions .btn {
-  min-height: 44px;
-  padding: 12px 22px;
+  min-height: 50px;
+  padding: 12px 24px;
+  border-color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+}
+
+.project-detail-actions .btn:hover,
+.project-detail-actions .btn:focus-visible {
+  border-color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Media column can collapse when an image is unavailable. */
 .project-detail-media {
   justify-self: end;
-  width: min(100%, 540px);
+  width: min(100%, 520px);
 }
 
 .project-detail-media.is-hidden {
@@ -336,11 +348,11 @@
 /* Image treatment inside the detail panel. */
 .project-detail-media img {
   width: 100%;
-  aspect-ratio: 1.45 / 1;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  object-fit: cover;
+  aspect-ratio: 1.4 / 1;
+  border-radius: 28px;
+  object-fit: contain;
   object-position: top;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
   background: rgba(255, 255, 255, 0.04);
   display: block;
 }
@@ -348,44 +360,76 @@
 /* Corner close button and bottom-right next-project control. */
 .project-detail-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
+  top: 26px;
+  right: 28px;
+  width: 42px;
+  height: 42px;
   border: none;
   background: transparent;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 24px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 42px;
+  font-weight: 300;
   line-height: 1;
   cursor: pointer;
+  transition: color 220ms ease, transform 220ms ease;
 }
 
 .project-detail-close:hover {
   color: var(--color-accent);
+  transform: rotate(90deg);
 }
 
 .project-detail-next {
   position: absolute;
-  right: 32px;
-  bottom: 22px;
+  right: 42px;
+  bottom: 34px;
   border: none;
   background: transparent;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 18px;
   color: var(--color-accent);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   cursor: pointer;
+  transition: color 220ms ease, transform 220ms ease;
 }
 
 .project-detail-next-icon {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   display: block;
-  flex: 0 0 16px;
+  flex: 0 0 22px;
 }
 
 .project-detail-next:hover {
   color: #76e1da;
+  transform: translateX(3px);
+}
+
+@media (min-width: 981px) {
+  html.is-project-modal-open,
+  body.is-project-modal-open {
+    overflow: hidden;
+  }
+
+  body.is-project-modal-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.68);
+    backdrop-filter: blur(3px);
+    z-index: 1090;
+  }
+
+  .project-detail-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: min(1250px, calc(100vw - 72px));
+    max-height: calc(100vh - 72px);
+    margin: 0;
+    transform: translate(-50%, -50%);
+    z-index: 1100;
+  }
 }

@@ -4,6 +4,7 @@
   var PROJECTS = window.PROJECTS_DATA || {};
   var projectIds = Object.keys(PROJECTS);
   var list = document.querySelector('.projects-list');
+  var layout = document.querySelector('.projects-layout');
   var previewPanel = document.getElementById('projectsPreviewPanel');
   var previewImage = document.getElementById('projectsPreviewImage');
   var desktopQuery = window.matchMedia('(min-width: 981px)');
@@ -49,6 +50,17 @@
   var liveEl = document.getElementById('projectDetailLive');
 
   var currentId = rows[0].dataset.projectId;
+  var detailOpen = false;
+
+  function lockProjectModal() {
+    document.documentElement.classList.add('is-project-modal-open');
+    document.body.classList.add('is-project-modal-open');
+  }
+
+  function unlockProjectModal() {
+    document.documentElement.classList.remove('is-project-modal-open');
+    document.body.classList.remove('is-project-modal-open');
+  }
 
   function isDesktopLayout() {
     return desktopQuery.matches;
@@ -75,6 +87,25 @@
   }
 
   function clearDesktopState() {
+    hidePreviewPanel();
+    rows.forEach(function (row) {
+      row.classList.remove('is-active');
+      row.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  function showOverview(clearRows) {
+    if (layout) layout.classList.remove('is-hidden');
+    if (clearRows) {
+      clearDesktopState();
+      return;
+    }
+
+    hidePreviewPanel();
+  }
+
+  function hideOverview() {
+    if (layout) layout.classList.add('is-hidden');
     hidePreviewPanel();
     rows.forEach(function (row) {
       row.classList.remove('is-active');
@@ -156,7 +187,7 @@
   }
 
   function showCard() {
-    if (!card || isDesktopLayout()) return;
+    if (!card) return;
     card.classList.remove('is-hidden');
     card.setAttribute('aria-hidden', 'false');
   }
@@ -175,7 +206,7 @@
   }
 
   function scrollToDetailCard() {
-    if (!card || isDesktopLayout()) return;
+    if (!card) return;
 
     var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var header = document.getElementById('header');
@@ -189,7 +220,7 @@
     });
   }
 
-  function renderMobileCard(projectId, options) {
+  function renderDetailCard(projectId, options) {
     var project = PROJECTS[projectId];
     var shouldScroll = options && options.shouldScroll;
     if (!project || !card || !numberEl || !titleEl || !descriptionEl || !stackEl || !githubEl || !liveEl) {
@@ -218,49 +249,82 @@
     if (shouldScroll) scrollToDetailCard();
   }
 
-  function renderProject(projectId, options) {
-    var project = PROJECTS[projectId];
-    if (!project) return;
-
+  function previewProject(projectId) {
+    if (!PROJECTS[projectId] || !isDesktopLayout() || detailOpen) return;
     currentId = projectId;
     updateRowState(projectId);
     renderPreview(projectId);
+  }
+
+  function openProject(projectId, options) {
+    if (!PROJECTS[projectId]) return;
+
+    currentId = projectId;
+    detailOpen = true;
+    updateRowState(projectId);
 
     if (isDesktopLayout()) {
-      hideCard(true);
+      lockProjectModal();
+      hideOverview();
+      renderDetailCard(projectId);
       return;
     }
 
+    unlockProjectModal();
+    showOverview(false);
     hidePreviewPanel();
-    renderMobileCard(projectId, options);
+    renderDetailCard(projectId, options);
+  }
+
+  function closeProjectDetail() {
+    detailOpen = false;
+    unlockProjectModal();
+    hideCard();
+
+    if (isDesktopLayout()) {
+      showOverview(true);
+    }
   }
 
   function syncProjectsLayout() {
     if (isDesktopLayout()) {
+      if (detailOpen) {
+        lockProjectModal();
+        hideOverview();
+        renderDetailCard(currentId);
+        return;
+      }
+
+      unlockProjectModal();
+      showOverview(true);
       hideCard(true);
-      clearDesktopState();
       return;
     }
 
+    unlockProjectModal();
+    showOverview(false);
     hidePreviewPanel();
     updateRowState(currentId);
-    renderMobileCard(currentId);
+    renderDetailCard(currentId);
   }
 
   rows.forEach(function (row) {
     row.addEventListener('pointerenter', function () {
-      if (isDesktopLayout()) {
-        renderProject(row.dataset.projectId);
-      }
+      previewProject(row.dataset.projectId);
     });
 
     row.addEventListener('focusin', function () {
-      renderProject(row.dataset.projectId);
+      if (isDesktopLayout()) {
+        previewProject(row.dataset.projectId);
+        return;
+      }
+
+      openProject(row.dataset.projectId);
     });
 
     row.addEventListener('click', function (event) {
       event.preventDefault();
-      renderProject(row.dataset.projectId, { shouldScroll: !isDesktopLayout() });
+      openProject(row.dataset.projectId, { shouldScroll: !isDesktopLayout() });
     });
   });
 
@@ -288,15 +352,21 @@
     nextButton.addEventListener('click', function () {
       var currentIndex = projectOrder.indexOf(currentId);
       var nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % projectOrder.length;
-      renderProject(projectOrder[nextIndex]);
+      openProject(projectOrder[nextIndex], { shouldScroll: !isDesktopLayout() });
     });
   }
 
   if (closeButton) {
     closeButton.addEventListener('click', function () {
-      hideCard();
+      closeProjectDetail();
     });
   }
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && detailOpen && isDesktopLayout()) {
+      closeProjectDetail();
+    }
+  });
 
   if (imageEl) {
     imageEl.addEventListener('error', function () {
@@ -327,8 +397,15 @@
   syncProjectsLayout();
 
   window.updateProjectLanguage = function () {
-    if (currentId && PROJECTS[currentId] && !isDesktopLayout()) {
-      renderMobileCard(currentId);
+    if (!currentId || !PROJECTS[currentId]) return;
+
+    if (isDesktopLayout()) {
+      if (detailOpen) {
+        renderDetailCard(currentId);
+      }
+      return;
     }
+
+    renderDetailCard(currentId);
   };
 })();
