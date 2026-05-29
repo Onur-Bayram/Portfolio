@@ -22,6 +22,7 @@
 
     // Pixels per second for the text travel speed.
     var speed = 110;
+    var returnSpeed = 220;
 
     if (!measure || !track) return;
 
@@ -46,6 +47,10 @@
       track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
     }
 
+    function renderTrack() {
+      track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
+    }
+
     // Animate one continuous pass from right to left.
     // Once the whole word has exited on the left, the track jumps back to the
     // exact start point on the right, which creates the portal-like loop.
@@ -67,7 +72,7 @@
         offset = resetOffset;
       }
 
-      track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
+      renderTrack();
       frameId = window.requestAnimationFrame(step);
     }
 
@@ -75,8 +80,17 @@
     function startLoop() {
       if (prefersReducedMotion.matches) return;
 
-      buildTrack();
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+        frameId = 0;
+      }
+
+      if (!button.classList.contains('is-returning')) {
+        buildTrack();
+      }
+
       lastTime = 0;
+      button.classList.remove('is-returning');
       button.classList.add('is-looping');
 
       if (!frameId) {
@@ -84,7 +98,51 @@
       }
     }
 
-    // Restore the static label and reset the animated track off-screen.
+    function finishReturn() {
+      button.classList.remove('is-returning');
+      frameId = 0;
+      lastTime = 0;
+      offset = idleOffset;
+      renderTrack();
+    }
+
+    function returnStep(now) {
+      if (!button.classList.contains('is-returning')) {
+        frameId = 0;
+        return;
+      }
+
+      if (!lastTime) {
+        lastTime = now;
+      }
+
+      var delta = now - lastTime;
+      lastTime = now;
+
+      if (offset < idleOffset) {
+        offset += returnSpeed * (delta / 1000);
+
+        if (offset >= idleOffset) {
+          finishReturn();
+          return;
+        }
+      } else if (offset > idleOffset) {
+        offset -= returnSpeed * (delta / 1000);
+
+        if (offset <= idleOffset) {
+          finishReturn();
+          return;
+        }
+      } else {
+        finishReturn();
+        return;
+      }
+
+      renderTrack();
+      frameId = window.requestAnimationFrame(returnStep);
+    }
+
+    // Let the text glide back into its original position before restoring the static label.
     function stopLoop() {
       button.classList.remove('is-looping');
       lastTime = 0;
@@ -94,7 +152,13 @@
         frameId = 0;
       }
 
-      track.style.transform = 'translate3d(' + idleOffset + 'px, 0, 0)';
+      if (prefersReducedMotion.matches || Math.abs(offset - idleOffset) < 1) {
+        finishReturn();
+        return;
+      }
+
+      button.classList.add('is-returning');
+      frameId = window.requestAnimationFrame(returnStep);
     }
 
     // Pointer and keyboard interactions should trigger the same visual behavior.
@@ -105,14 +169,14 @@
 
     // Re-measure on resize so the off-screen entry point still matches the button width.
     window.addEventListener('resize', function () {
-      if (button.classList.contains('is-looping')) {
+      if (button.classList.contains('is-looping') || button.classList.contains('is-returning')) {
         buildTrack();
       }
     });
 
     // Language switching rewrites the label text, so keep the loop synchronized with the new string.
     var observer = new MutationObserver(function () {
-      if (button.classList.contains('is-looping')) {
+      if (button.classList.contains('is-looping') || button.classList.contains('is-returning')) {
         buildTrack();
       }
     });
