@@ -1,45 +1,41 @@
 // Projects module.
-// Builds the project list from shared data and keeps the detail card in sync with user actions.
+// Builds the projects list, powers the desktop side preview, and keeps the small-screen detail card in sync.
 (function () {
-  // Read the shared data object and preserve its key order for navigation.
   var PROJECTS = window.PROJECTS_DATA || {};
   var projectIds = Object.keys(PROJECTS);
-
-  // Render the interactive rows in the overview list.
   var list = document.querySelector('.projects-list');
+  var previewPanel = document.getElementById('projectsPreviewPanel');
+  var previewImage = document.getElementById('projectsPreviewImage');
+  var desktopQuery = window.matchMedia('(min-width: 981px)');
+
   if (list && projectIds.length) {
     projectIds.forEach(function (id, index) {
-      var p = PROJECTS[id];
-
-      // The compact icon strip is shown inside the hover overlay on desktop rows.
-      var techOverlayHtml = p.tech.map(function (t) {
-        return '<img class="overlay-icon" src="' + t.icon + '" alt="' + t.label + '" />';
+      var project = PROJECTS[id];
+      var techHtml = project.tech.map(function (tech) {
+        return '<span class="project-row-tech-item">' + tech.label + '</span>';
       }).join('');
-      var a = document.createElement('a');
-      a.className = 'project-row' + (index === 0 ? ' is-active' : '');
-      a.href = '#projectDetailCard';
-      a.setAttribute('role', 'listitem');
-      a.setAttribute('data-project-id', id);
-      a.setAttribute('aria-controls', 'projectDetailCard');
-      a.setAttribute('aria-expanded', String(index === 0));
-      a.innerHTML =
+
+      var row = document.createElement('a');
+      row.className = 'project-row';
+      row.href = '#projectDetailCard';
+      row.setAttribute('role', 'listitem');
+      row.setAttribute('data-project-id', id);
+      row.setAttribute('aria-controls', 'projectDetailCard');
+      row.setAttribute('aria-expanded', 'false');
+      row.innerHTML =
         '<div class="project-row-left">' +
-          '<h3>' + p.title + ' <span class="project-arrow">\u2197</span></h3>' +
-          '<p>' + p.tech.map(function (t) { return t.label; }).join(' | ') + '</p>' +
-          '<div class="project-tech-overlay" aria-label="Project technologies">' + techOverlayHtml + '</div>' +
+          '<h3>' + project.title + '<img class="project-arrow" src="assets/ui/arrow-up-right-white.svg" alt="" aria-hidden="true"></h3>' +
         '</div>' +
-        '<div class="project-preview" aria-hidden="true">' +
-          '<img src="' + p.image + '" alt="' + p.title + ' Vorschau" loading="lazy" />' +
-        '</div>';
-      list.appendChild(a);
+        '<div class="project-row-tech" aria-label="Project technologies">' + techHtml + '</div>';
+
+      list.appendChild(row);
     });
   }
 
-  // Cache all detail card nodes once so rendering stays focused on data updates.
-  var card = document.getElementById('projectDetailCard');
-  if (!card) return;
-
   var rows = Array.from(document.querySelectorAll('.project-row[data-project-id]'));
+  if (!rows.length) return;
+
+  var card = document.getElementById('projectDetailCard');
   var closeButton = document.getElementById('projectDetailClose');
   var nextButton = document.getElementById('projectDetailNext');
 
@@ -52,64 +48,18 @@
   var githubEl = document.getElementById('projectDetailGithub');
   var liveEl = document.getElementById('projectDetailLive');
 
-  if (!rows.length || !numberEl || !titleEl || !descriptionEl || !stackEl || !imageEl || !githubEl || !liveEl) {
-    return;
+  var currentId = rows[0].dataset.projectId;
+
+  function isDesktopLayout() {
+    return desktopQuery.matches;
   }
 
-  var projects = PROJECTS;
-
-  // Build the final navigation order from rows that actually map to project data.
-  var projectOrder = rows
-    .map(function (row) { return row.dataset.projectId; })
-    .filter(function (projectId) { return Boolean(projects[projectId]); });
-
-  var currentId = projectOrder[0];
-
-  // Some projects may not ship with valid media, so the card can collapse to a text-only layout.
-  function hideDetailMedia() {
-    imageEl.removeAttribute('src');
-    imageEl.alt = '';
-    if (mediaEl) mediaEl.classList.add('is-hidden');
-    card.classList.add('has-no-media');
+  function getRow(projectId) {
+    return rows.find(function (row) {
+      return row.dataset.projectId === projectId;
+    }) || null;
   }
 
-  function showDetailMedia(src, alt) {
-    imageEl.src = src;
-    imageEl.alt = alt || '';
-    if (mediaEl) mediaEl.classList.remove('is-hidden');
-    card.classList.remove('has-no-media');
-  }
-
-  // Hide preview frames gracefully if an image asset is missing.
-  function setupListPreviewFallbacks() {
-    var previewImages = document.querySelectorAll('.project-preview img');
-    previewImages.forEach(function (img) {
-      img.addEventListener('error', function () {
-        var previewWrap = img.closest('.project-preview');
-        if (previewWrap) previewWrap.classList.add('is-hidden');
-      });
-    });
-  }
-
-  // Render the technology stack as labeled icon chips inside the detail card.
-  function renderStack(techItems) {
-    stackEl.innerHTML = '';
-    techItems.forEach(function (tech) {
-      var item = document.createElement('span');
-      item.className = 'project-detail-tech';
-      var icon = document.createElement('img');
-      icon.src = tech.icon;
-      icon.alt = '';
-      icon.setAttribute('aria-hidden', 'true');
-      var label = document.createElement('span');
-      label.textContent = tech.label;
-      item.appendChild(icon);
-      item.appendChild(label);
-      stackEl.appendChild(item);
-    });
-  }
-
-  // Mirror the active project in the list so row styling and ARIA state stay aligned.
   function updateRowState(activeId) {
     rows.forEach(function (row) {
       var isActive = row.dataset.projectId === activeId;
@@ -118,72 +68,222 @@
     });
   }
 
-  // The detail card stays mounted and is hidden with classes so the markup remains reusable.
-  function showCard() {
-    card.classList.remove('is-hidden');
-    card.setAttribute('aria-hidden', 'false');
+  function hidePreviewPanel() {
+    if (!previewPanel) return;
+    previewPanel.setAttribute('aria-hidden', 'true');
+    previewPanel.classList.remove('is-visible');
   }
 
-  function hideCard() {
-    card.classList.add('is-hidden');
-    card.setAttribute('aria-hidden', 'true');
+  function clearDesktopState() {
+    hidePreviewPanel();
     rows.forEach(function (row) {
       row.classList.remove('is-active');
       row.setAttribute('aria-expanded', 'false');
     });
   }
 
-  // Offset the scroll target by the header height so the card is not hidden under the nav.
+  function positionPreview(row) {
+    if (!previewPanel || !list || !row) return;
+
+    var panelHeight = previewPanel.offsetHeight;
+    if (!panelHeight) return;
+
+    var desiredTop = row.offsetTop + (row.offsetHeight - panelHeight) / 2;
+    var maxTop = Math.max(0, list.offsetHeight - panelHeight);
+    var nextTop = Math.max(0, Math.min(maxTop, desiredTop));
+
+    previewPanel.style.top = Math.round(nextTop) + 'px';
+  }
+
+  function renderPreview(projectId) {
+    if (!previewPanel || !previewImage || !isDesktopLayout()) {
+      hidePreviewPanel();
+      return;
+    }
+
+    var project = PROJECTS[projectId];
+    var row = getRow(projectId);
+    if (!project || !project.image || !row) {
+      hidePreviewPanel();
+      return;
+    }
+
+    previewImage.src = project.image;
+    previewImage.alt = project.imageAlt || (project.title + ' project preview');
+    previewPanel.setAttribute('aria-hidden', 'false');
+    previewPanel.classList.add('is-visible');
+    window.requestAnimationFrame(function () {
+      positionPreview(row);
+    });
+  }
+
+  function hideDetailMedia() {
+    if (!imageEl || !card) return;
+    imageEl.removeAttribute('src');
+    imageEl.alt = '';
+    if (mediaEl) mediaEl.classList.add('is-hidden');
+    card.classList.add('has-no-media');
+  }
+
+  function showDetailMedia(src, alt) {
+    if (!imageEl || !card) return;
+    imageEl.src = src;
+    imageEl.alt = alt || '';
+    if (mediaEl) mediaEl.classList.remove('is-hidden');
+    card.classList.remove('has-no-media');
+  }
+
+  function renderStack(techItems) {
+    if (!stackEl) return;
+    stackEl.innerHTML = '';
+
+    techItems.forEach(function (tech) {
+      var item = document.createElement('span');
+      item.className = 'project-detail-tech';
+
+      var icon = document.createElement('img');
+      icon.src = tech.icon;
+      icon.alt = '';
+      icon.setAttribute('aria-hidden', 'true');
+
+      var label = document.createElement('span');
+      label.textContent = tech.label;
+
+      item.appendChild(icon);
+      item.appendChild(label);
+      stackEl.appendChild(item);
+    });
+  }
+
+  function showCard() {
+    if (!card || isDesktopLayout()) return;
+    card.classList.remove('is-hidden');
+    card.setAttribute('aria-hidden', 'false');
+  }
+
+  function hideCard(preserveRows) {
+    if (!card) return;
+    card.classList.add('is-hidden');
+    card.setAttribute('aria-hidden', 'true');
+
+    if (!preserveRows) {
+      rows.forEach(function (row) {
+        row.classList.remove('is-active');
+        row.setAttribute('aria-expanded', 'false');
+      });
+    }
+  }
+
   function scrollToDetailCard() {
+    if (!card || isDesktopLayout()) return;
+
     var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var header = document.getElementById('header');
     var headerOffset = header ? header.offsetHeight : 0;
     var extraOffset = 24;
     var targetTop = card.getBoundingClientRect().top + window.scrollY - headerOffset - extraOffset;
+
     window.scrollTo({
       top: Math.max(0, targetTop),
       behavior: prefersReducedMotion ? 'auto' : 'smooth'
     });
   }
 
-  // Render the currently selected project into the detail card.
-  function renderProject(projectId, options) {
-    var project = projects[projectId];
+  function renderMobileCard(projectId, options) {
+    var project = PROJECTS[projectId];
     var shouldScroll = options && options.shouldScroll;
-    if (!project) return;
+    if (!project || !card || !numberEl || !titleEl || !descriptionEl || !stackEl || !githubEl || !liveEl) {
+      return;
+    }
 
-    currentId = projectId;
     numberEl.textContent = project.number;
     titleEl.textContent = project.title;
 
-    // The card description is language-sensitive and reads from the active desktop toggle.
     var langEN = document.getElementById('langEN');
     var isEnglish = langEN && langEN.classList.contains('is-active');
     var description = isEnglish ? (project.description_en || project.description) : (project.description_de || project.description);
     descriptionEl.textContent = description;
+
     if (project.image) {
       showDetailMedia(project.image, project.imageAlt);
     } else {
       hideDetailMedia();
     }
+
     githubEl.href = project.github;
     liveEl.href = project.live;
     renderStack(project.tech);
-    updateRowState(projectId);
     showCard();
 
     if (shouldScroll) scrollToDetailCard();
   }
 
-  // Clicking a project row opens or updates the shared detail card.
+  function renderProject(projectId, options) {
+    var project = PROJECTS[projectId];
+    if (!project) return;
+
+    currentId = projectId;
+    updateRowState(projectId);
+    renderPreview(projectId);
+
+    if (isDesktopLayout()) {
+      hideCard(true);
+      return;
+    }
+
+    hidePreviewPanel();
+    renderMobileCard(projectId, options);
+  }
+
+  function syncProjectsLayout() {
+    if (isDesktopLayout()) {
+      hideCard(true);
+      clearDesktopState();
+      return;
+    }
+
+    hidePreviewPanel();
+    updateRowState(currentId);
+    renderMobileCard(currentId);
+  }
+
   rows.forEach(function (row) {
+    row.addEventListener('pointerenter', function () {
+      if (isDesktopLayout()) {
+        renderProject(row.dataset.projectId);
+      }
+    });
+
+    row.addEventListener('focusin', function () {
+      renderProject(row.dataset.projectId);
+    });
+
     row.addEventListener('click', function (event) {
       event.preventDefault();
-      renderProject(row.dataset.projectId, { shouldScroll: true });
+      renderProject(row.dataset.projectId, { shouldScroll: !isDesktopLayout() });
     });
   });
 
-  // The next button cycles through the current project order and wraps back to the start.
+  if (list) {
+    list.addEventListener('pointerleave', function () {
+      if (isDesktopLayout()) {
+        clearDesktopState();
+      }
+    });
+
+    list.addEventListener('focusout', function (event) {
+      if (isDesktopLayout() && !list.contains(event.relatedTarget)) {
+        clearDesktopState();
+      }
+    });
+  }
+
+  var projectOrder = rows.map(function (row) {
+    return row.dataset.projectId;
+  }).filter(function (projectId) {
+    return Boolean(PROJECTS[projectId]);
+  });
+
   if (nextButton) {
     nextButton.addEventListener('click', function () {
       var currentIndex = projectOrder.indexOf(currentId);
@@ -192,26 +292,43 @@
     });
   }
 
-  // The close button hides the card and clears the active row styling.
   if (closeButton) {
     closeButton.addEventListener('click', function () {
       hideCard();
     });
   }
 
-  setupListPreviewFallbacks();
+  if (imageEl) {
+    imageEl.addEventListener('error', function () {
+      hideDetailMedia();
+    });
+  }
 
-  imageEl.addEventListener('error', function () {
-    hideDetailMedia();
-  });
+  if (previewImage) {
+    previewImage.addEventListener('load', function () {
+      if (isDesktopLayout()) {
+        positionPreview(getRow(currentId));
+      }
+    });
 
-  // Render the initial state immediately after setup.
-  renderProject(currentId);
+    previewImage.addEventListener('error', function () {
+      hidePreviewPanel();
+    });
+  }
 
-  // Expose a small hook so the shared language switcher can rerender dynamic project copy.
+  window.addEventListener('resize', syncProjectsLayout);
+
+  if (typeof desktopQuery.addEventListener === 'function') {
+    desktopQuery.addEventListener('change', syncProjectsLayout);
+  } else if (typeof desktopQuery.addListener === 'function') {
+    desktopQuery.addListener(syncProjectsLayout);
+  }
+
+  syncProjectsLayout();
+
   window.updateProjectLanguage = function () {
-    if (currentId && projects[currentId]) {
-      renderProject(currentId);
+    if (currentId && PROJECTS[currentId] && !isDesktopLayout()) {
+      renderMobileCard(currentId);
     }
   };
 })();

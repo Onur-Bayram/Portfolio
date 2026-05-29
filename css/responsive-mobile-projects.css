@@ -19,6 +19,14 @@
     max-width: 100%;
   }
 
+  .projects-layout {
+    display: block;
+  }
+
+  .projects-preview-panel {
+    display: none;
+  }
+
   .project-row {
     min-height: 94px;
     grid-template-columns: 1fr;
@@ -30,12 +38,22 @@
     padding: 13px 12px;
   }
 
-  .project-preview {
-    display: none;
-  }
-
   .project-row h3 {
     font-size: 30px;
+  }
+
+  .project-row-tech {
+    justify-content: flex-start;
+    gap: 8px 16px;
+  }
+
+  .project-row-tech-item {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .project-row-tech-item + .project-row-tech-item::before {
+    height: 14px;
   }
 
   .project-row p {
@@ -45,12 +63,9 @@
     line-height: 1.3;
   }
 
-  .project-tech-overlay {
-    display: none;
-  }
-
   /* The detail card becomes a single-column panel with full-width actions and media. */
   .project-detail-card {
+    display: grid;
     margin-top: 22px;
     padding: 22px 16px 52px;
     grid-template-columns: 1fr;

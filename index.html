@@ -295,7 +295,17 @@
         Explore a selection of my work here - Interact with projects to see my skills in action.
       </p>
 
-      <div class="projects-list" role="list" aria-label="Projekte"></div>
+      <div class="projects-layout">
+        <div class="projects-list" role="list" aria-label="Projekte"></div>
+
+        <aside class="projects-preview-panel" id="projectsPreviewPanel" aria-hidden="true">
+          <div class="projects-preview-card">
+            <div class="projects-preview-frame">
+              <img id="projectsPreviewImage" src="assets/images/projects/Joinn.png" alt="Join project preview" />
+            </div>
+          </div>
+        </aside>
+      </div>
 
       <article class="project-detail-card" id="projectDetailCard" aria-live="polite">
         <button class="project-detail-close" id="projectDetailClose" type="button" aria-label="Close project details">×</button>

@@ -1,7 +1,7 @@
 /* Projects list, preview behavior, and detail card layout. */
 /* Section shell and intro copy above the interactive project list. */
 #projects {
-  width: min(1440px, calc(100% - 224px));
+  width: min(1308px, calc(100% - 132px));
   min-height: 581px;
   margin: 0 auto;
   padding: 38px 0 26px;
@@ -33,184 +33,188 @@
   margin-bottom: 34px;
 }
 
-/* The list is rendered by JavaScript and styled as a stacked set of interactive rows. */
-.projects-list {
-  border-top: 1px solid rgba(78, 205, 196, 0.22);
+/* Desktop project section uses a split layout with rows on the left and a live preview on the right. */
+.projects-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  column-gap: clamp(38px, 4.5vw, 84px);
+  align-items: start;
 }
 
-/* Each row can become active and reveal extra media or icon overlays. */
+/* The list is rendered by JavaScript and styled as a stacked set of interactive rows. */
+.projects-list {
+  position: relative;
+  border-top: 1px solid rgba(78, 205, 196, 0.9);
+}
+
+/* Each row mirrors the Figma list treatment with title left and tech labels right. */
 .project-row {
-  min-height: 110px;
+  min-height: 108px;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 24px;
-  border-bottom: 1px solid rgba(78, 205, 196, 0.22);
-  padding: 4px 16px;
+  gap: 24px 32px;
+  border-bottom: 1px solid rgba(78, 205, 196, 0.9);
+  padding: 0 30px;
   text-decoration: none;
   color: inherit;
   background: transparent;
-  transition: background 220ms ease, padding 220ms ease;
+  transition: background-color 260ms ease, border-color 260ms ease;
   cursor: pointer;
   position: relative;
 }
 
-.project-row:hover {
-  background: rgba(8, 70, 59, 0.38);
-  padding: 10px 22px;
-  border-bottom-color: rgba(78, 205, 196, 0.45);
-}
-
+.project-row:hover,
+.project-row:focus-visible,
 .project-row.is-active {
-  background: rgba(8, 70, 59, 0.32);
-  padding: 10px 22px;
-  border-bottom-color: rgba(78, 205, 196, 0.45);
+  background: rgba(43, 96, 91, 0.98);
+  border-bottom-color: rgba(78, 205, 196, 0.9);
 }
 
-/* Left side of a row contains the title, tech summary, and tech overlay. */
+/* Left side of a row keeps the project title aligned like the Figma menu. */
 .project-row-left {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  min-width: 0;
 }
 
-/* Hidden icon overlay shown on hover and for the active project row. */
-.project-tech-overlay {
-  width: 234px;
-  min-height: 64px;
+.project-row h3 {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background: linear-gradient(95deg, rgba(8, 70, 59, 0.66) 0%, rgba(12, 17, 19, 0.82) 100%);
-  box-shadow: 0 0 0 1px rgba(61, 207, 182, 0.16) inset;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 220ms ease, transform 220ms ease;
-  pointer-events: none;
-}
-
-.project-tech-overlay .overlay-icon {
-  width: 26px;
-  height: 26px;
-  display: block;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(674%) hue-rotate(129deg) brightness(96%) contrast(94%);
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-/* Hover and active states emphasize the project title and supporting copy. */
-.project-row h3 {
+  gap: 10px;
   font-family: var(--font-mono);
-  font-size: clamp(32px, 2.8vw, 46.4px);
+  font-size: clamp(28px, 2.85vw, 40px);
   line-height: 1;
   color: var(--color-white);
   transition: color 220ms ease;
 }
 
-.project-row:hover h3 {
-  color: var(--color-accent);
-}
-
-.project-row.is-active h3 {
-  color: var(--color-accent);
-}
-
 .project-arrow {
-  display: inline-block;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
   opacity: 0;
-  transform: translate(-4px, 4px);
+  transform: translate(-6px, 2px);
   transition: opacity 220ms ease, transform 220ms ease;
-  font-style: normal;
+  pointer-events: none;
 }
 
-.project-row:hover .project-arrow {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
+.project-row:hover .project-arrow,
+.project-row:focus-visible .project-arrow,
 .project-row.is-active .project-arrow {
   opacity: 1;
   transform: translate(0, 0);
 }
 
-.project-row p {
+.project-row-tech {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px 18px;
+  max-width: 100%;
+}
+
+.project-row-tech-item {
+  position: relative;
   font-family: var(--font-mono);
   font-size: 15.2px;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.96);
   white-space: nowrap;
   transition: color 220ms ease;
 }
 
-.project-row:hover p {
-  color: rgba(78, 205, 196, 0.82);
+.project-row-tech-item + .project-row-tech-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 50%;
+  width: 2px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  transform: translateY(-50%);
 }
 
-.project-row.is-active p {
-  color: rgba(78, 205, 196, 0.82);
+.project-row p,
+.project-row-tech-label {
+  font-family: var(--font-mono);
+  font-size: 15.2px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.96);
 }
 
-.project-row:hover .project-tech-overlay,
-.project-row.is-active .project-tech-overlay,
-.project-row:focus-visible .project-tech-overlay {
+.project-row:hover h3,
+.project-row:hover .project-row-tech-item,
+.project-row:focus-visible h3,
+.project-row:focus-visible .project-row-tech-item,
+.project-row.is-active h3,
+.project-row.is-active .project-row-tech-item {
+  color: #ffffff;
+}
+
+.projects-preview-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 260ms ease, transform 260ms ease, top 320ms ease;
+  pointer-events: none;
+}
+
+.projects-preview-panel.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.project-row:hover .project-tech-overlay .overlay-icon,
-.project-row.is-active .project-tech-overlay .overlay-icon,
-.project-row:focus-visible .project-tech-overlay .overlay-icon {
-  transform: translateY(-1px);
-}
-
-/* Thumbnail preview shown on larger screens for hover and active states. */
-.project-preview {
-  width: 180px;
-  height: 110px;
-  border-radius: 10px;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateX(12px) scale(0.96);
-  transition: opacity 220ms ease, transform 220ms ease;
-  flex-shrink: 0;
-}
-
-.project-preview.is-hidden {
-  display: none;
-}
-
-.project-row:hover .project-preview {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-}
-
-.project-row.is-active .project-preview {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-}
-
-.project-preview img {
+.projects-preview-card {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+}
+
+.projects-preview-card::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: -18px;
+  bottom: -18px;
+  left: 84px;
+  border-radius: 18px;
+  background: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(78, 205, 196, 0.92) 9px 11px);
+  z-index: 0;
+}
+
+.projects-preview-frame {
+  position: relative;
+  z-index: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+}
+
+.projects-preview-frame img {
+  width: 100%;
+  aspect-ratio: 1.72 / 1;
+  object-fit: contain;
   object-position: top;
   display: block;
+  background: #ffffff;
 }
 
-/* Detail card below the list reuses one layout for every project entry. */
+/* The old expandable detail card stays available as a small-screen fallback only. */
 .project-detail-card {
+  display: none;
   position: relative;
   margin-top: 42px;
   padding: 32px 32px 56px;
   border: 1px solid rgba(78, 205, 196, 0.36);
   border-radius: 26px;
   background: linear-gradient(92deg, rgba(18, 18, 18, 0.98) 0%, rgba(20, 23, 23, 0.98) 42%, rgba(10, 54, 47, 0.92) 100%);
-  display: grid;
   grid-template-columns: minmax(0, 430px) minmax(320px, 1fr);
   gap: 42px;
   align-items: center;

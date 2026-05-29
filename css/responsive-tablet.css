@@ -226,6 +226,28 @@
     width: min(1180px, calc(100% - 96px));
   }
 
+  .projects-layout {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    column-gap: 32px;
+  }
+
+  .projects-preview-panel {
+    width: 260px;
+  }
+
+  .project-row {
+    min-height: 98px;
+    padding: 0 18px;
+  }
+
+  .project-row h3 {
+    font-size: clamp(24px, 2.8vw, 34px);
+  }
+
+  .project-row-tech-item {
+    font-size: 14px;
+  }
+
   #about {
     gap: 32px;
   }
@@ -376,6 +398,14 @@
     margin-top: 10px;
   }
 
+  .projects-layout {
+    display: block;
+  }
+
+  .projects-preview-panel {
+    display: none;
+  }
+
   .project-row {
     gap: 12px;
   }
@@ -384,17 +414,13 @@
     font-size: clamp(30px, 4.8vw, 40px);
   }
 
-  .project-row p {
-    white-space: normal;
-    line-height: 1.35;
-  }
-
-  .project-preview {
-    width: 150px;
-    height: 96px;
+  .project-row-tech {
+    justify-content: flex-start;
+    gap: 8px 16px;
   }
 
   .project-detail-card {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
   }
