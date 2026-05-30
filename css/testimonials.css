@@ -221,10 +221,19 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.dot:hover,
+.dot:focus-visible {
+  background-color: rgba(var(--color-accent-rgb), 0.85);
+  box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb), 0.12),
+    0 0 12px rgba(var(--color-accent-rgb), 0.45);
+  transform: scale(1.18);
 }
 
 .dot.is-active {
   background-color: var(--color-accent);
+  box-shadow: 0 0 8px rgba(var(--color-accent-rgb), 0.3);
   transform: scale(1.25);
 }

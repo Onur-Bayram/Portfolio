@@ -42,7 +42,8 @@
       messageMissing: 'Was möchtest du entwickeln?',
       sent: 'Nachricht gesendet ✓',
       sending: 'Wird gesendet...',
-      failed: 'Senden fehlgeschlagen'
+      failed: 'Senden fehlgeschlagen',
+      localOnly: 'Lokal getestet · aktiv nach Netlify-Deploy'
     };
     var en = {
       nameMissing: 'Oops! it seems your name is missing',
@@ -51,7 +52,8 @@
       messageMissing: 'What do you need to develop?',
       sent: 'Message sent ✓',
       sending: 'Sending...',
-      failed: 'Sending failed'
+      failed: 'Sending failed',
+      localOnly: 'Local test · active after Netlify deploy'
     };
 
     return (isGermanActive() ? de : en)[key];
@@ -124,6 +126,15 @@
     return new URLSearchParams(formData).toString();
   }
 
+  // Netlify form handling only works on the deployed site, not in local static previews.
+  function isLocalPreview() {
+    return (
+      window.location.hostname === '127.0.0.1' ||
+      window.location.hostname === 'localhost' ||
+      window.location.protocol === 'file:'
+    );
+  }
+
   // Validate on blur so users get explicit feedback after leaving a field.
   nameInput.addEventListener('blur', function () {
     validateName();
@@ -164,6 +175,18 @@
     // Lock the button while the request is in flight to prevent duplicate submissions.
     submitBtn.disabled = true;
     submitBtn.textContent = getCopy('sending');
+
+    if (isLocalPreview()) {
+      setTimeout(function () {
+        submitBtn.textContent = getCopy('localOnly');
+
+        setTimeout(function () {
+          submitBtn.textContent = getSubmitLabel();
+          updateSubmitState();
+        }, 2600);
+      }, 350);
+      return;
+    }
 
     fetch('/', {
       method: 'POST',

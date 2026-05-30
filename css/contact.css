@@ -68,18 +68,42 @@
 
 /* Form column and shared field wrapper layout. */
 .contact-form {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 0;
+}
+
+.contact-form::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: background-color 180ms ease;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   border-bottom: 1px solid var(--color-accent);
-  padding-bottom: 10px;
+  padding: 26px 0 16px;
   transition: border-color 180ms ease;
+}
+
+.form-field:hover {
+  border-bottom-color: #8feee3;
+}
+
+.contact-form .form-field:has(+ .form-field:hover),
+.contact-form .form-field:has(+ .form-field:focus-within) {
+  border-bottom-color: #8feee3;
+}
+
+.contact-form:has(.form-field:first-of-type:hover)::before,
+.contact-form:has(.form-field:first-of-type:focus-within)::before {
+  background-color: #8feee3;
 }
 
 /* Field labels and text inputs use a minimal underline treatment. */
@@ -98,27 +122,32 @@
   font-family: var(--font-sans);
   font-size: 15px;
   color: var(--color-white);
-  padding: 4px 0;
+  padding: 2px 0 0;
   resize: none;
   -webkit-appearance: none;
 }
 
-/* Visual feedback for focus and validation states. */
-.form-field:focus-within {
-  border-bottom-color: rgba(var(--color-accent-rgb), 0.9);
-}
-
-.form-field.is-invalid {
-  border-bottom-color: #ff6b6b;
-}
-
-.form-field.is-invalid label {
-  color: #ff8b8b;
+.form-field textarea {
+  min-height: 28px;
+  height: 28px;
 }
 
 .form-field input::placeholder,
 .form-field textarea::placeholder {
   color: rgba(255, 255, 255, 0.3);
+  transition: color 180ms ease;
+}
+
+.form-field:hover input::placeholder,
+.form-field:hover textarea::placeholder,
+.form-field:focus-within input::placeholder,
+.form-field:focus-within textarea::placeholder {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Visual feedback for focus and validation states. */
+.form-field:focus-within {
+  border-bottom-color: #8feee3;
 }
 
 .form-field input:-webkit-autofill,
@@ -133,14 +162,23 @@
   font-family: var(--font-sans);
   font-size: 13px;
   color: #ff6b6b;
-  min-height: 20px;
+  min-height: 0;
+  height: 0;
   display: block;
+  overflow: hidden;
+}
+
+.form-error:not(:empty) {
+  min-height: 16px;
+  height: auto;
+  margin-top: 4px;
 }
 
 /* Privacy checkbox row with custom visual checkbox. */
 .form-privacy {
   display: flex;
   align-items: flex-start;
+  margin-top: 28px;
 }
 
 .privacy-label {
@@ -156,6 +194,24 @@
   width: 18px;
   height: 18px;
   margin-top: 2px;
+  isolation: isolate;
+}
+
+.privacy-checkbox-wrap::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(var(--color-accent-rgb), 0.94);
+  transform: translate(-50%, -50%) scale(0.86);
+  opacity: 0;
+  filter: blur(2px);
+  transition: opacity 0.2s, transform 0.2s, filter 0.2s;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .privacy-checkbox-wrap input[type="checkbox"] {
@@ -183,11 +239,10 @@
   mask-position: center;
   -webkit-mask-size: 64px 64px;
   mask-size: 64px 64px;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, transform 0.2s;
   flex-shrink: 0;
   overflow: visible;
-  isolation: isolate;
-  z-index: 0;
+  z-index: 1;
 }
 
 /* The Figma glow is a separate teal circle sitting behind the checkbox icon, not a generic CSS blur. */
@@ -207,9 +262,10 @@
   mask-position: center;
   -webkit-mask-size: 64px 64px;
   mask-size: 64px 64px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.94);
   opacity: 0;
-  transition: opacity 0.2s;
+  filter: drop-shadow(0 0 0 rgba(var(--color-accent-rgb), 0));
+  transition: opacity 0.2s, transform 0.2s, filter 0.2s;
   z-index: -1;
 }
 
@@ -229,17 +285,27 @@
 .privacy-checkbox-wrap input[type="checkbox"]:checked + .privacy-custom-box::before {
   -webkit-mask-image: url('../assets/ui/04_kreis_rechts.png');
   mask-image: url('../assets/ui/04_kreis_rechts.png');
-  opacity: 0.72;
 }
 
-.privacy-label:hover .privacy-custom-box::before,
-.privacy-checkbox-wrap input[type="checkbox"]:focus-visible + .privacy-custom-box::before {
+.privacy-label:hover .privacy-custom-box::before {
   opacity: 1;
+  transform: translate(-50%, -50%) scale(0.98);
+  filter: drop-shadow(0 0 4px rgba(var(--color-accent-rgb), 0.28))
+    drop-shadow(0 0 8px rgba(var(--color-accent-rgb), 0.14));
 }
 
-.privacy-checkbox-wrap input[type="checkbox"]:checked:focus-visible + .privacy-custom-box::before,
 .privacy-label:hover .privacy-checkbox-wrap input[type="checkbox"]:checked + .privacy-custom-box::before {
   opacity: 1;
+  transform: translate(-50%, -50%) scale(0.98);
+  filter: drop-shadow(0 0 4px rgba(var(--color-accent-rgb), 0.28))
+    drop-shadow(0 0 8px rgba(var(--color-accent-rgb), 0.14));
+}
+
+.privacy-checkbox-wrap:hover::after,
+.privacy-label:hover .privacy-checkbox-wrap::after {
+  opacity: 0.32;
+  transform: translate(-50%, -50%) scale(0.94);
+  filter: blur(3px);
 }
 
 .privacy-text {
@@ -253,4 +319,5 @@
 .form-submit {
   display: flex;
   justify-content: flex-end;
+  margin-top: 28px;
 }
