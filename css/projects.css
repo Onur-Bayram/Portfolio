@@ -300,11 +300,19 @@
   color: var(--color-white);
 }
 
-.project-detail-tech img {
+/* Stack icons use mask-image so they can inherit the exact overlay accent color instead of an approximate filter tint. */
+.project-detail-tech-icon {
+  display: block;
   width: 22px;
   height: 22px;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(674%) hue-rotate(129deg) brightness(96%) contrast(94%);
+  flex: 0 0 22px;
+  background-color: var(--color-accent);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
 }
 
 .project-detail-actions {

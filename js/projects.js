@@ -176,10 +176,11 @@
       var item = document.createElement('span');
       item.className = 'project-detail-tech';
 
-      var icon = document.createElement('img');
-      icon.src = tech.icon;
-      icon.alt = '';
+      var icon = document.createElement('span');
+      icon.className = 'project-detail-tech-icon';
       icon.setAttribute('aria-hidden', 'true');
+      icon.style.webkitMaskImage = 'url("' + tech.icon + '")';
+      icon.style.maskImage = 'url("' + tech.icon + '")';
 
       var label = document.createElement('span');
       label.textContent = tech.label;
