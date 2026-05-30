@@ -52,6 +52,7 @@
   var currentId = rows[0].dataset.projectId;
   var detailOpen = false;
 
+  // The desktop detail panel behaves like a modal, so both root elements need a lock class.
   function lockProjectModal() {
     document.documentElement.classList.add('is-project-modal-open');
     document.body.classList.add('is-project-modal-open');
@@ -94,6 +95,7 @@
     });
   }
 
+  // Desktop swaps between the list/preview overview and the large detail overlay.
   function showOverview(clearRows) {
     if (layout) layout.classList.remove('is-hidden');
     if (clearRows) {
@@ -113,6 +115,7 @@
     });
   }
 
+  // The small desktop preview follows the hovered row, but never leaves the list bounds.
   function positionPreview(row) {
     if (!previewPanel || !list || !row) return;
 
@@ -148,6 +151,7 @@
     });
   }
 
+  // The detail card reuses one DOM shell and swaps its content from the shared project data object.
   function hideDetailMedia() {
     if (!imageEl || !card) return;
     imageEl.removeAttribute('src');
@@ -249,6 +253,7 @@
     if (shouldScroll) scrollToDetailCard();
   }
 
+  // Hover previews are desktop-only; once the overlay is open, hover should stop changing content.
   function previewProject(projectId) {
     if (!PROJECTS[projectId] || !isDesktopLayout() || detailOpen) return;
     currentId = projectId;
@@ -256,6 +261,7 @@
     renderPreview(projectId);
   }
 
+  // Click/tap always promotes a project into the full detail view.
   function openProject(projectId, options) {
     if (!PROJECTS[projectId]) return;
 
@@ -286,6 +292,7 @@
     }
   }
 
+  // Resize and breakpoint changes must keep the current project visible in the correct layout mode.
   function syncProjectsLayout() {
     if (isDesktopLayout()) {
       if (detailOpen) {
@@ -308,6 +315,7 @@
     renderDetailCard(currentId);
   }
 
+  // Rows support three behaviors: desktop hover preview, keyboard focus preview, and click-to-open.
   rows.forEach(function (row) {
     row.addEventListener('pointerenter', function () {
       previewProject(row.dataset.projectId);
@@ -342,6 +350,7 @@
     });
   }
 
+  // The "next project" control cycles through the current rendered order instead of hard-coding ids.
   var projectOrder = rows.map(function (row) {
     return row.dataset.projectId;
   }).filter(function (projectId) {
@@ -396,6 +405,7 @@
 
   syncProjectsLayout();
 
+  // The language switcher calls back into the projects module so an open detail card can rerender its copy.
   window.updateProjectLanguage = function () {
     if (!currentId || !PROJECTS[currentId]) return;
 

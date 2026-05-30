@@ -311,20 +311,49 @@
   margin-top: 38px;
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
 }
 
+/* These action buttons intentionally override the global button lift to match the calmer Figma pills. */
 .project-detail-actions .btn {
-  min-height: 50px;
-  padding: 12px 24px;
-  border-color: rgba(255, 255, 255, 0.9);
+  min-height: 44px;
+  padding: 9px 18px;
+  gap: 8px;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.92);
   background: transparent;
+  color: #ffffff;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  transform: none;
 }
 
 .project-detail-actions .btn:hover,
 .project-detail-actions .btn:focus-visible {
-  border-color: rgba(255, 255, 255, 1);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  transform: none;
+}
+
+/* The external-link arrow is handled as a pseudo element so text translation cannot break the icon layout. */
+.project-detail-actions .btn::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  background: center / contain no-repeat url("../assets/ui/arrow-up-right-accent.svg");
+  transform: translate(0, 0);
+  transition: background-image 220ms ease, transform 220ms ease;
+}
+
+.project-detail-actions .btn:hover::after,
+.project-detail-actions .btn:focus-visible::after {
+  background-image: url("../assets/ui/arrow-up-right-accent-hover.svg");
+  transform: translate(2px, -2px);
 }
 
 /* Media column can collapse when an image is unavailable. */
@@ -397,30 +426,41 @@
   position: absolute;
   right: 42px;
   bottom: 34px;
+  padding: 20px;
   border: none;
+  border-radius: 5px;
   background: transparent;
   font-family: var(--font-mono);
   font-size: 18px;
   color: var(--color-accent);
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   cursor: pointer;
-  transition: color 220ms ease, transform 220ms ease;
+  transition: color 220ms ease;
 }
 
 .project-detail-next-icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   display: block;
-  flex: 0 0 22px;
+  flex: 0 0 24px;
+  will-change: transform;
+  transition: transform 220ms ease, filter 220ms ease;
 }
 
-.project-detail-next:hover {
-  color: #76e1da;
-  transform: translateX(3px);
+.project-detail-next:hover,
+.project-detail-next:focus-visible {
+  color: #ffffff;
 }
 
+.project-detail-next:hover .project-detail-next-icon,
+.project-detail-next:focus-visible .project-detail-next-icon {
+  transform: scale(1.22);
+  filter: brightness(1.28);
+}
+
+/* On desktop the project detail card becomes a fixed overlay, while mobile keeps it in normal flow. */
 @media (min-width: 981px) {
   html.is-project-modal-open,
   body.is-project-modal-open {
