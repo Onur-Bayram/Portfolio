@@ -367,6 +367,11 @@
 .project-detail-media {
   justify-self: end;
   width: min(100%, 520px);
+  aspect-ratio: 1.55 / 1;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .project-detail-media.is-hidden {
@@ -384,12 +389,9 @@
 /* Image treatment inside the detail panel. */
 .project-detail-media img {
   width: 100%;
-  aspect-ratio: 1.4 / 1;
-  border-radius: 28px;
-  object-fit: contain;
-  object-position: top;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
-  background: rgba(255, 255, 255, 0.04);
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
