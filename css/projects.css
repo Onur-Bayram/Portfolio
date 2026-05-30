@@ -364,19 +364,33 @@
   right: 28px;
   width: 42px;
   height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   border: none;
   background: transparent;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 42px;
-  font-weight: 300;
-  line-height: 1;
   cursor: pointer;
   transition: color 220ms ease, transform 220ms ease;
 }
 
-.project-detail-close:hover {
+.project-detail-close-icon {
+  display: block;
+  pointer-events: none;
+  width: 24px;
+  height: 24px;
+  transition: transform 220ms ease;
+}
+
+.project-detail-close:hover,
+.project-detail-close:focus-visible {
   color: var(--color-accent);
-  transform: rotate(90deg);
+}
+
+.project-detail-close:hover .project-detail-close-icon,
+.project-detail-close:focus-visible .project-detail-close-icon {
+  transform: scale(1.24);
 }
 
 .project-detail-next {
