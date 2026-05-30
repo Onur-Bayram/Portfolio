@@ -24,22 +24,49 @@
 }
 
 .footer-logo {
+  --nav-logo-size: 46px;
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
   text-decoration: none;
   margin-bottom: 4px;
+  isolation: isolate;
 }
 
 /* Footer logo reuses the same icon and wordmark pattern as the header. */
 .footer-logo .logo-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  min-height: var(--nav-logo-size);
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 700;
   color: var(--color-white);
-  line-height: 1.2;
+  line-height: 0.9;
+  letter-spacing: -0.25px;
+  margin-left: -6px;
+  -webkit-text-stroke: 0 rgba(255, 255, 255, 0);
+  transition: color 0.2s ease, -webkit-text-stroke-color 0.2s ease;
+}
+
+.footer-logo:hover .logo-icon-filled,
+.footer-logo:focus-visible .logo-icon-filled {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.footer-logo:hover .logo-icon-outline,
+.footer-logo:focus-visible .logo-icon-outline {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.footer-logo:hover .logo-text,
+.footer-logo:focus-visible .logo-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.96);
 }
 
 .footer-role,
