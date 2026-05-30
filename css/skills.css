@@ -1,6 +1,9 @@
 /* Skills section layout, intro card, icon grid, and tooltip behavior. */
 /* Desktop section shell with a text card on the left and icon grid on the right. */
 #skills {
+  --skills-glow-rgb: var(--color-dark-teal-rgb);
+  position: relative;
+  isolation: isolate;
   width: min(1232px, calc(100% - 224px));
   min-height: 0;
   margin: 72px auto 0;
@@ -8,6 +11,24 @@
   display: grid;
   grid-template-columns: 544px 1fr;
   gap: 64px;
+}
+
+#skills::before {
+  content: "";
+  position: absolute;
+  left: -108px;
+  top: 58px;
+  width: 392px;
+  height: 520px;
+  background: radial-gradient(
+    320px 240px at 0% 18%,
+    rgba(var(--skills-glow-rgb), 0.42) 0%,
+    rgba(var(--skills-glow-rgb), 0.18) 40%,
+    rgba(var(--skills-glow-rgb), 0) 100%
+  );
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Left column uses a decorative background texture behind the intro card. */
@@ -23,20 +44,23 @@
 .skills-left::before {
   content: "";
   position: absolute;
-  left: -24px;
-  top: 0;
-  bottom: 0;
-  width: 320px;
-  background-image: url("../assets/ui/skillset-background.png");
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 100% 100%;
-  opacity: 0.78;
+  left: -112px;
+  top: 92px;
+  width: 316px;
+  height: 248px;
+  background: radial-gradient(
+    240px 180px at 0% 50%,
+    rgba(var(--skills-glow-rgb), 0.34) 0%,
+    rgba(var(--skills-glow-rgb), 0.14) 36%,
+    rgba(var(--skills-glow-rgb), 0) 100%
+  );
   pointer-events: none;
   z-index: 0;
 }
 
 /* Keep text content above the decorative background layer. */
+.skills-left,
+.skills-right,
 .skills-kicker,
 .skills-card {
   position: relative;
@@ -45,31 +69,33 @@
 
 .skills-kicker {
   font-family: var(--font-mono);
-  font-size: 14.4px;
+  font-size: 14px;
   color: var(--color-accent);
   margin-bottom: 16px;
 }
 
 /* Intro card with heading, descriptive copy, and CTA button. */
 .skills-card {
-  border: 1px solid var(--color-accent);
+  border: 1px solid rgba(var(--color-cursor-glow-rgb), 0.8);
   border-radius: 32px;
-  background: linear-gradient(102deg, rgba(8, 70, 59, 0.5) 0%, rgba(20, 26, 26, 0.95) 58%, rgba(8, 70, 59, 0.36) 100%);
+  background:
+    linear-gradient(103deg, rgba(15, 76, 65, 0.65) 0%, rgba(23, 30, 30, 0.9) 56%, rgba(11, 66, 56, 0.5) 100%);
+  box-shadow: inset 0 0 0 1px rgba(var(--color-cursor-glow-rgb), 0.06);
   padding: 30px;
   min-height: 500px;
 }
 
 .skills-card h2 {
   font-family: var(--font-mono);
-  font-size: clamp(48px, 4vw, 73.6px);
+  font-size: clamp(48px, 4vw, 74px);
   line-height: 0.94;
-  letter-spacing: -0.48px;
+  letter-spacing: -0.5px;
   color: var(--color-accent);
   margin-bottom: 30px;
 }
 
 .skills-card p {
-  font-size: 15.2px;
+  font-size: 15px;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.92);
   max-width: 470px;
@@ -81,7 +107,7 @@
 
 .skills-card h3 {
   font-family: var(--font-mono);
-  font-size: 33.6px;
+  font-size: 34px;
   line-height: 1.05;
   color: var(--color-white);
   margin-bottom: 16px;
@@ -100,9 +126,9 @@
   justify-content: center;
   min-height: 44px;
   padding: 8px 24px;
-  border-color: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.9);
   background: transparent;
-  color: rgba(255, 255, 255, 0.96);
+  color: rgba(255, 255, 255, 0.95);
   transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease, transform 0.2s ease;
 }
 
@@ -113,7 +139,7 @@
   transform: none;
   border-color: #76e1da;
   color: #76e1da;
-  background: rgba(8, 70, 59, 0.32);
+  background: rgba(var(--skills-glow-rgb), 0.32);
 }
 
 /* Right column grid of technology items. */
@@ -164,7 +190,7 @@
 
 .skill-item:hover {
   transform: translateY(-2px);
-  filter: drop-shadow(0 0 10px rgba(61, 207, 182, 0.28));
+  filter: drop-shadow(0 0 10px rgba(var(--color-cursor-glow-rgb), 0.28));
 }
 
 .skill-item:hover > img {
@@ -213,7 +239,7 @@
 .mindset-tooltip p {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 11.52px;
+  font-size: 12px;
   line-height: 1.2;
   color: var(--color-accent);
   text-align: center;
@@ -240,7 +266,7 @@
 
 .mindset-tech span {
   font-family: var(--font-sans);
-  font-size: 11.52px;
+  font-size: 12px;
   line-height: 1;
   color: var(--color-accent);
 }

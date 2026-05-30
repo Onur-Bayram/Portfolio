@@ -6,7 +6,7 @@ body.legal-page {
   flex-direction: column;
   background:
     radial-gradient(circle at 76% 24%, rgba(29, 191, 167, 0.24), rgba(29, 191, 167, 0.06) 24%, transparent 46%),
-    radial-gradient(circle at 20% 74%, rgba(8, 70, 59, 0.2), transparent 44%),
+    radial-gradient(circle at 20% 74%, rgba(var(--color-dark-teal-rgb), 0.2), transparent 44%),
     linear-gradient(102deg, #171818 0%, #1b1b1b 37%, #12322c 74%, #0b4a40 100%);
   overflow-x: hidden;
 }
@@ -94,7 +94,7 @@ body.legal-page {
   font-family: var(--font-mono);
   font-size: 56px;
   line-height: 1;
-  letter-spacing: 0.32px;
+  letter-spacing: 0.3px;
   color: var(--color-accent);
   text-align: center;
 }
@@ -124,7 +124,7 @@ body.legal-page {
   max-width: 100%;
   margin: 0;
   font-size: 13px;
-  color: rgba(78, 205, 196, 0.78);
+  color: rgba(var(--color-accent-rgb), 0.78);
   line-height: 1.5;
 }
 
@@ -141,7 +141,7 @@ body.legal-page {
 .legal-list li {
   font-size: 13px;
   line-height: 1.5;
-  color: rgba(78, 205, 196, 0.78);
+  color: rgba(var(--color-accent-rgb), 0.78);
 }
 
 /* Inline links and highlighted legal references. */
@@ -307,7 +307,7 @@ a.legal-highlight:hover {
 
   .legal-notice-shell h1 {
     margin: 18px 0 0;
-    font-size: clamp(32px, 10vw, 41.6px);
+    font-size: clamp(32px, 10vw, 42px);
   }
 
   .legal-content {
@@ -315,12 +315,12 @@ a.legal-highlight:hover {
   }
 
   .legal-block h2 {
-    font-size: 12.8px;
+    font-size: 13px;
   }
 
   .legal-block p,
   .legal-list li {
-    font-size: 11.2px;
+    font-size: 11px;
     line-height: 1.35;
   }
 

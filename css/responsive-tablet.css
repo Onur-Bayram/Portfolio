@@ -94,10 +94,10 @@
     justify-content: center;
     gap: 24px;
     padding: 34px 24px 24px;
-    border: 1px solid rgba(78, 205, 196, 0.34);
+    border: 1px solid rgba(var(--color-accent-rgb), 0.34);
     border-radius: 30px;
     background:
-      radial-gradient(circle at 76% 28%, rgba(8, 70, 59, 0.76) 0%, rgba(8, 70, 59, 0.26) 50%, rgba(8, 70, 59, 0) 84%),
+      radial-gradient(circle at 76% 28%, rgba(var(--color-dark-teal-rgb), 0.76) 0%, rgba(var(--color-dark-teal-rgb), 0.26) 50%, rgba(var(--color-dark-teal-rgb), 0) 84%),
       linear-gradient(132deg, rgba(20, 20, 20, 0.98) 0%, rgba(9, 61, 53, 0.92) 100%);
     border-top: none;
     z-index: 120;
@@ -126,7 +126,7 @@
   /* Typography and CTA controls scale up from phone size, but remain smaller than desktop. */
   .hero-subtitle {
     font-size: 26px;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.5px;
   }
 
   .hero-name {
@@ -241,7 +241,7 @@
   }
 
   .project-row h3 {
-    font-size: clamp(24px, 2.8vw, 34px);
+    font-size: clamp(24px, 3vw, 34px);
   }
 
   .project-row-tech-item {
@@ -292,7 +292,7 @@
   }
 
   .project-detail-title {
-    font-size: clamp(34px, 3.4vw, 48px);
+    font-size: clamp(34px, 3.5vw, 48px);
   }
 
   .testimonial-card {
@@ -411,7 +411,7 @@
   }
 
   .project-row h3 {
-    font-size: clamp(30px, 4.8vw, 40px);
+    font-size: clamp(30px, 5vw, 40px);
   }
 
   .project-row-tech {
@@ -530,7 +530,7 @@
   }
 
   .hero-name {
-    font-size: clamp(84px, 7.8vw, 98px);
+    font-size: clamp(84px, 8vw, 98px);
   }
 
   .hero-title {
@@ -608,7 +608,7 @@
   /* These values intentionally scale almost every hero element together to avoid a tiny-looking portrait tablet hero. */
   .hero-subtitle {
     font-size: 32px;
-    letter-spacing: 0.7px;
+    letter-spacing: 0.5px;
   }
 
   .hero-name {

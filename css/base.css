@@ -21,6 +21,36 @@ body {
   line-height: 1.6;
 }
 
+/* Everything below the hero sits on a softer grey canvas with subtle green glows on the left edge. */
+.site-sections {
+  position: relative;
+  padding-top: 56px;
+  isolation: isolate;
+  background:
+    radial-gradient(260px 150px at 0% 42%, rgba(var(--color-dark-teal-rgb), 0.24) 0%, rgba(var(--color-dark-teal-rgb), 0.08) 34%, rgba(var(--color-overlay-dark-rgb), 0) 100%),
+    radial-gradient(260px 150px at 0% 80%, rgba(var(--color-dark-teal-rgb), 0.24) 0%, rgba(var(--color-dark-teal-rgb), 0.08) 32%, rgba(var(--color-overlay-dark-rgb), 0) 100%),
+    #1c1c1c;
+}
+
+/* The wrapper starts with a short neutral fade so the marquee can sit above a clean transition instead of a hard line. */
+.site-sections::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 88px;
+  background: linear-gradient(to bottom, rgba(var(--color-overlay-dark-rgb), 0.16) 0%, rgba(var(--color-overlay-dark-rgb), 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-sections > section,
+.site-sections > footer {
+  position: relative;
+  z-index: 1;
+}
+
 /* Shared element defaults so links, lists, and media start from a clean baseline. */
 a {
   color: inherit;
@@ -41,13 +71,13 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7.2px;
+  gap: 8px;
   min-height: 48px;
-  padding: 11.52px 28px;
+  padding: 12px 28px;
   border: 1px solid transparent;
   border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 13.12px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1;
   color: var(--color-white);
@@ -65,8 +95,8 @@ img {
 
 /* Filled-style primary action buttons. */
 .btn-primary {
-  border-color: rgba(255, 255, 255, 0.78);
-  background: rgba(17, 17, 17, 0.88);
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(17, 17, 17, 0.9);
   color: var(--color-white);
 }
 
@@ -83,35 +113,9 @@ img {
 }
 
 .btn-secondary:hover {
-  background: rgba(78, 205, 196, 0.08);
+  background: rgba(var(--color-accent-rgb), 0.08);
   border-color: #76e1da;
   color: #76e1da;
-}
-
-/* Shared arrow button spacing and icon swapping. */
-.btn-arrow {
-  gap: 8px;
-}
-
-.btn-arrow-icon {
-  width: 12px;
-  height: 12px;
-  display: block;
-  flex: 0 0 12px;
-}
-
-.btn-arrow-icon-hover {
-  display: none;
-}
-
-.btn-secondary.btn-arrow:hover .btn-arrow-icon-default,
-.btn-secondary.btn-arrow:focus-visible .btn-arrow-icon-default {
-  display: none;
-}
-
-.btn-secondary.btn-arrow:hover .btn-arrow-icon-hover,
-.btn-secondary.btn-arrow:focus-visible .btn-arrow-icon-hover {
-  display: block;
 }
 
 /* Hero CTA buttons can swap to a looping marquee label on hover without changing layout width. */

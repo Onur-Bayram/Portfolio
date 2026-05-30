@@ -10,7 +10,7 @@
 /* Shared section intro typography. */
 .projects-kicker {
   font-family: var(--font-mono);
-  font-size: 14.4px;
+  font-size: 14px;
   line-height: 1;
   color: var(--color-accent);
   margin-bottom: 14px;
@@ -18,9 +18,9 @@
 
 #projects > h2 {
   font-family: var(--font-mono);
-  font-size: clamp(48px, 5vw, 73.6px);
+  font-size: clamp(48px, 5vw, 74px);
   line-height: 0.95;
-  letter-spacing: -0.48px;
+  letter-spacing: -0.5px;
   color: var(--color-accent);
   margin-bottom: 34px;
 }
@@ -28,7 +28,7 @@
 .projects-intro {
   max-width: 560px;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 15.2px;
+  font-size: 15px;
   line-height: 1.45;
   margin-bottom: 34px;
 }
@@ -38,7 +38,7 @@
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;
-  column-gap: clamp(38px, 4.5vw, 84px);
+  column-gap: clamp(40px, 4.5vw, 84px);
   align-items: start;
 }
 
@@ -49,31 +49,38 @@
 /* The list is rendered by JavaScript and styled as a stacked set of interactive rows. */
 .projects-list {
   position: relative;
-  border-top: 1px solid rgba(78, 205, 196, 0.9);
+  border-top: 1px solid rgba(var(--color-accent-rgb), 0.9);
 }
 
 /* Each row mirrors the Figma list treatment with title left and tech labels right. */
 .project-row {
   min-height: 108px;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 24px 32px;
-  border-bottom: 1px solid rgba(78, 205, 196, 0.9);
+  border-bottom: 1px solid rgba(var(--color-accent-rgb), 0.9);
+  border-top: none;
+  border-right: none;
+  border-left: none;
   padding: 0 30px;
   text-decoration: none;
+  text-align: left;
   color: inherit;
   background: transparent;
   transition: background-color 260ms ease, border-color 260ms ease;
   cursor: pointer;
   position: relative;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .project-row:hover,
 .project-row:focus-visible,
 .project-row.is-active {
   background: rgba(43, 96, 91, 0.98);
-  border-bottom-color: rgba(78, 205, 196, 0.9);
+  border-bottom-color: rgba(var(--color-accent-rgb), 0.9);
 }
 
 /* Left side of a row keeps the project title aligned like the Figma menu. */
@@ -88,7 +95,7 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: clamp(28px, 2.85vw, 40px);
+  font-size: clamp(28px, 2.8vw, 40px);
   line-height: 1;
   color: var(--color-white);
   transition: color 220ms ease;
@@ -123,7 +130,7 @@
 .project-row-tech-item {
   position: relative;
   font-family: var(--font-mono);
-  font-size: 15.2px;
+  font-size: 15px;
   line-height: 1;
   color: rgba(255, 255, 255, 0.96);
   white-space: nowrap;
@@ -140,14 +147,6 @@
   border-radius: 999px;
   background: var(--color-accent);
   transform: translateY(-50%);
-}
-
-.project-row p,
-.project-row-tech-label {
-  font-family: var(--font-mono);
-  font-size: 15.2px;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.96);
 }
 
 .project-row:hover h3,
@@ -188,7 +187,7 @@
   bottom: -18px;
   left: 84px;
   border-radius: 18px;
-  background: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(78, 205, 196, 0.92) 9px 11px);
+  background: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(var(--color-accent-rgb), 0.92) 9px 11px);
   z-index: 0;
 }
 
@@ -216,11 +215,11 @@
   min-height: 640px;
   margin-top: 18px;
   padding: 54px 48px 72px;
-  border: 1px solid rgba(78, 205, 196, 0.72);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.72);
   border-radius: 30px;
-  background: linear-gradient(96deg, rgba(28, 28, 28, 0.98) 0%, rgba(22, 26, 26, 0.98) 38%, rgba(10, 88, 76, 0.9) 100%);
+  background: linear-gradient(96deg, rgba(28, 28, 28, 0.96) 0%, rgba(22, 26, 26, 0.96) 38%, rgba(10, 88, 76, 0.9) 100%);
   grid-template-columns: minmax(0, 470px) minmax(360px, 1fr);
-  gap: clamp(40px, 4.6vw, 84px);
+  gap: clamp(40px, 4.5vw, 84px);
   align-items: center;
   overflow: hidden;
 }
@@ -231,8 +230,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 82% 34%, rgba(61, 207, 182, 0.16) 0%, rgba(61, 207, 182, 0.08) 20%, rgba(61, 207, 182, 0) 48%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0) 54%, rgba(61, 207, 182, 0.08) 100%);
+    radial-gradient(circle at 82% 34%, rgba(var(--color-cursor-glow-rgb), 0.16) 0%, rgba(var(--color-cursor-glow-rgb), 0.08) 20%, rgba(var(--color-cursor-glow-rgb), 0) 48%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 54%, rgba(var(--color-cursor-glow-rgb), 0.08) 100%);
   pointer-events: none;
 }
 
@@ -328,7 +327,7 @@
   padding: 9px 18px;
   gap: 8px;
   border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.9);
   background: transparent;
   color: #ffffff;
   position: relative;
@@ -427,7 +426,7 @@
 
 .project-detail-close:hover .project-detail-close-icon,
 .project-detail-close:focus-visible .project-detail-close-icon {
-  transform: scale(1.24);
+  transform: scale(1.2);
 }
 
 .project-detail-next {
@@ -464,8 +463,8 @@
 
 .project-detail-next:hover .project-detail-next-icon,
 .project-detail-next:focus-visible .project-detail-next-icon {
-  transform: scale(1.22);
-  filter: brightness(1.28);
+  transform: scale(1.2);
+  filter: brightness(1.25);
 }
 
 /* On desktop the project detail card becomes a fixed overlay, while mobile keeps it in normal flow. */
@@ -475,13 +474,18 @@
     overflow: hidden;
   }
 
-  body.is-project-modal-open::before {
+  body.is-project-modal-open #projects {
+    z-index: 1101;
+  }
+
+  body.is-project-modal-open .site-sections::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.68);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(3px);
     z-index: 1090;
+    pointer-events: none;
   }
 
   .project-detail-card {
@@ -493,5 +497,12 @@
     margin: 0;
     transform: translate(-50%, -50%);
     z-index: 1100;
+  }
+
+  body.is-project-modal-open #projects > .projects-kicker,
+  body.is-project-modal-open #projects > h2,
+  body.is-project-modal-open #projects > .projects-intro {
+    opacity: 0;
+    pointer-events: none;
   }
 }

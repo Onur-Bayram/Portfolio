@@ -2,7 +2,7 @@
 /* Two-column section shell used on desktop before mobile overrides stack it. */
 #about {
   width: min(1232px, calc(100% - 224px));
-  margin: 84px auto 0;
+  margin: 0 auto;
   min-height: 708px;
   display: grid;
   grid-template-columns: minmax(0, 568px) minmax(0, 568px);
@@ -25,7 +25,7 @@
   right: 82px;
   bottom: -32px;
   left: -38px;
-  background: repeating-linear-gradient(45deg, transparent 0 17px, rgba(78, 205, 196, 0.92) 17px 19px);
+  background: repeating-linear-gradient(45deg, transparent 0 17px, rgba(var(--color-accent-rgb), 0.92) 17px 19px);
   z-index: 0;
   pointer-events: none;
 }
@@ -58,8 +58,8 @@
 /* Kicker text introducing the section. */
 .about-kicker {
   font-family: var(--font-mono);
-  font-size: 14.4px;
-  letter-spacing: 0.16px;
+  font-size: 14px;
+  letter-spacing: 0.2px;
   line-height: 1;
   color: var(--color-accent);
   margin-bottom: 22px;
@@ -69,22 +69,22 @@
 .about-card {
   border: 1px solid var(--color-accent);
   border-radius: 28px;
-  background: linear-gradient(103deg, rgba(8, 70, 59, 0.5) 0%, rgba(20, 26, 26, 0.95) 55%, rgba(8, 70, 59, 0.38) 100%);
+  background: linear-gradient(103deg, rgba(var(--color-dark-teal-rgb), 0.5) 0%, rgba(20, 26, 26, 0.95) 55%, rgba(var(--color-dark-teal-rgb), 0.38) 100%);
   padding: 34px 30px 30px;
 }
 
 .about-card h2 {
   font-family: var(--font-mono);
-  font-size: clamp(38.4px, 4.2vw, 63.2px);
+  font-size: clamp(38px, 4.2vw, 64px);
   line-height: 0.95;
-  letter-spacing: -0.48px;
+  letter-spacing: -0.5px;
   color: var(--color-accent);
   margin-bottom: 24px;
 }
 
 .about-intro {
   font-family: var(--font-sans);
-  font-size: 15.2px;
+  font-size: 15px;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.92);
   margin-bottom: 26px;
@@ -105,7 +105,7 @@
   gap: 12px;
   align-items: start;
   color: rgba(255, 255, 255, 0.78);
-  font-size: 15.2px;
+  font-size: 15px;
   line-height: 1.45;
 }
 

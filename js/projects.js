@@ -16,9 +16,9 @@
         return '<span class="project-row-tech-item">' + tech.label + '</span>';
       }).join('');
 
-      var row = document.createElement('a');
+      var row = document.createElement('button');
       row.className = 'project-row';
-      row.href = '#projectDetailCard';
+      row.type = 'button';
       row.setAttribute('role', 'listitem');
       row.setAttribute('data-project-id', id);
       row.setAttribute('aria-controls', 'projectDetailCard');
@@ -229,7 +229,7 @@
     var project = PROJECTS[projectId];
     var shouldScroll = options && options.shouldScroll;
     if (!project || !card || !numberEl || !titleEl || !descriptionEl || !stackEl || !githubEl || !liveEl) {
-      return;
+      return false;
     }
 
     numberEl.textContent = project.number;
@@ -252,6 +252,7 @@
     showCard();
 
     if (shouldScroll) scrollToDetailCard();
+    return true;
   }
 
   // Hover previews are desktop-only; once the overlay is open, hover should stop changing content.
@@ -271,16 +272,16 @@
     updateRowState(projectId);
 
     if (isDesktopLayout()) {
+      if (!renderDetailCard(projectId)) return;
       lockProjectModal();
       hideOverview();
-      renderDetailCard(projectId);
       return;
     }
 
+    if (!renderDetailCard(projectId, options)) return;
     unlockProjectModal();
     showOverview(false);
     hidePreviewPanel();
-    renderDetailCard(projectId, options);
   }
 
   function closeProjectDetail() {
@@ -331,8 +332,7 @@
       openProject(row.dataset.projectId);
     });
 
-    row.addEventListener('click', function (event) {
-      event.preventDefault();
+    row.addEventListener('click', function () {
       openProject(row.dataset.projectId, { shouldScroll: !isDesktopLayout() });
     });
   });

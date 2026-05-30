@@ -1,7 +1,7 @@
 /* Footer layout with brand recap, copyright, and utility links. */
 /* Outer footer shell that aligns with the site's horizontal padding token. */
 #footer {
-  background-color: var(--color-bg);
+  background-color: transparent;
   padding: 0 var(--padding-x);
 }
 
@@ -36,7 +36,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-mono);
-  font-size: 13.6px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--color-white);
   line-height: 1.2;
@@ -45,7 +45,7 @@
 .footer-role,
 .footer-location {
   font-family: var(--font-sans);
-  font-size: 12.8px;
+  font-size: 13px;
   color: var(--color-muted);
   line-height: 1.4;
 }
@@ -53,7 +53,7 @@
 /* Center column keeps the copyright visually separate from the link list. */
 .footer-copy {
   font-family: var(--font-mono);
-  font-size: 13.6px;
+  font-size: 14px;
   color: var(--color-accent);
   text-align: center;
   justify-self: center;
@@ -70,10 +70,10 @@
 
 .footer-nav a {
   font-family: var(--font-sans);
-  font-size: 13.6px;
+  font-size: 14px;
   color: var(--color-muted);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .footer-nav a:hover {

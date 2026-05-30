@@ -1,7 +1,7 @@
 /* Contact section layout, form styling, and validation states. */
 /* Section shell and contact two-column layout. */
 #contact {
-  background-color: var(--color-bg);
+  background-color: transparent;
   padding: 100px var(--padding-x) 100px;
 }
 
@@ -25,7 +25,7 @@
 
 .contact-heading {
   font-family: var(--font-mono);
-  font-size: clamp(38.4px, 5vw, 64px);
+  font-size: clamp(38px, 5vw, 64px);
   font-weight: 700;
   color: var(--color-accent);
   line-height: 1.1;
@@ -34,7 +34,7 @@
 
 .contact-sub {
   font-family: var(--font-mono);
-  font-size: 17.6px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-accent);
   margin-bottom: 14px;
@@ -51,7 +51,7 @@
 
 .contact-cta {
   font-family: var(--font-sans);
-  font-size: 15.2px;
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.55);
 }
 
@@ -96,7 +96,7 @@
   border: none;
   outline: none;
   font-family: var(--font-sans);
-  font-size: 15.2px;
+  font-size: 15px;
   color: var(--color-white);
   padding: 4px 0;
   resize: none;
@@ -105,7 +105,7 @@
 
 /* Visual feedback for focus and validation states. */
 .form-field:focus-within {
-  border-bottom-color: rgba(78, 205, 196, 0.9);
+  border-bottom-color: rgba(var(--color-accent-rgb), 0.9);
 }
 
 .form-field.is-invalid {
@@ -131,9 +131,9 @@
 
 .form-error {
   font-family: var(--font-sans);
-  font-size: 12.8px;
+  font-size: 13px;
   color: #ff6b6b;
-  min-height: 19.2px;
+  min-height: 20px;
   display: block;
 }
 

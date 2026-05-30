@@ -3,10 +3,14 @@
   /* Core color palette for surfaces, overlays, accents, and text. */
   --color-bg: #111111;
   --color-dark-teal: #08463B;
+  --color-dark-teal-rgb: 8, 70, 59;
   --color-overlay-dark: #1C1C1C;
+  --color-overlay-dark-rgb: 28, 28, 28;
   --color-overlay-green: #08463B;
   --color-cursor-glow: #3DCFB6;
+  --color-cursor-glow-rgb: 61, 207, 182;
   --color-accent: #4ECDC4;
+  --color-accent-rgb: 78, 205, 196;
   --color-white: #FFFFFF;
   --color-muted: rgba(255, 255, 255, 0.5);
   --color-border: rgba(255, 255, 255, 0.1);

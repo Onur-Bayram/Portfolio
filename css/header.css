@@ -47,7 +47,7 @@
 .lang-chip {
   border: none;
   background: transparent;
-  color: rgba(78, 205, 196, 0.58);
+  color: rgba(var(--color-accent-rgb), 0.58);
   border-radius: 999px;
   min-width: 31px;
   min-height: 24px;
@@ -56,9 +56,9 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 11.52px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.16px;
+  letter-spacing: 0.2px;
   line-height: 1;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -70,7 +70,7 @@
 }
 
 .lang-toggle:hover .lang-chip:not(.is-active) {
-  color: rgba(78, 205, 196, 0.9);
+  color: rgba(var(--color-accent-rgb), 0.9);
 }
 
 .lang-chip.is-active {
@@ -81,7 +81,7 @@
 .lang-chip:hover:not(.is-active),
 .lang-chip:focus-visible:not(.is-active) {
   background: transparent;
-  color: rgba(78, 205, 196, 0.9);
+  color: rgba(var(--color-accent-rgb), 0.9);
 }
 
 .lang-chip:focus-visible {
@@ -175,7 +175,7 @@
   font-size: 24px;
   font-weight: 700;
   line-height: 0.82;
-  letter-spacing: -0.56px;
+  letter-spacing: -0.5px;
   margin-left: -8px;
   color: var(--color-white);
   -webkit-text-stroke: 0 rgba(255, 255, 255, 0);
@@ -217,7 +217,7 @@
   left: 0;
   display: block;
   width: 100%;
-  height: 2.5px;
+  height: 2px;
   background: var(--color-white);
   border-radius: 2px;
   transition: all 0.25s;

@@ -1,7 +1,7 @@
 /* Testimonials slider, centered stage, and navigation controls. */
 /* Outer section spacing around the slider component. */
 #testimonials {
-  background-color: var(--color-bg);
+  background-color: transparent;
   padding: 100px 0 80px;
   overflow: hidden;
 }
@@ -13,7 +13,7 @@
 
 .testimonials-title {
   font-family: var(--font-mono);
-  font-size: clamp(22.4px, 2.8vw, 35.2px);
+  font-size: clamp(22px, 2.8vw, 35px);
   font-weight: 700;
   color: var(--color-accent);
   margin-bottom: 56px;
@@ -45,12 +45,12 @@
 
 .testimonials-track-outer::before {
   left: 0;
-  background: linear-gradient(to right, #111111 0%, transparent 100%);
+  background: linear-gradient(to right, #1c1c1c 0%, transparent 100%);
 }
 
 .testimonials-track-outer::after {
   right: 0;
-  background: linear-gradient(to left, #111111 0%, transparent 100%);
+  background: linear-gradient(to left, #1c1c1c 0%, transparent 100%);
 }
 
 /* The track moves horizontally while cards stay fixed width. */
@@ -69,8 +69,8 @@
   flex-direction: column;
   min-height: 340px;
   overflow: visible;
-  background: rgba(78, 205, 196, 0.18);
-  border: 1px solid rgba(78, 205, 196, 0.9);
+  background: rgba(var(--color-accent-rgb), 0.18);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.9);
   border-radius: 28px;
   padding: 72px 44px 36px;
   margin: 0 20px;
@@ -175,7 +175,7 @@
 }
 
 .testimonials-arrow:focus-visible {
-  outline: 1px solid rgba(78, 205, 196, 0.8);
+  outline: 1px solid rgba(var(--color-accent-rgb), 0.8);
   outline-offset: 6px;
 }
 

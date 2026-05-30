@@ -6,7 +6,7 @@
     min-height: 820px;
     padding-top: 0;
     background:
-      radial-gradient(circle at 84% 22%, rgba(8, 70, 59, 0.94) 0%, rgba(8, 70, 59, 0.66) 34%, rgba(8, 70, 59, 0.18) 60%, rgba(8, 70, 59, 0) 78%),
+      radial-gradient(circle at 84% 22%, rgba(var(--color-dark-teal-rgb), 0.94) 0%, rgba(var(--color-dark-teal-rgb), 0.66) 34%, rgba(var(--color-dark-teal-rgb), 0.18) 60%, rgba(var(--color-dark-teal-rgb), 0) 78%),
       linear-gradient(102deg, #1a1b1b 0%, #171919 38%, #12312c 74%, #0b453c 100%);
   }
 
@@ -123,7 +123,7 @@
     flex: 1 1 auto;
     min-height: 240px;
     display: block;
-    background: rgba(78, 205, 196, 0.72);
+    background: rgba(var(--color-accent-rgb), 0.72);
   }
 
   /* The right line is intentionally shorter so it ends above the marquee. */
@@ -141,9 +141,9 @@
     padding: 8px 18px;
     bottom: 92px;
     background: rgba(255, 255, 255, 0.13);
-    backdrop-filter: blur(4.8px);
-    -webkit-backdrop-filter: blur(4.8px);
-    transform: translateX(-50%) rotate(-2.3deg);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transform: translateX(-50%) rotate(-2deg);
   }
 
   .hero-marquee-track,
@@ -165,10 +165,6 @@
     font-size: 12px;
   }
 
-  /* The alternate contact chip is not part of the mobile hero composition. */
-  .hero-email-chip {
-    display: none;
-  }
 }
 
 /* Medium phones slightly reduce the hero height and tighten spacing. */

@@ -1,0 +1,8 @@
+[2652:15980:0530/204450.378:ERROR:chrome\installer\util\google_update_settings_win.cc:517] Failed opening key Software\Microsoft\EdgeUpdate\ClientStateMedium\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062} to set usagestats; result: 5
+[2652:15980:0530/204450.378:ERROR:chrome\installer\util\google_update_settings_win.cc:550] Failed opening key Software\Microsoft\EdgeUpdate\ClientStateMedium\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062} to set urlstats; result: 5
+[2652:17768:0530/204455.828:ERROR:chrome\installer\util\google_update_settings_win.cc:517] Failed opening key Software\Microsoft\EdgeUpdate\ClientStateMedium\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062} to set usagestats; result: 5
+[2652:17768:0530/204455.828:ERROR:chrome\installer\util\google_update_settings_win.cc:550] Failed opening key Software\Microsoft\EdgeUpdate\ClientStateMedium\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062} to set urlstats; result: 5
+[2652:20196:0530/204455.828:ERROR:content\browser\gpu\gpu_process_host.cc:1045] GPU process exited unexpectedly: exit_code=-1073741790
+[2652:20196:0530/204455.900:ERROR:content\browser\gpu\gpu_process_host.cc:1045] GPU process exited unexpectedly: exit_code=-1073741790
+[2652:20196:0530/204455.945:ERROR:content\browser\gpu\gpu_process_host.cc:1045] GPU process exited unexpectedly: exit_code=-1073741790
+[2652:20196:0530/204455.946:FATAL:content\browser\gpu\gpu_data_manager_impl_private.cc:428] GPU process isn't usable. Goodbye.
