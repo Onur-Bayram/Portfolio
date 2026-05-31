@@ -367,7 +367,7 @@
       </div>
     </section>
 
-    <!-- Contact section with intro copy and Netlify form -->
+    <!-- Contact section with intro copy and contact form -->
     <section id="contact">
       <div class="contact-box">
 
@@ -381,8 +381,15 @@
         </div>
 
         <!-- Right column: validated contact form -->
-        <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" novalidate>
-          <input type="hidden" name="form-name" value="contact" />
+        <form
+          class="contact-form"
+          id="contactForm"
+          name="contact"
+          method="POST"
+          data-form-endpoint=""
+          data-form-recipient="onur-bayram@hotmail.de"
+          novalidate
+        >
 
           <div class="form-field">
             <label for="contactName" data-de="Wie hei&szlig;t du?" data-en="What's your name?">What's your name?</label>
