@@ -165,3 +165,37 @@
     padding: 30px 20px 20px;
   }
 }
+
+/* Larger phones can carry a roomier header and menu without feeling oversized. */
+@media (min-width: 421px) and (max-width: 767px) {
+  :root {
+    --padding-x: 28px;
+  }
+
+  .navbar {
+    padding: 0 clamp(20px, 4.8vw, 28px);
+  }
+
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .burger {
+    width: 30px;
+    height: 24px;
+  }
+
+  .mobile-menu {
+    top: 14px;
+    right: clamp(16px, 4vw, 22px);
+    width: min(228px, calc(100vw - 32px));
+    min-height: 236px;
+    gap: 26px;
+    padding: 36px 28px 28px;
+  }
+
+  .mobile-link {
+    font-size: 16px;
+  }
+}

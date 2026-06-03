@@ -352,3 +352,90 @@
     bottom: 98px;
   }
 }
+
+/* Larger phones should not inherit the compact medium-phone scaling. */
+@media (min-width: 421px) and (max-width: 767px) {
+  #hero {
+    min-height: 900px;
+  }
+
+  .hero-title {
+    top: 380px;
+    width: min(398px, calc(100% - 52px));
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-name {
+    font-size: 68px;
+    margin-bottom: 24px;
+  }
+
+  .hero-buttons {
+    gap: 18px;
+  }
+
+  .hero-buttons .btn {
+    min-width: 132px;
+    min-height: 46px;
+    padding: 9px 22px;
+    font-size: 13px;
+  }
+
+  .hero-left-lateral {
+    left: 20px;
+    width: 32px;
+    height: 344px;
+  }
+
+  .hero-right-lateral {
+    right: 20px;
+    width: 32px;
+    bottom: 44px;
+    height: 278px;
+    gap: 16px;
+  }
+
+  .hero-socials a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-socials a img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-scroll-pill {
+    width: 32px;
+    height: 50px;
+  }
+
+  .hero-scroll-icon {
+    width: 11px;
+    height: 20px;
+  }
+
+  .hero-left-line {
+    min-height: 252px;
+  }
+
+  .hero-right-line {
+    min-height: 182px;
+  }
+
+  .hero-marquee {
+    width: calc(100% + 18px);
+    height: 56px;
+    padding: 9px 22px;
+    bottom: 100px;
+  }
+
+  .hero-marquee-track,
+  .hero-marquee-group {
+    font-size: 15px;
+    gap: 28px;
+  }
+}

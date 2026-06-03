@@ -210,24 +210,8 @@
     }
   }
 
-  function scrollToDetailCard() {
-    if (!card) return;
-
-    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var header = document.getElementById('header');
-    var headerOffset = header ? header.offsetHeight : 0;
-    var extraOffset = 24;
-    var targetTop = card.getBoundingClientRect().top + window.scrollY - headerOffset - extraOffset;
-
-    window.scrollTo({
-      top: Math.max(0, targetTop),
-      behavior: prefersReducedMotion ? 'auto' : 'smooth'
-    });
-  }
-
-  function renderDetailCard(projectId, options) {
+  function renderDetailCard(projectId) {
     var project = PROJECTS[projectId];
-    var shouldScroll = options && options.shouldScroll;
     if (!project || !card || !numberEl || !titleEl || !descriptionEl || !stackEl || !githubEl || !liveEl) {
       return false;
     }
@@ -250,8 +234,6 @@
     liveEl.href = project.live;
     renderStack(project.tech);
     showCard();
-
-    if (shouldScroll) scrollToDetailCard();
     return true;
   }
 
@@ -264,57 +246,37 @@
   }
 
   // Click/tap always promotes a project into the full detail view.
-  function openProject(projectId, options) {
+  function openProject(projectId) {
     if (!PROJECTS[projectId]) return;
 
     currentId = projectId;
     detailOpen = true;
     updateRowState(projectId);
 
-    if (isDesktopLayout()) {
-      if (!renderDetailCard(projectId)) return;
-      lockProjectModal();
-      hideOverview();
-      return;
-    }
-
-    if (!renderDetailCard(projectId, options)) return;
-    unlockProjectModal();
-    showOverview(false);
-    hidePreviewPanel();
+    if (!renderDetailCard(projectId)) return;
+    lockProjectModal();
+    hideOverview();
   }
 
   function closeProjectDetail() {
     detailOpen = false;
     unlockProjectModal();
     hideCard();
-
-    if (isDesktopLayout()) {
-      showOverview(true);
-    }
+    showOverview(true);
   }
 
   // Resize and breakpoint changes must keep the current project visible in the correct layout mode.
   function syncProjectsLayout() {
-    if (isDesktopLayout()) {
-      if (detailOpen) {
-        lockProjectModal();
-        hideOverview();
-        renderDetailCard(currentId);
-        return;
-      }
-
-      unlockProjectModal();
-      showOverview(true);
-      hideCard(true);
+    if (detailOpen) {
+      lockProjectModal();
+      hideOverview();
+      renderDetailCard(currentId);
       return;
     }
 
     unlockProjectModal();
-    showOverview(false);
-    hidePreviewPanel();
-    updateRowState(currentId);
-    renderDetailCard(currentId);
+    showOverview(true);
+    hideCard(true);
   }
 
   // Rows support three behaviors: desktop hover preview, keyboard focus preview, and click-to-open.
@@ -333,7 +295,7 @@
     });
 
     row.addEventListener('click', function () {
-      openProject(row.dataset.projectId, { shouldScroll: !isDesktopLayout() });
+      openProject(row.dataset.projectId);
     });
   });
 
@@ -362,7 +324,7 @@
     nextButton.addEventListener('click', function () {
       var currentIndex = projectOrder.indexOf(currentId);
       var nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % projectOrder.length;
-      openProject(projectOrder[nextIndex], { shouldScroll: !isDesktopLayout() });
+      openProject(projectOrder[nextIndex]);
     });
   }
 
@@ -373,7 +335,7 @@
   }
 
   document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && detailOpen && isDesktopLayout()) {
+    if (event.key === 'Escape' && detailOpen) {
       closeProjectDetail();
     }
   });
@@ -408,15 +370,7 @@
 
   // The language switcher calls back into the projects module so an open detail card can rerender its copy.
   window.updateProjectLanguage = function () {
-    if (!currentId || !PROJECTS[currentId]) return;
-
-    if (isDesktopLayout()) {
-      if (detailOpen) {
-        renderDetailCard(currentId);
-      }
-      return;
-    }
-
+    if (!detailOpen || !currentId || !PROJECTS[currentId]) return;
     renderDetailCard(currentId);
   };
 })();

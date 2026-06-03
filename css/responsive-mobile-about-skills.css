@@ -196,3 +196,89 @@
     font-size: 12px;
   }
 }
+
+/* Larger phones should use a wider, more generous stacked column. */
+@media (min-width: 421px) and (max-width: 767px) {
+  #about {
+    width: min(392px, calc(100% - 38px));
+    margin-top: 80px;
+    gap: 22px;
+  }
+
+  .about-media img {
+    min-height: clamp(300px, 58vw, 420px);
+  }
+
+  .about-kicker {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .about-card {
+    border-radius: 22px;
+    padding: 26px 22px 24px;
+  }
+
+  .about-card h2 {
+    font-size: clamp(42px, 9.5vw, 52px);
+    margin-bottom: 16px;
+  }
+
+  .about-intro,
+  .about-points li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  #skills {
+    width: min(414px, calc(100% - 24px));
+    margin-top: 44px;
+    padding: 12px 18px;
+    gap: 30px;
+  }
+
+  .skills-card {
+    border-radius: 26px;
+    padding: 22px 20px 20px;
+  }
+
+  .skills-card h2 {
+    font-size: clamp(48px, 10.5vw, 58px);
+    margin-bottom: 12px;
+  }
+
+  .skills-card p {
+    font-size: 15px;
+    line-height: 1.48;
+  }
+
+  .skills-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+  }
+
+  .skills-card .btn {
+    margin-top: 20px;
+  }
+
+  .skills-right {
+    row-gap: 20px;
+    column-gap: 18px;
+    padding: 6px 4px;
+  }
+
+  .skill-item img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .skill-item {
+    max-width: 116px;
+    min-height: 88px;
+    gap: 9px;
+  }
+
+  .skill-item span {
+    font-size: 13px;
+  }
+}

@@ -313,6 +313,33 @@
 /* Narrower tablet widths stack more sections and simplify denser layouts. */
 @media (min-width: 768px) and (max-width: 980px) {
   /* This breakpoint handles portrait tablets and compact landscape tablets. */
+  html.is-project-modal-open,
+  body.is-project-modal-open {
+    overflow: hidden;
+  }
+
+  body.is-project-modal-open #projects {
+    z-index: 1101;
+  }
+
+  body.is-project-modal-open .site-sections::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 1090;
+    pointer-events: none;
+  }
+
+  body.is-project-modal-open #projects > .projects-kicker,
+  body.is-project-modal-open #projects > h2,
+  body.is-project-modal-open #projects > .projects-intro {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   #hero {
     min-height: 100vh;
   }
@@ -357,13 +384,16 @@
   }
 
   #about {
+    width: min(390px, calc(100% - 64px));
+    min-height: 0;
     grid-template-columns: 1fr;
-    gap: 28px;
+    justify-items: center;
+    gap: 20px;
     margin-top: 72px;
   }
 
   .about-media-wrap {
-    width: min(100%, 568px);
+    width: 100%;
   }
 
   .about-media-wrap::before {
@@ -371,6 +401,7 @@
   }
 
   .about-content-wrap {
+    width: 100%;
     padding-top: 0;
   }
 
@@ -420,6 +451,15 @@
   }
 
   .project-detail-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: min(620px, calc(100vw - 64px));
+    max-height: calc(100svh - 64px);
+    margin: 0;
+    transform: translate(-50%, -50%);
+    z-index: 1100;
+    overflow: auto;
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
@@ -515,6 +555,144 @@
 
   .hero-right-line {
     min-height: 170px;
+  }
+
+  #projects {
+    width: min(390px, calc(100% - 64px));
+    margin-top: 18px;
+    padding-top: 26px;
+  }
+
+  .projects-layout {
+    display: block;
+  }
+
+  .projects-preview-panel {
+    display: none;
+  }
+
+  .project-row {
+    min-height: 94px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 13px 10px;
+  }
+
+  .project-row:hover {
+    padding: 13px 12px;
+  }
+
+  .project-row h3 {
+    font-size: 30px;
+  }
+
+  .project-row-tech {
+    justify-content: flex-start;
+    gap: 8px 16px;
+  }
+
+  .project-row-tech-item {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .project-detail-card {
+    top: 50%;
+    left: 50%;
+    width: min(390px, calc(100vw - 40px));
+    max-height: calc(100svh - 32px);
+    margin: 0;
+    transform: translate(-50%, -50%);
+    padding: 48px 16px 72px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    border-radius: 20px;
+  }
+
+  .project-detail-copy {
+    order: 2;
+  }
+
+  .project-detail-media {
+    order: 1;
+    justify-self: stretch;
+    width: 100%;
+    aspect-ratio: 1.72 / 1;
+    border-radius: 18px;
+  }
+
+  .project-detail-media img {
+    object-fit: contain;
+    object-position: top;
+    background: #ffffff;
+  }
+
+  .project-detail-number {
+    font-size: clamp(58px, 19vw, 77px);
+  }
+
+  .project-detail-title {
+    font-size: clamp(32px, 10vw, 45px);
+  }
+
+  .project-detail-subtitle {
+    margin-top: 18px;
+    font-size: 17px;
+  }
+
+  .project-detail-description {
+    margin-top: 18px;
+    max-width: none;
+    font-size: 15px;
+  }
+
+  .project-detail-stack {
+    gap: 10px 14px;
+  }
+
+  .project-detail-tech {
+    font-size: 12px;
+  }
+
+  .project-detail-actions {
+    margin-bottom: 18px;
+    gap: 10px;
+  }
+
+  .project-detail-actions .btn {
+    min-height: 40px;
+    padding: 9px 15px;
+    font-size: 12px;
+    flex: 1 1 0;
+    justify-content: center;
+  }
+
+  .project-detail-close {
+    top: 14px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    z-index: 4;
+  }
+
+  .project-detail-close-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .project-detail-next {
+    right: 16px;
+    bottom: 18px;
+    padding: 0;
+    font-size: 13px;
+    gap: 8px;
+    z-index: 4;
+  }
+
+  .project-detail-next-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
   }
 }
 
