@@ -13,6 +13,7 @@
   var nameError = document.getElementById('nameError');
   var emailError = document.getElementById('emailError');
   var messageError = document.getElementById('messageError');
+  var privacyError = document.getElementById('privacyError');
 
   var fields = [
     { input: nameInput, error: nameError },
@@ -35,6 +36,7 @@
       emailMissing: 'Hoppla! Deine E-Mail wird benötigt',
       emailInvalid: 'Hoppla! Bitte prüfe dein E-Mail-Format',
       messageMissing: 'Was möchtest du entwickeln?',
+      privacyMissing: 'Bitte akzeptiere die Datenschutzrichtlinie.',
       draft: 'E-Mail-Entwurf geöffnet',
       sent: 'Nachricht gesendet ✓',
       sending: 'Wird gesendet...',
@@ -47,6 +49,7 @@
       emailMissing: 'Oops! your email is required',
       emailInvalid: 'Oops! please check your email format',
       messageMissing: 'What do you need to develop?',
+      privacyMissing: 'Please accept the privacy policy.',
       draft: 'Email draft opened',
       sent: 'Message sent ✓',
       sending: 'Sending...',
@@ -76,6 +79,15 @@
     var field = input.closest('.form-field');
     if (!field) return;
     field.classList.toggle('is-invalid', hasError);
+  }
+
+  function setPrivacyErrorState(hasError) {
+    var privacyField = privacyCheck.closest('.form-privacy');
+    if (privacyField) {
+      privacyField.classList.toggle('is-invalid', hasError);
+    }
+
+    privacyCheck.setAttribute('aria-invalid', hasError ? 'true' : 'false');
   }
 
   function validateName() {
@@ -120,14 +132,35 @@
     return true;
   }
 
+  function validatePrivacy() {
+    if (!privacyCheck.checked) {
+      privacyError.textContent = getCopy('privacyMissing');
+      setPrivacyErrorState(true);
+      return false;
+    }
+
+    privacyError.textContent = '';
+    setPrivacyErrorState(false);
+    return true;
+  }
+
   function updateSubmitState() {
-    var allValid =
+    var contentValid =
       nameInput.value.trim() &&
       isValidEmail(emailInput.value) &&
-      messageInput.value.trim() &&
-      privacyCheck.checked;
+      messageInput.value.trim();
 
+    var allValid = contentValid && privacyCheck.checked;
     submitBtn.disabled = !allValid;
+
+    if (!privacyCheck.checked && contentValid) {
+      validatePrivacy();
+      return;
+    }
+
+    if (privacyError.textContent) {
+      validatePrivacy();
+    }
   }
 
   function getFormEndpoint() {
@@ -200,13 +233,16 @@
     updateSubmitState();
   });
 
-  privacyCheck.addEventListener('change', updateSubmitState);
+  privacyCheck.addEventListener('change', function () {
+    validatePrivacy();
+    updateSubmitState();
+  });
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
 
     var isValid =
-      validateName() && validateEmail() && validateMessage() && privacyCheck.checked;
+      validateName() && validateEmail() && validateMessage() && validatePrivacy();
 
     if (!isValid) return;
 
@@ -236,6 +272,8 @@
           field.error.textContent = '';
           setFieldErrorState(field.input, false);
         });
+        privacyError.textContent = '';
+        setPrivacyErrorState(false);
         submitBtn.textContent = getCopy('sent');
         resetSubmitButton(3000);
       })

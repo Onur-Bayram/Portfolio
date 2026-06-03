@@ -412,11 +412,12 @@
           <div class="form-privacy">
             <label class="privacy-label">
               <span class="privacy-checkbox-wrap">
-                <input type="checkbox" id="privacyCheck" name="privacy" />
+                <input type="checkbox" id="privacyCheck" name="privacy" aria-describedby="privacyError" />
                 <span class="privacy-custom-box" aria-hidden="true"></span>
               </span>
               <span class="privacy-text" data-de="Ich habe die <a href='privacy-policy.html' class='contact-link'>Datenschutzrichtlinie</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden." data-en="I've read the <a href='privacy-policy.html' class='contact-link'>privacy policy</a> and agree to the processing of my data as outlined.">I've read the <a href="privacy-policy.html" class="contact-link">privacy policy</a> and agree to the processing of my data as outlined.</span>
             </label>
+            <span class="form-error" id="privacyError"></span>
           </div>
 
           <div class="form-submit">

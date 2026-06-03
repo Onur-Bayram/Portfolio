@@ -178,6 +178,7 @@
 .form-privacy {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   margin-top: 28px;
 }
 
@@ -186,6 +187,7 @@
   align-items: flex-start;
   gap: 14px;
   cursor: pointer;
+  width: 100%;
 }
 
 .privacy-checkbox-wrap {
@@ -313,6 +315,12 @@
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.55;
+}
+
+.form-privacy .form-error:not(:empty) {
+  margin-top: 4px;
+  margin-left: 32px;
+  width: calc(100% - 32px);
 }
 
 /* Submit row aligns the final call to action to the right on larger screens. */
