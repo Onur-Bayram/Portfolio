@@ -1,28 +1,31 @@
 // Mobile navigation controller.
 // Handles the burger button, overlay visibility, and matching ARIA states.
 (function () {
-  // Cache the two elements that are required to open and close the mobile menu.
   var burger = document.getElementById('burger');
   var menu = document.getElementById('mobileMenu');
   if (!burger || !menu) return;
 
-  // Toggle the menu and keep the button semantics in sync for screen readers.
-  burger.addEventListener('click', function () {
-    var isOpen = menu.classList.toggle('open');
+  /**
+   * Synchronizes the mobile menu visibility with the burger button state and ARIA attributes.
+   *
+   * @param {boolean} isOpen Controls whether the mobile navigation overlay is visible.
+   * @returns {void}
+   */
+  function setMenuState(isOpen) {
     burger.classList.toggle('open', isOpen);
+    menu.classList.toggle('open', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
-    burger.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+    burger.setAttribute('aria-label', isOpen ? 'Men\u00fc schlie\u00dfen' : 'Men\u00fc \u00f6ffnen');
     menu.setAttribute('aria-hidden', String(!isOpen));
+  }
+
+  burger.addEventListener('click', function () {
+    setMenuState(!menu.classList.contains('open'));
   });
 
-  // Close the overlay after navigation so the next section is visible immediately.
   menu.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
-      menu.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', 'Menü öffnen');
-      menu.setAttribute('aria-hidden', 'true');
+      setMenuState(false);
     });
   });
 })();

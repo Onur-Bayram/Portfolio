@@ -28,6 +28,11 @@
 
     // Rebuild the animated track from the current translated label.
     // This keeps the loop correct after language switches or viewport changes.
+    /**
+     * Measures the current button label and rebuilds the animated overlay geometry.
+     *
+     * @returns {void}
+     */
     function buildTrack() {
       var label = measure.textContent.trim();
       var viewportWidth = button.clientWidth;
@@ -47,6 +52,11 @@
       track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
     }
 
+    /**
+     * Applies the latest horizontal offset to the moving overlay text.
+     *
+     * @returns {void}
+     */
     function renderTrack() {
       track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
     }
@@ -54,6 +64,12 @@
     // Animate one continuous pass from right to left.
     // Once the whole word has exited on the left, the track jumps back to the
     // exact start point on the right, which creates the portal-like loop.
+    /**
+     * Advances the marquee text while the loop state is active.
+     *
+     * @param {DOMHighResTimeStamp} now The timestamp supplied by requestAnimationFrame.
+     * @returns {void}
+     */
     function step(now) {
       if (!button.classList.contains('is-looping')) {
         frameId = 0;
@@ -77,6 +93,11 @@
     }
 
     // Start the loop when the button is hovered or keyboard-focused.
+    /**
+     * Starts the label loop animation for hover and keyboard focus interactions.
+     *
+     * @returns {void}
+     */
     function startLoop() {
       if (prefersReducedMotion.matches) return;
 
@@ -98,6 +119,11 @@
       }
     }
 
+    /**
+     * Resets the button back to its static resting state once the return animation is complete.
+     *
+     * @returns {void}
+     */
     function finishReturn() {
       button.classList.remove('is-returning');
       frameId = 0;
@@ -106,6 +132,12 @@
       renderTrack();
     }
 
+    /**
+     * Animates the moving label back to its original resting position.
+     *
+     * @param {DOMHighResTimeStamp} now The timestamp supplied by requestAnimationFrame.
+     * @returns {void}
+     */
     function returnStep(now) {
       if (!button.classList.contains('is-returning')) {
         frameId = 0;
@@ -143,6 +175,11 @@
     }
 
     // Let the text glide back into its original position before restoring the static label.
+    /**
+     * Stops the looping state and transitions the overlay text back to the static label position.
+     *
+     * @returns {void}
+     */
     function stopLoop() {
       button.classList.remove('is-looping');
       lastTime = 0;

@@ -1,4 +1,5 @@
 /* Mobile entry point that imports all phone-specific section overrides. */
+/* Each partial mirrors the section structure of the page so mobile tuning stays easy to audit and maintain. */
 @import url('./responsive-mobile-header.css');
 @import url('./responsive-mobile-hero.css');
 @import url('./responsive-mobile-about-skills.css');

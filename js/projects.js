@@ -53,26 +53,53 @@
   var detailOpen = false;
 
   // The desktop detail panel behaves like a modal, so both root elements need a lock class.
+  /**
+   * Locks document scrolling while the project detail overlay is open.
+   *
+   * @returns {void}
+   */
   function lockProjectModal() {
     document.documentElement.classList.add('is-project-modal-open');
     document.body.classList.add('is-project-modal-open');
   }
 
+  /**
+   * Removes the modal lock classes from the root elements.
+   *
+   * @returns {void}
+   */
   function unlockProjectModal() {
     document.documentElement.classList.remove('is-project-modal-open');
     document.body.classList.remove('is-project-modal-open');
   }
 
+  /**
+   * Checks whether the current viewport should use the desktop projects layout.
+   *
+   * @returns {boolean} Returns true when the desktop media query matches.
+   */
   function isDesktopLayout() {
     return desktopQuery.matches;
   }
 
+  /**
+   * Finds the rendered project row for a given project id.
+   *
+   * @param {string} projectId The project identifier assigned in the shared data object.
+   * @returns {HTMLElement|null} The matching row element or null when none exists.
+   */
   function getRow(projectId) {
     return rows.find(function (row) {
       return row.dataset.projectId === projectId;
     }) || null;
   }
 
+  /**
+   * Updates the active list row state so only one row appears selected at a time.
+   *
+   * @param {string} activeId The project id that should appear active.
+   * @returns {void}
+   */
   function updateRowState(activeId) {
     rows.forEach(function (row) {
       var isActive = row.dataset.projectId === activeId;
@@ -81,12 +108,22 @@
     });
   }
 
+  /**
+   * Hides the desktop preview panel and removes its visible state class.
+   *
+   * @returns {void}
+   */
   function hidePreviewPanel() {
     if (!previewPanel) return;
     previewPanel.setAttribute('aria-hidden', 'true');
     previewPanel.classList.remove('is-visible');
   }
 
+  /**
+   * Clears preview and active-row state after hover or focus leaves the project list.
+   *
+   * @returns {void}
+   */
   function clearDesktopState() {
     hidePreviewPanel();
     rows.forEach(function (row) {
@@ -96,6 +133,12 @@
   }
 
   // Desktop swaps between the list/preview overview and the large detail overlay.
+  /**
+   * Shows the normal projects overview and optionally clears active row state.
+   *
+   * @param {boolean} clearRows Controls whether active row state should also be reset.
+   * @returns {void}
+   */
   function showOverview(clearRows) {
     if (layout) layout.classList.remove('is-hidden');
     if (clearRows) {
@@ -106,6 +149,11 @@
     hidePreviewPanel();
   }
 
+  /**
+   * Hides the overview layout while the detail card is displayed as an overlay.
+   *
+   * @returns {void}
+   */
   function hideOverview() {
     if (layout) layout.classList.add('is-hidden');
     hidePreviewPanel();
@@ -116,6 +164,12 @@
   }
 
   // The small desktop preview follows the hovered row, but never leaves the list bounds.
+  /**
+   * Positions the desktop preview card so it follows the active row without leaving the list bounds.
+   *
+   * @param {HTMLElement|null} row The row that should anchor the preview panel.
+   * @returns {void}
+   */
   function positionPreview(row) {
     if (!previewPanel || !list || !row) return;
 
@@ -129,6 +183,12 @@
     previewPanel.style.top = Math.round(nextTop) + 'px';
   }
 
+  /**
+   * Updates and reveals the desktop preview image for the active project row.
+   *
+   * @param {string} projectId The project identifier used to resolve preview content.
+   * @returns {void}
+   */
   function renderPreview(projectId) {
     if (!previewPanel || !previewImage || !isDesktopLayout()) {
       hidePreviewPanel();
@@ -152,6 +212,11 @@
   }
 
   // The detail card reuses one DOM shell and swaps its content from the shared project data object.
+  /**
+   * Hides the media column when a project has no usable preview image.
+   *
+   * @returns {void}
+   */
   function hideDetailMedia() {
     if (!imageEl || !card) return;
     imageEl.removeAttribute('src');
@@ -160,6 +225,13 @@
     card.classList.add('has-no-media');
   }
 
+  /**
+   * Restores the media column with the supplied image source and alternative text.
+   *
+   * @param {string} src The image source that should be rendered in the detail card.
+   * @param {string} alt The accessible alternative text for the detail image.
+   * @returns {void}
+   */
   function showDetailMedia(src, alt) {
     if (!imageEl || !card) return;
     imageEl.src = src;
@@ -168,6 +240,12 @@
     card.classList.remove('has-no-media');
   }
 
+  /**
+   * Rebuilds the project stack badges shown inside the detail card.
+   *
+   * @param {ProjectTech[]} techItems The technology entries that should be rendered for the project.
+   * @returns {void}
+   */
   function renderStack(techItems) {
     if (!stackEl) return;
     stackEl.innerHTML = '';
@@ -191,12 +269,23 @@
     });
   }
 
+  /**
+   * Reveals the shared project detail card shell.
+   *
+   * @returns {void}
+   */
   function showCard() {
     if (!card) return;
     card.classList.remove('is-hidden');
     card.setAttribute('aria-hidden', 'false');
   }
 
+  /**
+   * Hides the detail card and optionally preserves the active row state.
+   *
+   * @param {boolean} preserveRows Controls whether the row selection state should remain intact.
+   * @returns {void}
+   */
   function hideCard(preserveRows) {
     if (!card) return;
     card.classList.add('is-hidden');
@@ -210,6 +299,12 @@
     }
   }
 
+  /**
+   * Fills the shared detail card with content from the selected project entry.
+   *
+   * @param {string} projectId The project identifier used to resolve detail content.
+   * @returns {boolean} Returns true when the detail card was populated successfully.
+   */
   function renderDetailCard(projectId) {
     var project = PROJECTS[projectId];
     if (!project || !card || !numberEl || !titleEl || !descriptionEl || !stackEl || !githubEl || !liveEl) {
@@ -238,6 +333,12 @@
   }
 
   // Hover previews are desktop-only; once the overlay is open, hover should stop changing content.
+  /**
+   * Updates the desktop hover preview for a given project row.
+   *
+   * @param {string} projectId The project identifier that should drive the hover preview.
+   * @returns {void}
+   */
   function previewProject(projectId) {
     if (!PROJECTS[projectId] || !isDesktopLayout() || detailOpen) return;
     currentId = projectId;
@@ -246,6 +347,12 @@
   }
 
   // Click/tap always promotes a project into the full detail view.
+  /**
+   * Opens the project detail overlay for the selected project.
+   *
+   * @param {string} projectId The project identifier that should be opened.
+   * @returns {void}
+   */
   function openProject(projectId) {
     if (!PROJECTS[projectId]) return;
 
@@ -258,6 +365,11 @@
     hideOverview();
   }
 
+  /**
+   * Closes the detail overlay and restores the default project overview state.
+   *
+   * @returns {void}
+   */
   function closeProjectDetail() {
     detailOpen = false;
     unlockProjectModal();
@@ -266,6 +378,11 @@
   }
 
   // Resize and breakpoint changes must keep the current project visible in the correct layout mode.
+  /**
+   * Reconciles overview and detail states after viewport size or breakpoint changes.
+   *
+   * @returns {void}
+   */
   function syncProjectsLayout() {
     if (detailOpen) {
       lockProjectModal();
@@ -369,6 +486,11 @@
   syncProjectsLayout();
 
   // The language switcher calls back into the projects module so an open detail card can rerender its copy.
+  /**
+   * Rerenders the open detail card when the global language switch changes.
+   *
+   * @returns {void}
+   */
   window.updateProjectLanguage = function () {
     if (!detailOpen || !currentId || !PROJECTS[currentId]) return;
     renderDetailCard(currentId);

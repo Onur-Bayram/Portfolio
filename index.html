@@ -160,7 +160,7 @@
       <section id="about">
         <div class="about-media-wrap">
           <div class="about-media">
-            <img src="assets/images/profile/pro1.png" alt="Onur Bayram am Laptop" />
+            <img src="assets/images/profile/pro1.jpg" alt="Onur Bayram am Laptop" />
           </div>
         </div>
 
@@ -385,11 +385,16 @@
           class="contact-form"
           id="contactForm"
           name="contact"
+          action="contact.php"
           method="POST"
-          data-form-endpoint=""
-          data-form-recipient="onur-bayram@hotmail.de"
+          accept-charset="UTF-8"
           novalidate
         >
+
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="contactCompany">Company</label>
+            <input type="text" id="contactCompany" name="company" tabindex="-1" autocomplete="off" />
+          </div>
 
           <div class="form-field">
             <label for="contactName" data-de="Wie hei&szlig;t du?" data-en="What's your name?">What's your name?</label>
@@ -422,6 +427,7 @@
 
           <div class="form-submit">
             <button type="submit" class="btn btn-primary btn-submit" id="submitBtn" disabled data-de="Hallo sagen :)" data-en="Say Hello :)">Say Hello :)</button>
+            <p class="form-status" id="formStatus" aria-live="polite" role="status" hidden></p>
           </div>
 
         </form>

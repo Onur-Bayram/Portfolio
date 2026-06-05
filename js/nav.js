@@ -16,6 +16,12 @@
   if (!sectionMap.length) return;
 
   // Only one navigation link should look active at a time.
+  /**
+   * Marks exactly one desktop navigation link as active.
+   *
+   * @param {string} id The section id that should appear active in the navigation.
+   * @returns {void}
+   */
   function setActive(id) {
     navLinks.forEach(function (link) {
       var isMatch = link.getAttribute('href') === '#' + id;
@@ -32,19 +38,27 @@
   });
 
   // Observe visibility changes and promote the most visible section to the active nav state.
-  var observer = new IntersectionObserver(
-    function (entries) {
-      var visible = entries
-        .filter(function (entry) {
-          return entry.isIntersecting;
-        })
-        .sort(function (a, b) {
-          return b.intersectionRatio - a.intersectionRatio;
-        });
+  /**
+   * Picks the most visible observed section and maps it back to the active navigation link.
+   *
+   * @param {IntersectionObserverEntry[]} entries The latest section visibility entries from the observer.
+   * @returns {void}
+   */
+  function handleIntersections(entries) {
+    var visible = entries
+      .filter(function (entry) {
+        return entry.isIntersecting;
+      })
+      .sort(function (a, b) {
+        return b.intersectionRatio - a.intersectionRatio;
+      });
 
-      if (!visible.length) return;
-      setActive(visible[0].target.id);
-    },
+    if (!visible.length) return;
+    setActive(visible[0].target.id);
+  }
+
+  var observer = new IntersectionObserver(
+    handleIntersections,
     {
       root: null,
       rootMargin: '-35% 0px -50% 0px',

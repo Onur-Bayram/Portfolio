@@ -142,13 +142,17 @@
 
   .form-submit {
     margin-top: 10px;
-    justify-content: center;
+    align-items: center;
   }
 
   .form-submit .btn {
     min-height: 38px;
     padding: 9px 20px;
     font-size: 12px;
+  }
+
+  .form-status {
+    text-align: center;
   }
 
   .privacy-label {
@@ -389,12 +393,17 @@
 
   .form-submit {
     margin-top: 12px;
+    align-items: center;
   }
 
   .form-submit .btn {
     min-height: 42px;
     padding: 10px 22px;
     font-size: 13px;
+  }
+
+  .form-status {
+    text-align: center;
   }
 
   .footer-inner {

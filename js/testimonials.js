@@ -18,11 +18,27 @@
   var trackIndex = hasLoopClones ? current + 1 : current;
 
   // Read the initial language from the shared toggle so cards render in the correct locale on load.
+  /**
+   * Resolves the testimonial string that matches the currently active site language.
+   *
+   * @param {string} textDE German copy candidate.
+   * @param {string} textEN English copy candidate.
+   * @returns {string} The localized string that should be rendered.
+   */
   function translatedValue(textDE, textEN) {
     return langEN && langEN.classList.contains('is-active') ? textEN : textDE;
   }
 
   // Dynamic testimonial nodes use the same data-de / data-en contract as the static page copy.
+  /**
+   * Creates a localized DOM node that stores both language variants in data attributes.
+   *
+   * @param {string} tagName The HTML tag that should be created.
+   * @param {string} className The CSS class that should be applied to the element.
+   * @param {string} textDE German copy stored for later language switches.
+   * @param {string} textEN English copy stored for later language switches.
+   * @returns {HTMLElement} The configured translated element.
+   */
   function buildTranslatedElement(tagName, className, textDE, textEN) {
     var element = document.createElement(tagName);
     element.className = className;
@@ -32,6 +48,14 @@
     return element;
   }
 
+  /**
+   * Builds one testimonial card, including optional loop-clone metadata.
+   *
+   * @param {TestimonialEntry} testimonial The source data used to populate the card content.
+   * @param {number} originalIndex The index of the real testimonial entry represented by the card.
+   * @param {boolean} isClone Marks whether the card is a loop clone instead of a primary card.
+   * @returns {HTMLElement} The assembled testimonial card.
+   */
   function buildCard(testimonial, originalIndex, isClone) {
     var article = document.createElement('article');
     article.className = 'testimonial-card';
@@ -89,12 +113,23 @@
   var dots = dotsEl ? Array.from(dotsEl.querySelectorAll('.dot')) : [];
 
   // Include margins in the width calculation because cards are spaced with outer gaps.
+  /**
+   * Measures the total rendered width of a testimonial card, including horizontal margins.
+   *
+   * @returns {number} The full width used to center and slide the carousel.
+   */
   function cardTotalWidth() {
     if (!cards[0]) return 0;
     var style = window.getComputedStyle(cards[0]);
     return cards[0].offsetWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
   }
 
+  /**
+   * Positions the track so the active card is centered inside the slider stage.
+   *
+   * @param {boolean} instant Skips the normal transition and jumps immediately to the new position.
+   * @returns {void}
+   */
   function setTrackPosition(instant) {
     var container = track.parentElement;
     var cardWidth = cardTotalWidth();
@@ -123,6 +158,11 @@
   }
 
   // Keep the active card and the matching dot synchronized with the logical current slide.
+  /**
+   * Synchronizes the active card and active navigation dot classes with the logical slider indices.
+   *
+   * @returns {void}
+   */
   function syncActiveState() {
     cards.forEach(function (card, index) {
       card.classList.toggle('is-active', index === trackIndex);
@@ -133,23 +173,46 @@
     });
   }
 
+  /**
+   * Refreshes both the active-state styling and the horizontal track position.
+   *
+   * @param {{instant?: boolean}=} options Optional rendering flags for the current update cycle.
+   * @returns {void}
+   */
   function update(options) {
     var instant = options && options.instant;
     syncActiveState();
     setTrackPosition(instant);
   }
 
+  /**
+   * Commits the next logical testimonial index and rerenders the slider.
+   *
+   * @param {number} nextCurrent The next logical testimonial index.
+   * @param {number} nextTrackIndex The next rendered track index, including loop clones.
+   * @returns {void}
+   */
   function goTo(nextCurrent, nextTrackIndex) {
     current = nextCurrent;
     trackIndex = nextTrackIndex;
     update();
   }
 
+  /**
+   * Moves the slider one testimonial backward when loop clones are available.
+   *
+   * @returns {void}
+   */
   function goPrev() {
     if (!hasLoopClones) return;
     goTo((current - 1 + DATA.length) % DATA.length, trackIndex - 1);
   }
 
+  /**
+   * Moves the slider one testimonial forward when loop clones are available.
+   *
+   * @returns {void}
+   */
   function goNext() {
     if (!hasLoopClones) return;
     goTo((current + 1) % DATA.length, trackIndex + 1);

@@ -1,12 +1,26 @@
 // Project content source.
 // Exposes a global data object that powers both the project list and the detail card.
+/**
+ * @typedef {Object} ProjectTech
+ * @property {string} icon Path to the icon asset used in the project stack.
+ * @property {string} label Visible technology name rendered in the UI.
+ */
+
+/**
+ * @typedef {Object} ProjectEntry
+ * @property {string} number Numeric label used in the preview and detail view.
+ * @property {string} title Project name rendered in the list and detail card.
+ * @property {string} description_en English project description.
+ * @property {string} description_de German project description.
+ * @property {string} image Path to the preview image asset.
+ * @property {string} imageAlt Accessible alternative text for the preview image.
+ * @property {string} github External link to the source repository.
+ * @property {string} live External or local link to the live project.
+ * @property {ProjectTech[]} tech Technology badges shown for the project.
+ */
+
+/** @type {Record<string, ProjectEntry>} */
 window.PROJECTS_DATA = {
-  // Each project entry contains:
-  // - static display metadata
-  // - translated descriptions
-  // - preview media
-  // - external links
-  // - a tech stack used in the list overlay and detail view
   join: {
     number: '01',
     title: 'Join',
@@ -28,8 +42,8 @@ window.PROJECTS_DATA = {
     number: '02',
     title: 'Sharkie',
     description_en: '2D jump-and-run browser game built with object-oriented JavaScript. Fight your way through animated levels, collect items and defeat the end boss.',
-    description_de: '2D Jump-and-Run-Browserspiel, das mit objektorientiertem JavaScript gebaut wurde. Kämpfe dich durch animierte Level, sammle Gegenstände und besiege den Endboss.',
-    image: 'assets/images/projects/Sharkie.png',
+    description_de: '2D Jump-and-Run-Browserspiel, das mit objektorientiertem JavaScript gebaut wurde. K\u00e4mpfe dich durch animierte Level, sammle Gegenst\u00e4nde und besiege den Endboss.',
+    image: 'assets/images/projects/Sharkie.jpg',
     imageAlt: 'Sharkie project preview',
     github: 'https://github.com/Onur-Bayram/Sharkie.git',
     live: 'projects/sharkie/index.html',
@@ -41,11 +55,11 @@ window.PROJECTS_DATA = {
   },
   pokedex: {
     number: '03',
-    title: 'Pokédex',
-    description_en: 'Interactive Pokédex app that fetches character data from a REST API, lets users browse entries and view detailed information inside a responsive interface.',
-    description_de: 'Interaktive Pokédex-App, die Charakterdaten von einer REST-API abruft, Benutzern das Durchsuchen von Einträgen ermöglicht und detaillierte Informationen in einer responsiven Oberfläche anzeigt.',
-    image: 'assets/images/projects/Pokedexx.png',
-    imageAlt: 'Pokédex project preview',
+    title: 'Pok\u00e9dex',
+    description_en: 'Interactive Pok\u00e9dex app that fetches character data from a REST API, lets users browse entries and view detailed information inside a responsive interface.',
+    description_de: 'Interaktive Pok\u00e9dex-App, die Charakterdaten von einer REST-API abruft, Benutzern das Durchsuchen von Eintr\u00e4gen erm\u00f6glicht und detaillierte Informationen in einer responsiven Oberfl\u00e4che anzeigt.',
+    image: 'assets/images/projects/Pokedexx.jpg',
+    imageAlt: 'Pok\u00e9dex project preview',
     github: 'https://github.com/Onur-Bayram/Pokedex.git',
     live: 'projects/pokedex/index.html',
     tech: [

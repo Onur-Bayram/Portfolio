@@ -6,6 +6,12 @@
   if (!btnEN || !btnDE) return;
 
   // Apply the chosen language across all supported elements on the page.
+  /**
+   * Replaces translated copy, placeholders, and ARIA labels for the selected language.
+   *
+   * @param {'en'|'de'} lang The language code that should be rendered in the DOM.
+   * @returns {void}
+   */
   function setLang(lang) {
     var isEN = lang === 'en';
     btnEN.classList.toggle('is-active', isEN);

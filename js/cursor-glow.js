@@ -16,6 +16,11 @@
   var isInside = false;
 
   // Ease toward the pointer position to create a softer, more polished movement.
+  /**
+   * Animates the glow toward the latest pointer coordinates while the pointer stays inside the hero.
+   *
+   * @returns {void}
+   */
   function animate() {
     if (!isInside) {
       rafId = null;
@@ -30,6 +35,12 @@
   }
 
   // Translate viewport coordinates into hero-local coordinates.
+  /**
+   * Converts viewport pointer coordinates into coordinates relative to the hero section.
+   *
+   * @param {MouseEvent} event The latest pointer event emitted by the hero section.
+   * @returns {void}
+   */
   function syncTargetPosition(event) {
     var rect = hero.getBoundingClientRect();
     targetX = event.clientX - rect.left;
@@ -37,6 +48,12 @@
   }
 
   // Start the effect at the current pointer position when the hero is entered.
+  /**
+   * Initializes the glow position and starts the animation loop once the pointer enters the hero.
+   *
+   * @param {MouseEvent} event The pointer event that triggered the glow activation.
+   * @returns {void}
+   */
   function showGlow(event) {
     syncTargetPosition(event);
     currentX = targetX;
@@ -49,6 +66,11 @@
     }
   }
 
+  /**
+   * Hides the glow and stops future animation frames from being scheduled.
+   *
+   * @returns {void}
+   */
   function hideGlow() {
     glow.classList.remove('is-visible');
     isInside = false;
