@@ -346,9 +346,14 @@
     fetch(endpoint, {
       method: getFormMethod(),
       headers: {
-        Accept: 'application/json'
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: new FormData(form)
+      body: JSON.stringify({
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        message: messageInput.value.trim()
+      })
     })
       .then(function (response) {
         return response
@@ -357,7 +362,7 @@
             return null;
           })
           .then(function (payload) {
-            if (!response.ok || !payload || payload.ok !== true) {
+            if (!response.ok || !payload || payload.success !== true) {
               throw new Error('Request failed');
             }
 

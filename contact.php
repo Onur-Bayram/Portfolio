@@ -1,105 +1,77 @@
 <?php
-declare(strict_types=1);
 
-header('Content-Type: application/json; charset=UTF-8');
-header('Cache-Control: no-store');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Type: application/json; charset=utf-8");
 
-const MAIL_RECIPIENT = 'onur-bayram@hotmail.de';
+$siteEmail = "onur-bayram@hotmail.de";
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Allow: POST');
-    http_response_code(405);
-    echo json_encode(['ok' => false, 'message' => 'Method not allowed']);
-    exit;
+switch ($_SERVER['REQUEST_METHOD']) {
+    case 'OPTIONS':
+        http_response_code(200);
+        exit;
+
+    case 'POST':
+        $json = file_get_contents('php://input');
+        $params = json_decode($json);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'error' => 'Invalid JSON']);
+            exit;
+        }
+
+        $email = $params->email ?? '';
+        $name = $params->name ?? '';
+        $userMessage = $params->message ?? '';
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($name) || empty($userMessage)) {
+            http_response_code(400);
+            echo json_encode(['success' => false, 'error' => 'Invalid input data']);
+            exit;
+        }
+
+        $safeName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+        $safeEmail = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
+        $safeMessage = nl2br(htmlspecialchars($userMessage, ENT_QUOTES, 'UTF-8'));
+
+        $recipient = $siteEmail;
+        $subject = 'Website Contact Form';
+
+        $mailBody = "
+            <strong>Name:</strong> {$safeName}<br>
+            <strong>Email:</strong> {$safeEmail}<br><br>
+            <strong>Message:</strong><br>
+            {$safeMessage}
+        ";
+
+        $headers = [];
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=utf-8';
+        $headers[] = 'From: Website Kontakt <' . $siteEmail . '>';
+        $headers[] = 'Reply-To: ' . $email;
+        $headers[] = 'Return-Path: ' . $siteEmail;
+
+        $success = mail(
+            $recipient,
+            $subject,
+            $mailBody,
+            implode("\r\n", $headers),
+            '-f ' . $siteEmail
+        );
+
+        if ($success) {
+            echo json_encode(['success' => true]);
+        } else {
+            http_response_code(500);
+            echo json_encode(['success' => false, 'error' => 'Mail delivery failed']);
+        }
+
+        break;
+
+    default:
+        http_response_code(405);
+        echo json_encode(['success' => false, 'error' => 'Method not allowed']);
+        exit;
 }
-
-function clean_header_value(string $value): string
-{
-    return trim(preg_replace('/[\r\n]+/', ' ', $value) ?? '');
-}
-
-function resolve_sender_address(): string
-{
-    $host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? 'onur-bayram.de'));
-    $host = preg_replace('/:\d+$/', '', $host) ?? 'onur-bayram.de';
-    $host = preg_replace('/^www\./', '', $host) ?? 'onur-bayram.de';
-
-    if (!filter_var('noreply@' . $host, FILTER_VALIDATE_EMAIL)) {
-        return 'noreply@onur-bayram.de';
-    }
-
-    return 'noreply@' . $host;
-}
-
-$honeypot = trim((string) ($_POST['website'] ?? $_POST['company'] ?? ''));
-if ($honeypot !== '') {
-    echo json_encode(['ok' => true]);
-    exit;
-}
-
-$name = trim((string) ($_POST['name'] ?? ''));
-$email = trim((string) ($_POST['email'] ?? ''));
-$message = trim((string) ($_POST['message'] ?? ''));
-$privacyAccepted = isset($_POST['privacy']) && $_POST['privacy'] !== '';
-
-if ($name === '' || $email === '' || $message === '' || !$privacyAccepted) {
-    http_response_code(422);
-    echo json_encode(['ok' => false, 'message' => 'Missing required fields']);
-    exit;
-}
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(422);
-    echo json_encode(['ok' => false, 'message' => 'Invalid email address']);
-    exit;
-}
-
-if (strlen($name) > 120 || strlen($email) > 254 || strlen($message) > 5000) {
-    http_response_code(422);
-    echo json_encode(['ok' => false, 'message' => 'Form data too long']);
-    exit;
-}
-
-$safeName = clean_header_value($name);
-$safeEmail = clean_header_value($email);
-$senderAddress = resolve_sender_address();
-$lineBreak = "\r\n";
-
-$subject = 'Portfolio contact request from ' . $safeName;
-$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-
-$bodyLines = [
-    'New portfolio contact request',
-    '',
-    'Name: ' . $safeName,
-    'Email: ' . $safeEmail,
-    '',
-    'Message:',
-    $message
-];
-
-$headers = [
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit',
-    'From: Onur Bayram Portfolio <' . $senderAddress . '>',
-    'Reply-To: ' . $safeEmail,
-    'X-Mailer: PHP/' . PHP_VERSION
-];
-
-$mailOptions = '-f' . $senderAddress;
-$mailSent = mail(
-    MAIL_RECIPIENT,
-    $encodedSubject,
-    implode($lineBreak, $bodyLines),
-    implode($lineBreak, $headers),
-    $mailOptions
-);
-
-if (!$mailSent) {
-    http_response_code(500);
-    echo json_encode(['ok' => false, 'message' => 'Mail could not be sent']);
-    exit;
-}
-
-echo json_encode(['ok' => true, 'message' => 'Message sent']);
