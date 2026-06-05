@@ -81,7 +81,7 @@ body.legal-page {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 56px;
   border: none;
   border-radius: 0;
   padding: 0;
@@ -100,11 +100,11 @@ body.legal-page {
 }
 
 .legal-content {
-  width: 640px;
+  width: min(760px, 100%);
   margin-left: 96px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 28px;
 }
 
 .legal-block {
@@ -112,9 +112,9 @@ body.legal-page {
 }
 
 .legal-block h2 {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
   color: rgba(255, 255, 255, 0.92);
@@ -123,13 +123,13 @@ body.legal-page {
 .legal-block p {
   max-width: 100%;
   margin: 0;
-  font-size: 13px;
+  font-size: 17px;
   color: rgba(var(--color-accent-rgb), 0.78);
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .legal-block p + p {
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .legal-list {
@@ -139,8 +139,8 @@ body.legal-page {
 }
 
 .legal-list li {
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 17px;
+  line-height: 1.7;
   color: rgba(var(--color-accent-rgb), 0.78);
 }
 
@@ -171,8 +171,8 @@ a.legal-highlight:hover {
 }
 
 .legal-date {
-  margin-top: 10px;
-  font-size: 13px;
+  margin-top: 16px;
+  font-size: 15px;
   color: var(--color-accent);
 }
 
@@ -200,7 +200,7 @@ a.legal-highlight:hover {
 .legal-page .footer-nav a,
 .legal-page .footer-role,
 .legal-page .footer-location {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .legal-page .footer-logo .logo-icon {
@@ -217,7 +217,7 @@ a.legal-highlight:hover {
 .legal-page .footer-copy {
   align-self: end;
   padding: 0 0 16px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .legal-page .footer-nav {
@@ -245,6 +245,7 @@ a.legal-highlight:hover {
   .legal-content {
     width: min(640px, 100%);
     margin-left: 0;
+    gap: 22px;
   }
 }
 
@@ -316,13 +317,13 @@ a.legal-highlight:hover {
   }
 
   .legal-block h2 {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .legal-block p,
   .legal-list li {
-    font-size: 11px;
-    line-height: 1.35;
+    font-size: 12px;
+    line-height: 1.45;
   }
 
   .legal-page #footer {

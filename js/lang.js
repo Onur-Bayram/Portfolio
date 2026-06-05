@@ -15,6 +15,7 @@
     btnDE.classList.toggle('is-active', !isEN);
     btnEN.setAttribute('aria-pressed', String(isEN));
     btnDE.setAttribute('aria-pressed', String(!isEN));
+    document.documentElement.lang = lang;
 
     document.querySelectorAll('[data-lang]').forEach(function (btn) {
       btn.classList.toggle('is-active', btn.dataset.lang === lang);
@@ -32,9 +33,16 @@
       el.setAttribute('aria-label', isEN ? el.dataset.ariaEn : el.dataset.ariaDe);
     });
 
+    var titleEl = document.querySelector('title[data-title-en][data-title-de]');
+    if (titleEl) {
+      titleEl.textContent = isEN ? titleEl.dataset.titleEn : titleEl.dataset.titleDe;
+    }
+
     if (window.updateProjectLanguage) {
       window.updateProjectLanguage();
     }
+
+    document.dispatchEvent(new CustomEvent('site:langchange', { detail: { lang: lang } }));
   }
 
   btnEN.addEventListener('click', function () {
