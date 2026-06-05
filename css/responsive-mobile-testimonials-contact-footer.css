@@ -24,12 +24,31 @@
     padding: 0 8px;
   }
 
+  /* On phones the desktop fade masks feel too heavy, so the side shading is reduced substantially. */
+  .testimonials-track-outer::before,
+  .testimonials-track-outer::after {
+    width: clamp(18px, 5vw, 28px);
+  }
+
+  .testimonials-track-outer::before {
+    background: linear-gradient(to right, rgba(28, 28, 28, 0.72) 0%, transparent 100%);
+  }
+
+  .testimonials-track-outer::after {
+    background: linear-gradient(to left, rgba(28, 28, 28, 0.72) 0%, transparent 100%);
+  }
+
   .testimonial-card {
     flex: 0 0 min(324px, calc(100vw - 52px));
     min-height: 324px;
     padding: 72px 28px 24px;
     margin: 0 12px;
     border-radius: 28px;
+  }
+
+  .testimonial-card.is-active {
+    background: linear-gradient(180deg, rgba(47, 108, 98, 0.96) 0%, rgba(42, 98, 89, 0.96) 100%);
+    border-color: rgba(var(--color-accent-rgb), 0.72);
   }
 
   /* The decorative opening quote sits partly outside the card corner, just like in the Figma reference. */
@@ -204,6 +223,11 @@
     margin-bottom: 24px;
   }
 
+  .testimonials-track-outer::before,
+  .testimonials-track-outer::after {
+    width: 16px;
+  }
+
   .testimonial-card {
     flex-basis: min(300px, calc(100vw - 40px));
     min-height: 288px;
@@ -294,6 +318,11 @@
 
   .testimonials-stage {
     padding: 0 12px;
+  }
+
+  .testimonials-track-outer::before,
+  .testimonials-track-outer::after {
+    width: clamp(22px, 4.8vw, 34px);
   }
 
   .testimonial-card {
