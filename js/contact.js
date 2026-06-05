@@ -1,10 +1,10 @@
-// Contact form controller.
-// Validates fields, manages button state, and submits the form to the local endpoint.
+// Contact form.
 (function () {
   var form = document.getElementById('contactForm');
   var nameInput = document.getElementById('contactName');
   var emailInput = document.getElementById('contactEmail');
   var messageInput = document.getElementById('contactMessage');
+  var honeypotInput = document.getElementById('contactWebsite');
   var privacyCheck = document.getElementById('privacyCheck');
   var submitBtn = document.getElementById('submitBtn');
   var formStatus = document.getElementById('formStatus');
@@ -18,8 +18,8 @@
 
   /**
    * @typedef {Object} FormField
-   * @property {HTMLInputElement|HTMLTextAreaElement} input The form control that is being validated.
-   * @property {HTMLElement} error The element that renders the validation message for that control.
+   * @property {HTMLInputElement|HTMLTextAreaElement} input Field element.
+   * @property {HTMLElement} error Error element.
    */
 
   /** @type {FormField[]} */
@@ -30,19 +30,19 @@
   ];
 
   /**
-   * Validates an email address against the project's lightweight contact form pattern.
+   * Checks whether an email looks valid.
    *
-   * @param {string} value The email value that should be validated.
-   * @returns {boolean} Returns true when the email matches the expected format.
+   * @param {string} value Email text.
+   * @returns {boolean}
    */
   function isValidEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
   }
 
   /**
-   * Reads the active desktop language toggle to decide which localized copy should be used.
+   * Checks whether German is active.
    *
-   * @returns {boolean} Returns true when German is currently the active UI language.
+   * @returns {boolean}
    */
   function isGermanActive() {
     var langDE = document.getElementById('langDE');
@@ -50,10 +50,10 @@
   }
 
   /**
-   * Returns localized validation, button, and status copy for the contact form.
+   * Returns translated form copy.
    *
-   * @param {string} key The message key that should be resolved for the active language.
-   * @returns {string} The localized string associated with the requested key.
+   * @param {string} key Copy key.
+   * @returns {string}
    */
   function getCopy(key) {
     var de = {
@@ -84,9 +84,9 @@
   }
 
   /**
-   * Resolves the submit button label for the active language.
+   * Returns the default submit label.
    *
-   * @returns {string} The localized default label for the submit button.
+   * @returns {string}
    */
   function getSubmitLabel() {
     if (isGermanActive()) {
@@ -97,9 +97,7 @@
   }
 
   /**
-   * Clears any visible success or error feedback below the submit button.
-   *
-   * @returns {void}
+   * Clears the form status text.
    */
   function clearFormStatus() {
     if (!formStatus) return;
@@ -109,11 +107,10 @@
   }
 
   /**
-   * Renders a localized form status message in the matching visual state.
+   * Shows a form status message.
    *
-   * @param {'success'|'error'} type Controls the visual modifier class that is applied.
-   * @param {string} messageKey The localized status key that should be rendered.
-   * @returns {void}
+   * @param {'success'|'error'} type Status type.
+   * @param {string} messageKey Copy key.
    */
   function showFormStatus(type, messageKey) {
     if (!formStatus) return;
@@ -123,10 +120,9 @@
   }
 
   /**
-   * Restores the submit button label after a temporary sending, success, or error state.
+   * Resets the submit button after a delay.
    *
-   * @param {number} delay The delay in milliseconds before the label should be reset.
-   * @returns {void}
+   * @param {number} delay Delay in ms.
    */
   function resetSubmitButton(delay) {
     window.setTimeout(function () {
@@ -136,11 +132,10 @@
   }
 
   /**
-   * Toggles the invalid styling and ARIA state for a single text input or textarea field.
+   * Marks or clears an invalid field state.
    *
-   * @param {HTMLInputElement|HTMLTextAreaElement} input The control whose invalid state should be updated.
-   * @param {boolean} hasError Controls whether the invalid state should be shown.
-   * @returns {void}
+   * @param {HTMLInputElement|HTMLTextAreaElement} input Field element.
+   * @param {boolean} hasError Whether the field is invalid.
    */
   function setFieldErrorState(input, hasError) {
     var field = input.closest('.form-field');
@@ -151,10 +146,9 @@
   }
 
   /**
-   * Toggles the invalid styling and ARIA state for the privacy checkbox row.
+   * Marks or clears the privacy error state.
    *
-   * @param {boolean} hasError Controls whether the privacy field should be marked invalid.
-   * @returns {void}
+   * @param {boolean} hasError Whether the field is invalid.
    */
   function setPrivacyErrorState(hasError) {
     var privacyField = privacyCheck.closest('.form-privacy');
@@ -166,9 +160,9 @@
   }
 
   /**
-   * Validates the name field and writes the matching localized error message when needed.
+   * Validates the name field.
    *
-   * @returns {boolean} Returns true when the name field is filled in.
+   * @returns {boolean}
    */
   function validateName() {
     if (!nameInput.value.trim()) {
@@ -183,9 +177,9 @@
   }
 
   /**
-   * Validates the email field for presence and format.
+   * Validates the email field.
    *
-   * @returns {boolean} Returns true when the email field is filled in with a valid address.
+   * @returns {boolean}
    */
   function validateEmail() {
     if (!emailInput.value.trim()) {
@@ -206,9 +200,9 @@
   }
 
   /**
-   * Validates the message textarea for required content.
+   * Validates the message field.
    *
-   * @returns {boolean} Returns true when the message contains non-whitespace content.
+   * @returns {boolean}
    */
   function validateMessage() {
     if (!messageInput.value.trim()) {
@@ -223,9 +217,9 @@
   }
 
   /**
-   * Validates whether the privacy consent checkbox has been accepted.
+   * Validates the privacy checkbox.
    *
-   * @returns {boolean} Returns true when privacy consent is active.
+   * @returns {boolean}
    */
   function validatePrivacy() {
     if (!privacyCheck.checked) {
@@ -240,9 +234,7 @@
   }
 
   /**
-   * Enables or disables the submit button based on the current field values and privacy state.
-   *
-   * @returns {void}
+   * Updates the submit button state.
    */
   function updateSubmitState() {
     var contentValid =
@@ -264,27 +256,25 @@
   }
 
   /**
-   * Reads the submission endpoint from the form action attribute.
+   * Returns the form action.
    *
-   * @returns {string} The endpoint URL that should receive the form request.
+   * @returns {string}
    */
   function getFormEndpoint() {
     return (form.getAttribute('action') || '').trim();
   }
 
   /**
-   * Reads the configured HTTP method from the form element.
+   * Returns the form method.
    *
-   * @returns {string} The uppercased request method for the form submission.
+   * @returns {string}
    */
   function getFormMethod() {
     return (form.getAttribute('method') || 'POST').toUpperCase();
   }
 
   /**
-   * Removes all inline validation messages and invalid field states.
-   *
-   * @returns {void}
+   * Clears all field errors.
    */
   function clearFieldErrors() {
     fields.forEach(function (field) {
@@ -297,9 +287,7 @@
   }
 
   /**
-   * Clears transient status feedback and refreshes the current submit button state after input changes.
-   *
-   * @returns {void}
+   * Reacts to field input.
    */
   function handleFieldInteraction() {
     clearFormStatus();
@@ -350,6 +338,10 @@
 
     submitBtn.disabled = true;
     submitBtn.textContent = getCopy('sending');
+
+    if (honeypotInput) {
+      honeypotInput.value = '';
+    }
 
     fetch(endpoint, {
       method: getFormMethod(),

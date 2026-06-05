@@ -23,11 +23,9 @@
   </head>
   <body>
 
-    <!-- Site header with desktop navigation, language switch, and mobile trigger -->
+    <!-- Header -->
     <header id="header">
       <nav class="navbar">
-
-        <!-- Left side: language switcher and primary section links -->
         <div class="nav-left">
           <div class="lang-toggle" role="group" aria-label="Sprache wechseln">
             <button class="lang-chip is-active" id="langEN" type="button" aria-pressed="true">EN</button>
@@ -40,7 +38,6 @@
           </ul>
         </div>
 
-        <!-- Brand anchor that returns to the hero section -->
         <a href="#hero" class="nav-logo" aria-label="Zur Startseite">
           <span class="logo-icon-stack" aria-hidden="true">
             <img class="logo-icon logo-icon-filled" src="assets/icons/logo-filled.svg" alt="" />
@@ -52,16 +49,12 @@
           </div>
         </a>
 
-        <!-- Mobile-only burger button that opens the overlay menu -->
         <button class="burger" id="burger" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
-
       </nav>
-
-      <!-- Overlay menu used on smaller screens -->
       <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <a href="#about" class="mobile-link" data-de="&Uuml;ber mich" data-en="About me">About me</a>
         <a href="#skills" class="mobile-link" data-de="Skills" data-en="Skills">Skills</a>
@@ -73,13 +66,9 @@
       </div>
     </header>
 
-    <!-- Hero section with intro copy, social links, and animated marquee -->
+    <!-- Hero -->
     <section id="hero">
-
-      <!-- Decorative glow element that follows the cursor on pointer devices -->
       <div class="hero-cursor-glow" id="heroCursorGlow" aria-hidden="true"></div>
-
-      <!-- Centered hero copy and primary calls to action -->
       <div class="hero-title">
         <p class="hero-subtitle" data-de="Frontend Developer" data-en="Frontend Developer">Frontend Developer</p>
         <h1 class="hero-name">Onur Bayram</h1>
@@ -99,7 +88,6 @@
         </div>
       </div>
 
-      <!-- Left-side scroll indicator column -->
       <aside class="hero-left-lateral" aria-label="Scroll Hinweis">
         <a href="#about" class="hero-scroll-pill" aria-label="Nach unten scrollen">
           <img class="hero-scroll-icon" src="assets/ui/hero-scroll-arrow.svg" alt="" aria-hidden="true" />
@@ -107,7 +95,6 @@
         <span class="hero-left-line" aria-hidden="true"></span>
       </aside>
 
-      <!-- Right-side contact column with email and social shortcuts -->
       <aside class="hero-right-lateral" aria-label="Kontakt und Social Media">
         <a href="mailto:onur-bayram@hotmail.de" class="hero-email">onur-bayram@hotmail.de</a>
         <div class="hero-socials">
@@ -127,7 +114,6 @@
         <span class="hero-right-line" aria-hidden="true"></span>
       </aside>
 
-      <!-- Decorative ticker line that repeats availability and location copy -->
       <div class="hero-marquee" aria-hidden="true">
         <div class="hero-marquee-track">
           <div class="hero-marquee-group">
@@ -152,11 +138,10 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <div class="site-sections">
-      <!-- About section with portrait and personal profile summary -->
+      <!-- About -->
       <section id="about">
         <div class="about-media-wrap">
           <div class="about-media">
@@ -168,310 +153,296 @@
           <p class="about-kicker" data-de="Wer ich bin" data-en="Who I Am">Who I Am</p>
 
           <article class="about-card">
-          <h2 data-de="&Uuml;ber mich" data-en="About me">About me</h2>
+            <h2 data-de="&Uuml;ber mich" data-en="About me">About me</h2>
 
-          <p class="about-intro" data-de="Hi, ich bin Onur. Ich entwickle saubere, benutzerfreundliche Weboberfl&auml;chen mit einem klaren Fokus auf Struktur, Usability und wartbaren Code. Mich motiviert es, aus Ideen digitale L&ouml;sungen zu machen, die echte Probleme l&ouml;sen und sich gut anf&uuml;hlen." data-en="Hi, I'm Onur. I build clean, user-focused web interfaces with a strong focus on structure, usability, and maintainable code. What drives me is turning ideas into digital solutions that solve real problems and feel good to use.">Hi, I'm Onur. I build clean, user-focused web interfaces with a strong focus on structure, usability, and maintainable code. What drives me is turning ideas into digital solutions that solve real problems and feel good to use.</p>
+            <p class="about-intro" data-de="Hi, ich bin Onur. Ich entwickle saubere, benutzerfreundliche Weboberfl&auml;chen mit einem klaren Fokus auf Struktur, Usability und wartbaren Code. Mich motiviert es, aus Ideen digitale L&ouml;sungen zu machen, die echte Probleme l&ouml;sen und sich gut anf&uuml;hlen." data-en="Hi, I'm Onur. I build clean, user-focused web interfaces with a strong focus on structure, usability, and maintainable code. What drives me is turning ideas into digital solutions that solve real problems and feel good to use.">Hi, I'm Onur. I build clean, user-focused web interfaces with a strong focus on structure, usability, and maintainable code. What drives me is turning ideas into digital solutions that solve real problems and feel good to use.</p>
 
-          <ul class="about-points">
-            <li>
-              <span class="about-icon" aria-hidden="true">
-                <img src="assets/ui/icon_standort_pin.png" alt="" />
+            <ul class="about-points">
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <img src="assets/ui/icon_standort_pin.png" alt="" />
+                </span>
+                <span data-de="Ich komme aus Frankfurt und bin offen f&uuml;r Remote-Arbeit. Ich arbeite gerne in kollaborativen Teams, &uuml;bernehme Verantwortung und wachse an neuen Herausforderungen." data-en="I'm based in Frankfurt and open to remote work. I enjoy working in collaborative teams, taking ownership, and growing through new challenges.">I'm based in Frankfurt and open to remote work. I enjoy working in collaborative teams, taking ownership, and growing through new challenges.</span>
+              </li>
+
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <img src="assets/ui/icon_geschwindigkeit.png" alt="" />
+                </span>
+                <span data-de="Ich lerne schnell und entwickle mich kontinuierlich weiter. Moderne Frontend-Workflows, neue Tools und aktuelle Best Practices geh&ouml;ren f&uuml;r mich ganz selbstverst&auml;ndlich dazu." data-en="I learn quickly and keep improving continuously. Modern front-end workflows, new tools, and current best practices are a natural part of how I work.">I learn quickly and keep improving continuously. Modern front-end workflows, new tools, and current best practices are a natural part of how I work.</span>
+              </li>
+
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <img src="assets/ui/icon_abzeichen_check.png" alt="" />
+                </span>
+                <span data-de="Ich gehe Probleme analytisch an und suche nach L&ouml;sungen, die klar, effizient und skalierbar sind. Guter Code sollte zuverl&auml;ssig funktionieren und gleichzeitig leicht verst&auml;ndlich bleiben." data-en="I approach problems analytically and look for solutions that are clear, efficient, and scalable. Good code should work reliably while still being easy to understand.">I approach problems analytically and look for solutions that are clear, efficient, and scalable. Good code should work reliably while still being easy to understand.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills">
+        <div class="skills-left">
+          <p class="skills-kicker" data-de="Technologien" data-en="Technologies">Technologies</p>
+
+          <article class="skills-card">
+            <h2 data-de="Meine F&auml;higkeiten" data-en="Skill Set">Skill Set</h2>
+            <p data-de="Ich habe umfangreiche Erfahrung mit modernen Front-End-Technologien wie HTML, CSS und JavaScript. Ich bin kompetent mit Frameworks wie Angular und offen f&uuml;r neue Technologien wie React und Vue.js. Mir ist es wichtig, mit den schnellen Ver&auml;nderungen in der Webentwicklung Schritt zu halten." data-en="I have hands-on experience with modern front-end technologies such as HTML, CSS, and JavaScript. I work confidently with frameworks like Angular and stay open to expanding my stack with tools such as React and Vue. Keeping pace with the fast changes in web development is an important part of how I grow.">
+              I have hands-on experience with modern front-end technologies such as HTML, CSS,
+              and JavaScript. I work confidently with frameworks like Angular and stay open to
+              expanding my stack with tools such as React and Vue. Keeping pace with the fast
+              changes in web development is an important part of how I grow.
+            </p>
+
+            <h3 data-de="Du brauchst <span>noch eine F&auml;higkeit?</span>" data-en="You need <span>another skill?</span>">You need <span>another skill?</span></h3>
+            <p data-de="Kontaktiere mich gerne. Ich freue mich darauf, mein Wissen zu erweitern." data-en="Feel free to reach out. I'm always motivated to expand my knowledge and take on new challenges.">Feel free to reach out. I'm always motivated to expand my knowledge and take on new challenges.</p>
+
+            <a href="mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage" class="btn btn-secondary btn-loop-cta skills-loop-btn">
+              <span class="btn-loop-measure" data-de="Lass uns reden" data-en="Let's Talk">Let's Talk</span>
+              <span class="btn-loop-window" aria-hidden="true">
+                <span class="btn-loop-track" aria-hidden="true"></span>
               </span>
-              <span data-de="Ich komme aus Frankfurt und bin offen f&uuml;r Remote-Arbeit. Ich arbeite gerne in kollaborativen Teams, &uuml;bernehme Verantwortung und wachse an neuen Herausforderungen." data-en="I'm based in Frankfurt and open to remote work. I enjoy working in collaborative teams, taking ownership, and growing through new challenges.">I'm based in Frankfurt and open to remote work. I enjoy working in collaborative teams, taking ownership, and growing through new challenges.</span>
-            </li>
-
-            <li>
-              <span class="about-icon" aria-hidden="true">
-                <img src="assets/ui/icon_geschwindigkeit.png" alt="" />
-              </span>
-              <span data-de="Ich lerne schnell und entwickle mich kontinuierlich weiter. Moderne Frontend-Workflows, neue Tools und aktuelle Best Practices geh&ouml;ren f&uuml;r mich ganz selbstverst&auml;ndlich dazu." data-en="I learn quickly and keep improving continuously. Modern front-end workflows, new tools, and current best practices are a natural part of how I work.">I learn quickly and keep improving continuously. Modern front-end workflows, new tools, and current best practices are a natural part of how I work.</span>
-            </li>
-
-            <li>
-              <span class="about-icon" aria-hidden="true">
-                <img src="assets/ui/icon_abzeichen_check.png" alt="" />
-              </span>
-              <span data-de="Ich gehe Probleme analytisch an und suche nach L&ouml;sungen, die klar, effizient und skalierbar sind. Guter Code sollte zuverl&auml;ssig funktionieren und gleichzeitig leicht verst&auml;ndlich bleiben." data-en="I approach problems analytically and look for solutions that are clear, efficient, and scalable. Good code should work reliably while still being easy to understand.">I approach problems analytically and look for solutions that are clear, efficient, and scalable. Good code should work reliably while still being easy to understand.</span>
-            </li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Skills section with intro card and technology grid -->
-    <section id="skills">
-      <div class="skills-left">
-        <p class="skills-kicker" data-de="Technologien" data-en="Technologies">Technologies</p>
-
-        <article class="skills-card">
-          <h2 data-de="Meine F&auml;higkeiten" data-en="Skill Set">Skill Set</h2>
-          <p data-de="Ich habe umfangreiche Erfahrung mit modernen Front-End-Technologien wie HTML, CSS und JavaScript. Ich bin kompetent mit Frameworks wie Angular und offen f&uuml;r neue Technologien wie React und Vue.js. Mir ist es wichtig, mit den schnellen Ver&auml;nderungen in der Webentwicklung Schritt zu halten." data-en="I have hands-on experience with modern front-end technologies such as HTML, CSS, and JavaScript. I work confidently with frameworks like Angular and stay open to expanding my stack with tools such as React and Vue. Keeping pace with the fast changes in web development is an important part of how I grow.">
-            I have hands-on experience with modern front-end technologies such as HTML, CSS,
-            and JavaScript. I work confidently with frameworks like Angular and stay open to
-            expanding my stack with tools such as React and Vue. Keeping pace with the fast
-            changes in web development is an important part of how I grow.
-          </p>
-
-          <h3 data-de="Du brauchst <span>noch eine F&auml;higkeit?</span>" data-en="You need <span>another skill?</span>">You need <span>another skill?</span></h3>
-          <p data-de="Kontaktiere mich gerne. Ich freue mich darauf, mein Wissen zu erweitern." data-en="Feel free to reach out. I'm always motivated to expand my knowledge and take on new challenges.">Feel free to reach out. I'm always motivated to expand my knowledge and take on new challenges.</p>
-
-          <a href="mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage" class="btn btn-secondary btn-loop-cta skills-loop-btn">
-            <span class="btn-loop-measure" data-de="Lass uns reden" data-en="Let's Talk">Let's Talk</span>
-            <span class="btn-loop-window" aria-hidden="true">
-              <span class="btn-loop-track" aria-hidden="true"></span>
-            </span>
-          </a>
-        </article>
-      </div>
-
-      <div class="skills-right" aria-label="Skill Icons">
-        <div class="skill-item">
-          <img src="assets/icons/tech/html-2026.svg" alt="HTML" />
-          <span>HTML</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/icons/tech/css-2026.svg" alt="CSS" />
-          <span>CSS</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/icons/tech/javascript-2026.svg" alt="JavaScript" />
-          <span>JavaScript</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/icons/tech/material-design-2026.svg" alt="Material Design" />
-          <span>Material<br />Design</span>
+            </a>
+          </article>
         </div>
 
-        <div class="skill-item">
-          <img src="assets/icons/tech/typescript-2026.svg" alt="TypeScript" />
-          <span>TypeScript</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/icons/tech/angular-2026.svg" alt="Angular" />
-          <span>Angular</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/icons/tech/supabase-2026.svg" alt="Supabase" />
-          <span>Supabase</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/icons/tech/git-2026.svg" alt="Git" />
-          <span>Git</span>
-        </div>
+        <div class="skills-right" aria-label="Skill Icons">
+          <div class="skill-item">
+            <img src="assets/icons/tech/html-2026.svg" alt="HTML" />
+            <span>HTML</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/tech/css-2026.svg" alt="CSS" />
+            <span>CSS</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/tech/javascript-2026.svg" alt="JavaScript" />
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/tech/material-design-2026.svg" alt="Material Design" />
+            <span>Material<br />Design</span>
+          </div>
 
-        <div class="skill-item">
-          <img src="assets/icons/tech/rest-api-2026.svg" alt="REST API" />
-          <span>REST-API</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/icons/tech/scrum-2026.svg" alt="Scrum" />
-          <span>Scrum</span>
-        </div>
-        <div class="skill-item skill-item-mindset">
-          <img src="assets/icons/tech/growth-mindset-2026.svg" alt="Growth mindset" />
-          <span>Growth<br />mindset</span>
-          <div class="mindset-tooltip" role="note" aria-label="Special interest in React and Vue">
-            <p data-de="Ich habe ein besonderes<br />Interesse am Lernen" data-en="I have a special<br />interest in learning">I have a special<br />interest in learning</p>
-            <div class="mindset-tooltip-icons" aria-hidden="true">
-              <div class="mindset-tech">
-                <img src="assets/icons/tech/react-2026.svg" alt="" />
-                <span>React</span>
-              </div>
-              <div class="mindset-tech">
-                <img src="assets/icons/tech/vue-2026.svg" alt="" />
-                <span>Vue.js</span>
+          <div class="skill-item">
+            <img src="assets/icons/tech/typescript-2026.svg" alt="TypeScript" />
+            <span>TypeScript</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/tech/angular-2026.svg" alt="Angular" />
+            <span>Angular</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/tech/supabase-2026.svg" alt="Supabase" />
+            <span>Supabase</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/tech/git-2026.svg" alt="Git" />
+            <span>Git</span>
+          </div>
+
+          <div class="skill-item">
+            <img src="assets/icons/tech/rest-api-2026.svg" alt="REST API" />
+            <span>REST-API</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/tech/scrum-2026.svg" alt="Scrum" />
+            <span>Scrum</span>
+          </div>
+          <div class="skill-item skill-item-mindset">
+            <img src="assets/icons/tech/growth-mindset-2026.svg" alt="Growth mindset" />
+            <span>Growth<br />mindset</span>
+            <div class="mindset-tooltip" role="note" aria-label="Special interest in React and Vue">
+              <p data-de="Ich habe ein besonderes<br />Interesse am Lernen" data-en="I have a special<br />interest in learning">I have a special<br />interest in learning</p>
+              <div class="mindset-tooltip-icons" aria-hidden="true">
+                <div class="mindset-tech">
+                  <img src="assets/icons/tech/react-2026.svg" alt="" />
+                  <span>React</span>
+                </div>
+                <div class="mindset-tech">
+                  <img src="assets/icons/tech/vue-2026.svg" alt="" />
+                  <span>Vue.js</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Projects overview with dynamic list and detail card -->
-    <section id="projects">
-      <p class="projects-kicker" data-de="Portfolio" data-en="Portfolio">Portfolio</p>
-      <h2 data-de="Ausgew&auml;hlte Projekte" data-en="Featured Projects">Featured Projects</h2>
-      <p class="projects-intro" data-de="Erkunde eine Auswahl meiner Arbeiten - Interagiere mit den Projekten, um meine F&auml;higkeiten in Aktion zu sehen." data-en="Explore a selection of my work here - Interact with projects to see my skills in action.">
-        Explore a selection of my work here - Interact with projects to see my skills in action.
-      </p>
+      <!-- Projects -->
+      <section id="projects">
+        <p class="projects-kicker" data-de="Portfolio" data-en="Portfolio">Portfolio</p>
+        <h2 data-de="Ausgew&auml;hlte Projekte" data-en="Featured Projects">Featured Projects</h2>
+        <p class="projects-intro" data-de="Erkunde eine Auswahl meiner Arbeiten - Interagiere mit den Projekten, um meine F&auml;higkeiten in Aktion zu sehen." data-en="Explore a selection of my work here - Interact with projects to see my skills in action.">
+          Explore a selection of my work here - Interact with projects to see my skills in action.
+        </p>
 
-      <div class="projects-layout">
-        <div class="projects-list" role="list" aria-label="Projekte"></div>
+        <div class="projects-layout">
+          <div class="projects-list" role="list" aria-label="Projekte"></div>
 
-        <aside class="projects-preview-panel" id="projectsPreviewPanel" aria-hidden="true">
-          <div class="projects-preview-card">
-            <div class="projects-preview-frame">
-              <img id="projectsPreviewImage" src="assets/images/projects/Joinn.png" alt="Join project preview" />
+          <aside class="projects-preview-panel" id="projectsPreviewPanel" aria-hidden="true">
+            <div class="projects-preview-card">
+              <div class="projects-preview-frame">
+                <img id="projectsPreviewImage" src="assets/images/projects/Joinn.png" alt="Join project preview" />
+              </div>
             </div>
-          </div>
-        </aside>
-      </div>
+          </aside>
+        </div>
 
-      <article class="project-detail-card is-hidden" id="projectDetailCard" aria-live="polite" aria-hidden="true">
-        <button class="project-detail-close" id="projectDetailClose" type="button" aria-label="Close project details">
-          <svg class="project-detail-close-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 4L20 20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-            <path d="M20 4L4 20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-          </svg>
-        </button>
+        <article class="project-detail-card is-hidden" id="projectDetailCard" aria-live="polite" aria-hidden="true">
+          <button class="project-detail-close" id="projectDetailClose" type="button" aria-label="Close project details">
+            <svg class="project-detail-close-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 4L20 20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+              <path d="M20 4L4 20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            </svg>
+          </button>
 
-        <div class="project-detail-copy">
-          <p class="project-detail-number" id="projectDetailNumber">01</p>
-          <h3 class="project-detail-title" id="projectDetailTitle">Join</h3>
-          <p class="project-detail-subtitle" data-de="Worum geht es in diesem Projekt?" data-en="What is this project about?">What is this project about?</p>
-          <p class="project-detail-description" id="projectDetailDescription">
-            Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.
-          </p>
+          <div class="project-detail-copy">
+            <p class="project-detail-number" id="projectDetailNumber">01</p>
+            <h3 class="project-detail-title" id="projectDetailTitle">Join</h3>
+            <p class="project-detail-subtitle" data-de="Worum geht es in diesem Projekt?" data-en="What is this project about?">What is this project about?</p>
+            <p class="project-detail-description" id="projectDetailDescription">
+              Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.
+            </p>
 
-          <div class="project-detail-stack" id="projectDetailStack" aria-label="Project tech stack"></div>
-
+            <div class="project-detail-stack" id="projectDetailStack" aria-label="Project tech stack"></div>
             <div class="project-detail-actions">
               <a class="btn btn-primary" id="projectDetailGithub" href="#" target="_blank" rel="noopener noreferrer" data-de="GitHub" data-en="GitHub">GitHub</a>
               <a class="btn btn-primary" id="projectDetailLive" href="#" target="_blank" rel="noopener noreferrer" data-de="Live Test" data-en="Live Test">Live Test</a>
             </div>
-        </div>
-
-        <div class="project-detail-media">
-          <img id="projectDetailImage" src="assets/images/projects/Joinn.png" alt="Join project preview" />
-        </div>
-
-        <button class="project-detail-next" id="projectDetailNext" type="button" data-de="N&auml;chstes Projekt <img class='project-detail-next-icon' src='assets/ui/pfeil_rechts_tuerkis.png' alt='' aria-hidden='true' />" data-en="Next project <img class='project-detail-next-icon' src='assets/ui/pfeil_rechts_tuerkis.png' alt='' aria-hidden='true' />">
-          Next project <img class="project-detail-next-icon" src="assets/ui/pfeil_rechts_tuerkis.png" alt="" aria-hidden="true" />
-        </button>
-      </article>
-    </section>
-
-    <!-- Testimonials slider populated from JavaScript data -->
-    <section id="testimonials">
-      <div class="testimonials-wrap">
-        <h2 class="testimonials-title" data-de="Was meine Kollegen &uuml;ber mich sagen" data-en="What my colleagues say about me">What my colleagues say about me</h2>
-
-        <div class="testimonials-stage">
-          <div class="testimonials-track-outer">
-            <div class="testimonials-track" id="testimonialsTrack"></div>
           </div>
-        </div>
 
-        <div class="testimonials-controls">
-          <button class="testimonials-arrow" id="testimonialsPrev" aria-label="Previous testimonial">
-            <img class="testimonials-arrow-icon testimonials-arrow-icon-default" src="assets/ui/pfeil_links_weiss.png" alt="" aria-hidden="true" />
-            <img class="testimonials-arrow-icon testimonials-arrow-icon-hover" src="assets/ui/pfeil_links_tuerkis.png" alt="" aria-hidden="true" />
+          <div class="project-detail-media">
+            <img id="projectDetailImage" src="assets/images/projects/Joinn.png" alt="Join project preview" />
+          </div>
+
+          <button class="project-detail-next" id="projectDetailNext" type="button" data-de="N&auml;chstes Projekt <img class='project-detail-next-icon' src='assets/ui/pfeil_rechts_tuerkis.png' alt='' aria-hidden='true' />" data-en="Next project <img class='project-detail-next-icon' src='assets/ui/pfeil_rechts_tuerkis.png' alt='' aria-hidden='true' />">
+            Next project <img class="project-detail-next-icon" src="assets/ui/pfeil_rechts_tuerkis.png" alt="" aria-hidden="true" />
           </button>
-          <div class="testimonials-dots" id="testimonialsDots"></div>
-          <button class="testimonials-arrow" id="testimonialsNext" aria-label="Next testimonial">
-            <img class="testimonials-arrow-icon testimonials-arrow-icon-default" src="assets/ui/pfeil_rechts_weiss.png" alt="" aria-hidden="true" />
-            <img class="testimonials-arrow-icon testimonials-arrow-icon-hover" src="assets/ui/pfeil_rechts_tuerkis.png" alt="" aria-hidden="true" />
-          </button>
-        </div>
+        </article>
+      </section>
 
-      </div>
-    </section>
+      <!-- Testimonials -->
+      <section id="testimonials">
+        <div class="testimonials-wrap">
+          <h2 class="testimonials-title" data-de="Was meine Kollegen &uuml;ber mich sagen" data-en="What my colleagues say about me">What my colleagues say about me</h2>
 
-    <!-- Contact section with intro copy and contact form -->
-    <section id="contact">
-      <div class="contact-box">
-
-        <!-- Left column: contact pitch and call to action -->
-        <div class="contact-left">
-          <p class="contact-kicker" data-de="Kontakt" data-en="Contact me">Contact me</p>
-          <h2 class="contact-heading" data-de="Lass uns zusammen&shy;arbeiten" data-en="Let's work together">Let's work together</h2>
-          <p class="contact-sub" data-de="Ein Problem zu l&ouml;sen?" data-en="Got a problem to solve?">Got a problem to solve?</p>
-          <p class="contact-body" data-de="Kontaktiere mich und beschreibe, an welcher Art von Projekt du arbeitest. Ich zeige dir, wie ich mit meinen F&auml;higkeiten deinen Projekten einen Mehrwert bieten kann." data-en="Get in touch and tell me about the kind of project you're working on. I'll show you how I can contribute with reliable front-end development and thoughtful implementation.">Get in touch and tell me about the kind of project you're working on. I'll show you how I can contribute with reliable front-end development and thoughtful implementation.</p>
-          <p class="contact-cta" data-de="Frontend Developer gesucht? <a href='mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage' class='contact-link'>Lass uns reden!</a>" data-en="Need a Frontend developer? <a href='mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage' class='contact-link'>Let's talk!</a>">Need a Frontend developer? <a href="mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage" class="contact-link">Let's talk!</a></p>
-        </div>
-
-        <!-- Right column: validated contact form -->
-        <form
-          class="contact-form"
-          id="contactForm"
-          name="contact"
-          action="contact.php"
-          method="POST"
-          accept-charset="UTF-8"
-          novalidate
-        >
-
-          <div class="form-honeypot" aria-hidden="true">
-            <label for="contactCompany">Company</label>
-            <input type="text" id="contactCompany" name="company" tabindex="-1" autocomplete="off" />
-          </div>
-
-          <div class="form-field">
-            <label for="contactName" data-de="Wie hei&szlig;t du?" data-en="What's your name?">What's your name?</label>
-            <input type="text" id="contactName" name="name" autocomplete="name" placeholder="Your name goes here" data-placeholder-de="Dein Name" data-placeholder-en="Your name goes here" />
-            <span class="form-error" id="nameError"></span>
-          </div>
-
-          <div class="form-field">
-            <label for="contactEmail" data-de="Was ist deine E-Mail?" data-en="What's your email?">What's your email?</label>
-            <input type="email" id="contactEmail" name="email" autocomplete="email" placeholder="youremail@email.com" data-placeholder-de="deine-email@beispiel.de" data-placeholder-en="youremail@email.com" />
-            <span class="form-error" id="emailError"></span>
-          </div>
-
-          <div class="form-field">
-            <label for="contactMessage" data-de="Wie kann ich helfen?" data-en="How can I help you?">How can I help you?</label>
-            <textarea id="contactMessage" name="message" rows="3" placeholder="Hello, I am interested in..." data-placeholder-de="Hallo, ich interessiere mich f&uuml;r..." data-placeholder-en="Hello, I am interested in..."></textarea>
-            <span class="form-error" id="messageError"></span>
-          </div>
-
-          <div class="form-privacy">
-            <label class="privacy-label">
-              <span class="privacy-checkbox-wrap">
-                <input type="checkbox" id="privacyCheck" name="privacy" aria-describedby="privacyError" />
-                <span class="privacy-custom-box" aria-hidden="true"></span>
-              </span>
-              <span class="privacy-text" data-de="Ich habe die <a href='privacy-policy.html' class='contact-link'>Datenschutzrichtlinie</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden." data-en="I've read the <a href='privacy-policy.html' class='contact-link'>privacy policy</a> and agree to the processing of my data as outlined.">I've read the <a href="privacy-policy.html" class="contact-link">privacy policy</a> and agree to the processing of my data as outlined.</span>
-            </label>
-            <span class="form-error" id="privacyError"></span>
-          </div>
-
-          <div class="form-submit">
-            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn" disabled data-de="Hallo sagen :)" data-en="Say Hello :)">Say Hello :)</button>
-            <p class="form-status" id="formStatus" aria-live="polite" role="status" hidden></p>
-          </div>
-
-        </form>
-
-      </div>
-    </section>
-
-    <!-- Footer with brand recap, copyright, and utility links -->
-    <footer id="footer">
-      <div class="footer-inner">
-
-        <!-- Left column: logo and short profile summary -->
-        <div class="footer-left">
-          <a href="#hero" class="footer-logo" aria-label="Zur Startseite">
-            <span class="logo-icon-stack" aria-hidden="true">
-              <img class="logo-icon logo-icon-filled" src="assets/icons/logo-filled.svg" alt="" />
-              <img class="logo-icon logo-icon-outline" src="assets/icons/logo-outline.svg" alt="" />
-            </span>
-            <div class="logo-text">
-              <span>Onur</span>
-              <span>Bayram</span>
+          <div class="testimonials-stage">
+            <div class="testimonials-track-outer">
+              <div class="testimonials-track" id="testimonialsTrack"></div>
             </div>
-          </a>
-          <p class="footer-role" data-de="Frontend Developer" data-en="Frontend Developer">Frontend Developer</p>
-          <p class="footer-location" data-de="Frankfurt, Deutschland" data-en="Frankfurt, Germany">Frankfurt, Germany</p>
+          </div>
+
+          <div class="testimonials-controls">
+            <button class="testimonials-arrow" id="testimonialsPrev" aria-label="Previous testimonial">
+              <img class="testimonials-arrow-icon testimonials-arrow-icon-default" src="assets/ui/pfeil_links_weiss.png" alt="" aria-hidden="true" />
+              <img class="testimonials-arrow-icon testimonials-arrow-icon-hover" src="assets/ui/pfeil_links_tuerkis.png" alt="" aria-hidden="true" />
+            </button>
+            <div class="testimonials-dots" id="testimonialsDots"></div>
+            <button class="testimonials-arrow" id="testimonialsNext" aria-label="Next testimonial">
+              <img class="testimonials-arrow-icon testimonials-arrow-icon-default" src="assets/ui/pfeil_rechts_weiss.png" alt="" aria-hidden="true" />
+              <img class="testimonials-arrow-icon testimonials-arrow-icon-hover" src="assets/ui/pfeil_rechts_tuerkis.png" alt="" aria-hidden="true" />
+            </button>
+          </div>
         </div>
+      </section>
 
-        <!-- Center column: copyright notice -->
-        <p class="footer-copy" data-de="&copy; Onur Bayram 2026" data-en="&copy; Onur Bayram 2026">&#169; Onur Bayram 2026</p>
+      <!-- Contact -->
+      <section id="contact">
+        <div class="contact-box">
+          <div class="contact-left">
+            <p class="contact-kicker" data-de="Kontakt" data-en="Contact me">Contact me</p>
+            <h2 class="contact-heading" data-de="Lass uns zusammen&shy;arbeiten" data-en="Let's work together">Let's work together</h2>
+            <p class="contact-sub" data-de="Ein Problem zu l&ouml;sen?" data-en="Got a problem to solve?">Got a problem to solve?</p>
+            <p class="contact-body" data-de="Kontaktiere mich und beschreibe, an welcher Art von Projekt du arbeitest. Ich zeige dir, wie ich mit meinen F&auml;higkeiten deinen Projekten einen Mehrwert bieten kann." data-en="Get in touch and tell me about the kind of project you're working on. I'll show you how I can contribute with reliable front-end development and thoughtful implementation.">Get in touch and tell me about the kind of project you're working on. I'll show you how I can contribute with reliable front-end development and thoughtful implementation.</p>
+            <p class="contact-cta" data-de="Frontend Developer gesucht? <a href='mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage' class='contact-link'>Lass uns reden!</a>" data-en="Need a Frontend developer? <a href='mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage' class='contact-link'>Let's talk!</a>">Need a Frontend developer? <a href="mailto:onur-bayram@hotmail.de?subject=Portfolio%20Anfrage" class="contact-link">Let's talk!</a></p>
+          </div>
 
-        <!-- Right column: external profiles and legal links -->
-        <nav class="footer-nav" aria-label="Footer Navigation">
-          <a href="https://github.com/Onur-Bayram" target="_blank" rel="noopener noreferrer" data-de="Github" data-en="Github">Github</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" data-de="LinkedIn" data-en="LinkedIn">LinkedIn</a>
-          <a href="mailto:onur-bayram@hotmail.de" data-de="E-Mail" data-en="Email">Email</a>
-          <a href="privacy-policy.html" data-de="Datenschutz" data-en="Privacy Policy">Privacy Policy</a>
-          <a href="legal-notice.html" data-de="Impressum" data-en="Legal Notice">Legal Notice</a>
-        </nav>
+          <form
+            class="contact-form"
+            id="contactForm"
+            name="contact"
+            action="contact.php"
+            method="POST"
+            accept-charset="UTF-8"
+            novalidate
+          >
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="contactWebsite">Leave this field empty</label>
+              <input type="text" id="contactWebsite" name="website" tabindex="-1" autocomplete="new-password" inputmode="none" />
+            </div>
 
-      </div>
-    </footer>
+            <div class="form-field">
+              <label for="contactName" data-de="Wie hei&szlig;t du?" data-en="What's your name?">What's your name?</label>
+              <input type="text" id="contactName" name="name" autocomplete="name" placeholder="Your name goes here" data-placeholder-de="Dein Name" data-placeholder-en="Your name goes here" />
+              <span class="form-error" id="nameError"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="contactEmail" data-de="Was ist deine E-Mail?" data-en="What's your email?">What's your email?</label>
+              <input type="email" id="contactEmail" name="email" autocomplete="email" placeholder="youremail@email.com" data-placeholder-de="deine-email@beispiel.de" data-placeholder-en="youremail@email.com" />
+              <span class="form-error" id="emailError"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="contactMessage" data-de="Wie kann ich helfen?" data-en="How can I help you?">How can I help you?</label>
+              <textarea id="contactMessage" name="message" rows="3" placeholder="Hello, I am interested in..." data-placeholder-de="Hallo, ich interessiere mich f&uuml;r..." data-placeholder-en="Hello, I am interested in..."></textarea>
+              <span class="form-error" id="messageError"></span>
+            </div>
+
+            <div class="form-privacy">
+              <label class="privacy-label">
+                <span class="privacy-checkbox-wrap">
+                  <input type="checkbox" id="privacyCheck" name="privacy" aria-describedby="privacyError" />
+                  <span class="privacy-custom-box" aria-hidden="true"></span>
+                </span>
+                <span class="privacy-text" data-de="Ich habe die <a href='privacy-policy.html' class='contact-link'>Datenschutzrichtlinie</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden." data-en="I've read the <a href='privacy-policy.html' class='contact-link'>privacy policy</a> and agree to the processing of my data as outlined.">I've read the <a href="privacy-policy.html" class="contact-link">privacy policy</a> and agree to the processing of my data as outlined.</span>
+              </label>
+              <span class="form-error" id="privacyError"></span>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary btn-submit" id="submitBtn" disabled data-de="Hallo sagen :)" data-en="Say Hello :)">Say Hello :)</button>
+              <p class="form-status" id="formStatus" aria-live="polite" role="status" hidden></p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="footer-inner">
+          <div class="footer-left">
+            <a href="#hero" class="footer-logo" aria-label="Zur Startseite">
+              <span class="logo-icon-stack" aria-hidden="true">
+                <img class="logo-icon logo-icon-filled" src="assets/icons/logo-filled.svg" alt="" />
+                <img class="logo-icon logo-icon-outline" src="assets/icons/logo-outline.svg" alt="" />
+              </span>
+              <div class="logo-text">
+                <span>Onur</span>
+                <span>Bayram</span>
+              </div>
+            </a>
+            <p class="footer-role" data-de="Frontend Developer" data-en="Frontend Developer">Frontend Developer</p>
+            <p class="footer-location" data-de="Frankfurt, Deutschland" data-en="Frankfurt, Germany">Frankfurt, Germany</p>
+          </div>
+
+          <p class="footer-copy" data-de="&copy; Onur Bayram 2026" data-en="&copy; Onur Bayram 2026">&#169; Onur Bayram 2026</p>
+          <nav class="footer-nav" aria-label="Footer Navigation">
+            <a href="https://github.com/Onur-Bayram" target="_blank" rel="noopener noreferrer" data-de="Github" data-en="Github">Github</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" data-de="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+            <a href="mailto:onur-bayram@hotmail.de" data-de="E-Mail" data-en="Email">Email</a>
+            <a href="privacy-policy.html" data-de="Datenschutz" data-en="Privacy Policy">Privacy Policy</a>
+            <a href="legal-notice.html" data-de="Impressum" data-en="Legal Notice">Legal Notice</a>
+          </nav>
+        </div>
+      </footer>
     </div>
 
-    <!-- Behavior scripts are loaded last so the DOM is ready before initialization -->
+    <!-- Scripts -->
     <script src="js/lang.js"></script>
     <script src="js/burger.js"></script>
     <script src="js/nav.js"></script>

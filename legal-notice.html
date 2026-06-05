@@ -17,23 +17,21 @@
     <link rel="stylesheet" href="css/legal-notice.css" />
   </head>
   <body class="legal-page">
-    <!-- Shared site header reused on legal content pages -->
+    <!-- Header -->
     <header id="header">
       <nav class="navbar">
-        <!-- Left side: language switcher and shortcuts back into the portfolio -->
         <div class="nav-left">
           <div class="lang-toggle" role="group" aria-label="Sprache wechseln">
             <button class="lang-chip is-active" id="langEN" type="button" aria-pressed="true">EN</button>
             <button class="lang-chip" id="langDE" type="button" aria-pressed="false">DE</button>
           </div>
           <ul class="nav-links">
-            <li><a href="index.html#about" data-de="Über mich" data-en="About me">About me</a></li>
+            <li><a href="index.html#about" data-de="&Uuml;ber mich" data-en="About me">About me</a></li>
             <li><a href="index.html#skills" data-de="Skills" data-en="Skills">Skills</a></li>
             <li><a href="index.html#projects" data-de="Projekte" data-en="Projects">Projects</a></li>
           </ul>
         </div>
 
-        <!-- Brand anchor that returns to the portfolio hero -->
         <a href="index.html#hero" class="nav-logo" aria-label="Zur Startseite">
           <span class="logo-icon-stack" aria-hidden="true">
             <img class="logo-icon logo-icon-filled" src="assets/icons/logo-filled.svg" alt="" />
@@ -45,17 +43,15 @@
           </div>
         </a>
 
-        <!-- Mobile menu trigger -->
-        <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+        <button class="burger" id="burger" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
       </nav>
 
-      <!-- Overlay navigation for smaller screens -->
       <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-        <a href="index.html#about" class="mobile-link" data-de="Über mich" data-en="About me">About me</a>
+        <a href="index.html#about" class="mobile-link" data-de="&Uuml;ber mich" data-en="About me">About me</a>
         <a href="index.html#skills" class="mobile-link" data-de="Skills" data-en="Skills">Skills</a>
         <a href="index.html#projects" class="mobile-link" data-de="Projekte" data-en="Projects">Projects</a>
         <div class="mobile-lang">
@@ -65,73 +61,71 @@
       </div>
     </header>
 
-    <!-- Legal content wrapper -->
+    <!-- Legal Notice -->
     <main id="legal">
-      <!-- Mobile-only back button that returns to the homepage -->
-      <a href="index.html" class="legal-back-btn" aria-label="Zurück zur Startseite">
+      <a href="index.html" class="legal-back-btn" aria-label="Zur&uuml;ck zur Startseite">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </a>
-      <!-- Main legal notice content -->
+
       <section class="legal-notice-shell" aria-labelledby="legalNoticeTitle">
         <h1 id="legalNoticeTitle" data-de="Impressum" data-en="Legal Notice">Legal Notice</h1>
-        <!-- Legal content blocks summarize identity, contact details, usage terms, and liability scope. -->
+
         <div class="legal-content">
-        <article class="legal-block">
-          <h2 data-de="Impressum" data-en="Imprint">Imprint</h2>
-          <ul class="legal-list">
-            <li>Onur Bayram</li>
-            <li>Rumpenheimer Str. 106</li>
-            <li>63075 Offenbach am Main</li>
-          </ul>
-        </article>
+          <article class="legal-block">
+            <h2 data-de="Impressum" data-en="Imprint">Imprint</h2>
+            <ul class="legal-list">
+              <li>Onur Bayram</li>
+              <li>Rumpenheimer Str. 106</li>
+              <li>63075 Offenbach am Main</li>
+            </ul>
+          </article>
 
-        <article class="legal-block">
-          <h2 data-de="Kontakt" data-en="Contact">Contact</h2>
-          <p data-de="E-Mail: <a href='mailto:onur-bayram@hotmail.de' class='legal-inline-link'>onur-bayram@hotmail.de</a>" data-en="Email: <a href='mailto:onur-bayram@hotmail.de' class='legal-inline-link'>onur-bayram@hotmail.de</a>">Email: <a href="mailto:onur-bayram@hotmail.de" class="legal-inline-link">onur-bayram@hotmail.de</a></p>
-        </article>
+          <article class="legal-block">
+            <h2 data-de="Kontakt" data-en="Contact">Contact</h2>
+            <p data-de="E-Mail: <a href='mailto:onur-bayram@hotmail.de' class='legal-inline-link'>onur-bayram@hotmail.de</a>" data-en="Email: <a href='mailto:onur-bayram@hotmail.de' class='legal-inline-link'>onur-bayram@hotmail.de</a>">Email: <a href="mailto:onur-bayram@hotmail.de" class="legal-inline-link">onur-bayram@hotmail.de</a></p>
+          </article>
 
-        <article class="legal-block">
-          <h2 data-de="Geltung der Bedingungen" data-en="Acceptance of terms">Acceptance of terms</h2>
-          <p data-de="Durch den Zugriff auf und die Nutzung von <a href='index.html#hero' class='legal-highlight'>Portfolio</a> (Produkt) erkennst du die folgenden Bedingungen sowie alle Richtlinien, Hinweise oder erg&auml;nzenden Regelungen an, die dir von Zeit zu Zeit angezeigt werden k&ouml;nnen. Wir, die genannten Studierenden, behalten uns vor, diese Bedingungen ohne vorherige Ank&uuml;ndigung zu aktualisieren oder zu &auml;ndern." data-en="By accessing and using <a href='index.html#hero' class='legal-highlight'>Portfolio</a> (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or arrangements thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.">By accessing and using <a href="index.html#hero" class="legal-highlight">Portfolio</a> (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or arrangements thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.</p>
-        </article>
+          <article class="legal-block">
+            <h2 data-de="Geltung der Bedingungen" data-en="Acceptance of terms">Acceptance of terms</h2>
+            <p data-de="Durch den Zugriff auf und die Nutzung von <a href='index.html#hero' class='legal-highlight'>Portfolio</a> erkennst du die folgenden Bedingungen sowie alle Richtlinien, Hinweise oder erg&auml;nzenden Regelungen an, die dir von Zeit zu Zeit angezeigt werden k&ouml;nnen. Ich behalte mir vor, diese Bedingungen ohne vorherige Ank&uuml;ndigung zu aktualisieren oder zu &auml;ndern." data-en="By accessing and using <a href='index.html#hero' class='legal-highlight'>Portfolio</a>, you acknowledge and agree to the following terms and any related policies or notices that may be shown from time to time. I may update or change these terms without prior notice.">By accessing and using <a href="index.html#hero" class="legal-highlight">Portfolio</a>, you acknowledge and agree to the following terms and any related policies or notices that may be shown from time to time. I may update or change these terms without prior notice.</p>
+          </article>
 
-        <article class="legal-block">
-          <h2 data-de="Umfang und Eigentum des Produkts" data-en="Scope and ownership of the product">Scope and ownership of the product</h2>
-          <p data-de="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp der <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a> entwickelt. Das Produkt dient ausschlie&szlig;lich Ausbildungs- und Demonstrationszwecken und ist nicht f&uuml;r eine umfangreiche private oder gesch&auml;ftliche Nutzung bestimmt. Daher k&ouml;nnen wir keine Gew&auml;hr f&uuml;r dauerhafte Verf&uuml;gbarkeit, Zuverl&auml;ssigkeit, Genauigkeit oder sonstige Qualit&auml;tsmerkmale des Produkts &uuml;bernehmen." data-en="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> has been developed as part of student training group project in a web development bootcamp at the <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a>. It has an educational purpose and is not intended for expansive personal or business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product."><a href="index.html#hero" class="legal-highlight">Portfolio</a> has been developed as part of student training group project in a web development bootcamp at the <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie GmbH</a>. It has an educational purpose and is not intended for expansive personal or business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product.</p>
-          <p data-de="Das Design von <a href='index.html#hero' class='legal-highlight'>Portfolio</a> ist Eigentum der <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a>. Eine unbefugte Nutzung, Vervielf&auml;ltigung, Ver&auml;nderung, Verbreitung oder Nachbildung des Designs ist streng untersagt." data-en="The design of <a href='index.html#hero' class='legal-highlight'>Portfolio</a> is owned by the <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.">The design of <a href="index.html#hero" class="legal-highlight">Portfolio</a> is owned by the <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie GmbH</a>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.</p>
-        </article>
+          <article class="legal-block">
+            <h2 data-de="Umfang und Eigentum des Produkts" data-en="Scope and ownership of the product">Scope and ownership of the product</h2>
+            <p data-de="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> wurde im Rahmen eines Webentwicklungs-Bootcamps der <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a> entwickelt. Die Website dient Ausbildungs- und Demonstrationszwecken und ist nicht f&uuml;r eine umfangreiche private oder gesch&auml;ftliche Nutzung bestimmt. Daher kann ich keine Gew&auml;hr f&uuml;r dauerhafte Verf&uuml;gbarkeit, Zuverl&auml;ssigkeit, Genauigkeit oder sonstige Qualit&auml;tsmerkmale &uuml;bernehmen." data-en="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> was created during a web development bootcamp at <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a>. This website is intended for educational and demonstration purposes and is not meant for extensive private or business use. For that reason, I cannot guarantee permanent availability, reliability, accuracy, or any other quality aspect of the site."><a href="index.html#hero" class="legal-highlight">Portfolio</a> was created during a web development bootcamp at <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie GmbH</a>. This website is intended for educational and demonstration purposes and is not meant for extensive private or business use. For that reason, I cannot guarantee permanent availability, reliability, accuracy, or any other quality aspect of the site.</p>
+            <p data-de="Das Design von <a href='index.html#hero' class='legal-highlight'>Portfolio</a> ist Eigentum der <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a>. Eine unbefugte Nutzung, Vervielf&auml;ltigung, Ver&auml;nderung, Verbreitung oder Nachbildung des Designs ist streng untersagt." data-en="The design of <a href='index.html#hero' class='legal-highlight'>Portfolio</a> is owned by the <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.">The design of <a href="index.html#hero" class="legal-highlight">Portfolio</a> is owned by the <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie GmbH</a>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.</p>
+          </article>
 
-        <article class="legal-block">
-          <h2 data-de="Eigentumsrechte" data-en="Proprietary rights">Proprietary rights</h2>
-          <p data-de="Abgesehen vom Design, das der <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a> geh&ouml;rt, behalten wir, die genannten Studierenden, alle Eigentumsrechte an <a href='index.html#hero' class='legal-highlight'>Portfolio</a>, einschlie&szlig;lich zugeh&ouml;riger urheberrechtlich gesch&uuml;tzter Inhalte, Marken und sonstiger gesch&uuml;tzter Informationen." data-en="Apart from the design owned by <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a>, we, the listed students, retain all proprietary rights in <a href='index.html#hero' class='legal-highlight'>Portfolio</a>, including any associated copyrighted material, trademarks, and other proprietary information.">Apart from the design owned by <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie GmbH</a>, we, the listed students, retain all proprietary rights in <a href="index.html#hero" class="legal-highlight">Portfolio</a>, including any associated copyrighted material, trademarks, and other proprietary information.</p>
-        </article>
+          <article class="legal-block">
+            <h2 data-de="Eigentumsrechte" data-en="Proprietary rights">Proprietary rights</h2>
+            <p data-de="Abgesehen vom Design, das der <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a> geh&ouml;rt, behalte ich alle Eigentumsrechte an <a href='index.html#hero' class='legal-highlight'>Portfolio</a>, einschlie&szlig;lich zugeh&ouml;riger urheberrechtlich gesch&uuml;tzter Inhalte, Marken und sonstiger gesch&uuml;tzter Informationen." data-en="Apart from the design owned by <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie GmbH</a>, I retain all proprietary rights in <a href='index.html#hero' class='legal-highlight'>Portfolio</a>, including any related copyrighted material, trademarks, and other protected information.">Apart from the design owned by <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie GmbH</a>, I retain all proprietary rights in <a href="index.html#hero" class="legal-highlight">Portfolio</a>, including any related copyrighted material, trademarks, and other protected information.</p>
+          </article>
 
-        <article class="legal-block">
-          <h2 data-de="Nutzung des Produkts" data-en="Use of the product">Use of the product</h2>
-          <p data-de="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> darf ausschlie&szlig;lich f&uuml;r rechtm&auml;&szlig;ige Zwecke und im Einklang mit allen geltenden Gesetzen und Vorschriften genutzt werden. Jede Nutzung von <a href='index.html#hero' class='legal-highlight'>Portfolio</a> f&uuml;r rechtswidrige Aktivit&auml;ten oder zur Bel&auml;stigung, Sch&auml;digung, Bedrohung oder Einsch&uuml;chterung anderer Personen ist streng untersagt. Du bist allein f&uuml;r deine Interaktionen mit anderen Nutzern von <a href='index.html#hero' class='legal-highlight'>Portfolio</a> verantwortlich." data-en="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of <a href='index.html#hero' class='legal-highlight'>Portfolio</a> for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions within other users of <a href='index.html#hero' class='legal-highlight'>Portfolio</a>."><a href="index.html#hero" class="legal-highlight">Portfolio</a> is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of <a href="index.html#hero" class="legal-highlight">Portfolio</a> for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions within other users of <a href="index.html#hero" class="legal-highlight">Portfolio</a>.</p>
-        </article>
+          <article class="legal-block">
+            <h2 data-de="Nutzung des Produkts" data-en="Use of the product">Use of the product</h2>
+            <p data-de="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> darf ausschlie&szlig;lich f&uuml;r rechtm&auml;&szlig;ige Zwecke und im Einklang mit allen geltenden Gesetzen und Vorschriften genutzt werden. Jede Nutzung der Website f&uuml;r rechtswidrige Aktivit&auml;ten oder zur Bel&auml;stigung, Sch&auml;digung, Bedrohung oder Einsch&uuml;chterung anderer Personen ist streng untersagt. Du bist allein f&uuml;r deine Nutzung der Website verantwortlich." data-en="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> may be used only for lawful purposes and in compliance with all applicable laws and regulations. Any use of the website for illegal activities or to harass, harm, threaten, or intimidate other people is strictly prohibited. You are solely responsible for how you use the website."><a href="index.html#hero" class="legal-highlight">Portfolio</a> may be used only for lawful purposes and in compliance with all applicable laws and regulations. Any use of the website for illegal activities or to harass, harm, threaten, or intimidate other people is strictly prohibited. You are solely responsible for how you use the website.</p>
+          </article>
 
-        <article class="legal-block">
-          <h2 data-de="Haftungsausschluss und Haftungsbeschränkung" data-en="Disclaimer of warranties and limitation of liability">Disclaimer of warranties and limitation of liability</h2>
-          <p data-de="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> wird ohne jegliche ausdr&uuml;ckliche oder stillschweigende Gew&auml;hrleistung bereitgestellt, einschlie&szlig;lich, aber nicht beschr&auml;nkt auf die stillschweigenden Gew&auml;hrleistungen der Marktg&auml;ngigkeit, Eignung f&uuml;r einen bestimmten Zweck und Nichtverletzung von Rechten Dritter. Weder wir, die genannten Studierenden, noch die <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie</a> haften f&uuml;r direkte, indirekte, zuf&auml;llige, besondere, Folge- oder beispielhafte Sch&auml;den, einschlie&szlig;lich entgangener Gewinne, Verlust von Goodwill, Nutzung, Daten oder anderer immaterieller Verluste, selbst wenn wir auf die M&ouml;glichkeit solcher Sch&auml;den hingewiesen wurden." data-en="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> is provided &quot;as is&quot; without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie</a>, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages arising out of or in connection with the use or performance of <a href='index.html#hero' class='legal-highlight'>Portfolio</a>."><a href="index.html#hero" class="legal-highlight">Portfolio</a> is provided "as is" without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie</a>, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages arising out of or in connection with the use or performance of <a href="index.html#hero" class="legal-highlight">Portfolio</a>.</p>
-        </article>
+          <article class="legal-block">
+            <h2 data-de="Haftungsausschluss und Haftungsbeschr&auml;nkung" data-en="Disclaimer of warranties and limitation of liability">Disclaimer of warranties and limitation of liability</h2>
+            <p data-de="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> wird ohne jegliche ausdr&uuml;ckliche oder stillschweigende Gew&auml;hrleistung bereitgestellt, einschlie&szlig;lich, aber nicht beschr&auml;nkt auf die stillschweigenden Gew&auml;hrleistungen der Marktg&auml;ngigkeit, Eignung f&uuml;r einen bestimmten Zweck und Nichtverletzung von Rechten Dritter. Weder ich noch die <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie</a> haften f&uuml;r direkte, indirekte, zuf&auml;llige, besondere, Folge- oder beispielhafte Sch&auml;den, einschlie&szlig;lich entgangener Gewinne, Verlust von Goodwill, Nutzung, Daten oder anderer immaterieller Verluste, selbst wenn auf die M&ouml;glichkeit solcher Sch&auml;den hingewiesen wurde." data-en="<a href='index.html#hero' class='legal-highlight'>Portfolio</a> is provided &quot;as is&quot; without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will I or <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie</a> be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including loss of profits, goodwill, use, data, or other intangible losses, even if advised of the possibility of such damages."><a href="index.html#hero" class="legal-highlight">Portfolio</a> is provided "as is" without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will I or <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie</a> be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including loss of profits, goodwill, use, data, or other intangible losses, even if advised of the possibility of such damages.</p>
+          </article>
 
-        <article class="legal-block">
-          <h2 data-de="Freistellung" data-en="Indemnity">Indemnity</h2>
-          <p data-de="Du erkl&auml;rst dich damit einverstanden, uns, die genannten Studierenden, die <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie</a> sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeitenden von allen Anspr&uuml;chen, Forderungen, Verlusten, Sch&auml;den, Kosten oder Verbindlichkeiten (einschlie&szlig;lich angemessener Anwaltskosten) freizustellen, die aus deiner Nutzung von <a href='index.html#hero' class='legal-highlight'>Portfolio</a> und/oder aus einem Versto&szlig; gegen dieses Impressum entstehen." data-en="You agree to indemnify, defend and hold harmless us, the listed students, the <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie</a>, and our affiliates, partners, officers, directors, agents, and employees, from and against any claims, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of <a href='index.html#hero' class='legal-highlight'>Portfolio</a> and/or your breach of this Legal Notice.">You agree to indemnify, defend and hold harmless us, the listed students, the <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie</a>, and our affiliates, partners, officers, directors, agents, and employees, from and against any claims, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of <a href="index.html#hero" class="legal-highlight">Portfolio</a> and/or your breach of this Legal Notice.</p>
-          <p data-de="Bei Fragen oder Hinweisen kontaktiere uns bitte unter <a href='mailto:onur-bayram@hotmail.de' class='legal-inline-link'>onur-bayram@hotmail.de</a>." data-en="For any questions or notices, please contact us at <a href='mailto:onur-bayram@hotmail.de' class='legal-inline-link'>onur-bayram@hotmail.de</a>.">For any questions or notices, please contact us at <a href="mailto:onur-bayram@hotmail.de" class="legal-inline-link">onur-bayram@hotmail.de</a>.</p>
-          <p class="legal-date" data-de="Stand: 16. Mai 2026" data-en="Last updated: May 16, 2026">Last updated: May 16, 2026</p>
-        </article>
+          <article class="legal-block">
+            <h2 data-de="Freistellung" data-en="Indemnity">Indemnity</h2>
+            <p data-de="Du erkl&auml;rst dich damit einverstanden, mich und die <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie</a> von allen Anspr&uuml;chen, Forderungen, Verlusten, Sch&auml;den, Kosten oder Verbindlichkeiten freizustellen, die aus deiner Nutzung von <a href='index.html#hero' class='legal-highlight'>Portfolio</a> oder aus einem Versto&szlig; gegen dieses Impressum entstehen." data-en="You agree to indemnify and hold harmless me and <a href='https://developer-akademie.teachable.com/' target='_blank' rel='noopener noreferrer' class='legal-highlight'>Developer Akademie</a> from any claims, demands, losses, damages, costs, or liabilities arising out of your use of <a href='index.html#hero' class='legal-highlight'>Portfolio</a> or your breach of this Legal Notice.">You agree to indemnify and hold harmless me and <a href="https://developer-akademie.teachable.com/" target="_blank" rel="noopener noreferrer" class="legal-highlight">Developer Akademie</a> from any claims, demands, losses, damages, costs, or liabilities arising out of your use of <a href="index.html#hero" class="legal-highlight">Portfolio</a> or your breach of this Legal Notice.</p>
+            <p data-de="Bei Fragen oder Hinweisen kontaktiere mich bitte unter <a href='mailto:onur-bayram@hotmail.de' class='legal-inline-link'>onur-bayram@hotmail.de</a>." data-en="For any questions or notices, please contact me at <a href='mailto:onur-bayram@hotmail.de' class='legal-inline-link'>onur-bayram@hotmail.de</a>.">For any questions or notices, please contact me at <a href="mailto:onur-bayram@hotmail.de" class="legal-inline-link">onur-bayram@hotmail.de</a>.</p>
+            <p class="legal-date" data-de="Stand: 16. Mai 2026" data-en="Last updated: May 16, 2026">Last updated: May 16, 2026</p>
+          </article>
         </div>
       </section>
     </main>
 
-    <!-- Shared footer reused on legal content pages -->
+    <!-- Footer -->
     <footer id="footer">
       <div class="footer-inner">
-        <!-- Left column: logo and profile label -->
         <div class="footer-left">
           <a href="index.html#hero" class="footer-logo" aria-label="Zur Startseite">
             <img class="logo-icon" src="assets/icons/logo-filled.svg" alt="" aria-hidden="true" />
@@ -144,12 +138,9 @@
           <p class="footer-location" data-de="Frankfurt, Deutschland" data-en="Frankfurt, Germany">Frankfurt, Germany</p>
         </div>
 
-        <!-- Center column: copyright notice -->
-        <p class="footer-copy" data-de="© Onur Bayram 2026" data-en="© Onur Bayram 2026">© Onur Bayram 2026</p>
+        <p class="footer-copy" data-de="&copy; Onur Bayram 2026" data-en="&copy; Onur Bayram 2026">&#169; Onur Bayram 2026</p>
 
-        <!-- Right column: profile and legal links -->
         <nav class="footer-nav" aria-label="Footer Navigation">
-          <!-- Footer links stay aligned with the homepage so legal pages keep the same exit paths. -->
           <a href="https://github.com/Onur-Bayram" target="_blank" rel="noopener noreferrer" data-de="Github" data-en="Github">Github</a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" data-de="LinkedIn" data-en="LinkedIn">LinkedIn</a>
           <a href="mailto:onur-bayram@hotmail.de" data-de="E-Mail" data-en="Email">Email</a>
@@ -159,7 +150,7 @@
       </div>
     </footer>
 
-    <!-- Shared behavior scripts for language switching and mobile navigation -->
+    <!-- Scripts -->
     <script src="js/lang.js"></script>
     <script src="js/burger.js"></script>
   </body>

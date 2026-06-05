@@ -1,4 +1,3 @@
-/* Responsive entry point that loads mobile and tablet overrides. */
-/* Import order matters here: the shared phone baseline loads first, then tablet-specific adjustments refine it. */
+/* Responsive imports */
 @import url('./responsive-mobile.css');
 @import url('./responsive-tablet.css');

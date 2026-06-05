@@ -1,10 +1,8 @@
-// Active navigation tracker.
-// Highlights the desktop navigation item that matches the section currently in view.
+// Active desktop navigation.
 (function () {
   var navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
   if (!navLinks.length) return;
 
-  // Pair each anchor with its matching section element for later observation.
   var sectionMap = navLinks
     .map(function (link) {
       var id = link.getAttribute('href').slice(1);
@@ -15,12 +13,10 @@
 
   if (!sectionMap.length) return;
 
-  // Only one navigation link should look active at a time.
   /**
-   * Marks exactly one desktop navigation link as active.
+   * Marks one nav link as active.
    *
-   * @param {string} id The section id that should appear active in the navigation.
-   * @returns {void}
+   * @param {string} id Section id.
    */
   function setActive(id) {
     navLinks.forEach(function (link) {
@@ -29,7 +25,6 @@
     });
   }
 
-  // Clicking a link updates the visual state immediately, even before scrolling settles.
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
       var id = link.getAttribute('href').slice(1);
@@ -37,12 +32,10 @@
     });
   });
 
-  // Observe visibility changes and promote the most visible section to the active nav state.
   /**
-   * Picks the most visible observed section and maps it back to the active navigation link.
+   * Syncs the active link with the most visible section.
    *
-   * @param {IntersectionObserverEntry[]} entries The latest section visibility entries from the observer.
-   * @returns {void}
+   * @param {IntersectionObserverEntry[]} entries Observer entries.
    */
   function handleIntersections(entries) {
     var visible = entries

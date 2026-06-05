@@ -1,5 +1,4 @@
-/* Projects list, preview behavior, and detail card layout. */
-/* Section shell and intro copy above the interactive project list. */
+/* Projects */
 #projects {
   width: min(1308px, calc(100% - 132px));
   min-height: 581px;
@@ -7,7 +6,7 @@
   padding: 38px 0 26px;
 }
 
-/* Shared section intro typography. */
+/* Intro */
 .projects-kicker {
   font-family: var(--font-mono);
   font-size: 14px;
@@ -33,7 +32,7 @@
   margin-bottom: 34px;
 }
 
-/* Desktop project section uses a split layout with rows on the left and a live preview on the right. */
+/* Layout */
 .projects-layout {
   position: relative;
   display: grid;
@@ -46,13 +45,13 @@
   display: none;
 }
 
-/* The list is rendered by JavaScript and styled as a stacked set of interactive rows. */
+/* Project list */
 .projects-list {
   position: relative;
   border-top: 1px solid rgba(var(--color-accent-rgb), 0.9);
 }
 
-/* Each row mirrors the Figma list treatment with title left and tech labels right. */
+/* Project row */
 .project-row {
   min-height: 108px;
   width: 100%;
@@ -83,7 +82,7 @@
   border-bottom-color: rgba(var(--color-accent-rgb), 0.9);
 }
 
-/* Left side of a row keeps the project title aligned like the Figma menu. */
+/* Row title */
 .project-row-left {
   display: flex;
   align-items: center;
@@ -224,7 +223,7 @@
   overflow: hidden;
 }
 
-/* Decorative overlay that adds extra depth to the detail card background. */
+/* Detail overlay */
 .project-detail-card::before {
   content: "";
   position: absolute;
@@ -239,7 +238,7 @@
   display: none;
 }
 
-/* Content, media, and action controls all sit above the decorative overlay. */
+/* Detail content */
 .project-detail-copy,
 .project-detail-media,
 .project-detail-next,
@@ -248,7 +247,7 @@
   z-index: 1;
 }
 
-/* Main copy hierarchy inside the detail card. */
+/* Detail copy */
 .project-detail-number {
   font-family: var(--font-sans);
   font-size: clamp(84px, 8vw, 116px);
@@ -281,7 +280,7 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* Stack chips and primary project action buttons. */
+/* Detail actions */
 .project-detail-stack {
   margin-top: 30px;
   display: flex;
@@ -299,7 +298,7 @@
   color: var(--color-white);
 }
 
-/* Stack icons use mask-image so they can inherit the exact overlay accent color instead of an approximate filter tint. */
+/* Stack icons */
 .project-detail-tech-icon {
   display: block;
   width: 22px;
@@ -321,7 +320,7 @@
   gap: 16px;
 }
 
-/* These action buttons intentionally override the global button lift to match the calmer Figma pills. */
+/* Action buttons */
 .project-detail-actions .btn {
   min-height: 44px;
   padding: 9px 18px;
@@ -346,7 +345,7 @@
   transform: none;
 }
 
-/* The external-link arrow is handled as a pseudo element so text translation cannot break the icon layout. */
+/* Link arrow */
 .project-detail-actions .btn::after {
   content: "";
   width: 12px;
@@ -363,7 +362,7 @@
   transform: translate(2px, -2px);
 }
 
-/* Media column can collapse when an image is unavailable. */
+/* Media */
 .project-detail-media {
   justify-self: end;
   width: min(100%, 520px);
@@ -386,7 +385,7 @@
   max-width: 680px;
 }
 
-/* Image treatment inside the detail panel. */
+/* Image */
 .project-detail-media img {
   width: 100%;
   height: 100%;
@@ -395,7 +394,7 @@
   display: block;
 }
 
-/* Corner close button and bottom-right next-project control. */
+/* Controls */
 .project-detail-close {
   position: absolute;
   top: 26px;
@@ -469,7 +468,7 @@
   filter: brightness(1.25);
 }
 
-/* On desktop the project detail card becomes a fixed overlay, while mobile keeps it in normal flow. */
+/* Desktop overlay */
 @media (min-width: 981px) {
   html.is-project-modal-open,
   body.is-project-modal-open {

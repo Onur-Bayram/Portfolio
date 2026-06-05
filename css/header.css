@@ -1,5 +1,4 @@
-/* Desktop header, shared navigation patterns, and mobile menu base styles. */
-/* Header shell stays above the hero without creating its own solid background. */
+/* Header */
 #header {
   position: absolute;
   top: 0;
@@ -11,7 +10,7 @@
   -webkit-backdrop-filter: none;
 }
 
-/* Main horizontal navigation bar. */
+/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
@@ -22,14 +21,14 @@
   margin: 0 auto;
 }
 
-/* Left navigation cluster with language switcher and section links. */
+/* Left side */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 22px;
 }
 
-/* Language switch control shared by desktop and legal pages. */
+/* Language switch */
 .lang-toggle {
   display: flex;
   align-items: center;
@@ -43,7 +42,7 @@
   transition: border-color 0.2s ease;
 }
 
-/* Individual language chips inside the segmented control. */
+/* Language chips */
 .lang-chip {
   border: none;
   background: transparent;
@@ -64,7 +63,7 @@
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* The Figma hover keeps the chip clean and only brightens the frame/text. */
+/* Chip hover */
 .lang-toggle:hover {
   border-color: var(--color-white);
 }
@@ -89,13 +88,13 @@
   outline-offset: 1px;
 }
 
-/* Desktop primary navigation links. */
+/* Links */
 .nav-links {
   display: flex;
   gap: 24px;
 }
 
-/* Links use a small accent dot as the shared hover/active indicator. */
+/* Link states */
 .nav-links a {
   position: relative;
   display: inline-flex;
@@ -127,7 +126,7 @@
   background-size: 4px 4px;
 }
 
-/* Brand anchor on the right side of the desktop header. */
+/* Brand */
 .nav-logo {
   --nav-logo-size: 62px;
   position: relative;
@@ -138,7 +137,7 @@
   isolation: isolate;
 }
 
-/* Both logo states share one exact footprint so the hover swap stays perfectly aligned. */
+/* Logo swap */
 .logo-icon-stack {
   display: inline-grid;
   place-items: center;
@@ -165,7 +164,7 @@
   transform: scale(0.98);
 }
 
-/* Brand wordmark accompanying the logo icon. */
+/* Wordmark */
 .logo-text {
   display: flex;
   flex-direction: column;
@@ -200,7 +199,7 @@
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.96);
 }
 
-/* Burger icon is hidden on desktop and enabled by mobile overrides. */
+/* Burger */
 .burger {
   display: none;
   position: relative;
@@ -211,7 +210,7 @@
   padding: 4px;
 }
 
-/* Three burger bars are positioned manually so every device keeps equal line lengths and spacing. */
+/* Burger lines */
 .burger span {
   position: absolute;
   left: 0;
@@ -223,41 +222,41 @@
   transition: all 0.25s;
 }
 
-/* Top bar sits flush with the container top edge. */
+/* Top line */
 .burger span:nth-child(1) {
   top: 0;
 }
 
-/* Middle bar stays vertically centered, which also makes the open-state animation cleaner. */
+/* Middle line */
 .burger span:nth-child(2) {
   top: 50%;
   transform: translateY(-50%);
 }
 
-/* Bottom bar anchors to the lower edge to complete the three-line icon. */
+/* Bottom line */
 .burger span:nth-child(3) {
   bottom: 0;
 }
 
-/* In the open state the first bar rotates into the first stroke of the close icon. */
+/* Open state */
 .burger.open span:nth-child(1) {
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 
-/* The middle bar disappears so only the X icon remains visible. */
+/* Open middle */
 .burger.open span:nth-child(2) {
   opacity: 0;
 }
 
-/* The third bar becomes the second stroke of the close icon. */
+/* Open bottom */
 .burger.open span:nth-child(3) {
   bottom: auto;
   top: 50%;
   transform: translateY(-50%) rotate(-45deg);
 }
 
-/* Shared overlay menu structure used by the mobile navigation script. */
+/* Mobile menu */
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -267,12 +266,12 @@
   background: rgba(0, 0, 0, 0.95);
 }
 
-/* Display the menu once the script adds the open class. */
+/* Menu state */
 .mobile-menu.open {
   display: flex;
 }
 
-/* Mobile menu links and inline language switcher. */
+/* Menu links */
 .mobile-link {
   font-family: var(--font-mono);
   font-size: 16px;
@@ -284,7 +283,7 @@
   color: var(--color-accent);
 }
 
-/* The language switch inside the overlay keeps the same pill structure as the desktop control. */
+/* Mobile language switch */
 .mobile-lang {
   display: flex;
   align-items: center;

@@ -1,5 +1,4 @@
-/* Phone-specific overrides for testimonials, contact, and footer sections. */
-/* Base mobile spacing and stacking for the lower half of the page. */
+/* Mobile lower sections */
 @media (max-width: 767px) {
   /* Lower-page sections shift to stacked spacing and narrower cards on phones. */
   #footer {
@@ -51,7 +50,7 @@
     border-color: rgba(var(--color-accent-rgb), 0.72);
   }
 
-  /* The decorative opening quote sits partly outside the card corner, just like in the Figma reference. */
+  /* Quote mark */
   .testimonial-quote {
     top: -16px;
     left: -4px;
@@ -213,7 +212,7 @@
   }
 }
 
-/* Smaller phones get tighter vertical rhythm and narrower cards. */
+/* Small phones */
 @media (max-width: 420px) {
   #testimonials {
     padding: 52px 0 42px;
@@ -300,7 +299,7 @@
   }
 }
 
-/* Larger phones can use broader cards and stronger typography in the lower sections. */
+/* Large phones */
 @media (min-width: 421px) and (max-width: 767px) {
   #footer {
     padding: 0 clamp(14px, 4vw, 20px);

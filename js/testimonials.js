@@ -1,5 +1,4 @@
 // Testimonials slider.
-// Renders cards from shared data and keeps the slider looping seamlessly in both directions.
 (function () {
   // Collect the stage elements and navigation controls used by the slider.
   var track = document.getElementById('testimonialsTrack');
@@ -17,27 +16,25 @@
   var current = DATA.length > 1 ? 1 : 0;
   var trackIndex = hasLoopClones ? current + 1 : current;
 
-  // Read the initial language from the shared toggle so cards render in the correct locale on load.
   /**
-   * Resolves the testimonial string that matches the currently active site language.
+   * Returns the text for the active language.
    *
-   * @param {string} textDE German copy candidate.
-   * @param {string} textEN English copy candidate.
-   * @returns {string} The localized string that should be rendered.
+   * @param {string} textDE German text.
+   * @param {string} textEN English text.
+   * @returns {string}
    */
   function translatedValue(textDE, textEN) {
     return langEN && langEN.classList.contains('is-active') ? textEN : textDE;
   }
 
-  // Dynamic testimonial nodes use the same data-de / data-en contract as the static page copy.
   /**
-   * Creates a localized DOM node that stores both language variants in data attributes.
+   * Creates an element with both language variants.
    *
-   * @param {string} tagName The HTML tag that should be created.
-   * @param {string} className The CSS class that should be applied to the element.
-   * @param {string} textDE German copy stored for later language switches.
-   * @param {string} textEN English copy stored for later language switches.
-   * @returns {HTMLElement} The configured translated element.
+   * @param {string} tagName Element tag.
+   * @param {string} className CSS class.
+   * @param {string} textDE German text.
+   * @param {string} textEN English text.
+   * @returns {HTMLElement}
    */
   function buildTranslatedElement(tagName, className, textDE, textEN) {
     var element = document.createElement(tagName);
@@ -49,12 +46,12 @@
   }
 
   /**
-   * Builds one testimonial card, including optional loop-clone metadata.
+   * Builds one testimonial card.
    *
-   * @param {TestimonialEntry} testimonial The source data used to populate the card content.
-   * @param {number} originalIndex The index of the real testimonial entry represented by the card.
-   * @param {boolean} isClone Marks whether the card is a loop clone instead of a primary card.
-   * @returns {HTMLElement} The assembled testimonial card.
+   * @param {TestimonialEntry} testimonial Testimonial data.
+   * @param {number} originalIndex Real item index.
+   * @param {boolean} isClone Whether the card is a clone.
+   * @returns {HTMLElement}
    */
   function buildCard(testimonial, originalIndex, isClone) {
     var article = document.createElement('article');
@@ -86,7 +83,6 @@
     return article;
   }
 
-  // Add clones at both ends so the slider can wrap without leaving empty space.
   if (hasLoopClones) {
     track.appendChild(buildCard(DATA[DATA.length - 1], DATA.length - 1, true));
   }
@@ -99,7 +95,6 @@
     track.appendChild(buildCard(DATA[0], 0, true));
   }
 
-  // Build one navigation dot per real testimonial card.
   if (dotsEl) {
     DATA.forEach(function (_, index) {
       var btn = document.createElement('button');
@@ -112,11 +107,10 @@
   var cards = Array.from(track.querySelectorAll('.testimonial-card'));
   var dots = dotsEl ? Array.from(dotsEl.querySelectorAll('.dot')) : [];
 
-  // Include margins in the width calculation because cards are spaced with outer gaps.
   /**
-   * Measures the total rendered width of a testimonial card, including horizontal margins.
+   * Returns the rendered card width including margins.
    *
-   * @returns {number} The full width used to center and slide the carousel.
+   * @returns {number}
    */
   function cardTotalWidth() {
     if (!cards[0]) return 0;
@@ -125,10 +119,9 @@
   }
 
   /**
-   * Positions the track so the active card is centered inside the slider stage.
+   * Centers the active card.
    *
-   * @param {boolean} instant Skips the normal transition and jumps immediately to the new position.
-   * @returns {void}
+   * @param {boolean} instant Whether to skip the transition.
    */
   function setTrackPosition(instant) {
     var container = track.parentElement;
@@ -142,7 +135,6 @@
       track.classList.add('is-resetting');
       track.style.transition = 'none';
       track.style.transform = 'translateX(' + offset + 'px)';
-      // Force layout once so the jump is applied before transitions are restored.
       void track.offsetWidth;
       track.style.removeProperty('transition');
       window.requestAnimationFrame(function () {
@@ -157,11 +149,8 @@
     track.style.transform = 'translateX(' + offset + 'px)';
   }
 
-  // Keep the active card and the matching dot synchronized with the logical current slide.
   /**
-   * Synchronizes the active card and active navigation dot classes with the logical slider indices.
-   *
-   * @returns {void}
+   * Updates active card and dot states.
    */
   function syncActiveState() {
     cards.forEach(function (card, index) {
@@ -174,10 +163,9 @@
   }
 
   /**
-   * Refreshes both the active-state styling and the horizontal track position.
+   * Updates the slider UI.
    *
-   * @param {{instant?: boolean}=} options Optional rendering flags for the current update cycle.
-   * @returns {void}
+   * @param {{instant?: boolean}=} options Render options.
    */
   function update(options) {
     var instant = options && options.instant;
@@ -186,11 +174,10 @@
   }
 
   /**
-   * Commits the next logical testimonial index and rerenders the slider.
+   * Moves the slider to a specific item.
    *
-   * @param {number} nextCurrent The next logical testimonial index.
-   * @param {number} nextTrackIndex The next rendered track index, including loop clones.
-   * @returns {void}
+   * @param {number} nextCurrent Logical item index.
+   * @param {number} nextTrackIndex Rendered track index.
    */
   function goTo(nextCurrent, nextTrackIndex) {
     current = nextCurrent;
@@ -199,9 +186,7 @@
   }
 
   /**
-   * Moves the slider one testimonial backward when loop clones are available.
-   *
-   * @returns {void}
+   * Moves to the previous testimonial.
    */
   function goPrev() {
     if (!hasLoopClones) return;
@@ -209,16 +194,13 @@
   }
 
   /**
-   * Moves the slider one testimonial forward when loop clones are available.
-   *
-   * @returns {void}
+   * Moves to the next testimonial.
    */
   function goNext() {
     if (!hasLoopClones) return;
     goTo((current + 1) % DATA.length, trackIndex + 1);
   }
 
-  // Seamless wrap: once a clone reaches the middle, jump instantly to the matching real slide.
   track.addEventListener('transitionend', function (event) {
     if (event.propertyName !== 'transform' || !hasLoopClones) return;
 
@@ -246,7 +228,6 @@
     });
   }
 
-  // Dot controls jump directly to a specific testimonial.
   dots.forEach(function (dot, index) {
     dot.addEventListener('click', function () {
       current = index;
@@ -255,7 +236,6 @@
     });
   });
 
-  // Clicking the visible side cards also advances the loop in the expected direction.
   cards.forEach(function (card, index) {
     card.addEventListener('click', function () {
       if (index === trackIndex) return;
@@ -273,7 +253,6 @@
     });
   });
 
-  // Recalculate the centering whenever the viewport changes size.
   window.addEventListener('resize', function () {
     update({ instant: true });
   });

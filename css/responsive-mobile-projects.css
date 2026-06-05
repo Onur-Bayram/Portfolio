@@ -1,5 +1,4 @@
-/* Phone-specific project list and project detail card overrides. */
-/* Base mobile treatment for the projects section. */
+/* Mobile projects */
 @media (max-width: 767px) {
   /* Project rows collapse into a single-column list with the desktop hover preview removed. */
   html.is-project-modal-open,
@@ -187,7 +186,7 @@
   }
 }
 
-/* Smaller phones compress typography and action spacing further. */
+/* Small phones */
 @media (max-width: 420px) {
   #projects {
     width: calc(100% - 22px);
@@ -246,7 +245,7 @@
   }
 }
 
-/* Larger phones can support wider project rows and larger detail typography. */
+/* Large phones */
 @media (min-width: 421px) and (max-width: 767px) {
   #projects {
     width: calc(100% - 38px);

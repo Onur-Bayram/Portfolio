@@ -1,15 +1,13 @@
-// Mobile navigation controller.
-// Handles the burger button, overlay visibility, and matching ARIA states.
+// Mobile menu.
 (function () {
   var burger = document.getElementById('burger');
   var menu = document.getElementById('mobileMenu');
   if (!burger || !menu) return;
 
   /**
-   * Synchronizes the mobile menu visibility with the burger button state and ARIA attributes.
+   * Opens or closes the mobile menu.
    *
-   * @param {boolean} isOpen Controls whether the mobile navigation overlay is visible.
-   * @returns {void}
+   * @param {boolean} isOpen Menu state.
    */
   function setMenuState(isOpen) {
     burger.classList.toggle('open', isOpen);

@@ -1,5 +1,4 @@
-/* Phone-sized header layout with burger navigation and overlay menu. */
-/* Base mobile header rules for widths up to 767px. */
+/* Mobile header */
 @media (max-width: 767px) {
   /* Prevent accidental horizontal overflow when the fixed menu panel is open. */
   html,
@@ -80,7 +79,7 @@
     background: rgba(255, 255, 255, 0.9);
   }
 
-  /* Only the icon mark stays visible on phones to preserve the minimal Figma header. */
+  /* Phone logo */
   .nav-logo {
     position: relative;
     z-index: 121;
@@ -138,7 +137,7 @@
   }
 }
 
-/* Smaller phones get tighter icon and menu proportions. */
+/* Small phones */
 @media (max-width: 420px) {
   /* Smaller phones trim the logo mark and burger footprint without changing the overall composition. */
   .logo-icon {
@@ -166,7 +165,7 @@
   }
 }
 
-/* Larger phones can carry a roomier header and menu without feeling oversized. */
+/* Large phones */
 @media (min-width: 421px) and (max-width: 767px) {
   :root {
     --padding-x: 28px;

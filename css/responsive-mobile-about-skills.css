@@ -1,5 +1,4 @@
-/* Phone-specific overrides for the about and skills sections. */
-/* Base mobile stacking for about and skills. */
+/* Mobile about and skills */
 @media (max-width: 767px) {
   #about {
     width: min(358px, calc(100% - 32px));
@@ -130,7 +129,7 @@
   }
 }
 
-/* Smaller phones tighten card padding and grid spacing further. */
+/* Small phones */
 @media (max-width: 420px) {
   #about {
     width: calc(100% - 22px);
@@ -197,7 +196,7 @@
   }
 }
 
-/* Larger phones should use a wider, more generous stacked column. */
+/* Large phones */
 @media (min-width: 421px) and (max-width: 767px) {
   #about {
     width: min(392px, calc(100% - 38px));

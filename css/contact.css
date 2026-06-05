@@ -1,11 +1,10 @@
-/* Contact section layout, form styling, and validation states. */
-/* Section shell and contact two-column layout. */
+/* Contact */
 #contact {
   background-color: transparent;
   padding: 100px var(--padding-x) 100px;
 }
 
-/* Two-column contact layout: copy on the left, form on the right, without a separate framed panel. */
+/* Layout */
 .contact-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -15,7 +14,7 @@
   margin: 0 auto;
 }
 
-/* Intro copy hierarchy for the contact pitch. */
+/* Copy */
 .contact-kicker {
   font-family: var(--font-mono);
   font-size: 16px;
@@ -55,7 +54,7 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
-/* Accent links used inside the contact copy and privacy text. */
+/* Inline links */
 .contact-link {
   color: var(--color-accent);
   text-decoration: underline;
@@ -66,7 +65,7 @@
   opacity: 0.75;
 }
 
-/* Form column and shared field wrapper layout. */
+/* Form */
 .contact-form {
   position: relative;
   display: flex;
@@ -114,7 +113,7 @@
   background-color: #8feee3;
 }
 
-/* Field labels and text inputs use a minimal underline treatment. */
+/* Fields */
 .form-field label {
   font-family: var(--font-mono);
   font-size: 16px;
@@ -153,7 +152,7 @@
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* Visual feedback for focus and validation states. */
+/* Field states */
 .form-field:focus-within {
   border-bottom-color: #8feee3;
 }
@@ -175,7 +174,7 @@
   display: block;
 }
 
-/* Privacy checkbox row with custom visual checkbox. */
+/* Privacy */
 .form-privacy {
   display: flex;
   align-items: flex-start;
@@ -248,7 +247,7 @@
   z-index: 1;
 }
 
-/* The Figma glow is a separate teal circle sitting behind the checkbox icon, not a generic CSS blur. */
+/* Checkbox glow */
 .privacy-custom-box::before {
   content: '';
   position: absolute;
@@ -272,7 +271,7 @@
   z-index: -1;
 }
 
-/* Checked state swaps to the exported checkbox asset used in the Figma-inspired contact section. */
+/* Checked state */
 .privacy-checkbox-wrap input[type="checkbox"]:checked + .privacy-custom-box {
   background-color: var(--color-accent);
   -webkit-mask-image: url('../assets/ui/03_checkbox_mit_haken.png');
@@ -323,7 +322,7 @@
   margin-left: 32px;
 }
 
-/* Submit row aligns the final call to action to the right on larger screens. */
+/* Submit */
 .form-submit {
   display: flex;
   flex-direction: column;

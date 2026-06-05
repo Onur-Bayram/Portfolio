@@ -1,5 +1,4 @@
-/* About section layout, portrait media, and profile card styles. */
-/* Two-column section shell used on desktop before mobile overrides stack it. */
+/* About */
 #about {
   width: min(1232px, calc(100% - 224px));
   margin: 0 auto;
@@ -11,7 +10,7 @@
   align-items: start;
 }
 
-/* Outer media shell carries the decorative diagonal line field behind the photo. */
+/* Media */
 .about-media-wrap {
   position: relative;
   width: min(100%, 568px);
@@ -30,7 +29,7 @@
   pointer-events: none;
 }
 
-/* Portrait container with clipping and background treatment. */
+/* Photo */
 .about-media {
   position: relative;
   z-index: 1;
@@ -40,7 +39,7 @@
   background: linear-gradient(135deg, #2a2a2a 0%, #131313 48%, #0a3b34 100%);
 }
 
-/* Profile image intentionally stays monochrome to fit the visual direction. */
+/* Portrait */
 .about-media img {
   width: 100%;
   height: 100%;
@@ -49,13 +48,13 @@
   filter: grayscale(100%);
 }
 
-/* Right column wrapper aligns the content card lower than the image on desktop. */
+/* Copy */
 .about-content-wrap {
   max-width: 568px;
   padding-top: 110px;
 }
 
-/* Kicker text introducing the section. */
+/* Kicker */
 .about-kicker {
   font-family: var(--font-mono);
   font-size: 14px;
@@ -65,7 +64,7 @@
   margin-bottom: 22px;
 }
 
-/* Main card that contains the heading, intro paragraph, and value points. */
+/* Card */
 .about-card {
   border: 1px solid var(--color-accent);
   border-radius: 28px;
@@ -90,7 +89,7 @@
   margin-bottom: 26px;
 }
 
-/* The bullet list uses a small icon column plus body copy. */
+/* List */
 .about-points {
   display: flex;
   flex-direction: column;
@@ -109,7 +108,7 @@
   line-height: 1.45;
 }
 
-/* Icon slot for each about point. */
+/* Icons */
 .about-icon {
   width: 22px;
   height: 22px;

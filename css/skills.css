@@ -1,5 +1,4 @@
-/* Skills section layout, intro card, icon grid, and tooltip behavior. */
-/* Desktop section shell with a text card on the left and icon grid on the right. */
+/* Skills */
 #skills {
   --skills-glow-rgb: var(--color-dark-teal-rgb);
   position: relative;
@@ -31,7 +30,7 @@
   z-index: 0;
 }
 
-/* Left column uses a decorative background texture behind the intro card. */
+/* Left side */
 .skills-left {
   position: relative;
   display: flex;
@@ -40,7 +39,7 @@
   padding: 8px 16px 18px 0;
 }
 
-/* The pseudo-element keeps the background art separate from the actual card content. */
+/* Background */
 .skills-left::before {
   content: "";
   position: absolute;
@@ -58,7 +57,7 @@
   z-index: 0;
 }
 
-/* Keep text content above the decorative background layer. */
+/* Card content */
 .skills-left,
 .skills-right,
 .skills-kicker,
@@ -74,7 +73,7 @@
   margin-bottom: 16px;
 }
 
-/* Intro card with heading, descriptive copy, and CTA button. */
+/* Card */
 .skills-card {
   border: 1px solid rgba(var(--color-cursor-glow-rgb), 0.8);
   border-radius: 32px;
@@ -142,7 +141,7 @@
   background: rgba(var(--skills-glow-rgb), 0.32);
 }
 
-/* Right column grid of technology items. */
+/* Grid */
 .skills-right {
   width: 100%;
   display: grid;
@@ -154,7 +153,7 @@
   padding: 0;
 }
 
-/* Individual skill icon cards animate into view with a light hover lift. */
+/* Skill item */
 .skill-item {
   display: flex;
   align-items: center;
@@ -169,7 +168,7 @@
   transition: transform 180ms ease, filter 180ms ease;
 }
 
-/* Icon and label presentation for each skill item. */
+/* Skill content */
 .skill-item > img {
   width: 64px;
   height: 64px;
@@ -197,12 +196,12 @@
   transform: scale(1.06);
 }
 
-/* Tooltip is only attached to the mindset card. */
+/* Mindset item */
 .skill-item-mindset {
   position: relative;
 }
 
-/* Floating tooltip highlighting extra interest areas such as React and Vue. */
+/* Tooltip */
 .mindset-tooltip {
   position: absolute;
   left: 50%;
@@ -221,7 +220,7 @@
   z-index: 4;
 }
 
-/* Small pointer connecting the tooltip card to the triggering skill item. */
+/* Tooltip pointer */
 .mindset-tooltip::after {
   content: "";
   position: absolute;
@@ -235,7 +234,7 @@
   transform: translateX(-50%) rotate(45deg);
 }
 
-/* Tooltip content and supporting icons. */
+/* Tooltip content */
 .mindset-tooltip p {
   margin: 0;
   font-family: var(--font-sans);
@@ -277,7 +276,7 @@
   transform: translateX(-50%) translateY(0);
 }
 
-/* Staggered delays create the cascading reveal across the grid. */
+/* Animation delays */
 .skills-right .skill-item:nth-child(1) { animation-delay: 0ms; }
 .skills-right .skill-item:nth-child(2) { animation-delay: 40ms; }
 .skills-right .skill-item:nth-child(3) { animation-delay: 80ms; }
@@ -290,7 +289,7 @@
 .skills-right .skill-item:nth-child(10) { animation-delay: 360ms; }
 .skills-right .skill-item:nth-child(11) { animation-delay: 400ms; }
 
-/* Basic reveal animation for the skills grid. */
+/* Animation */
 @keyframes skillReveal {
   from {
     opacity: 0;
@@ -302,7 +301,7 @@
   }
 }
 
-/* Respect reduced-motion preferences by disabling animation and transition effects. */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .skill-item {
     animation: none;

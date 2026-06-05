@@ -1,5 +1,4 @@
-/* Tablet breakpoint overrides that bridge the gap between phone and desktop layouts. */
-/* Shared tablet rules for widths between 768px and 1200px. */
+/* Tablet */
 @media (min-width: 768px) and (max-width: 1200px) {
   /* Tablet spacing relaxes the desktop layout without collapsing into the phone composition. */
   :root {
@@ -7,7 +6,7 @@
     --padding-x: clamp(24px, 4.5vw, 48px);
   }
 
-  /* Responsive header should match the mobile Figma version across tablet widths. */
+  /* Tablet header */
   #header {
     position: absolute;
     top: 0;
@@ -80,7 +79,7 @@
     display: none;
   }
 
-  /* The floating overlay menu uses the same rounded-card language as the Figma mobile menu. */
+  /* Tablet menu */
   .mobile-menu {
     position: fixed;
     top: 14px;
@@ -310,7 +309,7 @@
   }
 }
 
-/* Narrower tablet widths stack more sections and simplify denser layouts. */
+/* Narrow tablets */
 @media (min-width: 768px) and (max-width: 980px) {
   /* This breakpoint handles portrait tablets and compact landscape tablets. */
   html.is-project-modal-open,
@@ -498,7 +497,7 @@
   }
 }
 
-/* Foldable portrait devices like Surface Pro 7 and ASUS Zenbook Fold should match the phone-style rail composition. */
+/* Foldables */
 @media (min-width: 840px) and (max-width: 920px) and (min-height: 1180px) {
   /* The left rail reuses the mobile measurements so the scroll indicator sits in a familiar place. */
   .hero-left-lateral {
@@ -696,7 +695,7 @@
   }
 }
 
-/* Wider portrait tablets and smaller tablet landscapes still need phone-like hero rails. */
+/* Portrait tablets */
 @media (min-width: 981px) and (max-width: 1200px) {
   #hero {
     min-height: 100vh;
@@ -781,7 +780,7 @@
   }
 }
 
-/* Large portrait tablets such as iPad Pro need a noticeably larger hero composition. */
+/* Large tablets */
 @media (min-width: 1000px) and (max-width: 1100px) and (min-height: 1300px) {
   /* These values intentionally scale almost every hero element together to avoid a tiny-looking portrait tablet hero. */
   .hero-subtitle {

@@ -4,6 +4,8 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=UTF-8');
 header('Cache-Control: no-store');
 
+const MAIL_RECIPIENT = 'onur-bayram@hotmail.de';
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Allow: POST');
     http_response_code(405);
@@ -16,7 +18,20 @@ function clean_header_value(string $value): string
     return trim(preg_replace('/[\r\n]+/', ' ', $value) ?? '');
 }
 
-$honeypot = trim((string) ($_POST['company'] ?? ''));
+function resolve_sender_address(): string
+{
+    $host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? 'onur-bayram.de'));
+    $host = preg_replace('/:\d+$/', '', $host) ?? 'onur-bayram.de';
+    $host = preg_replace('/^www\./', '', $host) ?? 'onur-bayram.de';
+
+    if (!filter_var('noreply@' . $host, FILTER_VALIDATE_EMAIL)) {
+        return 'noreply@onur-bayram.de';
+    }
+
+    return 'noreply@' . $host;
+}
+
+$honeypot = trim((string) ($_POST['website'] ?? $_POST['company'] ?? ''));
 if ($honeypot !== '') {
     echo json_encode(['ok' => true]);
     exit;
@@ -45,9 +60,10 @@ if (strlen($name) > 120 || strlen($email) > 254 || strlen($message) > 5000) {
     exit;
 }
 
-$recipient = 'onur-bayram@hotmail.de';
 $safeName = clean_header_value($name);
 $safeEmail = clean_header_value($email);
+$senderAddress = resolve_sender_address();
+$lineBreak = "\r\n";
 
 $subject = 'Portfolio contact request from ' . $safeName;
 $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
@@ -65,15 +81,19 @@ $bodyLines = [
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
-    'From: Portfolio Website <noreply@onur-bayram.de>',
-    'Reply-To: ' . $safeEmail
+    'Content-Transfer-Encoding: 8bit',
+    'From: Onur Bayram Portfolio <' . $senderAddress . '>',
+    'Reply-To: ' . $safeEmail,
+    'X-Mailer: PHP/' . PHP_VERSION
 ];
 
+$mailOptions = '-f' . $senderAddress;
 $mailSent = mail(
-    $recipient,
+    MAIL_RECIPIENT,
     $encodedSubject,
-    implode(PHP_EOL, $bodyLines),
-    implode(PHP_EOL, $headers)
+    implode($lineBreak, $bodyLines),
+    implode($lineBreak, $headers),
+    $mailOptions
 );
 
 if (!$mailSent) {

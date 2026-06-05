@@ -1,22 +1,21 @@
-// Project content source.
-// Exposes a global data object that powers both the project list and the detail card.
+// Project data.
 /**
  * @typedef {Object} ProjectTech
- * @property {string} icon Path to the icon asset used in the project stack.
- * @property {string} label Visible technology name rendered in the UI.
+ * @property {string} icon Icon path.
+ * @property {string} label Visible label.
  */
 
 /**
  * @typedef {Object} ProjectEntry
- * @property {string} number Numeric label used in the preview and detail view.
- * @property {string} title Project name rendered in the list and detail card.
- * @property {string} description_en English project description.
- * @property {string} description_de German project description.
- * @property {string} image Path to the preview image asset.
- * @property {string} imageAlt Accessible alternative text for the preview image.
- * @property {string} github External link to the source repository.
- * @property {string} live External or local link to the live project.
- * @property {ProjectTech[]} tech Technology badges shown for the project.
+ * @property {string} number Project number.
+ * @property {string} title Project title.
+ * @property {string} description_en English description.
+ * @property {string} description_de German description.
+ * @property {string} image Preview image path.
+ * @property {string} imageAlt Image alt text.
+ * @property {string} github GitHub URL.
+ * @property {string} live Live URL.
+ * @property {ProjectTech[]} tech Tech stack.
  */
 
 /** @type {Record<string, ProjectEntry>} */

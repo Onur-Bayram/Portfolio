@@ -1,7 +1,5 @@
-// Hero cursor glow effect.
-// Follows the pointer with a smoothed animation on devices that support hover.
+// Hero cursor glow.
 (function () {
-  // Skip the effect when the hero is missing or the device primarily uses touch input.
   var hero = document.getElementById('hero');
   var glow = document.getElementById('heroCursorGlow');
 
@@ -15,11 +13,8 @@
   var rafId = null;
   var isInside = false;
 
-  // Ease toward the pointer position to create a softer, more polished movement.
   /**
-   * Animates the glow toward the latest pointer coordinates while the pointer stays inside the hero.
-   *
-   * @returns {void}
+   * Moves the glow toward the pointer.
    */
   function animate() {
     if (!isInside) {
@@ -34,12 +29,10 @@
     rafId = window.requestAnimationFrame(animate);
   }
 
-  // Translate viewport coordinates into hero-local coordinates.
   /**
-   * Converts viewport pointer coordinates into coordinates relative to the hero section.
+   * Stores the current pointer position inside the hero.
    *
-   * @param {MouseEvent} event The latest pointer event emitted by the hero section.
-   * @returns {void}
+   * @param {MouseEvent} event Pointer event.
    */
   function syncTargetPosition(event) {
     var rect = hero.getBoundingClientRect();
@@ -47,12 +40,10 @@
     targetY = event.clientY - rect.top;
   }
 
-  // Start the effect at the current pointer position when the hero is entered.
   /**
-   * Initializes the glow position and starts the animation loop once the pointer enters the hero.
+   * Shows the glow and starts the animation loop.
    *
-   * @param {MouseEvent} event The pointer event that triggered the glow activation.
-   * @returns {void}
+   * @param {MouseEvent} event Pointer event.
    */
   function showGlow(event) {
     syncTargetPosition(event);
@@ -67,9 +58,7 @@
   }
 
   /**
-   * Hides the glow and stops future animation frames from being scheduled.
-   *
-   * @returns {void}
+   * Hides the glow.
    */
   function hideGlow() {
     glow.classList.remove('is-visible');
@@ -80,10 +69,8 @@
 
   hero.addEventListener('mousemove', syncTargetPosition);
 
-  // Hide the glow and stop scheduling frames once the pointer leaves the hero.
   hero.addEventListener('mouseleave', hideGlow);
 
-  // Also stop the visual when the tab becomes hidden to avoid stale UI state.
   document.addEventListener('visibilitychange', function () {
     if (document.hidden && isInside) {
       hideGlow();

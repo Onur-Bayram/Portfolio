@@ -1,5 +1,4 @@
-/* Desktop hero layout, lateral rails, and marquee styling. */
-/* Main hero shell with layered gradients and isolated stacking context. */
+/* Hero */
 #hero {
   height: 100vh;
   background:
@@ -12,7 +11,7 @@
   padding-top: 0;
 }
 
-/* A soft fade at the bottom of the hero avoids a hard seam where the darker content background begins. */
+/* Bottom fade */
 #hero::after {
   content: "";
   position: absolute;
@@ -25,7 +24,7 @@
   z-index: 1;
 }
 
-/* Decorative cursor glow driven by JavaScript on pointer devices. */
+/* Cursor glow */
 .hero-cursor-glow {
   position: absolute;
   left: 0;
@@ -48,7 +47,7 @@
   opacity: 0.6;
 }
 
-/* Centered headline block positioned above the background effects. */
+/* Title */
 .hero-title {
   position: absolute;
   top: 43%;
@@ -64,7 +63,7 @@
   z-index: 2;
 }
 
-/* Subtitle, name, and call-to-action button styles. */
+/* Copy */
 .hero-subtitle {
   font-family: var(--font-mono);
   font-size: clamp(15px, 1.6vw, 18px);
@@ -111,7 +110,7 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Left-side rail with the scroll hint and accent line. */
+/* Left rail */
 .hero-left-lateral {
   position: absolute;
   top: 60%;
@@ -126,7 +125,7 @@
   z-index: 2;
 }
 
-/* Scroll pill mirrors the Figma control and reacts on hover. */
+/* Scroll pill */
 .hero-scroll-pill {
   width: 32px;
   height: 52px;
@@ -171,14 +170,14 @@
   }
 }
 
-/* Accent line extending downward from the scroll indicator. */
+/* Left line */
 .hero-left-line {
   width: 1px;
   flex: 1;
   background: rgba(var(--color-accent-rgb), 0.72);
 }
 
-/* Right-side rail with email, social links, and white line. */
+/* Right rail */
 .hero-right-lateral {
   position: absolute;
   top: 50%;
@@ -193,7 +192,7 @@
   z-index: 2;
 }
 
-/* Vertical desktop email label. */
+/* Email */
 .hero-email {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -210,7 +209,7 @@
   color: var(--color-accent);
 }
 
-/* Social icon stack with active and hover image swapping. */
+/* Social links */
 .hero-socials {
   display: flex;
   flex-direction: column;
@@ -231,7 +230,7 @@
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* The small accent dot belongs to the hovered icon and sits on its right edge in Figma. */
+/* Social hover */
 .hero-socials a::after {
   content: "";
   position: absolute;
@@ -296,14 +295,14 @@
   opacity: 1;
 }
 
-/* White line beneath the right rail content. */
+/* Right line */
 .hero-right-line {
   width: 1px;
   flex: 1;
   background: #ffffff;
 }
 
-/* Desktop-specific hero refinements from tablet width upward. */
+/* Desktop tweaks */
 @media (min-width: 768px) {
   #hero {
     width: 100%;
@@ -403,7 +402,7 @@
   }
 }
 
-/* Slanted marquee band that crosses the lower part of the hero. */
+/* Marquee */
 .hero-marquee {
   position: absolute;
   left: 50%;
@@ -423,7 +422,7 @@
   z-index: 4;
 }
 
-/* Scrolling text track and duplicated content groups create an infinite ticker effect. */
+/* Marquee track */
 .hero-marquee-track {
   display: flex;
   align-items: center;
@@ -456,7 +455,7 @@
   font-size: 14px;
 }
 
-/* Keyframe used by the marquee track translation animation. */
+/* Marquee animation */
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -474,7 +473,7 @@
   }
 }
 
-/* Touch devices do not show the cursor glow. */
+/* Touch */
 @media (hover: none), (pointer: coarse) {
   .hero-cursor-glow {
     display: none;

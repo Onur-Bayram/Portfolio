@@ -1,9 +1,8 @@
-// Testimonial content source.
-// Supplies translated quotes and author labels for the slider module.
+// Testimonial data.
 /**
  * @typedef {Object} TestimonialEntry
- * @property {string} text_de German testimonial copy.
- * @property {string} text_en English testimonial copy.
+ * @property {string} text_de German text.
+ * @property {string} text_en English text.
  * @property {string} name_de German author label.
  * @property {string} name_en English author label.
  */

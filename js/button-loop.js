@@ -1,15 +1,11 @@
-// Seamless hover loop for loop-enabled CTA buttons.
-// Measures the real button and text width so the text can pass through like a portal without visible resets.
+// Looping CTA label.
 (function () {
-  // Respect reduced-motion preferences and limit the behavior to the dedicated loop CTA buttons.
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var ctas = Array.prototype.slice.call(document.querySelectorAll('.btn-loop-cta'));
 
   if (!ctas.length) return;
 
   ctas.forEach(function (button) {
-    // The visible button label keeps the layout width stable.
-    // The track element is the animated overlay that slides through the button on hover.
     var measure = button.querySelector('.btn-loop-measure');
     var track = button.querySelector('.btn-loop-track');
     var frameId = 0;
@@ -20,18 +16,13 @@
     var resetOffset = 0;
     var segmentWidth = 0;
 
-    // Pixels per second for the text travel speed.
     var speed = 110;
     var returnSpeed = 220;
 
     if (!measure || !track) return;
 
-    // Rebuild the animated track from the current translated label.
-    // This keeps the loop correct after language switches or viewport changes.
     /**
-     * Measures the current button label and rebuilds the animated overlay geometry.
-     *
-     * @returns {void}
+     * Rebuilds the moving label.
      */
     function buildTrack() {
       var label = measure.textContent.trim();
@@ -39,8 +30,6 @@
       var buttonRect = button.getBoundingClientRect();
       var measureRect = measure.getBoundingClientRect();
 
-      // Measure the real rendered width so the reset happens exactly
-      // after the last character has fully left the button on the left side.
       segmentWidth = Math.ceil(measure.getBoundingClientRect().width);
       idleOffset = Math.round(measureRect.left - buttonRect.left - button.clientLeft);
       idleTop = Math.round(measureRect.top - buttonRect.top - button.clientTop);
@@ -53,22 +42,16 @@
     }
 
     /**
-     * Applies the latest horizontal offset to the moving overlay text.
-     *
-     * @returns {void}
+     * Draws the moving label.
      */
     function renderTrack() {
       track.style.transform = 'translate3d(' + offset + 'px, 0, 0)';
     }
 
-    // Animate one continuous pass from right to left.
-    // Once the whole word has exited on the left, the track jumps back to the
-    // exact start point on the right, which creates the portal-like loop.
     /**
-     * Advances the marquee text while the loop state is active.
+     * Advances the label while it is looping.
      *
-     * @param {DOMHighResTimeStamp} now The timestamp supplied by requestAnimationFrame.
-     * @returns {void}
+     * @param {DOMHighResTimeStamp} now Frame timestamp.
      */
     function step(now) {
       if (!button.classList.contains('is-looping')) {
@@ -92,11 +75,8 @@
       frameId = window.requestAnimationFrame(step);
     }
 
-    // Start the loop when the button is hovered or keyboard-focused.
     /**
-     * Starts the label loop animation for hover and keyboard focus interactions.
-     *
-     * @returns {void}
+     * Starts the loop.
      */
     function startLoop() {
       if (prefersReducedMotion.matches) return;
@@ -120,9 +100,7 @@
     }
 
     /**
-     * Resets the button back to its static resting state once the return animation is complete.
-     *
-     * @returns {void}
+     * Restores the resting state.
      */
     function finishReturn() {
       button.classList.remove('is-returning');
@@ -133,10 +111,9 @@
     }
 
     /**
-     * Animates the moving label back to its original resting position.
+     * Moves the label back to its start position.
      *
-     * @param {DOMHighResTimeStamp} now The timestamp supplied by requestAnimationFrame.
-     * @returns {void}
+     * @param {DOMHighResTimeStamp} now Frame timestamp.
      */
     function returnStep(now) {
       if (!button.classList.contains('is-returning')) {
@@ -174,11 +151,8 @@
       frameId = window.requestAnimationFrame(returnStep);
     }
 
-    // Let the text glide back into its original position before restoring the static label.
     /**
-     * Stops the looping state and transitions the overlay text back to the static label position.
-     *
-     * @returns {void}
+     * Stops the loop.
      */
     function stopLoop() {
       button.classList.remove('is-looping');
@@ -198,20 +172,17 @@
       frameId = window.requestAnimationFrame(returnStep);
     }
 
-    // Pointer and keyboard interactions should trigger the same visual behavior.
     button.addEventListener('pointerenter', startLoop);
     button.addEventListener('pointerleave', stopLoop);
     button.addEventListener('focusin', startLoop);
     button.addEventListener('focusout', stopLoop);
 
-    // Re-measure on resize so the off-screen entry point still matches the button width.
     window.addEventListener('resize', function () {
       if (button.classList.contains('is-looping') || button.classList.contains('is-returning')) {
         buildTrack();
       }
     });
 
-    // Language switching rewrites the label text, so keep the loop synchronized with the new string.
     var observer = new MutationObserver(function () {
       if (button.classList.contains('is-looping') || button.classList.contains('is-returning')) {
         buildTrack();
@@ -224,7 +195,6 @@
       subtree: true
     });
 
-    // Seed the initial geometry once so the reset point is ready before first hover.
     buildTrack();
   });
 })();
