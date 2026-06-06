@@ -252,10 +252,12 @@
   }
 
   .about-media-wrap::before {
-    top: 30px;
-    right: 68px;
-    bottom: -24px;
-    left: -28px;
+    top: auto;
+    right: auto;
+    bottom: 24px;
+    left: -72px;
+    width: 240px;
+    height: 240px;
   }
 
   .about-content-wrap {

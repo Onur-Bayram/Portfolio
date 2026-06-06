@@ -7,26 +7,26 @@
   }
 
   #testimonials {
-    padding: 64px 0 56px;
+    padding: 60px 0 52px;
   }
 
   .testimonials-title {
-    font-size: clamp(19px, 5.5vw, 26px);
+    font-size: clamp(21px, 6vw, 28px);
     line-height: 1.15;
     max-width: 320px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
   }
 
   .testimonials-stage {
-    padding: 0 8px;
+    padding: 0 4px;
   }
 
   /* On phones the desktop fade masks feel too heavy, so the side shading is reduced substantially. */
   .testimonials-track-outer::before,
   .testimonials-track-outer::after {
-    width: clamp(18px, 5vw, 28px);
+    width: clamp(10px, 3vw, 18px);
   }
 
   .testimonials-track-outer::before {
@@ -38,10 +38,10 @@
   }
 
   .testimonial-card {
-    flex: 0 0 min(324px, calc(100vw - 52px));
-    min-height: 324px;
-    padding: 72px 28px 24px;
-    margin: 0 12px;
+    flex: 0 0 min(336px, calc(100vw - 40px));
+    min-height: 350px;
+    padding: 74px 30px 24px;
+    margin: 0 10px;
     border-radius: 28px;
   }
 
@@ -53,13 +53,13 @@
   /* Quote mark */
   .testimonial-quote {
     top: -16px;
-    left: -4px;
-    font-size: 94px;
+    left: -6px;
+    font-size: 100px;
   }
 
   .testimonial-text {
-    font-size: 15px;
-    line-height: 1.48;
+    font-size: 16px;
+    line-height: 1.52;
     margin-bottom: 28px;
   }
 
@@ -78,7 +78,7 @@
 
   .testimonials-controls {
     gap: 16px;
-    margin-top: 20px;
+    margin-top: 24px;
   }
 
   .testimonials-arrow {
@@ -99,15 +99,16 @@
   #contact {
     width: 100%;
     min-height: 0;
-    padding: 64px 0 40px;
+    padding: 58px 0 38px;
   }
 
   .contact-box {
-    width: 100%;
+    width: min(360px, calc(100% - 24px));
     min-height: 0;
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 0 clamp(12px, 4.4vw, 24px);
+    gap: 32px;
+    padding: 0;
+    margin: 0 auto;
     border: none;
     border-radius: 0;
   }
@@ -118,13 +119,14 @@
   }
 
   .contact-heading {
-    font-size: clamp(35px, 11vw, 53px);
-    margin-bottom: 18px;
+    font-size: clamp(42px, 14vw, 60px);
+    margin-bottom: 20px;
+    line-height: 0.96;
   }
 
   .contact-sub {
-    font-size: 20px;
-    margin-bottom: 7px;
+    font-size: 18px;
+    margin-bottom: 10px;
   }
 
   .contact-body,
@@ -136,31 +138,37 @@
   }
 
   .contact-form {
-    gap: 16px;
+    gap: 0;
   }
 
   .contact-body {
     max-width: none;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .contact-cta {
     line-height: 1.45;
   }
 
+  .form-field {
+    gap: 10px;
+    padding: 22px 0 14px;
+  }
+
   .contact-form input,
   .contact-form textarea {
-    min-height: 44px;
-    padding: 10px 14px;
+    min-height: 0;
+    padding: 0;
   }
 
   .contact-form textarea {
-    min-height: 100px;
+    min-height: 72px;
+    height: auto;
   }
 
   .form-submit {
-    margin-top: 10px;
-    align-items: center;
+    margin-top: 18px;
+    align-items: flex-end;
   }
 
   .form-submit .btn {
@@ -170,7 +178,7 @@
   }
 
   .form-status {
-    text-align: center;
+    text-align: right;
   }
 
   .privacy-label {
@@ -180,7 +188,7 @@
   /* Footer collapses into a compact two-column top row plus centered copyright row. */
   .footer-inner {
     width: 100%;
-    max-width: min(358px, 100%);
+    max-width: min(360px, 100%);
     min-height: 172px;
     margin: 0 auto;
     padding-top: 6px;
@@ -215,7 +223,7 @@
 /* Small phones */
 @media (max-width: 420px) {
   #testimonials {
-    padding: 52px 0 42px;
+    padding: 50px 0 40px;
   }
 
   .testimonials-title {
@@ -224,22 +232,25 @@
 
   .testimonials-track-outer::before,
   .testimonials-track-outer::after {
-    width: 16px;
+    width: 10px;
   }
 
   .testimonial-card {
-    flex-basis: min(300px, calc(100vw - 40px));
-    min-height: 288px;
-    padding: 64px 24px 22px;
+    flex-basis: min(308px, calc(100vw - 28px));
+    min-height: 324px;
+    padding: 68px 24px 22px;
   }
 
   .testimonial-quote {
     top: -14px;
     left: -2px;
-    font-size: 84px;
+    font-size: 88px;
   }
 
-  .testimonial-text,
+  .testimonial-text {
+    font-size: 15px;
+  }
+
   .testimonial-name {
     font-size: 14px;
   }
@@ -249,11 +260,11 @@
   }
 
   #contact {
-    padding: 52px 0 34px;
+    padding: 50px 0 34px;
   }
 
   .contact-heading {
-    font-size: clamp(31px, 10vw, 42px);
+    font-size: clamp(38px, 12vw, 50px);
     margin-bottom: 14px;
   }
 
@@ -270,11 +281,11 @@
   }
 
   .contact-form {
-    gap: 12px;
+    gap: 0;
   }
 
   .footer-inner {
-    max-width: min(338px, 100%);
+    max-width: min(340px, 100%);
     grid-template-columns: 1fr auto;
     gap: 8px 10px;
     text-align: left;
@@ -374,8 +385,10 @@
   }
 
   .contact-box {
-    gap: 32px;
-    padding: 0 clamp(18px, 4.8vw, 28px);
+    width: min(392px, calc(100% - 30px));
+    gap: 34px;
+    padding: 0;
+    margin: 0 auto;
   }
 
   .contact-kicker {
@@ -389,7 +402,7 @@
   }
 
   .contact-sub {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 8px;
   }
 
@@ -402,26 +415,32 @@
   }
 
   .contact-form {
-    gap: 18px;
+    gap: 0;
   }
 
   .contact-body {
     margin-bottom: 14px;
   }
 
+  .form-field {
+    gap: 10px;
+    padding: 24px 0 16px;
+  }
+
   .contact-form input,
   .contact-form textarea {
-    min-height: 48px;
-    padding: 12px 16px;
+    min-height: 0;
+    padding: 0;
   }
 
   .contact-form textarea {
-    min-height: 112px;
+    min-height: 84px;
+    height: auto;
   }
 
   .form-submit {
-    margin-top: 12px;
-    align-items: center;
+    margin-top: 18px;
+    align-items: flex-end;
   }
 
   .form-submit .btn {
@@ -431,7 +450,7 @@
   }
 
   .form-status {
-    text-align: center;
+    text-align: right;
   }
 
   .footer-inner {

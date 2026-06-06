@@ -2,7 +2,7 @@
 @media (max-width: 767px) {
   /* The hero switches from full-screen desktop composition to a fixed-height phone composition. */
   #hero {
-    min-height: 820px;
+    min-height: 844px;
     padding-top: 0;
     background:
       radial-gradient(circle at 84% 22%, rgba(var(--color-dark-teal-rgb), 0.94) 0%, rgba(var(--color-dark-teal-rgb), 0.66) 34%, rgba(var(--color-dark-teal-rgb), 0.18) 60%, rgba(var(--color-dark-teal-rgb), 0) 78%),
@@ -11,37 +11,37 @@
 
   /* Mobile hero copy */
   .hero-title {
-    top: 360px;
+    top: 344px;
     transform: translate(-50%, -50%);
-    width: 362px;
-    max-width: calc(100% - 44px);
+    width: 358px;
+    max-width: calc(100% - 36px);
     gap: 0;
   }
 
   .hero-subtitle {
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: 1px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
   .hero-name {
-    font-size: 62px;
-    line-height: 0.9;
-    letter-spacing: -1px;
+    font-size: 64px;
+    line-height: 0.88;
+    letter-spacing: -1.2px;
     white-space: nowrap;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
   }
 
   .hero-buttons {
     margin-top: 0;
-    gap: 16px;
+    gap: 18px;
   }
 
   .hero-buttons .btn {
-    min-width: 122px;
-    min-height: 44px;
-    padding: 8px 20px;
-    font-size: 12px;
+    min-width: 144px;
+    min-height: 48px;
+    padding: 10px 22px;
+    font-size: 13px;
     position: relative;
     z-index: 350;
   }
@@ -52,8 +52,8 @@
     top: auto;
     bottom: 0;
     width: 30px;
-    height: 320px;
-    gap: 20px;
+    height: 308px;
+    gap: 18px;
     transform: none;
   }
 
@@ -61,9 +61,9 @@
   .hero-right-lateral {
     right: 16px;
     top: auto;
-    bottom: 40px;
+    bottom: 52px;
     width: 30px;
-    height: 260px;
+    height: 252px;
     gap: 14px;
     transform: none;
   }
@@ -133,12 +133,12 @@
 
   /* The marquee becomes shorter and hides non-essential repeated items on phones. */
   .hero-marquee {
-    width: calc(100% + 30px);
+    width: calc(100% + 24px);
     min-width: 0;
     left: 50%;
-    height: 50px;
+    height: 52px;
     padding: 8px 18px;
-    bottom: 92px;
+    bottom: 84px;
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -147,8 +147,8 @@
 
   .hero-marquee-track,
   .hero-marquee-group {
-    gap: 28px;
-    font-size: 14px;
+    gap: 26px;
+    font-size: 15px;
   }
 
   .hero-marquee-track span {
@@ -170,17 +170,17 @@
 @media (max-width: 480px) {
   /* This breakpoint mainly trims vertical space without changing the overall composition. */
   #hero {
-    min-height: 760px;
+    min-height: 790px;
   }
 
   .hero-title {
-    top: 340px;
+    top: 332px;
     width: 350px;
     max-width: calc(100% - 34px);
   }
 
   .hero-name {
-    font-size: 56px;
+    font-size: 58px;
     margin-bottom: 20px;
   }
 
@@ -189,7 +189,7 @@
   }
 
   .hero-buttons .btn {
-    min-width: 116px;
+    min-width: 134px;
     padding: 8px 18px;
   }
 
@@ -200,8 +200,8 @@
   }
 
   .hero-right-lateral {
-    bottom: 48px;
-    height: 250px;
+    bottom: 46px;
+    height: 244px;
   }
 
   .hero-left-line {
@@ -213,8 +213,8 @@
   }
 
   .hero-marquee {
-    width: calc(100% + 22px);
-    bottom: 88px;
+    width: calc(100% + 18px);
+    bottom: 82px;
   }
 
   .hero-marquee-track,
@@ -236,11 +236,11 @@
 @media (max-width: 390px) {
   /* Narrow widths need smaller typography and tighter side offsets to avoid collisions. */
   #hero {
-    min-height: 720px;
+    min-height: 736px;
   }
 
   .hero-title {
-    top: 320px;
+    top: 308px;
     width: 336px;
     max-width: calc(100% - 28px);
   }
@@ -251,10 +251,10 @@
   }
 
   .hero-buttons .btn {
-    min-width: 108px;
-    min-height: 40px;
+    min-width: 124px;
+    min-height: 44px;
     padding: 7px 16px;
-    font-size: 11px;
+    font-size: 12px;
   }
 
   /* Smaller widths also pull both side rails closer to the edges and shorten them. */
@@ -262,14 +262,14 @@
     left: 12px;
     width: 28px;
     bottom: 0;
-    height: 284px;
+    height: 280px;
   }
 
   .hero-right-lateral {
     right: 12px;
     width: 28px;
-    bottom: 40px;
-    height: 230px;
+    bottom: 44px;
+    height: 224px;
   }
 
   /* Icons shrink with the rails so the right column still feels proportional. */
@@ -294,7 +294,7 @@
   .hero-marquee {
     height: 46px;
     padding: 7px 16px;
-    bottom: 82px;
+    bottom: 76px;
   }
 
   .hero-marquee-track,
@@ -359,8 +359,8 @@
   }
 
   .hero-title {
-    top: 380px;
-    width: min(398px, calc(100% - 52px));
+    top: 364px;
+    width: min(392px, calc(100% - 44px));
   }
 
   .hero-subtitle {
@@ -368,7 +368,7 @@
   }
 
   .hero-name {
-    font-size: 68px;
+    font-size: 66px;
     margin-bottom: 24px;
   }
 
@@ -377,7 +377,7 @@
   }
 
   .hero-buttons .btn {
-    min-width: 132px;
+    min-width: 150px;
     min-height: 46px;
     padding: 9px 22px;
     font-size: 13px;
@@ -392,7 +392,7 @@
   .hero-right-lateral {
     right: 20px;
     width: 32px;
-    bottom: 44px;
+    bottom: 48px;
     height: 278px;
     gap: 16px;
   }
@@ -429,7 +429,7 @@
     width: calc(100% + 18px);
     height: 56px;
     padding: 9px 22px;
-    bottom: 100px;
+    bottom: 90px;
   }
 
   .hero-marquee-track,
