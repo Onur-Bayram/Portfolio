@@ -15,17 +15,24 @@
 #skills::before {
   content: "";
   position: absolute;
-  left: -120px;
-  top: 44px;
-  width: 420px;
-  height: 560px;
-  background: radial-gradient(
-    320px 240px at 0% 18%,
-    rgba(var(--skills-glow-rgb), 0.42) 0%,
-    rgba(var(--skills-glow-rgb), 0.18) 40%,
-    rgba(var(--skills-glow-rgb), 0) 100%
-  );
-  filter: blur(10px);
+  left: -224px;
+  top: 26px;
+  width: 688px;
+  height: 760px;
+  background:
+    radial-gradient(
+      500px 410px at 8% 46%,
+      rgba(var(--skills-glow-rgb), 0.44) 0%,
+      rgba(var(--skills-glow-rgb), 0.24) 36%,
+      rgba(var(--skills-glow-rgb), 0.08) 58%,
+      rgba(var(--skills-glow-rgb), 0) 82%
+    ),
+    radial-gradient(
+      220px 250px at 58% 60%,
+      rgba(var(--skills-glow-rgb), 0.12) 0%,
+      rgba(var(--skills-glow-rgb), 0) 78%
+    );
+  filter: blur(16px);
   pointer-events: none;
   z-index: 0;
 }
