@@ -12,7 +12,6 @@
   /* Mobile hero copy */
   .hero-title {
     top: 344px;
-    transform: translate(-50%, -50%);
     width: 358px;
     max-width: calc(100% - 36px);
     gap: 0;
@@ -28,7 +27,9 @@
     font-size: 64px;
     line-height: 0.88;
     letter-spacing: -1.2px;
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100%;
+    text-wrap: balance;
     margin-bottom: 24px;
   }
 
@@ -133,16 +134,17 @@
 
   /* The marquee becomes shorter and hides non-essential repeated items on phones. */
   .hero-marquee {
-    width: calc(100% + 24px);
+    left: -12px;
+    right: -12px;
+    width: auto;
     min-width: 0;
-    left: 50%;
     height: 52px;
     padding: 8px 18px;
     bottom: 84px;
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    transform: translateX(-50%) rotate(-2deg);
+    transform: rotate(-2deg);
   }
 
   .hero-marquee-track,
@@ -213,7 +215,8 @@
   }
 
   .hero-marquee {
-    width: calc(100% + 18px);
+    left: -9px;
+    right: -9px;
     bottom: 82px;
   }
 
@@ -426,7 +429,8 @@
   }
 
   .hero-marquee {
-    width: calc(100% + 18px);
+    left: -9px;
+    right: -9px;
     height: 56px;
     padding: 9px 22px;
     bottom: 90px;

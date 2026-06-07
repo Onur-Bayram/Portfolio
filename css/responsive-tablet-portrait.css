@@ -72,9 +72,12 @@
   /* The marquee grows with the device, but still sits low enough to stay behind the rails. */
   .hero-marquee {
     bottom: 28px;
-    width: calc(100% + 24px);
+    left: -12px;
+    right: -12px;
+    width: auto;
     min-width: 0;
     height: 62px;
+    transform: rotate(-2deg);
   }
 
   .hero-marquee-track,
