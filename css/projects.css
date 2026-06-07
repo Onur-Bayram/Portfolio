@@ -157,6 +157,7 @@
   color: #ffffff;
 }
 
+/* Hover preview */
 .projects-preview-panel {
   position: absolute;
   top: 0;
@@ -178,6 +179,7 @@
   width: 100%;
 }
 
+/* Preview accent frame */
 .projects-preview-card::after {
   content: "";
   position: absolute;
@@ -208,6 +210,7 @@
   background: #ffffff;
 }
 
+/* Detail card shell */
 .project-detail-card {
   display: grid;
   position: relative;
@@ -377,6 +380,7 @@
   display: none;
 }
 
+/* Single-column fallback when a project has no preview image */
 .project-detail-card.has-no-media {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -430,6 +434,7 @@
   transform: scale(1.2);
 }
 
+/* Next project control */
 .project-detail-next {
   position: absolute;
   right: 42px;
@@ -470,6 +475,7 @@
 
 /* Desktop overlay */
 @media (min-width: 981px) {
+  /* Lock page scroll and dim the page while the fixed detail card is open. */
   html.is-project-modal-open,
   body.is-project-modal-open {
     overflow: hidden;

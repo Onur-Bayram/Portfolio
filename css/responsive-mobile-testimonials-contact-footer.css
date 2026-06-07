@@ -6,6 +6,7 @@
     padding: 0 clamp(10px, 4vw, 16px);
   }
 
+  /* Testimonials */
   #testimonials {
     padding: 60px 0 52px;
   }
@@ -96,6 +97,7 @@
     gap: 12px;
   }
 
+  /* Contact */
   #contact {
     width: 100%;
     min-height: 0;
@@ -186,6 +188,7 @@
   }
 
   /* Footer collapses into a compact two-column top row plus centered copyright row. */
+  /* Footer */
   .footer-inner {
     width: 100%;
     max-width: min(360px, 100%);
@@ -222,6 +225,7 @@
 
 /* Small phones */
 @media (max-width: 420px) {
+  /* Testimonials */
   #testimonials {
     padding: 50px 0 40px;
   }
@@ -259,6 +263,7 @@
     flex-basis: 64px;
   }
 
+  /* Contact */
   #contact {
     padding: 50px 0 34px;
   }
@@ -284,6 +289,7 @@
     gap: 0;
   }
 
+  /* Footer */
   .footer-inner {
     max-width: min(340px, 100%);
     grid-template-columns: 1fr auto;
@@ -316,6 +322,7 @@
     padding: 0 clamp(14px, 4vw, 20px);
   }
 
+  /* Testimonials */
   #testimonials {
     padding: 72px 0 60px;
   }
@@ -380,6 +387,7 @@
     gap: 14px;
   }
 
+  /* Contact */
   #contact {
     padding: 72px 0 48px;
   }
@@ -453,6 +461,7 @@
     text-align: right;
   }
 
+  /* Footer */
   .footer-inner {
     max-width: min(392px, 100%);
     min-height: 186px;

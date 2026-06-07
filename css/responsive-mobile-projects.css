@@ -1,5 +1,6 @@
 /* Mobile projects */
 @media (max-width: 767px) {
+  /* Shared mobile modal state */
   /* Project rows collapse into a single-column list with the desktop hover preview removed. */
   html.is-project-modal-open,
   body.is-project-modal-open {
@@ -28,6 +29,7 @@
     pointer-events: none;
   }
 
+  /* Section sizing */
   #projects {
     width: min(360px, calc(100% - 24px));
     margin: 18px auto 0;
@@ -54,6 +56,7 @@
     display: none;
   }
 
+  /* Project rows */
   .project-row {
     min-height: 104px;
     grid-template-columns: 1fr;
@@ -83,6 +86,7 @@
     height: 14px;
   }
 
+  /* Modal card */
   /* The detail card becomes a single-column panel with full-width actions and media. */
   .project-detail-card {
     display: grid;
@@ -102,6 +106,7 @@
     border-radius: 24px;
   }
 
+  /* Mobile content order keeps the screenshot above the copy. */
   .project-detail-copy {
     order: 2;
   }
@@ -145,6 +150,7 @@
     background: #ffffff;
   }
 
+  /* Modal actions and controls */
   .project-detail-actions {
     margin-bottom: 18px;
     gap: 10px;
@@ -189,6 +195,7 @@
 
 /* Small phones */
 @media (max-width: 420px) {
+  /* Compact spacing for the narrowest viewports */
   #projects {
     width: calc(100% - 20px);
     padding-top: 18px;
@@ -248,6 +255,7 @@
 
 /* Large phones */
 @media (min-width: 421px) and (max-width: 767px) {
+  /* Slightly wider card and typography for roomier phones */
   #projects {
     width: min(392px, calc(100% - 34px));
     margin-top: 20px;
