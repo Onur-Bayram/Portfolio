@@ -252,12 +252,8 @@
   }
 
   .about-media-wrap::before {
-    top: auto;
-    right: auto;
-    bottom: 24px;
-    left: -72px;
-    width: 240px;
-    height: 240px;
+    bottom: -24px;
+    left: -30px;
   }
 
   .about-content-wrap {
