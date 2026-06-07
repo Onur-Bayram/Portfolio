@@ -1,0 +1,52 @@
+/* Hover preview */
+.projects-preview-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 340px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 260ms ease, transform 260ms ease, top 320ms ease;
+  pointer-events: none;
+}
+
+.projects-preview-panel.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projects-preview-card {
+  position: relative;
+  width: 100%;
+}
+
+/* Preview accent frame */
+.projects-preview-card::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: -18px;
+  bottom: -18px;
+  left: 96px;
+  border-radius: 18px;
+  background: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(var(--color-accent-rgb), 0.92) 9px 11px);
+  z-index: 0;
+}
+
+.projects-preview-frame {
+  position: relative;
+  z-index: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+}
+
+.projects-preview-frame img {
+  width: 100%;
+  aspect-ratio: 1.72 / 1;
+  object-fit: contain;
+  object-position: top;
+  display: block;
+  background: #ffffff;
+}

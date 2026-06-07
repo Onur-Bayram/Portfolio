@@ -1,0 +1,40 @@
+/* Desktop overlay */
+@media (min-width: 981px) {
+  /* Lock page scroll and dim the page while the fixed detail card is open. */
+  html.is-project-modal-open,
+  body.is-project-modal-open {
+    overflow: hidden;
+  }
+
+  body.is-project-modal-open #projects {
+    z-index: 1101;
+  }
+
+  body.is-project-modal-open .site-sections::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    z-index: 1090;
+    pointer-events: none;
+  }
+
+  .project-detail-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: min(1250px, calc(100vw - 72px));
+    max-height: calc(100vh - 72px);
+    margin: 0;
+    transform: translate(-50%, -50%);
+    z-index: 1100;
+  }
+
+  body.is-project-modal-open #projects > .projects-kicker,
+  body.is-project-modal-open #projects > h2,
+  body.is-project-modal-open #projects > .projects-intro {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
