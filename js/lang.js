@@ -18,7 +18,9 @@
     document.documentElement.lang = lang;
 
     document.querySelectorAll('[data-lang]').forEach(function (btn) {
-      btn.classList.toggle('is-active', btn.dataset.lang === lang);
+      var isActive = btn.dataset.lang === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
     });
 
     document.querySelectorAll('[data-en][data-de]').forEach(function (el) {

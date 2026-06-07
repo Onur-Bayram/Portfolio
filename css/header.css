@@ -30,7 +30,8 @@
 }
 
 /* Language switch */
-.lang-toggle {
+.lang-toggle,
+.mobile-lang {
   display: flex;
   align-items: center;
   gap: 2px;
@@ -65,11 +66,13 @@
 }
 
 /* Chip hover */
-.lang-toggle:hover {
+.lang-toggle:hover,
+.mobile-lang:hover {
   border-color: var(--color-white);
 }
 
-.lang-toggle:hover .lang-chip:not(.is-active) {
+.lang-toggle:hover .lang-chip:not(.is-active),
+.mobile-lang:hover .lang-chip:not(.is-active) {
   color: rgba(var(--color-accent-rgb), 0.9);
 }
 
@@ -78,15 +81,14 @@
   color: #0f1212;
 }
 
-.lang-chip:hover:not(.is-active),
-.lang-chip:focus-visible:not(.is-active) {
+.lang-chip:hover:not(.is-active) {
   background: transparent;
   color: rgba(var(--color-accent-rgb), 0.9);
 }
 
+.lang-chip:focus,
 .lang-chip:focus-visible {
-  outline: 1px solid var(--color-white);
-  outline-offset: 1px;
+  outline: none;
 }
 
 /* Links */
@@ -257,6 +259,11 @@
   transform: translateY(-50%) rotate(-45deg);
 }
 
+html.is-mobile-menu-open,
+body.is-mobile-menu-open {
+  overflow: hidden;
+}
+
 /* Mobile menu */
 .mobile-menu {
   display: none;
@@ -265,11 +272,41 @@
   padding: 24px var(--padding-x) 32px;
   border-top: 1px solid var(--color-border);
   background: rgba(0, 0, 0, 0.95);
+  pointer-events: none;
 }
 
 /* Menu state */
 .mobile-menu.open {
   display: flex;
+  pointer-events: auto;
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 110;
+}
+
+.mobile-menu-backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+body.is-mobile-menu-open .nav-logo {
+  z-index: 109;
+}
+
+body.is-mobile-menu-open .burger,
+body.is-mobile-menu-open .mobile-menu {
+  z-index: 121;
 }
 
 /* Menu links */
@@ -286,12 +323,21 @@
 
 /* Mobile language switch */
 .mobile-lang {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  width: fit-content;
-  padding-top: 8px;
-  border: 1px solid var(--color-accent);
-  border-radius: 999px;
   padding: 2px;
+}
+
+.mobile-menu .mobile-lang {
+  border-color: rgba(var(--color-cursor-glow-rgb), 0.82);
+  box-shadow:
+    0 0 0 1px rgba(var(--color-cursor-glow-rgb), 0.08) inset,
+    0 0 14px rgba(var(--color-dark-teal-rgb), 0.28);
+}
+
+.mobile-menu .lang-chip,
+.mobile-menu .lang-chip:hover:not(.is-active) {
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.mobile-menu .lang-chip.is-active {
+  color: #ffffff;
 }
