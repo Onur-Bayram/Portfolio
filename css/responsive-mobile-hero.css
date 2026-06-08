@@ -24,7 +24,7 @@
   }
 
   .hero-name {
-    font-size: clamp(44px, 13.4vw, 64px);
+    font-size: clamp(44px, 13vw, 64px);
     line-height: 0.88;
     letter-spacing: -1.2px;
     margin-bottom: 24px;
@@ -59,10 +59,10 @@
   .hero-right-lateral {
     right: 16px;
     top: auto;
-    bottom: 52px;
+    bottom: 30px;
     width: 30px;
     height: 252px;
-    gap: 14px;
+    gap: 32px;
     transform: none;
   }
 
@@ -123,13 +123,13 @@
     background: rgba(var(--color-accent-rgb), 0.72);
   }
 
-  /* The right line is intentionally shorter so it ends above the marquee. */
+  /* Right line */
   .hero-right-line {
-    min-height: 170px;
+    min-height: 150px;
     background: #ffffff;
   }
 
-  /* The marquee becomes shorter and hides non-essential repeated items on phones. */
+  /* Mobile marquee */
   .hero-marquee {
     left: -12px;
     right: -12px;
@@ -137,11 +137,12 @@
     min-width: 0;
     height: 52px;
     padding: 8px 18px;
-    bottom: 84px;
+    bottom: 30px;
     background: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    transform: rotate(-2deg);
+    transform: rotate(-3.5deg);
+    transform-origin: left center;
   }
 
   .hero-marquee-track,
@@ -167,9 +168,9 @@
 
 /* Medium phones */
 @media (max-width: 480px) {
-  /* This breakpoint mainly trims vertical space without changing the overall composition. */
+  /* Standard phone widths keep the full mobile composition. */
   #hero {
-    min-height: 790px;
+    min-height: 844px;
   }
 
   .hero-title {
@@ -179,8 +180,8 @@
   }
 
   .hero-name {
-    font-size: clamp(42px, 13vw, 56px);
-    margin-bottom: 20px;
+    font-size: clamp(44px, 13vw, 56px);
+    margin-bottom: 22px;
   }
 
   .hero-buttons {
@@ -198,49 +199,24 @@
     height: 300px;
   }
 
-  .hero-right-lateral {
-    bottom: 46px;
-    height: 244px;
-  }
-
   .hero-left-line {
-    min-height: 236px;
-  }
-
-  .hero-right-line {
-    min-height: 158px;
+    min-height: 242px;
   }
 
   .hero-marquee {
-    left: -9px;
-    right: -9px;
-    bottom: 82px;
-  }
-
-  .hero-marquee-track,
-  .hero-marquee-group {
-    font-size: 13px;
-    gap: 24px;
+    bottom: 28px;
   }
 }
 
-/* XR phones */
-@media (min-width: 391px) and (max-width: 430px) {
-  .hero-right-lateral {
-    bottom: 40px;
-    height: 250px;
-  }
-}
-
-/* Small phones */
-@media (max-width: 390px) {
-  /* Narrow widths need smaller typography and tighter side offsets to avoid collisions. */
+/* iPhone SE / short phones */
+@media (max-width: 375px) and (max-height: 700px) {
+  /* iPhone SE-sized screens need a more compact hero so the marquee still fits. */
   #hero {
-    min-height: 736px;
+    min-height: 700px;
   }
 
   .hero-title {
-    top: 308px;
+    top: 300px;
     width: 336px;
     max-width: calc(100% - 28px);
   }
@@ -262,13 +238,13 @@
     left: 12px;
     width: 28px;
     bottom: 0;
-    height: 280px;
+    height: 258px;
   }
 
   .hero-right-lateral {
     right: 12px;
     width: 28px;
-    bottom: 44px;
+    bottom: 30px;
     height: 224px;
   }
 
@@ -284,7 +260,7 @@
   }
 
   .hero-left-line {
-    min-height: 220px;
+    min-height: 200px;
   }
 
   .hero-right-line {
@@ -292,40 +268,9 @@
   }
 
   .hero-marquee {
-    height: 46px;
-    padding: 7px 16px;
-    bottom: 76px;
-  }
-
-  .hero-marquee-track,
-  .hero-marquee-group {
-    font-size: 12px;
-    gap: 20px;
-  }
-}
-
-/* Short phones */
-@media (max-width: 390px) and (max-height: 740px) {
-  /* Short viewports need the hero content pulled upward so the marquee still fits. */
-  #hero {
-    min-height: 700px;
-  }
-
-  .hero-title {
-    top: 300px;
-  }
-
-  /* Only the vertical offsets change here, because the base small-phone sizing already fits. */
-  .hero-left-lateral {
-    bottom: 0;
-  }
-
-  .hero-right-lateral {
-    bottom: 30px;
-  }
-
-  .hero-marquee {
-    bottom: 68px;
+    bottom: 28px;
+    transform: rotate(-2.4deg);
+    transform-origin: left center;
   }
 }
 
@@ -348,7 +293,7 @@
   /* Keep the right rail controlled by the width-specific rules below 430px. */
 
   .hero-marquee {
-    bottom: 98px;
+    bottom: 36px;
   }
 }
 
@@ -389,24 +334,6 @@
     height: 344px;
   }
 
-  .hero-right-lateral {
-    right: 20px;
-    width: 32px;
-    bottom: 48px;
-    height: 278px;
-    gap: 16px;
-  }
-
-  .hero-socials a {
-    width: 32px;
-    height: 32px;
-  }
-
-  .hero-socials a img {
-    width: 24px;
-    height: 24px;
-  }
-
   .hero-scroll-pill {
     width: 32px;
     height: 50px;
@@ -421,21 +348,7 @@
     min-height: 252px;
   }
 
-  .hero-right-line {
-    min-height: 182px;
-  }
-
   .hero-marquee {
-    left: -9px;
-    right: -9px;
-    height: 56px;
-    padding: 9px 22px;
-    bottom: 90px;
-  }
-
-  .hero-marquee-track,
-  .hero-marquee-group {
-    font-size: 15px;
-    gap: 28px;
+    bottom: 32px;
   }
 }

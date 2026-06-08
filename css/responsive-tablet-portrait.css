@@ -76,14 +76,8 @@
     right: -12px;
     width: auto;
     min-width: 0;
-    height: 62px;
+    height: 58px;
     transform: rotate(-2deg);
-  }
-
-  .hero-marquee-track,
-  .hero-marquee-group {
-    gap: 44px;
-    font-size: 18px;
   }
 }
 
@@ -155,16 +149,5 @@
 
   .hero-marquee {
     bottom: 32px;
-    height: 68px;
-  }
-
-  .hero-marquee-track,
-  .hero-marquee-group {
-    gap: 48px;
-    font-size: 20px;
-  }
-
-  .hero-marquee-track span {
-    height: 38px;
   }
 }
