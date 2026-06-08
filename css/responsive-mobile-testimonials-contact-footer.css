@@ -11,6 +11,10 @@
     padding: 60px 0 52px;
   }
 
+  .testimonials-wrap {
+    width: 100%;
+  }
+
   .testimonials-title {
     font-size: clamp(21px, 6vw, 28px);
     line-height: 1.15;
@@ -21,34 +25,32 @@
   }
 
   .testimonials-stage {
-    padding: 0 4px;
+    padding: 0;
   }
 
-  /* On phones the desktop fade masks feel too heavy, so the side shading is reduced substantially. */
   .testimonials-track-outer::before,
   .testimonials-track-outer::after {
-    width: clamp(10px, 3vw, 18px);
-  }
-
-  .testimonials-track-outer::before {
-    background: linear-gradient(to right, rgba(28, 28, 28, 0.72) 0%, transparent 100%);
-  }
-
-  .testimonials-track-outer::after {
-    background: linear-gradient(to left, rgba(28, 28, 28, 0.72) 0%, transparent 100%);
+    content: none;
   }
 
   .testimonial-card {
-    flex: 0 0 min(336px, calc(100vw - 40px));
+    flex: 0 0 min(336px, calc(100vw - 56px));
     min-height: 350px;
     padding: 74px 30px 24px;
-    margin: 0 10px;
+    margin: 0;
     border-radius: 28px;
+    opacity: 1;
+    transform: scale(0.9);
+    background: linear-gradient(180deg, rgba(47, 108, 98, 0.92) 0%, rgba(42, 98, 89, 0.92) 100%);
+    border-color: rgba(var(--color-accent-rgb), 0.72);
+    z-index: 1;
   }
 
   .testimonial-card.is-active {
     background: linear-gradient(180deg, rgba(47, 108, 98, 0.96) 0%, rgba(42, 98, 89, 0.96) 100%);
-    border-color: rgba(var(--color-accent-rgb), 0.72);
+    border-color: rgba(var(--color-accent-rgb), 0.88);
+    transform: scale(1);
+    z-index: 2;
   }
 
   /* Quote mark */
@@ -234,15 +236,11 @@
     margin-bottom: 24px;
   }
 
-  .testimonials-track-outer::before,
-  .testimonials-track-outer::after {
-    width: 10px;
-  }
-
   .testimonial-card {
-    flex-basis: min(308px, calc(100vw - 28px));
+    flex-basis: min(336px, calc(100vw - 56px));
     min-height: 324px;
     padding: 68px 24px 22px;
+    margin: 0;
   }
 
   .testimonial-quote {
@@ -334,20 +332,16 @@
   }
 
   .testimonials-stage {
-    padding: 0 12px;
-  }
-
-  .testimonials-track-outer::before,
-  .testimonials-track-outer::after {
-    width: clamp(22px, 4.8vw, 34px);
+    padding: 0;
   }
 
   .testimonial-card {
-    flex-basis: min(352px, calc(100vw - 78px));
+    flex-basis: min(380px, calc(100vw - 50px));
     min-height: 340px;
     padding: 78px 30px 26px;
-    margin: 0 14px;
+    margin: 0;
     border-radius: 30px;
+    transform: scale(0.91);
   }
 
   .testimonial-quote {
