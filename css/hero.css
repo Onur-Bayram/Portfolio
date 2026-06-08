@@ -394,13 +394,6 @@
     white-space: nowrap;
   }
 
-  .hero-marquee {
-    bottom: 0;
-    width: calc(100% + 18px);
-    min-width: 1440px;
-    height: 60px;
-  }
-
   .hero-left-line {
     width: 1px;
     flex: 1 1 auto;
@@ -466,6 +459,19 @@
   align-items: center;
   height: 38px;
   white-space: nowrap;
+}
+
+@media (min-width: 1201px) {
+  .hero-marquee {
+    left: -24px;
+    right: -24px;
+    bottom: 32px;
+    width: auto;
+    min-width: 0;
+    height: 60px;
+    padding: 12px 40px;
+    transform: rotate(-2deg);
+  }
 }
 
 .marquee-dot {
