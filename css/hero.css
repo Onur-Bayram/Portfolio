@@ -2,8 +2,10 @@
 #hero {
   height: 100vh;
   background:
+    radial-gradient(circle at 12% 12%, rgba(6, 6, 6, 0.28) 0%, rgba(6, 6, 6, 0.14) 26%, rgba(6, 6, 6, 0) 48%),
+    radial-gradient(circle at 34% 58%, rgba(8, 8, 8, 0.4) 0%, rgba(8, 8, 8, 0.22) 38%, rgba(8, 8, 8, 0) 68%),
     radial-gradient(circle at 78% 30%, rgba(var(--color-dark-teal-rgb), 0.9) 0%, rgba(var(--color-dark-teal-rgb), 0.62) 30%, rgba(var(--color-dark-teal-rgb), 0.14) 58%, rgba(var(--color-dark-teal-rgb), 0) 74%),
-    linear-gradient(90deg, #171919 0%, #151919 36%, #102a26 70%, #0b3f37 100%);
+    linear-gradient(90deg, #141515 0%, #161717 36%, #102a26 72%, #0b3f37 100%);
   display: flex;
   position: relative;
   overflow: hidden;
