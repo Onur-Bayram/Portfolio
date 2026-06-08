@@ -240,7 +240,6 @@
     flex-basis: min(336px, calc(100vw - 56px));
     min-height: 324px;
     padding: 68px 24px 22px;
-    margin: 0;
   }
 
   .testimonial-quote {
@@ -251,10 +250,6 @@
 
   .testimonial-text {
     font-size: 15px;
-  }
-
-  .testimonial-name {
-    font-size: 14px;
   }
 
   .testimonial-line {
@@ -281,10 +276,6 @@
   .contact-form input,
   .contact-form textarea {
     font-size: 14px;
-  }
-
-  .contact-form {
-    gap: 0;
   }
 
   /* Footer */
@@ -331,15 +322,10 @@
     margin-bottom: 40px;
   }
 
-  .testimonials-stage {
-    padding: 0;
-  }
-
   .testimonial-card {
     flex-basis: min(380px, calc(100vw - 50px));
     min-height: 340px;
     padding: 78px 30px 26px;
-    margin: 0;
     border-radius: 30px;
     transform: scale(0.91);
   }
@@ -414,10 +400,6 @@
   .contact-form input,
   .contact-form textarea {
     font-size: 16px;
-  }
-
-  .contact-form {
-    gap: 0;
   }
 
   .contact-body {

@@ -139,10 +139,6 @@
     z-index: 120;
   }
 
-  .mobile-menu.open {
-    display: flex;
-  }
-
   /* Menu links stay slightly fluid so text does not wrap too early on narrow devices. */
   .mobile-link {
     font-size: clamp(15px, 4vw, 16px);
@@ -168,11 +164,6 @@
   .burger {
     width: 26px;
     height: 20px;
-  }
-
-  .burger span {
-    width: 100%;
-    height: 2px;
   }
 
   .mobile-menu {

@@ -321,18 +321,9 @@ body.is-mobile-menu-open .mobile-menu {
   color: var(--color-accent);
 }
 
-/* Mobile language switch */
-.mobile-lang {
-  padding: 2px;
-}
-
 .mobile-menu .mobile-lang {
   border-color: rgba(var(--color-cursor-glow-rgb), 0.82);
   box-shadow:
     0 0 0 1px rgba(var(--color-cursor-glow-rgb), 0.08) inset,
     0 0 14px rgba(var(--color-dark-teal-rgb), 0.28);
-}
-
-.mobile-menu .lang-chip.is-active {
-  color: #ffffff;
 }
