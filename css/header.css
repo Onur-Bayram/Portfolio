@@ -78,7 +78,7 @@
 
 .lang-chip.is-active {
   background: var(--color-accent);
-  color: #0f1212;
+  color: #ffffff;
 }
 
 .lang-chip:hover:not(.is-active) {
@@ -331,11 +331,6 @@ body.is-mobile-menu-open .mobile-menu {
   box-shadow:
     0 0 0 1px rgba(var(--color-cursor-glow-rgb), 0.08) inset,
     0 0 14px rgba(var(--color-dark-teal-rgb), 0.28);
-}
-
-.mobile-menu .lang-chip,
-.mobile-menu .lang-chip:hover:not(.is-active) {
-  color: rgba(255, 255, 255, 0.94);
 }
 
 .mobile-menu .lang-chip.is-active {
