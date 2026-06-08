@@ -79,6 +79,7 @@
   font-weight: 700;
   color: var(--color-white);
   line-height: 0.98;
+  white-space: nowrap;
 }
 
 .hero-buttons {
