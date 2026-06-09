@@ -172,7 +172,7 @@
 
   .form-submit {
     margin-top: 18px;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .form-submit .btn {
@@ -182,7 +182,7 @@
   }
 
   .form-status {
-    text-align: right;
+    text-align: center;
   }
 
   .privacy-label {
@@ -424,7 +424,7 @@
 
   .form-submit {
     margin-top: 18px;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .form-submit .btn {
@@ -434,7 +434,7 @@
   }
 
   .form-status {
-    text-align: right;
+    text-align: center;
   }
 
   /* Footer */

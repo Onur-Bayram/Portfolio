@@ -191,8 +191,8 @@
   position: absolute;
   top: 26px;
   right: 28px;
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -201,6 +201,8 @@
   background: transparent;
   color: rgba(255, 255, 255, 0.92);
   cursor: pointer;
+  touch-action: manipulation;
+  z-index: 6;
   transition: color 220ms ease, transform 220ms ease;
 }
 

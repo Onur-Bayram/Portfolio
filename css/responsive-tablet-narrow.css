@@ -154,11 +154,44 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
+    align-items: start;
+  }
+
+  .project-detail-close {
+    top: 12px;
+    right: 12px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .project-detail-copy {
+    order: 2;
   }
 
   .project-detail-media {
-    justify-self: start;
+    order: 1;
+    justify-self: stretch;
     width: min(100%, 620px);
+  }
+
+  .project-detail-actions {
+    margin-bottom: 0;
+  }
+
+  .project-detail-next {
+    position: static;
+    order: 3;
+    justify-self: end;
+    margin-top: 6px;
+    padding: 0;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .project-detail-next-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
   }
 
   .project-detail-description {
@@ -189,7 +222,97 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 900px) {
+  #about {
+    width: min(620px, calc(100% - 64px));
+    gap: 24px;
+  }
+
+  .about-media-wrap::before {
+    content: "";
+    left: -24px;
+    bottom: -20px;
+  }
+
+  #contact {
+    padding-top: 88px;
+    padding-bottom: 68px;
+  }
+
+  .contact-box {
+    grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+    gap: 32px;
+    padding: 38px 30px;
+  }
+
+  .contact-body {
+    max-width: none;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 14px 20px;
+    align-items: end;
+  }
+
+  .footer-copy {
+    grid-column: 2;
+    justify-self: center;
+    padding: 0;
+  }
+
+  .footer-nav {
+    grid-column: 3;
+    justify-self: end;
+    align-items: flex-end;
+  }
+}
+
 @media (min-width: 901px) and (max-width: 980px) {
+  #about {
+    width: min(760px, calc(100% - 72px));
+    gap: 28px;
+  }
+
+  .about-media-wrap::before {
+    content: "";
+    left: -30px;
+    bottom: -24px;
+  }
+
+  #contact {
+    padding-top: 92px;
+    padding-bottom: 72px;
+  }
+
+  .contact-box {
+    grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+    gap: 40px;
+    padding: 42px 36px;
+  }
+
+  .contact-body {
+    max-width: none;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px 24px;
+    align-items: end;
+  }
+
+  .footer-copy {
+    grid-column: 2;
+    justify-self: center;
+    padding: 0;
+  }
+
+  .footer-nav {
+    grid-column: 3;
+    justify-self: end;
+    align-items: flex-end;
+  }
+
   .project-detail-card {
     width: min(760px, calc(100vw - 56px));
     max-height: calc(100svh - 56px);

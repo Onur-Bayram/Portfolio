@@ -300,7 +300,36 @@
   .project-detail-card {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
     gap: 26px;
-    padding: 28px 24px 52px;
+    padding: 48px 24px 40px;
+    align-items: start;
+  }
+
+  .project-detail-close {
+    top: 10px;
+    right: 10px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .project-detail-actions {
+    margin-bottom: 0;
+  }
+
+  .project-detail-next {
+    position: static;
+    order: 3;
+    grid-column: 1 / -1;
+    justify-self: end;
+    margin-top: 6px;
+    padding: 0;
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .project-detail-next-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
   }
 
   .project-detail-number {
@@ -321,7 +350,83 @@
     padding: 44px 40px;
   }
 
+  .form-submit {
+    align-items: center;
+  }
+
+  .form-status {
+    text-align: center;
+  }
+
   .footer-inner {
     padding-bottom: 44px;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1200px) and (max-height: 720px) {
+  .project-detail-card {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+    gap: 20px;
+    padding: 40px 20px 28px;
+  }
+
+  .project-detail-close {
+    top: 4px;
+    right: 4px;
+  }
+
+  .project-detail-media {
+    width: min(100%, 420px);
+    border-radius: 24px;
+  }
+
+  .project-detail-number {
+    font-size: 58px;
+  }
+
+  .project-detail-title {
+    font-size: 40px;
+  }
+
+  .project-detail-subtitle {
+    margin-top: 24px;
+    font-size: 20px;
+  }
+
+  .project-detail-description {
+    margin-top: 14px;
+    max-width: 30ch;
+    font-size: 16px;
+  }
+
+  .project-detail-stack {
+    margin-top: 22px;
+    gap: 10px 16px;
+  }
+
+  .project-detail-tech {
+    font-size: 13px;
+  }
+
+  .project-detail-actions {
+    margin-top: 28px;
+    gap: 12px;
+  }
+
+  .project-detail-actions .btn {
+    min-height: 40px;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .project-detail-next {
+    font-size: 14px;
+  }
+
+  .project-detail-next-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
   }
 }
