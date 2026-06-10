@@ -9,7 +9,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: start;
+  max-width: var(--content-width);
   min-height: 118px;
+  margin: 0 auto;
   padding-top: 12px;
   padding-bottom: 60px;
   gap: 24px;

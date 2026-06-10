@@ -4,6 +4,35 @@
   var btnDE = document.getElementById('langDE');
   if (!btnEN || !btnDE) return;
 
+  var storageKey = 'portfolio-language';
+
+  /**
+   * Reads the saved language if localStorage is available.
+   *
+   * @returns {'en'|'de'|''}
+   */
+  function getSavedLang() {
+    try {
+      var savedLang = window.localStorage.getItem(storageKey);
+      return savedLang === 'de' || savedLang === 'en' ? savedLang : '';
+    } catch (error) {
+      return '';
+    }
+  }
+
+  /**
+   * Saves the active language for the next visit.
+   *
+   * @param {'en'|'de'} lang Language code.
+   */
+  function saveLang(lang) {
+    try {
+      window.localStorage.setItem(storageKey, lang);
+    } catch (error) {
+      // localStorage can be blocked in private browsing, the page still works without it.
+    }
+  }
+
   /**
    * Applies the selected language to the page.
    *
@@ -11,6 +40,7 @@
    */
   function setLang(lang) {
     var isEN = lang === 'en';
+    saveLang(lang);
     btnEN.classList.toggle('is-active', isEN);
     btnDE.classList.toggle('is-active', !isEN);
     btnEN.setAttribute('aria-pressed', String(isEN));
@@ -61,5 +91,5 @@
     });
   });
 
-  setLang(btnEN.classList.contains('is-active') ? 'en' : 'de');
+  setLang(getSavedLang() || (btnEN.classList.contains('is-active') ? 'en' : 'de'));
 })();

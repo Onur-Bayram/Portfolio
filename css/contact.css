@@ -50,7 +50,7 @@
 
 .contact-cta {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.55);
 }
 
@@ -127,7 +127,7 @@
   border: none;
   outline: none;
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 16px;
   color: var(--color-white);
   padding: 2px 0 0;
   resize: none;
@@ -159,17 +159,21 @@
 
 .form-field input:-webkit-autofill,
 .form-field input:-webkit-autofill:hover,
-.form-field input:-webkit-autofill:focus {
+.form-field input:-webkit-autofill:focus,
+.form-field textarea:-webkit-autofill,
+.form-field textarea:-webkit-autofill:hover,
+.form-field textarea:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--color-white);
-  -webkit-box-shadow: 0 0 0 1000px #111111 inset;
+  caret-color: var(--color-white);
+  -webkit-box-shadow: 0 0 0 1000px #1c1c1c inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-error {
   font-family: var(--font-sans);
-  font-size: 13px;
-  color: #ff6b6b;
-  min-height: 16px;
+  font-size: 14px;
+  color: #ff8a8a;
+  min-height: 18px;
   margin-top: 4px;
   display: block;
 }
@@ -332,7 +336,7 @@
 }
 
 .form-status {
-  min-height: 20px;
+  min-height: 22px;
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.45;
@@ -341,7 +345,8 @@
 }
 
 .form-status[hidden] {
-  display: none;
+  display: block;
+  visibility: hidden;
 }
 
 .form-status.is-success {

@@ -28,7 +28,7 @@
   font-size: clamp(18px, 1.8vw, 22px);
   line-height: 1;
   color: var(--color-accent);
-  animation: marquee-scroll 58s linear infinite;
+  animation: marquee-scroll 24s linear infinite;
 }
 
 .hero-marquee-group {

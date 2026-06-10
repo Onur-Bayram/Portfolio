@@ -10,7 +10,6 @@
 /* Page */
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;
   width: 100%;
 }
 
@@ -21,7 +20,6 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   width: 100%;
-  overflow-x: hidden;
 }
 
 /* Main sections */
@@ -29,6 +27,7 @@ body {
   position: relative;
   padding-top: 56px;
   isolation: isolate;
+  overflow-x: clip;
   background:
     radial-gradient(260px 150px at 0% 42%, rgba(var(--color-dark-teal-rgb), 0.24) 0%, rgba(var(--color-dark-teal-rgb), 0.08) 34%, rgba(var(--color-overlay-dark-rgb), 0) 100%),
     radial-gradient(260px 150px at 0% 80%, rgba(var(--color-dark-teal-rgb), 0.24) 0%, rgba(var(--color-dark-teal-rgb), 0.08) 32%, rgba(var(--color-overlay-dark-rgb), 0) 100%),

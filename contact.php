@@ -26,7 +26,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $name = $params->name ?? '';
         $userMessage = $params->message ?? '';
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || empty($name) || empty($userMessage)) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strpos($email, '..') !== false || empty($name) || empty($userMessage)) {
             http_response_code(400);
             echo json_encode(['success' => false, 'error' => 'Invalid input data']);
             exit;
@@ -53,7 +53,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $headers[] = 'Reply-To: ' . $email;
         $headers[] = 'Return-Path: ' . $siteEmail;
 
-        $success = mail(
+        $success = @mail(
             $recipient,
             $subject,
             $mailBody,
@@ -64,7 +64,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         if ($success) {
             echo json_encode(['success' => true]);
         } else {
-            http_response_code(500);
             echo json_encode(['success' => false, 'error' => 'Mail delivery failed']);
         }
 

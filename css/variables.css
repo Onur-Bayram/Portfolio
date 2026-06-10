@@ -22,4 +22,5 @@
   /* Global layout measurements reused by multiple sections. */
   --header-height: 98px;
   --padding-x: 96px;
+  --content-width: 1248px;
 }

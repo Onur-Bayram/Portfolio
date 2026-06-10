@@ -36,7 +36,22 @@
    * @returns {boolean}
    */
   function isValidEmail(value) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+    var email = value.trim();
+    var emailParts = email.split('@');
+    if (email.length > 254 || email.indexOf('..') !== -1 || emailParts.length !== 2) {
+      return false;
+    }
+
+    var localPart = emailParts[0];
+    var domain = emailParts[1];
+    var domainParts = domain.split('.');
+
+    if (!localPart || domainParts.length < 2) return false;
+
+    return /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+$/.test(localPart) &&
+      domainParts.every(function (part) {
+        return /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?$/.test(part);
+      });
   }
 
   /**
@@ -319,6 +334,19 @@
     clearFormStatus();
     validatePrivacy();
     updateSubmitState();
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!event.target.closest) return;
+
+    var link = event.target.closest('.js-contact-focus');
+    if (!link) return;
+
+    event.preventDefault();
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.setTimeout(function () {
+      nameInput.focus();
+    }, 350);
   });
 
   form.addEventListener('submit', function (event) {
