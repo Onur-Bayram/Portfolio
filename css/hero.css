@@ -1,7 +1,7 @@
 /* Hero */
 #hero {
   --hero-content-width: min(var(--content-width), calc(100% - (var(--padding-x) * 2)));
-  --hero-side-gap: min(var(--padding-x), calc((100% - var(--hero-content-width)) / 2));
+  --hero-side-gap: calc((100% - var(--hero-content-width)) / 2);
   height: 100vh;
   background:
     radial-gradient(circle at 12% 12%, rgba(6, 6, 6, 0.28) 0%, rgba(6, 6, 6, 0.14) 26%, rgba(6, 6, 6, 0) 48%),
@@ -136,7 +136,7 @@
 .hero-left-lateral {
   position: absolute;
   top: 60%;
-  left: 96px;
+  left: var(--hero-side-gap);
   transform: translateY(-50%);
   width: 30px;
   height: 420px;
@@ -203,7 +203,7 @@
 .hero-right-lateral {
   position: absolute;
   top: 50%;
-  right: 96px;
+  right: var(--hero-side-gap);
   transform: translateY(-18%);
   width: 32px;
   height: 580px;
@@ -381,7 +381,7 @@
   .hero-right-lateral {
     position: absolute;
     top: 65%;
-    right: 58px;
+    right: var(--hero-side-gap);
     transform: translateY(-50%);
     width: 32px;
     height: 300px;
