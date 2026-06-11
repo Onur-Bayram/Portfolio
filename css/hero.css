@@ -411,9 +411,5 @@
     min-height: 220px;
     background: #ffffff;
   }
-
-  .hero-right-lateral .hero-socials .hero-social-email {
-    display: none !important;
-  }
 }
 
