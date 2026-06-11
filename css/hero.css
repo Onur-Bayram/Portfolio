@@ -426,6 +426,15 @@
 
   .hero-right-line {
     min-height: 240px;
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 1201px) and (min-height: 1400px) {
+  .hero-right-lateral {
+    top: calc(100% - 210px);
+    height: 420px;
+    transform: translateY(-50%);
   }
 }
 
