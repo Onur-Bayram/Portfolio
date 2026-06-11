@@ -413,3 +413,19 @@
   }
 }
 
+@media (min-width: 1201px) {
+  .hero-right-lateral {
+    top: 66%;
+    height: 420px;
+    gap: 20px;
+  }
+
+  .hero-right-lateral .hero-social-email {
+    display: none;
+  }
+
+  .hero-right-line {
+    min-height: 180px;
+  }
+}
+
