@@ -19,6 +19,7 @@
 }
 
 .hero-marquee-track {
+  --marquee-distance: 0px;
   display: flex;
   align-items: center;
   height: 100%;
@@ -28,6 +29,10 @@
   font-size: clamp(18px, 1.8vw, 22px);
   line-height: 1;
   color: var(--color-accent);
+  will-change: transform;
+}
+
+.hero-marquee.is-ready .hero-marquee-track {
   animation: marquee-scroll 24s linear infinite;
 }
 
@@ -69,7 +74,7 @@
   }
 
   to {
-    transform: translateX(calc(-50% - 28px));
+    transform: translateX(calc(var(--marquee-distance) * -1));
   }
 }
 
