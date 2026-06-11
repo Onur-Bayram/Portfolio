@@ -141,7 +141,7 @@
 
   /* Menu links stay slightly fluid so text does not wrap too early on narrow devices. */
   .mobile-link {
-    font-size: clamp(15px, 4vw, 16px);
+    font-size: 16px;
     line-height: 1.1;
     color: rgba(255, 255, 255, 0.88);
     white-space: nowrap;

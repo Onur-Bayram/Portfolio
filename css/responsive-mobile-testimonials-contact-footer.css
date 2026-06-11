@@ -75,7 +75,7 @@
   }
 
   .testimonial-name {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.35;
   }
 
@@ -118,7 +118,7 @@
   }
 
   .contact-kicker {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 8px;
   }
 
@@ -138,7 +138,7 @@
   .contact-form label,
   .contact-form input,
   .contact-form textarea {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .contact-form {
@@ -178,7 +178,7 @@
   .form-submit .btn {
     min-height: 38px;
     padding: 9px 20px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .form-status {
@@ -249,7 +249,7 @@
   }
 
   .testimonial-text {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .testimonial-line {
@@ -275,7 +275,7 @@
   .contact-form label,
   .contact-form input,
   .contact-form textarea {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   /* Footer */
@@ -350,7 +350,7 @@
   }
 
   .testimonial-name {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .testimonials-controls {
@@ -380,7 +380,7 @@
   }
 
   .contact-kicker {
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 10px;
   }
 
@@ -430,7 +430,7 @@
   .form-submit .btn {
     min-height: 42px;
     padding: 10px 22px;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .form-status {

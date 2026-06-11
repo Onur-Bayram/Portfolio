@@ -84,7 +84,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   color: var(--color-white);
 }
@@ -121,7 +121,7 @@
   background: transparent;
   color: #ffffff;
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;

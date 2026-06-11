@@ -41,7 +41,7 @@
     min-width: 144px;
     min-height: 48px;
     padding: 10px 22px;
-    font-size: 13px;
+    font-size: 16px;
     position: relative;
     z-index: 350;
   }
@@ -108,7 +108,7 @@
     width: 30px;
     height: 44px;
     border-radius: 18px;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .hero-scroll-icon {
@@ -150,7 +150,7 @@
   .hero-marquee-track,
   .hero-marquee-group {
     gap: 26px;
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .hero-marquee-track span {
@@ -163,7 +163,7 @@
   }
 
   .marquee-dot {
-    font-size: 12px;
+    font-size: 16px;
   }
 
 }
@@ -232,7 +232,7 @@
     min-width: 124px;
     min-height: 44px;
     padding: 7px 16px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   /* Smaller widths also pull both side rails closer to the edges and shorten them. */
@@ -327,7 +327,7 @@
     min-width: 150px;
     min-height: 46px;
     padding: 9px 22px;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .hero-left-lateral {

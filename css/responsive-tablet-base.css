@@ -161,7 +161,7 @@
   .hero-buttons .btn {
     min-height: 46px;
     padding: 10px 26px;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .hero-scroll-pill {
@@ -263,7 +263,7 @@
   }
 
   .project-row-tech-item {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   #about {
@@ -322,7 +322,7 @@
     justify-self: end;
     margin-top: 6px;
     padding: 0;
-    font-size: 15px;
+    font-size: 16px;
     gap: 8px;
   }
 
@@ -406,7 +406,7 @@
   }
 
   .project-detail-tech {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .project-detail-actions {
@@ -417,11 +417,11 @@
   .project-detail-actions .btn {
     min-height: 40px;
     padding: 8px 16px;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .project-detail-next {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .project-detail-next-icon {

@@ -42,7 +42,7 @@
   justify-content: center;
   min-height: var(--nav-logo-size);
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--color-white);
   line-height: 0.9;
@@ -73,7 +73,7 @@
 .footer-role,
 .footer-location {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 16px;
   color: var(--color-muted);
   line-height: 1.4;
 }
@@ -81,7 +81,7 @@
 /* Copyright */
 .footer-copy {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--color-accent);
   text-align: center;
   justify-self: center;
@@ -101,7 +101,7 @@
   display: inline-flex;
   align-items: center;
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.82);
   text-decoration: none;
   transition: color 0.2s ease;

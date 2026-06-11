@@ -232,7 +232,7 @@
 .mindset-tooltip p {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.2;
   color: var(--color-accent);
   text-align: center;
@@ -259,7 +259,7 @@
 
 .mindset-tech span {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1;
   color: var(--color-accent);
 }

@@ -72,7 +72,7 @@
 /* Copy */
 .hero-subtitle {
   font-family: var(--font-mono);
-  font-size: clamp(15px, 1.6vw, 18px);
+  font-size: clamp(16px, 1.6vw, 18px);
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 1px;
 }
@@ -97,7 +97,7 @@
 .hero-buttons .btn {
   min-height: 42px;
   padding: 8px 24px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.95);
   border-color: rgba(255, 255, 255, 0.75);
@@ -219,7 +219,7 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 16px;
   line-height: 1;
   letter-spacing: 0.2px;
   color: #ffffff;
@@ -361,7 +361,7 @@
   .hero-buttons .btn {
     min-height: 42px;
     padding: 8px 24px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .hero-left-lateral {

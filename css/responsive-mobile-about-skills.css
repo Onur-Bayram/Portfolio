@@ -26,7 +26,7 @@
   }
 
   .about-kicker {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
   }
 
@@ -42,7 +42,7 @@
 
   .about-intro,
   .about-points li {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.5;
   }
 
@@ -83,7 +83,7 @@
   }
 
   .skills-card p {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.52;
   }
 
@@ -125,7 +125,7 @@
   }
 
   .skill-item span {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.2;
   }
 
@@ -143,7 +143,7 @@
   }
 
   .about-kicker {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .about-card {
@@ -157,7 +157,7 @@
 
   .about-intro,
   .about-points li {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   #skills {
@@ -197,7 +197,7 @@
   }
 
   .skill-item span {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
@@ -214,7 +214,7 @@
   }
 
   .about-kicker {
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 12px;
   }
 
@@ -283,6 +283,6 @@
   }
 
   .skill-item span {
-    font-size: 14px;
+    font-size: 16px;
   }
 }

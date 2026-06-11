@@ -56,7 +56,7 @@ body.legal-page {
 }
 
 .legal-page .nav-links a {
-  font-size: 12px;
+  font-size: 16px;
   padding-bottom: 4px;
 }
 
@@ -172,7 +172,7 @@ a.legal-highlight:hover {
 
 .legal-date {
   margin-top: 16px;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--color-accent);
 }
 
@@ -200,7 +200,7 @@ a.legal-highlight:hover {
 .legal-page .footer-nav a,
 .legal-page .footer-role,
 .legal-page .footer-location {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .legal-page .footer-logo .logo-icon {
@@ -217,7 +217,7 @@ a.legal-highlight:hover {
 .legal-page .footer-copy {
   align-self: end;
   padding: 0 0 16px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .legal-page .footer-nav {
@@ -317,12 +317,12 @@ a.legal-highlight:hover {
   }
 
   .legal-block h2 {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .legal-block p,
   .legal-list li {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.45;
   }
 
