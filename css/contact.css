@@ -132,6 +132,7 @@
   padding: 2px 0 0;
   resize: none;
   -webkit-appearance: none;
+  color-scheme: dark;
 }
 
 .form-field textarea {
@@ -172,8 +173,9 @@
 .form-error {
   font-family: var(--font-sans);
   font-size: 16px;
+  line-height: 1.5;
   color: #ff8a8a;
-  min-height: 18px;
+  min-height: 1.5em;
   margin-top: 4px;
   display: block;
 }
