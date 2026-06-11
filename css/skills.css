@@ -149,13 +149,15 @@
 
 /* Skill item */
 .skill-item {
+  --skill-label-gap: 12px;
+  --skill-label-offset: 4px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   width: 100%;
   min-height: 108px;
-  gap: 14px;
+  gap: 0;
   opacity: 0;
   transform: translateY(12px);
   animation: skillReveal 420ms ease-out forwards;
@@ -166,14 +168,19 @@
 .skill-item > img {
   width: 60px;
   height: 60px;
+  flex: 0 0 60px;
   display: block;
   object-fit: contain;
+  object-position: center;
   transition: transform 180ms ease;
 }
 
 .skill-item span {
   display: block;
   width: 100%;
+  min-height: 2.4em;
+  margin-top: var(--skill-label-gap);
+  padding-top: var(--skill-label-offset);
   font-family: var(--font-mono);
   font-size: 16px;
   line-height: 1.2;

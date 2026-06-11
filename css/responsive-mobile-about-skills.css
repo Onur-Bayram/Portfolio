@@ -118,10 +118,11 @@
   }
 
   .skill-item {
+    --skill-label-gap: 8px;
+    --skill-label-offset: 3px;
     width: 100%;
     max-width: 110px;
     min-height: 88px;
-    gap: 10px;
   }
 
   .skill-item span {
@@ -192,6 +193,8 @@
   }
 
   .skill-item {
+    --skill-label-gap: 7px;
+    --skill-label-offset: 2px;
     min-height: 80px;
     max-width: 98px;
   }
@@ -277,9 +280,10 @@
   }
 
   .skill-item {
+    --skill-label-gap: 8px;
+    --skill-label-offset: 3px;
     max-width: 118px;
     min-height: 92px;
-    gap: 9px;
   }
 
   .skill-item span {
