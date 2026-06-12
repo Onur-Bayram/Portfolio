@@ -61,7 +61,7 @@
   .hero-right-lateral {
     right: 16px;
     top: auto;
-    bottom: 30px;
+    bottom: 0;
     width: 30px;
     height: 252px;
     gap: 32px;
@@ -127,7 +127,7 @@
 
   /* Right line */
   .hero-right-line {
-    min-height: 150px;
+    min-height: 124px;
     background: #ffffff;
   }
 
@@ -246,7 +246,7 @@
   .hero-right-lateral {
     right: 12px;
     width: 28px;
-    bottom: 30px;
+    bottom: 0;
     height: 224px;
   }
 
@@ -266,7 +266,7 @@
   }
 
   .hero-right-line {
-    min-height: 150px;
+    min-height: 110px;
   }
 
   .hero-marquee {
@@ -292,10 +292,12 @@
     height: 340px;
   }
 
-  /* Keep the right rail controlled by the width-specific rules below 430px. */
-
   .hero-marquee {
     bottom: 36px;
+  }
+
+  .hero-right-line {
+    min-height: 132px;
   }
 }
 

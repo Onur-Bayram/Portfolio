@@ -74,6 +74,7 @@
   flex: 0 0 min(640px, calc(100vw - 400px));
   display: flex;
   flex-direction: column;
+  min-width: 0;
   min-height: 300px;
   overflow: visible;
   background:
@@ -133,6 +134,7 @@
   align-items: center;
   gap: 14px;
   margin-top: auto;
+  min-width: 0;
 }
 
 .testimonial-line {
@@ -143,10 +145,14 @@
 }
 
 .testimonial-name {
+  flex: 1 1 auto;
+  min-width: 0;
   font-family: var(--font-sans);
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Controls */

@@ -34,7 +34,7 @@
   }
 
   .testimonial-card {
-    flex: 0 0 min(336px, calc(100vw - 56px));
+    flex: 0 0 min(344px, calc(100vw - 64px));
     min-height: 350px;
     padding: 74px 30px 24px;
     margin: 0;
@@ -71,11 +71,11 @@
   }
 
   .testimonial-line {
-    flex-basis: 76px;
+    flex-basis: 64px;
   }
 
   .testimonial-name {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.35;
   }
 
@@ -237,7 +237,7 @@
   }
 
   .testimonial-card {
-    flex-basis: min(336px, calc(100vw - 56px));
+    flex-basis: min(344px, calc(100vw - 64px));
     min-height: 324px;
     padding: 68px 24px 22px;
   }
@@ -254,6 +254,10 @@
 
   .testimonial-line {
     flex-basis: 64px;
+  }
+
+  .testimonial-name {
+    font-size: 15px;
   }
 
   /* Contact */
@@ -323,11 +327,11 @@
   }
 
   .testimonial-card {
-    flex-basis: min(380px, calc(100vw - 50px));
+    flex-basis: min(344px, calc(100vw - 64px));
     min-height: 340px;
     padding: 78px 30px 26px;
     border-radius: 30px;
-    transform: scale(0.91);
+    transform: scale(0.9);
   }
 
   .testimonial-quote {
@@ -346,11 +350,11 @@
   }
 
   .testimonial-line {
-    flex-basis: 88px;
+    flex-basis: 64px;
   }
 
   .testimonial-name {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .testimonials-controls {
