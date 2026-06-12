@@ -3,6 +3,7 @@
   display: grid;
   position: relative;
   height: 640px;
+  max-width: none;
   margin-top: 18px;
   padding: 54px 48px 72px;
   border: 1px solid rgba(var(--color-accent-rgb), 0.72);
@@ -12,6 +13,16 @@
   gap: clamp(40px, 4.5vw, 72px);
   align-items: center;
   overflow: hidden;
+}
+
+.project-detail-card[open] {
+  display: grid;
+}
+
+.project-detail-card::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 /* Detail overlay */

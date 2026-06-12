@@ -10,7 +10,7 @@
     z-index: 1101;
   }
 
-  body.is-project-modal-open .site-sections::after {
+  body.is-project-modal-fallback .site-sections::after {
     content: "";
     position: fixed;
     inset: 0;
