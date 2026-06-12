@@ -438,3 +438,13 @@
   }
 }
 
+@media (min-width: 2200px) and (max-height: 1250px) {
+  .hero-left-lateral {
+    top: 86%;
+  }
+
+  .hero-right-lateral {
+    top: 69%;
+  }
+}
+
