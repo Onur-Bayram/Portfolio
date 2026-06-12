@@ -5,7 +5,7 @@
   min-height: 760px;
   display: grid;
   grid-template-columns: minmax(0, 568px) minmax(0, 568px);
-  justify-content: space-between;
+  justify-content: center;
   gap: clamp(52px, 6vw, 104px);
   align-items: start;
 }
