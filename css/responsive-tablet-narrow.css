@@ -268,6 +268,86 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 839px) and (min-height: 1000px) {
+  .project-detail-card {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    width: min(760px, calc(100vw - 28px));
+    max-width: none;
+    min-height: 0;
+    max-height: calc(100svh - 32px);
+    margin: 0;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 30px 24px 18px;
+    align-items: start;
+    border-radius: 24px;
+  }
+
+  .project-detail-close {
+    top: 8px;
+    right: 10px;
+  }
+
+  .project-detail-copy {
+    order: 2;
+    min-width: 0;
+  }
+
+  .project-detail-media {
+    order: 1;
+    justify-self: start;
+    width: calc(100% - 26px);
+    max-width: none;
+    aspect-ratio: 1.72 / 1;
+  }
+
+  .project-detail-media img {
+    object-fit: contain;
+    object-position: center top;
+    background: #ffffff;
+  }
+
+  .project-detail-number {
+    font-size: clamp(66px, 10vw, 82px);
+  }
+
+  .project-detail-title {
+    font-size: clamp(40px, 6vw, 52px);
+  }
+
+  .project-detail-subtitle {
+    margin-top: 8px;
+    font-size: 20px;
+  }
+
+  .project-detail-description {
+    margin-top: 8px;
+    max-width: none;
+    font-size: 17px;
+  }
+
+  .project-detail-stack {
+    margin-top: 12px;
+    gap: 10px 14px;
+  }
+
+  .project-detail-actions {
+    margin-top: 16px;
+    gap: 12px;
+  }
+
+  .project-detail-next {
+    margin-top: 4px;
+  }
+}
+
 @media (min-width: 901px) and (max-width: 980px) {
   #about {
     width: min(760px, calc(100% - 72px));
@@ -339,5 +419,69 @@
   .project-detail-description {
     font-size: 17px;
     max-width: 66ch;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 950px) and (min-height: 1200px) {
+  .project-detail-card {
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+    max-width: none;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    margin: 0;
+    transform: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 34px 24px 44px;
+    align-items: start;
+    border-radius: 24px;
+  }
+
+  .project-detail-copy {
+    order: 2;
+  }
+
+  .project-detail-media {
+    order: 1;
+    justify-self: center;
+    width: 100%;
+    aspect-ratio: 1.9 / 1;
+  }
+
+  .project-detail-number {
+    font-size: 72px;
+  }
+
+  .project-detail-title {
+    font-size: 46px;
+  }
+
+  .project-detail-subtitle {
+    margin-top: 14px;
+  }
+
+  .project-detail-description {
+    max-width: none;
+  }
+
+  .project-detail-stack {
+    margin-top: 20px;
+    gap: 10px 14px;
+  }
+
+  .project-detail-actions {
+    margin-top: 24px;
+  }
+
+  .project-detail-next {
+    margin-top: 0;
   }
 }

@@ -3,3 +3,150 @@
 @import url("./responsive-tablet-narrow.css");
 @import url("./responsive-tablet-foldables.css");
 @import url("./responsive-tablet-portrait.css");
+
+/* Shared portrait-tablet project dialog */
+@media (min-width: 768px) and (max-width: 1100px) and (min-height: 1000px) {
+  .project-detail-card {
+    position: fixed;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: min(900px, calc(100vw - 28px));
+    height: auto;
+    min-height: 0;
+    max-height: calc(100svh - 28px);
+    margin: 0;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    grid-template-columns: minmax(228px, 280px) minmax(0, 1fr);
+    gap: 18px 24px;
+    padding: 24px 24px 26px;
+    align-items: start;
+    border-radius: 26px;
+  }
+
+  .project-detail-close {
+    top: 8px;
+    right: 10px;
+    width: 48px;
+    height: 48px;
+    z-index: 6;
+  }
+
+  .project-detail-copy {
+    order: 0;
+    min-width: 0;
+  }
+
+  .project-detail-media {
+    order: 0;
+    justify-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1.62 / 1;
+  }
+
+  .project-detail-media img {
+    object-fit: contain;
+    object-position: center top;
+    background: #ffffff;
+  }
+
+  .project-detail-number {
+    font-size: clamp(60px, 7vw, 84px);
+  }
+
+  .project-detail-title {
+    margin-top: 6px;
+    font-size: clamp(36px, 4.2vw, 48px);
+  }
+
+  .project-detail-subtitle {
+    margin-top: 14px;
+    font-size: 18px;
+  }
+
+  .project-detail-description {
+    margin-top: 12px;
+    max-width: 34ch;
+    font-size: 16px;
+  }
+
+  .project-detail-stack {
+    margin-top: 18px;
+    gap: 10px 14px;
+  }
+
+  .project-detail-actions {
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .project-detail-actions .btn {
+    min-height: 38px;
+    padding: 8px 12px;
+    font-size: 15px;
+  }
+
+  .project-detail-actions .btn::after {
+    width: 10px;
+    height: 10px;
+    flex: 0 0 10px;
+  }
+
+  #projectDetailLive {
+    order: 1;
+  }
+
+  #projectDetailGithub {
+    order: 2;
+  }
+
+  .project-detail-next {
+    position: static;
+    order: 2;
+    grid-column: 1 / -1;
+    justify-self: end;
+    margin-top: 2px;
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 839px) and (min-height: 1000px) {
+  .project-detail-media {
+    align-self: center;
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 840px) and (max-width: 900px) and (min-height: 1180px) {
+  .project-detail-media {
+    align-self: center;
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 950px) and (min-height: 1200px) {
+  .project-detail-media {
+    align-self: center;
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 951px) and (max-width: 1100px) and (min-height: 1200px) {
+  .project-detail-media {
+    align-self: center;
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1200px) and (max-height: 720px) {
+  .project-detail-media {
+    align-self: center;
+    margin-top: 18px;
+  }
+}
