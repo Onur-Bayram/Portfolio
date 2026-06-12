@@ -22,7 +22,7 @@ body.legal-page {
 }
 
 .legal-page .navbar {
-  width: min(1248px, calc(100% - 192px));
+  width: min(var(--content-width), calc(100% - (var(--padding-x) * 2)));
   max-width: none;
   height: 74px;
   padding: 0;
@@ -70,7 +70,7 @@ body.legal-page {
 
 /* Content shell */
 .legal-page main {
-  width: min(1248px, calc(100% - 192px));
+  width: min(var(--content-width), calc(100% - (var(--padding-x) * 2)));
   margin: 0 auto;
   flex: 1;
   padding: 149px 0 28px;
@@ -178,7 +178,7 @@ a.legal-highlight:hover {
 
 /* Footer */
 .legal-page #footer {
-  width: min(1248px, calc(100% - 192px));
+  width: min(var(--content-width), calc(100% - (var(--padding-x) * 2)));
   margin: 0 auto;
   border-top: none;
   padding: 0 0 18px;

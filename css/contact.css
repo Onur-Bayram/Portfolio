@@ -10,7 +10,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   padding: 48px 0 32px;
-  max-width: 1248px;
+  max-width: var(--content-width);
   margin: 0 auto;
 }
 

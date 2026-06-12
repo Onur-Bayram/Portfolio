@@ -1,6 +1,6 @@
 /* About */
 #about {
-  width: min(1248px, calc(100% - 192px));
+  width: min(var(--content-width), calc(100% - (var(--padding-x) * 2)));
   margin: 0 auto;
   min-height: 760px;
   display: grid;

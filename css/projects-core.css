@@ -1,6 +1,6 @@
 /* Projects */
 #projects {
-  width: min(1248px, calc(100% - 192px));
+  width: min(var(--content-width), calc(100% - (var(--padding-x) * 2)));
   min-height: 581px;
   margin: 0 auto;
   padding: 52px 0 20px;

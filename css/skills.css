@@ -3,7 +3,7 @@
   --skills-glow-rgb: var(--color-dark-teal-rgb);
   position: relative;
   isolation: isolate;
-  width: min(1248px, calc(100% - 192px));
+  width: min(var(--content-width), calc(100% - (var(--padding-x) * 2)));
   min-height: 0;
   margin: 84px auto 0;
   padding: 18px 20px 12px;
