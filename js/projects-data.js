@@ -67,5 +67,21 @@ window.PROJECTS_DATA = {
       { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' },
       { icon: 'assets/icons/tech/rest-api-2026.svg', label: 'REST API' }
     ]
+  },
+  memory: {
+    number: '04',
+    title: 'Memory',
+    description_en: 'Responsive memory game with multiple themes, selectable board sizes and a custom winner flow built with TypeScript.',
+    description_de: 'Responsives Memory-Spiel mit mehreren Themes, ausw\u00e4hlbaren Spielfeldgr\u00f6\u00dfen und eigenem Winner-Flow, gebaut mit TypeScript.',
+    image: 'assets/images/projects/Memory.png',
+    imageAlt: 'Memory project preview',
+    github: 'https://github.com/Onur-Bayram/Memory-.git',
+    live: 'projects/Memory/dist/index.html',
+    tech: [
+      { icon: 'assets/icons/tech/typescript-2026.svg', label: 'TypeScript' },
+      { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
+      { icon: 'assets/icons/tech/css-2026.svg', label: 'CSS' },
+      { icon: 'assets/icons/tech/css-2026.svg', label: 'SCSS' }
+    ]
   }
 };
