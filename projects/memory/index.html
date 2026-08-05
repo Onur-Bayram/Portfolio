@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./assets/shared/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+    <title>Memory</title>
+    <!-- Vite starts the app through this TypeScript entry file. -->
+    <script type="module" crossorigin src="./assets/index-BoB3qkf6.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CoqWm06s.css">
+  </head>
+  <body>
+    <!-- Home screen: shown first and leads to the settings screen. -->
+    <main class="home-screen" id="home-screen">
+      <img class="home-screen__controller" src="./assets/shared/stadia_controller.png" alt="" />
+
+      <section class="home-screen__content" aria-label="Startseite">
+        <img class="home-screen__text" src="./assets/home/Text.png" alt="It's play time. Ready to play?" />
+        <button class="home-start" id="home-start" type="button" aria-label="Play"></button>
+      </section>
+    </main>
+
+    <!-- Settings: theme, first player and board size are selected here. -->
+    <main class="settings-screen" id="settings-screen" hidden>
+      <section class="settings-panel" aria-label="Memory Einstellungen">
+        <div class="settings-panel__inner">
+          <h1 class="settings-title">
+            <img class="settings-title__image" src="./assets/settings/Headline.png" alt="Settings" />
+          </h1>
+
+          <div class="settings-layout">
+            <form class="settings-form" id="settings-form">
+              <fieldset class="settings-group">
+                <legend class="settings-group__title settings-group__title--themes">Game themes</legend>
+                <label class="settings-option">
+                  <input type="radio" name="theme" value="code-vibes" data-label="Code vibes theme" />
+                  <span>Code vibes theme</span>
+                </label>
+                <label class="settings-option">
+                  <input type="radio" name="theme" value="gaming" data-label="Gaming theme" />
+                  <span>Gaming theme</span>
+                </label>
+                <label class="settings-option">
+                  <input type="radio" name="theme" value="da-projects" data-label="DA Projects theme" />
+                  <span>DA Projects theme</span>
+                </label>
+                <label class="settings-option">
+                  <input type="radio" name="theme" value="foods" data-label="Foods theme" />
+                  <span>Foods theme</span>
+                </label>
+              </fieldset>
+
+              <fieldset class="settings-group">
+                <legend class="settings-group__title settings-group__title--player">Choose player</legend>
+                <label class="settings-option">
+                  <input type="radio" name="first-player" value="blue" data-label="Blue Player" />
+                  <span>Blue</span>
+                </label>
+                <label class="settings-option">
+                  <input type="radio" name="first-player" value="orange" data-label="Orange Player" />
+                  <span>Orange</span>
+                </label>
+              </fieldset>
+
+              <fieldset class="settings-group">
+                <legend class="settings-group__title settings-group__title--board">Board size</legend>
+                <label class="settings-option">
+                  <input type="radio" name="board-size" value="16" data-label="Board-16 Cards" />
+                  <span>16 cards</span>
+                </label>
+                <label class="settings-option">
+                  <input type="radio" name="board-size" value="24" data-label="Board-24 Cards" />
+                  <span>24 cards</span>
+                </label>
+                <label class="settings-option">
+                  <input type="radio" name="board-size" value="36" data-label="Board-36 Cards" />
+                  <span>36 cards</span>
+                </label>
+              </fieldset>
+            </form>
+
+            <div class="settings-preview-column">
+              <!-- Preview image changes to match the selected theme. -->
+              <section class="theme-preview" aria-label="Theme preview">
+                <img class="theme-preview__image" src="./assets/code-vibes/codevibetheme.png" alt="Memory theme preview" />
+              </section>
+
+              <!-- Step bar shows which selections are still missing. -->
+              <div class="settings-steps" aria-label="Settings steps">
+                <span class="settings-steps__text settings-steps__text--theme" id="selected-theme">Theme</span>
+                <span class="settings-steps__divider settings-steps__divider--theme"></span>
+                <span class="settings-steps__text settings-steps__text--player" id="selected-player">Player</span>
+                <span class="settings-steps__divider settings-steps__divider--player"></span>
+                <span class="settings-steps__text settings-steps__text--board" id="selected-board-size">Board size</span>
+                <button class="settings-start" id="settings-start" type="submit" form="settings-form" disabled>
+                  <span class="settings-start__icon" aria-hidden="true"></span>
+                  <span class="settings-start__text">Start</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Game screen: header plus card field. -->
+    <main class="game-content" hidden>
+      <header class="game-header">
+        <!-- Score for both players. -->
+        <section class="score-board" aria-label="Spielstand">
+          <div class="score-board__player score-board__player--blue">
+            <span class="score-board__marker"></span>
+            <span class="score-board__name">Blue</span>
+            <span class="score-board__points" id="blue-score">0</span>
+          </div>
+          <div class="score-board__player score-board__player--orange">
+            <span class="score-board__marker"></span>
+            <span class="score-board__name">Orange</span>
+            <span class="score-board__points" id="orange-score">0</span>
+          </div>
+        </section>
+
+        <!-- Shows which player is currently active. -->
+        <section class="current-player" aria-label="Aktueller Spieler">
+          <span class="current-player__label">Current player:</span>
+          <span class="current-player__marker"></span>
+        </section>
+
+        <button class="exit-game" type="button" aria-label="Exit game"></button>
+      </header>
+
+      <section id="field" aria-label="Memory Karten"></section>
+    </main>
+
+    <!-- Confirmation dialog shown before the player leaves the game. -->
+    <section class="exit-popup" id="exit-popup" aria-label="Exit game popup" hidden>
+      <div class="exit-popup__content" role="dialog" aria-modal="true">
+        <h2 class="exit-popup__title">Are you sure you want to quit<br />the game?</h2>
+        <div class="exit-popup__actions">
+          <button class="exit-popup__button exit-popup__back-button" type="button" data-da-label="Back to game">
+            No, back to game
+          </button>
+          <button class="exit-popup__button exit-popup__exit-button" type="button" data-da-label="Exit game">
+            Exit game
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Short transition screen after the final matched pair. -->
+    <section class="game-over" id="game-over" aria-label="Game over" hidden>
+      <h1 class="game-over__title">Game Over</h1>
+      <img class="game-over__gaming-title" src="./assets/gaming/gaming_game_over_title.png" alt="GAME OVER" />
+      <img class="game-over__da-title" src="./assets/da-projects/game_over.png" alt="GAME OVER" />
+      <img class="game-over__foods-title" src="./assets/foods/Game overfood.png" alt="GAME OVER" />
+
+      <div class="game-over__final-score">
+        <p class="game-over__label">Final score</p>
+        <img class="game-over__gaming-label" src="./assets/gaming/gaming_final_score_label.png" alt="Final score" />
+        <img class="game-over__da-label" src="./assets/da-projects/Final.png" alt="Final score" />
+        <img class="game-over__foods-label" src="./assets/foods/Final scorefood.png" alt="Final score" />
+        <section class="score-board game-over__score-board" aria-label="Endstand">
+          <div class="score-board__player score-board__player--blue">
+            <span class="score-board__marker"></span>
+            <span class="score-board__name">Blue</span>
+            <span class="score-board__points" id="final-blue-score">0</span>
+          </div>
+          <div class="score-board__player score-board__player--orange">
+            <span class="score-board__marker"></span>
+            <span class="score-board__name">Orange</span>
+            <span class="score-board__points" id="final-orange-score">0</span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Winner or draw screen after the game-over screen. -->
+    <section class="winner-screen" id="winner-screen" aria-label="Winner" hidden>
+      <img class="winner-screen__confetti" src="./assets/shared/Confetti.png" alt="" />
+
+      <div class="winner-screen__content">
+        <img class="winner-screen__image" id="winner-image" src="./assets/shared/bluewin.png" alt="Blue player wins" />
+        <button class="winner-screen__back-button" type="button" aria-label="Back to start"></button>
+      </div>
+
+      <!-- Gaming theme: custom winner screen made from several Figma images. -->
+      <div class="winner-screen__gaming-result">
+        <img class="winner-screen__headline" src="./assets/gaming/The winner is.png" alt="The winner is" />
+        <img
+          class="winner-screen__player-name"
+          id="gaming-winner-player-image"
+          src="./assets/gaming/Blue Player.png"
+          alt="Blue Player"
+        />
+        <img class="winner-screen__trophy" src="./assets/gaming/pockal 1.png" alt="" />
+        <button class="winner-screen__home-button" type="button" aria-label="Home">
+          <img class="winner-screen__home-image" src="./assets/gaming/game home.png" alt="Home" />
+        </button>
+      </div>
+
+      <!-- Gaming theme: custom draw screen made from Figma images. -->
+      <div class="winner-screen__gaming-draw">
+        <div class="winner-screen__draw-text">
+          <img class="winner-screen__draw-small" src="./assets/gaming/gaming_draw_label.png" alt="It's a" />
+          <img class="winner-screen__draw-title" src="./assets/gaming/gaming_draw_title.png" alt="DRAW" />
+        </div>
+        <img class="winner-screen__draw-icon" src="./assets/gaming/gaming_draw_scale.png" alt="" />
+        <button class="winner-screen__home-button" type="button" aria-label="Home">
+          <img class="winner-screen__home-image" src="./assets/gaming/game home.png" alt="Home" />
+        </button>
+      </div>
+
+      <!-- DA Projects theme: custom draw screen made from Figma images. -->
+      <div class="winner-screen__da-projects-draw">
+        <div class="winner-screen__da-draw-text">
+          <img class="winner-screen__da-draw-small" src="./assets/da-projects/da_projects_draw_label.png" alt="It's a" />
+          <img class="winner-screen__da-draw-title" src="./assets/da-projects/da_projects_draw_title.png" alt="DRAW" />
+        </div>
+        <img class="winner-screen__da-draw-icon" src="./assets/da-projects/da_projects_draw_scale.png" alt="" />
+        <button class="winner-screen__da-home-button" type="button" aria-label="Home">
+          <img class="winner-screen__da-home-image" src="./assets/da-projects/button exit.png" alt="Home" />
+        </button>
+      </div>
+
+      <!-- DA Projects theme: custom winner screen for both players. -->
+      <div class="winner-screen__da-projects-result">
+        <div class="winner-screen__da-text">
+          <img class="winner-screen__da-headline" src="./assets/da-projects/winner.png" alt="The winner is" />
+          <img
+            class="winner-screen__da-player-name"
+            id="da-projects-winner-player-image"
+            src="./assets/da-projects/playero.png"
+            alt="Orange Player"
+          />
+        </div>
+        <img class="winner-screen__da-player-icon" id="da-projects-winner-icon" src="./assets/da-projects/Player.png" alt="" />
+        <button class="winner-screen__da-home-button" type="button" aria-label="Home">
+          <img class="winner-screen__da-home-image" src="./assets/da-projects/button exit.png" alt="Home" />
+        </button>
+      </div>
+
+      <!-- Foods theme: custom orange winner screen from Figma exports. -->
+      <div class="winner-screen__foods-result" hidden>
+        <img class="winner-screen__foods-text" id="foods-winner-text-image" src="./assets/foods/Textfood.png" alt="The winner is Orange Player" />
+        <img
+          class="winner-screen__foods-illustration"
+          id="foods-winner-illustration-image"
+          src="./assets/foods/Player illustration.png"
+          alt="Orange player piece"
+        />
+        <button class="winner-screen__foods-home-button" type="button" aria-label="Home">
+          <img class="winner-screen__foods-home-image" src="./assets/foods/buttonfood.png" alt="Home" />
+        </button>
+      </div>
+
+      <!-- Foods theme: custom draw screen from Figma exports. -->
+      <div class="winner-screen__foods-draw" hidden>
+        <div class="winner-screen__foods-draw-text">
+          <img class="winner-screen__foods-draw-small" src="./assets/foods/It’s afood.png" alt="It's a" />
+          <img class="winner-screen__foods-draw-title" src="./assets/foods/DRAWfood.png" alt="DRAW" />
+        </div>
+        <img class="winner-screen__foods-draw-icon" src="./assets/foods/scale_iconfood.png" alt="" />
+        <button class="winner-screen__foods-home-button" type="button" aria-label="Home">
+          <img class="winner-screen__foods-home-image" src="./assets/foods/buttonfood.png" alt="Home" />
+        </button>
+      </div>
+    </section>
+  </body>
+</html>

@@ -76,7 +76,7 @@ window.PROJECTS_DATA = {
     image: 'assets/images/projects/Memory.png',
     imageAlt: 'Memory project preview',
     github: 'https://github.com/Onur-Bayram/Memory-.git',
-    live: 'projects/Memory/dist/index.html',
+    live: 'projects/memory/index.html',
     tech: [
       { icon: 'assets/icons/tech/typescript-2026.svg', label: 'TypeScript' },
       { icon: 'assets/icons/tech/html-2026.svg', label: 'HTML' },
