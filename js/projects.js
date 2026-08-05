@@ -2,9 +2,42 @@
 (function () {
   var app = window.PortfolioProjects || {};
   var projects = window.PROJECTS_DATA || {};
-  var projectIds = Object.keys(projects);
+  var projectIds = Object.keys(projects).filter(function (projectId) {
+    return Boolean(projects[projectId]);
+  }).sort(function (firstId, secondId) {
+    return Number(projects[firstId].number) - Number(projects[secondId].number);
+  });
   var list = document.querySelector('.projects-list');
   var desktopQuery = window.matchMedia('(min-width: 981px)');
+
+  /**
+   * Checks whether English is active.
+   *
+   * @returns {boolean}
+   */
+  function isEnglish() {
+    var langEN = document.getElementById('langEN');
+    return Boolean(langEN && langEN.classList.contains('is-active'));
+  }
+
+  /**
+   * Returns the live link label for the current language.
+   *
+   * @returns {string}
+   */
+  function getLiveLabel() {
+    return isEnglish() ? 'Live Test' : 'Live-Test';
+  }
+
+  /**
+   * Returns the live link aria-label for a project.
+   *
+   * @param {string} title Project title.
+   * @returns {string}
+   */
+  function getLiveAriaLabel(title) {
+    return isEnglish() ? ('Open live project: ' + title) : ('Live-Projekt öffnen: ' + title);
+  }
 
   /**
    * Builds the project rows from the data source.
@@ -18,18 +51,18 @@
         return '<span class="project-row-tech-item">' + tech.label + '</span>';
       }).join('');
 
-      var row = document.createElement('button');
+      var row = document.createElement('div');
       row.className = 'project-row';
-      row.type = 'button';
       row.setAttribute('role', 'listitem');
       row.setAttribute('data-project-id', id);
-      row.setAttribute('aria-controls', 'projectDetailCard');
-      row.setAttribute('aria-expanded', 'false');
       row.innerHTML =
-        '<div class="project-row-left">' +
-          '<h3>' + project.title + '<img class="project-arrow" src="assets/ui/arrow-up-right-white.svg" alt="" aria-hidden="true"></h3>' +
-        '</div>' +
-        '<div class="project-row-tech" aria-label="Project technologies">' + techHtml + '</div>';
+        '<button class="project-row-main" type="button" aria-controls="projectDetailCard" aria-expanded="false">' +
+          '<div class="project-row-left">' +
+            '<h3>' + project.title + '<img class="project-arrow" src="assets/ui/arrow-up-right-white.svg" alt="" aria-hidden="true"></h3>' +
+          '</div>' +
+          '<div class="project-row-tech" aria-label="Project technologies">' + techHtml + '</div>' +
+        '</button>' +
+        '<a class="project-row-live" href="' + project.live + '" target="_blank" rel="noopener noreferrer" data-de="Live-Test" data-en="Live Test" aria-label="' + getLiveAriaLabel(project.title) + '">' + getLiveLabel() + '</a>';
 
       list.appendChild(row);
     });
@@ -38,6 +71,11 @@
   renderProjectRows();
 
   var rows = Array.from(document.querySelectorAll('.project-row[data-project-id]'));
+  var rowTriggers = rows.map(function (row) {
+    return row.querySelector('.project-row-main');
+  }).filter(function (trigger) {
+    return Boolean(trigger);
+  });
   if (!rows.length) {
     app.isReady = false;
     window.PortfolioProjects = app;
@@ -69,16 +107,6 @@
   }
 
   /**
-   * Checks whether English is active.
-   *
-   * @returns {boolean}
-   */
-  function isEnglish() {
-    var langEN = document.getElementById('langEN');
-    return Boolean(langEN && langEN.classList.contains('is-active'));
-  }
-
-  /**
    * Updates the active project row.
    *
    * @param {string} activeId Project id.
@@ -86,8 +114,25 @@
   function updateRowState(activeId) {
     rows.forEach(function (row) {
       var isActive = row.dataset.projectId === activeId;
+      var trigger = row.querySelector('.project-row-main');
       row.classList.toggle('is-active', isActive);
-      row.setAttribute('aria-expanded', String(isActive));
+      if (trigger) {
+        trigger.setAttribute('aria-expanded', String(isActive));
+      }
+    });
+  }
+
+  /**
+   * Updates the live link labels after a language switch.
+   */
+  function updateRowLiveLabels() {
+    rows.forEach(function (row) {
+      var liveLink = row.querySelector('.project-row-live');
+      var project = projects[row.dataset.projectId];
+      if (!liveLink || !project) return;
+
+      liveLink.textContent = getLiveLabel();
+      liveLink.setAttribute('aria-label', getLiveAriaLabel(project.title));
     });
   }
 
@@ -107,6 +152,7 @@
     previewPanel: document.getElementById('projectsPreviewPanel'),
     previewImage: document.getElementById('projectsPreviewImage'),
     rows: rows,
+    rowTriggers: rowTriggers,
     card: card,
     closeButton: document.getElementById('projectDetailClose'),
     nextButton: document.getElementById('projectDetailNext'),
@@ -131,9 +177,16 @@
   app.helpers = {
     isDesktopLayout: isDesktopLayout,
     getRow: getRow,
+    getRowTrigger: function (projectId) {
+      var row = getRow(projectId);
+      return row ? row.querySelector('.project-row-main') : null;
+    },
     isEnglish: isEnglish,
+    updateRowLiveLabels: updateRowLiveLabels,
     updateRowState: updateRowState
   };
+
+  updateRowLiveLabels();
 
   window.PortfolioProjects = app;
 })();

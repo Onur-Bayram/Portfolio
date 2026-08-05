@@ -53,10 +53,8 @@
 
 /* Project row */
 .project-row {
-  min-height: 112px;
-  width: 100%;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px 32px;
   border-bottom: 1px solid rgba(var(--color-accent-rgb), 0.9);
@@ -69,17 +67,35 @@
   color: inherit;
   background: transparent;
   transition: background-color 260ms ease, border-color 260ms ease;
-  cursor: pointer;
   position: relative;
+}
+
+.project-row:hover,
+.project-row:focus-within,
+.project-row.is-active {
+  background: rgba(39, 91, 83, 0.94);
+  border-bottom-color: rgba(var(--color-accent-rgb), 0.9);
+}
+
+.project-row-main {
+  min-height: 112px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
 }
 
-.project-row:hover,
-.project-row:focus-visible,
-.project-row.is-active {
-  background: rgba(39, 91, 83, 0.94);
-  border-bottom-color: rgba(var(--color-accent-rgb), 0.9);
+.project-row-main:focus-visible {
+  outline: none;
 }
 
 /* Row title */
@@ -111,7 +127,7 @@
 }
 
 .project-row:hover .project-arrow,
-.project-row:focus-visible .project-arrow,
+.project-row:focus-within .project-arrow,
 .project-row.is-active .project-arrow {
   opacity: 1;
   transform: translate(0, 0);
@@ -148,10 +164,58 @@
   transform: translateY(-50%);
 }
 
+.project-row-live {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.96);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 220ms ease, color 220ms ease, background-color 220ms ease, transform 220ms ease;
+}
+
+.project-row-live::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  flex: 0 0 11px;
+  background: center / contain no-repeat url("../assets/ui/arrow-up-right-accent.svg");
+  transition: transform 220ms ease, background-image 220ms ease;
+}
+
+.project-row-live:hover,
+.project-row-live:focus-visible,
+.project-row:hover .project-row-live,
+.project-row:focus-within .project-row-live,
+.project-row.is-active .project-row-live {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.project-row-live:hover::after,
+.project-row-live:focus-visible::after {
+  background-image: url("../assets/ui/arrow-up-right-accent-hover.svg");
+  transform: translate(2px, -2px);
+}
+
+.project-row-live:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 .project-row:hover h3,
 .project-row:hover .project-row-tech-item,
-.project-row:focus-visible h3,
-.project-row:focus-visible .project-row-tech-item,
+.project-row:focus-within h3,
+.project-row:focus-within .project-row-tech-item,
 .project-row.is-active h3,
 .project-row.is-active .project-row-tech-item {
   color: #ffffff;

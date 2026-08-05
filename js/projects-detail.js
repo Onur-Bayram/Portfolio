@@ -164,7 +164,7 @@
     if (!projects[projectId]) return;
 
     state.currentId = projectId;
-    state.lastTriggerRow = helpers.getRow(projectId) || state.lastTriggerRow;
+    state.lastTriggerRow = helpers.getRowTrigger(projectId) || state.lastTriggerRow;
     helpers.updateRowState(projectId);
 
     if (!renderDetailCard(projectId)) return;
