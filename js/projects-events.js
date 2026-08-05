@@ -13,21 +13,11 @@
   var detail = app.detail;
 
   elements.rows.forEach(function (row) {
-    var trigger = row.querySelector('.project-row-main');
-    var liveLink = row.querySelector('.project-row-live');
-
     row.addEventListener('pointerenter', function () {
       preview.previewProject(row.dataset.projectId);
     });
 
-    row.addEventListener('focusin', function (event) {
-      if (event.target && event.target.closest('.project-row-live')) {
-        if (helpers.isDesktopLayout()) {
-          preview.previewProject(row.dataset.projectId);
-        }
-        return;
-      }
-
+    row.addEventListener('focusin', function () {
       if (helpers.isDesktopLayout()) {
         preview.previewProject(row.dataset.projectId);
         return;
@@ -36,17 +26,9 @@
       detail.openProject(row.dataset.projectId);
     });
 
-    if (trigger) {
-      trigger.addEventListener('click', function () {
-        detail.openProject(row.dataset.projectId);
-      });
-    }
-
-    if (liveLink) {
-      liveLink.addEventListener('click', function (event) {
-        event.stopPropagation();
-      });
-    }
+    row.addEventListener('click', function () {
+      detail.openProject(row.dataset.projectId);
+    });
   });
 
   if (elements.list) {
@@ -150,7 +132,6 @@
    * Refreshes an open detail card after a language switch.
    */
   window.updateProjectLanguage = function () {
-    helpers.updateRowLiveLabels();
     if (!state.detailOpen || !state.currentId || !projects[state.currentId]) return;
     detail.renderDetailCard(state.currentId);
   };

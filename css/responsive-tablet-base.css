@@ -254,11 +254,8 @@
   }
 
   .project-row {
-    padding: 0 18px;
-  }
-
-  .project-row-main {
     min-height: 98px;
+    padding: 0 18px;
   }
 
   .project-row h3 {
@@ -267,12 +264,6 @@
 
   .project-row-tech-item {
     font-size: 16px;
-  }
-
-  .project-row-live {
-    min-height: 36px;
-    padding: 7px 12px;
-    font-size: 13px;
   }
 
   #about {

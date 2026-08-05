@@ -132,12 +132,6 @@
     gap: 12px;
   }
 
-  .project-row-main {
-    min-height: 0;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
   .project-row h3 {
     font-size: clamp(30px, 5vw, 40px);
   }
@@ -145,10 +139,6 @@
   .project-row-tech {
     justify-content: flex-start;
     gap: 8px 16px;
-  }
-
-  .project-row-live {
-    justify-self: start;
   }
 
   .project-detail-card {
